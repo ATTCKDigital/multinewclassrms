@@ -1,0 +1,71 @@
+/**** Headline Styles ****/
+
+.headline1, .is-style-headline1 {
+	line-height: 1.111;
+	letter-spacing: -.5px;
+	@include secondary-medium;
+	@include font-size($font-size-headline1);
+}
+
+.headline2, .is-style-headline2 {
+	line-height: 1.166;
+	letter-spacing: -.5px;
+	@include secondary-medium;
+	@include font-size($font-size-headline2);
+}
+
+.headline3, .is-style-headline3 {
+	line-height: 1.25;
+	letter-spacing: -.5px;
+	@include secondary-semi;
+	@include font-size($font-size-headline3);
+}
+
+.headline4, .is-style-headline4 {
+	line-height: 1.333;
+	letter-spacing: -.5px;
+	@include secondary-semi;
+	@include font-size($font-size-headline4);
+}
+
+.headline5, .is-style-headline5 {
+	line-height: 1.2;
+	letter-spacing: -.5px;
+	@include secondary-semi;
+	@include font-size($font-size-headline5);
+}
+
+.headline6, .is-style-headline6 {
+	line-height: 1.285;
+	@include secondary-semi;
+	@include font-size($font-size-headline6);
+}
+
+.component-heading .subtitle, .is-style-default.subtitle {
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.42;
+	text-transform: uppercase;
+	font-family: $secondarySemi;
+}
+
+.component-heading.has-image {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+
+	img {
+
+		max-width: 45px;
+		width: auto;
+		height: auto;
+		max-height: 30px;
+		margin-right: $gap*5;
+
+		@include mediaquery(tablet-portrait) {
+			max-width: 80px;
+			max-height: 50px;
+			margin-right: $gap*2;
+		}
+	}
+}

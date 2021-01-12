@@ -1,0 +1,389 @@
+/**** Global Nav Styles ****/
+//Override with custom styles in child theme
+.component-header {
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: 1000;
+	position: fixed;
+	background: #F9F8F5;
+	height: $navMobileHeight;
+	border-bottom: 1px solid $light-gray--faded;
+	transition: top .3s ease-in-out, background .3s ease-in-out;
+
+	@include mediaquery(tablet-landscape)  {
+		align-items: center;
+		display: flex;
+		height: $navHeight;
+
+	}
+
+	.hideNav & {
+		top: -($navMobileHeight);
+
+		@include mediaquery(tablet-landscape)  {
+			top: -($navHeight);
+		}
+	}
+
+	.navOpen & {
+		@include mediaquery-max-device-width(tablet-landscape) {
+			top: 0;
+		}
+	}
+
+	.header-inner {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		margin: 0 auto;
+		align-items: center;
+		padding: $gap * .75;
+		max-width: $siteWidth;
+		justify-content: space-between;
+
+		@include mediaquery(desktop)  {
+			padding: $gap*.75 0;
+		}
+	}
+
+	.logo-wrapper {
+		z-index: 10;
+		display: block;
+		max-width: 173px;
+		position: relative;
+		transition: all .3s ease-in-out;
+
+		@include mediaquery-max-device-width(tablet-landscape) {
+			max-width: 132px;
+
+			.navOpen & {
+				opacity: 0;
+				visibility: hidden;
+			}
+		}
+
+		.nav-logo {
+			display: block;
+
+			&.logo-white {
+				display: none;
+			}
+		}
+	}
+
+	.main-nav {
+		@include mediaquery-max-width(tablet-landscape) {
+			//Mobile only mediaquery so less overrides are necessary
+			top: 0;
+			width: 100%;
+			display: flex;
+			height: 100vh;
+			right: -100vw;
+			position: absolute;
+			background-color: #f4ecb4;
+			transition: right .3s ease-in;
+
+			.navOpen & {
+				right: 0;
+			}
+		}
+
+		@include mediaquery(tablet-landscape)  {
+			//Large mobile +
+			height: 100%;
+			margin-left: 80px;
+			width: calc(100% - 160px);
+
+
+			@include mediaquery-max-width(xl) {
+				margin-right: 80px;
+			}
+		}
+	}
+
+	.menu-items {
+		margin: auto;
+		display: flex;
+		align-items: center;
+
+		@include mediaquery-max-width(tablet-landscape) {
+			//Mobile only mediaquery so less overrides are necessary
+			text-align: center;
+			flex-direction: column;
+
+			> .menu-item:not(:first-of-type) {
+				margin-top: 30px;
+			}
+		}
+
+		@include mediaquery(tablet-landscape)  {
+			//Large mobile +
+			width: 100%;
+			height: 100%;
+			display: flex;
+			position: relative;
+			justify-content: flex-end;
+		}
+	}
+
+	.menu-item {
+		height: 100%;
+		cursor: pointer;
+		text-align: left;
+		line-height: 20px;
+		position: relative;
+		letter-spacing: 0.5px;
+		text-transform: uppercase;
+		color: color('text', 'body');
+		@include secondary-semi;
+
+		@include mediaquery-max-width(tablet-landscape) {
+			//Mobile only mediaquery so less overrides are necessary
+			display: block;
+			text-align: center;
+			font-size: px-to-rem(14px);
+		}
+
+		@include mediaquery(tablet-landscape)  {
+			//Large mobile +
+			opacity: 1;
+			display: flex;
+			line-height: 16px;
+			align-items: center;
+			letter-spacing: 2px;
+			font-size: px-to-rem(12px);
+			transition: opacity .2s ease-in;
+
+			&:not(:last-of-type) {
+				margin-right: 90px;
+			}
+		}
+
+		a {
+			text-decoration: none;
+
+			@include mediaquery-max-device-width(tablet-landscape) {
+				position: relative;
+			}
+
+			&:after {
+				left: 0;
+				opacity: 0;
+				height: 6px;
+				content: '';
+				width: 100%;
+				display: block;
+				bottom: $gap * -.75;
+				position: absolute;
+				background-color: transparent;
+				transition: background-color .1s ease-in-out, opacity .1s ease-in-out;
+			}
+		}
+
+		&.current-menu-item {
+			> a:after {
+				opacity: 1;
+				color: red !important;
+				background-color: color('text', 'body');
+			}
+		}
+
+		@include mediaquery(desktop)  {
+			&:hover {
+				a:after {
+					opacity: 1;
+					background-color: color('text', 'body');
+				}
+			}
+		}
+
+		&.menu-item-has-children {
+			&.menu-item-login {
+				@include mediaquery-max-device-width(tablet-landscape) {
+					margin-top: 0;
+					> a {
+						display: none;
+					}
+				}
+			}
+
+			@include mediaquery(tablet-landscape) {
+				&:after {
+					width: 8px;
+					height: 4px;
+					content: "";
+					margin-left: 4px;
+					background: url('../assets/images/caret-dark.svg') no-repeat;
+				}
+			}
+		}
+
+		&.menu-item-has-children:hover {
+			.sub-menu {
+				opacity: 1;
+				pointer-events: auto;
+			}
+		}
+
+		.sub-menu {
+			color: $black;
+
+			@include mediaquery-max-device-width(tablet-landscape) {
+				.menu-item {
+					margin-top: 30px;
+				}
+			}
+
+			@include mediaquery(tablet-landscape) {
+				opacity: 0;
+				position: absolute;
+				background: $white;
+				pointer-events: none;
+				transform: translateX(-20%);
+				color: color('text', 'body');
+				padding: 25px 15px 20px 25px;
+				top: calc(100% + (#{$gap}*.75));
+				transition: opacity .3s ease-in;
+
+				&:before {
+					content: '';
+					left: 0;
+					top: -20px;
+					width: 100%;
+					height: 20px;
+					position: absolute;
+				}
+
+				.menu-item {
+					margin: 0;
+					height: auto;
+					display: block;
+					white-space: nowrap;
+					@include secondary-bold;
+
+					&:not(:first-of-type) {
+						margin-top: 16px;
+					}
+
+					a {
+						&:after {
+							content: none;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.language-switcher {
+		right: 65px;
+		z-index: -1;
+		position: absolute;
+
+		@include mediaquery(tablet-landscape) {
+			right: 13px;
+		}
+
+		.languages {
+			display: flex;
+		}
+
+		.language {
+			font-size: 8px;
+			line-height: 1;
+			letter-spacing: 1px;
+			@include secondary-bold;
+			color: color('text', 'body');
+			border: 1px solid transparent;
+
+			a {
+				padding: 7px 6px;
+				display: block;
+				text-decoration: none;
+			}
+
+			&:first-child {
+				border-radius: 2px 0 0 2px;
+			}
+			&:last-child {
+				border-radius: 0 2px 2px 0;
+			}
+
+			&:not(.activeLanguage) {
+				border: 1px solid color('text', 'body');
+			}
+
+			&.activeLanguage {
+				color: $white;
+				background-color: color('text', 'body');
+			}
+		}
+	}
+
+	// 09 / 22 / 2020 - Commented to remove the change in background/styles on scroll
+	/*.home:not(.backgroundNav) & {
+
+		.nav-logo {
+			&.logo-dark {
+				display: none;
+			}
+
+			&.logo-white {
+				display: block;
+			}
+		}
+
+		.language-switcher {
+			.language {
+				color: $white;
+
+				&:not(.activeLanguage) {
+					border: 1px solid $white;
+				}
+
+				&.activeLanguage {
+					background-color: $white;
+					color: color('text', 'body');
+				}
+			}
+		}
+
+		.menu-item {
+			@include mediaquery(tablet-landscape) {
+				color: $white;
+			}
+
+			&.menu-item-has-children {
+				&:after {
+					background: url('../assets/images/caret.svg') no-repeat;
+				}
+
+				.menu-item {
+					color: color('text', 'body');
+				}
+			}
+
+			&.current-menu-item {
+				> a:after {
+					opacity: 1;
+					background-color: $white;
+				}
+			}
+
+			@include mediaquery(desktop)  {
+				&:hover {
+					a:after {
+						opacity: 1;
+						background-color: $white;
+					}
+				}
+			}
+		}
+	}
+
+	.backgroundNav & {
+		background: #e8f2f9;
+	}*/
+}

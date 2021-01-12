@@ -1,0 +1,47 @@
+
+// SCSS files to include in admin
+@import '../../FLEX/scss/_css-vars.scss';
+@import '../../FLEX/scss/_wysiwyg.scss';
+@import '../../FLEX/scss/_sass-utils.scss';
+@import '../../FLEX/scss/_sizing.scss';
+@import 'sizing'; // Override parent theme sizing variables from child if needed
+@import '../../FLEX/scss/_media-queries.scss';
+@import '../../FLEX/scss/_grid.scss';
+@import '../../FLEX/scss/_colors.scss';
+@import '../../FLEX/scss/_fonts.scss';
+@import 'fonts'; // Override parent theme fonts variables from child if needed
+@import '../../FLEX/scss/_fonts-mixins.scss';
+@import '../../FLEX/scss/_global.scss';
+@import '../../FLEX/scss/_layout.scss';
+@import '../../FLEX/scss/_component.scss';
+@import '../../FLEX/scss/_hidden.scss';
+@import '../../FLEX/scss/_row-theme.scss';
+@import '../../FLEX/scss/_iconography.scss';
+@import '../../FLEX/gutenberg/components/gb-component_padding/_padding.scss';
+@import '../../FLEX/gutenberg/components/gb-component_margin/_margin.scss';
+@import '../gutenberg/blocks/block_heading/_heading.scss'; // Overriden
+@import '../gutenberg/blocks/block_button/_buttons.scss'; // Overriden
+@import '../../FLEX/scss/_body-text.scss';
+//@import 'body-text.scss'; // Override parent theme body variables
+@import '../../FLEX/scss/_admin-styles.scss';
+@import '../../FLEX/scss/_images.scss';
+@import '../../FLEX/gutenberg/blocks/block_paragraph/_paragraph.scss';
+@import '../../FLEX/gutenberg/blocks/block_list/_list.scss';
+
+//GB Component Specific Overrides
+@import '../../FLEX/gutenberg/components/gb-component_background-options/_editor.scss';
+@import '../../FLEX/gutenberg/components/gb-component_margin/_editor.scss';
+@import '../../FLEX/gutenberg/components/gb-component_padding/_editor.scss';
+@import '../../FLEX/gutenberg/components/gb-component_row-height/_editor.scss';
+@import '../../FLEX/gutenberg/components/gb-component_scroller/_editor.scss';
+@import '../../FLEX/gutenberg/components/gb-component_text-colors/_editor.scss';
+
+@import '../../FLEX/gutenberg/blocks/block_video/_editor.scss';
+@import '../../FLEX/gutenberg/blocks/block_video/_video.scss';
+@import '../../FLEX/gutenberg/blocks/block_button/_button-admin.scss';
+@import '../../FLEX/gutenberg/blocks/block_image/_image.scss';
+@import '../../FLEX/gutenberg/blocks/block_social_media/_social-media.scss';
+
+@import '../../FLEX/components/component_archive-feed/_archive-feed.scss';
+
+@import 'custom-classes/features-card.scss';

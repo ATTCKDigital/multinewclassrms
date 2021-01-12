@@ -1,0 +1,6 @@
+.component-list {
+	li {
+		@extend .body2;
+		margin-bottom: $gap*2;
+	}
+}

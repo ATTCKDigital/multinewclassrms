@@ -1,0 +1,3 @@
+[submodule "wp-content/themes/FLEX"]
+	path = wp-content/themes/FLEX
+	url = https://github.com/ATTCKDigital/FLEX.git

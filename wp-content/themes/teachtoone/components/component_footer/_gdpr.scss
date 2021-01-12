@@ -1,0 +1,40 @@
+/**** Global GDPR Styles ****/
+//Override with custom styles in child theme
+
+.component-gdpr {
+	background-color: rgba(0, 0, 0, .8);
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	z-index: 10;
+
+	.body-text {
+		p {
+			font-size: px-to-rem(13px);
+			line-height: 1.6;
+			color: $white;
+
+			a {
+				color: color('brand', 'accent');
+
+				@include mediaquery(desktop) {
+					&:hover {
+						color: #ffc639;
+					}
+				}
+			}
+		}
+
+		.gdprAgree {
+			min-height: 40px;
+			font-size: px-to-rem(13px);
+			padding: 12px 14px 11px;
+			min-width: 150px;
+		}
+	}
+
+	&.hideGDPR {
+		display: none;
+	}
+}

@@ -1,0 +1,219 @@
+/** Body Copy **/
+// Styles for content within a WYSIWYG.
+// All WYSIWYG content should be wrapped in a "body-text" div
+.body1, .is-style-body1 p, .is-style-body1, p {
+	font-size: 18px;
+	line-height: 1.77;
+	margin-bottom: $gap;
+	letter-spacing: 0;
+	@include primary-regular;
+
+	@include mediaquery(desktop)  {
+		font-size: 20px;
+		line-height: 1.6;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.body2,
+form.wpcf7-form,
+.is-style-body2,
+.is-style-body2 p {
+	font-size: 14px;
+	line-height: 1.42;
+	margin-bottom: $gap;
+	letter-spacing: 0.2px;
+	@include primary-regular;
+
+	@include mediaquery(desktop)  {
+		font-size: 16px;
+		line-height: 1.5;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.body3, .is-style-body3 p, .is-style-body3 {
+	font-size: 13px;
+	line-height: 1.23;
+	margin-bottom: $gap;
+	letter-spacing: 0.2px;
+	@include primary-regular;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.body-text, .mce-content-body {
+	p {
+		@extend .body2 !optional;
+	}
+
+	img {
+		width: auto;
+		max-width: 100%;
+	}
+
+	.wp-caption {
+		&.aligncenter, &.none, &.alignnone {
+			display: block;
+			margin: 0 auto $gap*5;
+			max-width: 100%;
+			width: auto;
+		}
+
+		&.alignleft {
+			display: block;
+			margin: 0 auto $gap*5;
+			max-width: 100%;
+			width: auto;
+
+			@include mediaquery(tablet-portrait)  {
+				clear: left;
+				float: left;
+				margin: 0 $gap*2.5 $gap*2.5 0;
+			}
+		}
+
+		&.alignright {
+			display: block;
+			margin: 0 auto $gap*5;
+			max-width: 100%;
+			width: auto;
+
+			@include mediaquery(tablet-portrait)  {
+				clear: right;
+				float: right;
+				margin: 0 0 $gap*2.5 $gap*2.5;
+			}
+		}
+
+		.wp-caption-text {
+			@extend .body1 !optional;
+			margin-top: $gap*.5;
+		}
+	}
+
+	blockquote {
+		padding: 0 $gap*2;
+
+		@include mediaquery(tablet-landscape)  {
+			padding: 0 $gap*3;
+		}
+	}
+
+	cite {
+		@extend .body1 !optional;
+		font-style: italic;
+		font-size: 12px;
+	}
+
+	table {
+		td, th {
+			@extend .body2 !optional;
+			border: 1px solid $borderColor;
+			padding: $gap;
+		}
+	}
+
+	//ctas and links
+	& + a {
+		margin-top: $gap*1.5;
+	}
+
+	+ .ctas {
+		// Add margin to ctas if it's next to a .body-text div
+		margin-top: $gap*1.5;
+	}
+
+	.cta a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	a, p a, ul li a, ol li a {
+		text-decoration: underline;
+		transition: opacity .4s ease-out;
+
+		@include mediaquery(desktop)  {
+			&:hover {
+				opacity: .4;
+			}
+		}
+	}
+
+	a.cta {
+		text-decoration: none;
+	}
+
+	//list styles
+	ul, ol {
+		margin-left: $gap*.75;
+		margin-bottom: $gap;
+
+		@include mediaquery(tablet-landscape)  {
+			margin-left: 85px;
+		}
+
+		li {
+			@extend .body2;
+			color: inherit;
+			margin-bottom: $gap*.5;
+		}
+	}
+
+	u {
+		text-decoration: underline;
+	}
+
+	ul {
+		li {
+			@extend .body2 !optional;
+			list-style-type: disc;
+		}
+	}
+
+	ol {
+		li {
+			@extend .body2 !optional;
+			list-style-type: decimal;
+		}
+	}
+
+	h1 {
+		@extend .headline2 !optional;
+		margin-bottom: $gap;
+	}
+
+	h2 {
+		@extend .headline3 !optional;
+		margin-bottom: $gap;
+	}
+
+	h3 {
+		@extend .headline3 !optional;
+		margin-bottom: $gap;
+	}
+
+	h4 {
+		@extend .headline4 !optional;
+		margin-bottom: $gap;
+	}
+
+	h5 {
+		@extend .headline5 !optional;
+		margin-bottom: $gap;
+	}
+
+	h6 {
+		@extend .headline6 !optional;
+		margin-bottom: $gap;
+	}
+}
+

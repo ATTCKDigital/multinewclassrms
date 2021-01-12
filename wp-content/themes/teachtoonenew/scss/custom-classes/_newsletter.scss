@@ -1,0 +1,117 @@
+.component-newsletter {
+
+    @include mediaquery-max-device-width(tablet-portrait) {
+        margin-top: $gap;
+    }
+
+    .component-footer & {
+        margin-bottom: 35px;
+    }
+
+    form.wpcf7-form {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        > label {
+            top: 0;
+            left: 0;
+            width: 50%;
+            line-height: 1;
+            margin-bottom: 0;
+            position: absolute;
+            @include secondary-medium;
+
+            @include mediaquery-max-device-width(tablet-portrait) {
+                position: relative;
+            }
+
+            .component-footer & {
+                display: none;
+            }
+        }
+    }
+
+    .email {
+        width: 65%;
+        padding-right: 10px;
+
+        @include mediaquery-max-device-width(tablet-portrait) {
+            width: 100%;
+        }
+
+        .component-footer & {
+            width: 100%;
+            padding-right: 0;
+            position: relative;
+
+            &:before {
+                content: '';
+                left: 0;
+                width: 24px;
+                bottom: 11px;
+                height: 25px;
+                position: absolute;
+                background-size: contain;
+                background: url("../assets/images/envelope.svg") no-repeat center;
+            }
+        }
+    }
+
+    input {
+        outline: none;
+
+        &[type="submit"] {
+            width: 30%;
+            padding: 0;
+            margin-right: 0;
+            min-width: 120px;
+            margin-left: auto;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+
+            @include mediaquery-max-device-width(tablet-portrait) {
+                width: 187px;
+                margin: 23px auto 0;
+            }
+
+            .component-footer & {
+                right: 0;
+                top: 16px;
+                width: 90px;
+                border: none;
+                height: 24px;
+                display: flex;
+                font-size: 8px;
+                min-width: unset;
+                line-height: 8px;
+                min-height: unset;
+                position: absolute;
+                letter-spacing: 1px;
+                justify-content: space-around;
+                @include secondary-bold;
+
+                @include mediaquery-max-device-width(tablet-portrait) {
+                    margin: 0;
+                }
+            }
+        }
+
+        &[type="email"] {
+            padding: 0;
+            border: none;
+            height: 35px;
+            background: transparent;
+            border-bottom: 1px solid $light-gray;
+
+            .component-footer & {
+                height: 48px;
+                color: $white;
+                position: relative;
+                padding: 0 94px 0 34px;
+            }
+        }
+    }
+}

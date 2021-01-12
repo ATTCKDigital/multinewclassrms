@@ -1,0 +1,21 @@
+/**** Global Social Media Styles ****/
+//Override with custom styles in child theme
+.component-social-media {
+	display: flex;
+	align-items: center;
+
+	.social-media-list {
+		.social-icon {
+			width: auto;
+			height: auto;
+			color: inherit;
+			background: none;
+			border-radius: 0;
+			margin-left: 16px;
+
+			a {
+				text-decoration: none;
+			}
+		}
+	}
+}

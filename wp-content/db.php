@@ -1,0 +1,1 @@
+/Users/dennisplucinik/Projects/multinewclassrms/wp-content/plugins/query-monitor/wp-content/db.php
