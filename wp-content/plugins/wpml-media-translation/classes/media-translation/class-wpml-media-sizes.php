@@ -23,7 +23,6 @@ class WPML_Media_Sizes {
 					}
 				}
 			}
-
 		}
 
 		return null;

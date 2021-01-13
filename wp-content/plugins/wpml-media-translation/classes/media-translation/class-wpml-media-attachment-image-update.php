@@ -38,11 +38,11 @@ class WPML_Media_Attachment_Image_Update implements IWPML_Action {
 			$thumb_url  = '';
 
 			$upload_overrides = apply_filters( 'wpml_media_wp_upload_overrides', array( 'test_form' => false ) );
-			$file = wp_handle_upload( $file_array, $upload_overrides );
+			$file             = wp_handle_upload( $file_array, $upload_overrides );
 
 			if ( ! isset( $file['error'] ) ) {
 
-				if( wp_image_editor_supports( array( 'mime_type' => $file['type'] ) ) ){
+				if ( wp_image_editor_supports( array( 'mime_type' => $file['type'] ) ) ) {
 
 					$editor = wp_get_image_editor( $file['file'] );
 
@@ -61,14 +61,13 @@ class WPML_Media_Attachment_Image_Update implements IWPML_Action {
 						if ( ! empty( $thumb ) ) {
 							$uploads_dir = wp_get_upload_dir();
 
-							$thumb_url = $uploads_dir['baseurl'] . $uploads_dir['subdir'] . '/' . $thumb['file'];
+							$thumb_url  = $uploads_dir['baseurl'] . $uploads_dir['subdir'] . '/' . $thumb['file'];
 							$thumb_path = $thumb['path'];
 						}
 					} else {
 						wp_send_json_error( __( 'Failed to load the image editor', 'wpml-media' ) );
 					}
-
-				} elseif( 0 === strpos( $file['type'], 'image/' ) ) {
+				} elseif ( 0 === strpos( $file['type'], 'image/' ) ) {
 					$thumb_url  = $file['url'];
 					$thumb_path = $file['file'];
 				} else {
@@ -79,21 +78,22 @@ class WPML_Media_Attachment_Image_Update implements IWPML_Action {
 					self::TRANSIENT_FILE_UPLOAD_PREFIX . $original_attachment_id . '_' . $target_language,
 					array(
 						'upload' => $file,
-						'thumb'  => $thumb_path
+						'thumb'  => $thumb_path,
 					),
 					HOUR_IN_SECONDS
 				);
 
-				wp_send_json_success( array(
-					'attachment_id' => $attachment_id,
-					'thumb'         => $thumb_url,
-					'name'          => basename( $file['file'] )
-				) );
+				wp_send_json_success(
+					array(
+						'attachment_id' => $attachment_id,
+						'thumb'         => $thumb_url,
+						'name'          => basename( $file['file'] ),
+					)
+				);
 
 			} else {
 				wp_send_json_error( $file['error'] );
 			}
-
 		} else {
 			wp_send_json_error( 'invalid action' );
 		}
