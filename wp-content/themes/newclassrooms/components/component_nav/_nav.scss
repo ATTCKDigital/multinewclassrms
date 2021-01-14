@@ -1,0 +1,157 @@
+/**
+ * Global Nav Styles
+ * Override with custom styles in child theme
+ */
+.component-header {
+	height: $navMobileHeight;
+	left: 0;
+	right: 0;
+	transition: top .3s ease-in;
+	width: 100%;
+	z-index: 1000;
+	position: absolute;
+	top: 0;
+	background: transparent;
+	color: var(--color-default-white);
+
+	@include mediaquery(tablet-landscape)  {
+		align-items: center;
+		display: flex;
+		height: $navHeight;
+
+	}
+
+	.hideNav & {
+		top: -($navMobileHeight);
+
+		@include mediaquery(tablet-landscape)  {
+			top: -($navHeight);
+		}
+	}
+
+	.navOpen &, .navOpen.hideNav & {
+		top: 0;
+	}
+
+	.header-inner {
+		align-items: center;
+		display: flex;
+		height: 100%;
+		margin: 0 auto;
+		max-width: $navWidth;
+		padding: $gap*.75;
+		width: 100%;
+
+		@include mediaquery(desktop)  {
+			padding: $gap*.75 0;
+		}
+	}
+
+	.logo-wrapper {
+		display: block;
+    max-height: 40px;
+    max-width: 140px;
+		position: relative;
+		z-index: 10;
+
+		.nav-logo {
+			display: block;
+		}
+	}
+
+	.main-nav {
+		padding: 32px 0;
+
+		@include mediaquery-max-width(tablet-landscape) {
+			//Mobile only mediaquery so less overrides are necessary
+			position: absolute;
+			top: 0;
+			right: -100vw;
+			background-color: white;
+			height: 100vh;
+			width: 100%;
+			transition: right .3s ease-in;
+			padding-top: calc(#{$navMobileHeight} + 20px);
+
+			.navOpen & {
+				right: 0;
+			}
+		}
+
+		@include mediaquery(tablet-landscape)  {
+			//Large mobile + 
+			margin-left: 80px;
+			width: calc(100% - 160px);
+		}
+	}
+
+	.menu-items {
+		@include mediaquery-max-width(tablet-landscape) {
+			//Mobile only mediaquery so less overrides are necessary
+			text-align: center;
+		}
+
+		@include mediaquery(tablet-landscape)  {
+			//Large mobile + 
+			text-align: right;
+		}
+	}
+
+	.menu-item {
+		padding-bottom: 8px;
+		position: relative;
+		@include primary-bold;
+
+		@include mediaquery-max-width(tablet-landscape) {
+			//Mobile only mediaquery so less overrides are necessary
+			font-size: px-to-rem(18px);
+			margin-bottom: $gap;
+			display: block;
+		}
+
+		@include mediaquery(tablet-landscape)  {
+			//Large mobile + 
+			display: inline-block;
+			font-size: px-to-rem(16px);
+			margin-left: 30px;
+			opacity: 1;
+			transition: opacity .3s ease-in;
+		}
+
+		a {
+			position: relative;
+
+			&:after {
+				background-color: transparent;
+				bottom: -4px;
+				content: '';
+				display: block;
+				height: 3px;
+				left: 0;
+				opacity: 0;
+				position: absolute;
+				transition: background-color .3s ease-in, opacity .3s ease-in;
+				width: 100%;
+			}
+		}
+
+		&.current-menu-item {
+			a:after {
+				background-color: $black;
+				opacity: 1;
+			}
+		}
+
+		@include mediaquery(desktop)  {
+			&:hover {
+				opacity: .7;
+
+				a:after {
+					background-color: $black;
+					opacity: .7;
+				}
+			}
+		}
+
+	}
+}
