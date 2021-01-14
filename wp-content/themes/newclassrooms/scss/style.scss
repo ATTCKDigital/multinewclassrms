@@ -5,6 +5,7 @@
 @import 'FLEX/scss/_sass-utils.scss';
 @import 'FLEX/scss/_reset.scss';
 @import 'FLEX/scss/_sizing.scss';
+@import './sizing.scss'; // Override parent theme sizing variables
 @import 'FLEX/scss/_media-queries.scss';
 @import 'FLEX/scss/_grid.scss';
 @import 'FLEX/scss/_fonts.scss';
@@ -30,6 +31,7 @@
 @import 'FLEX/scss/_body-text.scss';
 @import 'FLEX/gutenberg/blocks/block_image/_image.scss';
 @import 'FLEX/gutenberg/blocks/block_button/_buttons.scss';
+@import '../gutenberg/blocks/block_button/_buttons.scss';
 @import 'FLEX/scss/_iconography.scss';
 @import 'FLEX/scss/_forms.scss';
 @import 'FLEX/scss/_styleguide.scss';
@@ -37,9 +39,13 @@
 //Blocks
 @import 'FLEX/gutenberg/blocks/block_quote/_quote.scss';
 @import 'FLEX/gutenberg/blocks/block_social_media/_social-media.scss';
+@import '../gutenberg/blocks/block_divider/_divider.scss';
+@import '../gutenberg/blocks/block_testimonialcarousel/_testimonialcarousel.scss';
 
 // Components
 @import 'FLEX/components/component_nav/_nav.scss';
+@import '../components/component_nav/_nav.scss';
+
 @import 'FLEX/components/component_footer/_footer.scss';
 @import 'FLEX/components/component_archive-feed/_archive-feed.scss';
 @import 'FLEX/components/component_share/_share.scss';

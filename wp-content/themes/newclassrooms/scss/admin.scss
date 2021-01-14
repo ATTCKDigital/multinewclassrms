@@ -4,9 +4,11 @@
 @import '../../FLEX/scss/_wysiwyg.scss';
 @import '../../FLEX/scss/_sass-utils.scss';
 @import '../../FLEX/scss/_sizing.scss';
+@import './sizing.scss';
 @import '../../FLEX/scss/_media-queries.scss';
 @import '../../FLEX/scss/_grid.scss';
 @import '../../FLEX/scss/_colors.scss';
+@import './colors.scss';
 @import '../../FLEX/scss/_fonts.scss';
 // @import 'fonts'; // Override parent theme fonts variables from child if needed
 @import '../../FLEX/scss/_fonts-mixins.scss';
@@ -41,3 +43,7 @@
 @import '../../FLEX/gutenberg/blocks/block_social_media/_social-media.scss';
 
 @import '../../FLEX/components/component_archive-feed/_archive-feed.scss';
+
+// BLOCKS
+@import '../gutenberg/blocks/block_divider/_divider.scss';
+@import '../gutenberg/blocks/block_testimonialcarousel/_testimonialcarousel.scss';

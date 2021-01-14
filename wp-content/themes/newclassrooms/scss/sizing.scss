@@ -1,0 +1,112 @@
+/**** Variables related to heights and widths ****/
+
+$gap								: 16px;
+$siteWidth					: 1024px;
+$navWidth						: 1368px;
+$navMobileHeight		: 56px;
+$navHeight					: 80px;
+$positions					: top, left, bottom, right;
+$screensizes				: none, phone, tablet-portrait, tablet-landscape, desktop, xl, xl2;
+$counterIncrement 			: 8;
+$x 							: 50;
+// x is the max number of loops the padding and margins mixin should run
+//gap and increment should be the same value. 2 variables are required, one without px
+
+// Breakpoints
+$none						: 0px;
+$phone						: 375px;
+$tablet-portrait			: 768px;
+$tablet-landscape			: 1024px;
+$desktop					: 1100px;
+$xl							: 1280px;
+$xl2						: 1440px;
+
+// Max width breakpoints
+$max-phone					: 568px;
+$max-tablet-portrait		: 767px;
+$max-tablet-landscape		: 1023px;
+$max-desktop				: 1099px;
+$max-xl						: 1279px;
+$max-xl2					: 1439px;
+
+//Fixed row heights
+$small-row-mobile			: 50vh;
+$small-row					: 400px;
+$medium-row-mobile			: 100vh;
+$medium-row					: 500px;
+$large-row-mobile			: 100vh;
+$large-row					: 700px;
+
+/** Responsive Font Size Map **/
+// Add as many as needed.
+// Add fonts sizes for each break point. Font sizes will be converted to rems.
+// Usage:  @include font-size($font-size)
+$font-size-headline1: (
+	'phone'				: 44px,
+	'tablet-portrait'	: 44px,
+	'tablet-landscape'	: 72px,
+	'desktop'			: 72px,
+	'xl'				: 72px,
+	'xl2'				: 72px,
+);
+
+$font-size-headline2: (
+	'phone'				: 36px,
+	'tablet-portrait'	: 36px,
+	'tablet-landscape'	: 48px,
+	'desktop'			: 48px,
+	'xl'				: 48px,
+	'xl2'				: 48px,
+);
+
+$font-size-headline3: (
+	'phone'				: 28px,
+	'tablet-portrait'	: 28px,
+	'tablet-landscape'	: 32px,
+	'desktop'			: 32px,
+	'xl'				: 32px,
+	'xl2'				: 32px,
+);
+
+$font-size-headline4: (
+	'phone'				: 22px,
+	'tablet-portrait'	: 22px,
+	'tablet-landscape'	: 24px,
+	'desktop'			: 24px,
+	'xl'				: 24px,
+	'xl2'				: 24px,
+);
+
+$font-size-headline5: (
+	'phone'				: 16px,
+	'tablet-portrait'	: 16px,
+	'tablet-landscape'	: 20px,
+	'desktop'			: 20px,
+	'xl'				: 20px,
+	'xl2'				: 20px,
+);
+
+$font-size-headline6: (
+	'phone'				: 14px,
+	'tablet-portrait'	: 14px,
+	'tablet-landscape'	: 14px,
+	'desktop'			: 14px,
+	'xl'				: 14px,
+	'xl2'				: 14px,
+);
+
+@mixin font-size($fs-map) {
+	@each $fs-breakpoint, $fs-font-size in $fs-map {
+		@include mediaquery($fs-breakpoint) {
+			font-size: px-to-rem($fs-font-size);
+		}
+	}
+}
+
+/** Convert px to rem **/
+// Usage:  font-size: px-to-rem(12px);
+@function px-to-rem($size) {
+	$remSize: $size / 13px;
+	@return #{$remSize}rem;
+}
+
