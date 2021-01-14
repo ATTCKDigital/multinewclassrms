@@ -8,7 +8,7 @@ $siteWidth					: 1024px;
 $navMobileHeight			: 56px;
 $navHeight					: 80px;
 $positions					: top, left, bottom, right;
-$screensizes				: none, phone, tablet-portrait, tablet-landscape, desktop, xl, xl2;
+$screensizes				: none, default, phone, phone-plus, tablet-portrait, tablet-landscape, desktop, xl, xl2;
 $counterIncrement 			: 8;
 $x 							: 50;
 // x is the max number of loops the padding and margins mixin should run

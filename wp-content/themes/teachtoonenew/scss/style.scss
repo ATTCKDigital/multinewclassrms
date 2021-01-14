@@ -5,13 +5,13 @@
 // @import '../../FLEX/scss/_wysiwyg.scss';
 @import '../../FLEX/scss/_sass-utils.scss';
 @import '../../FLEX/scss/_reset.scss';
-@import '../../FLEX/scss/_sizing.scss';
-@import 'sizing'; // Override
+// @import '../../FLEX/scss/_sizing.scss';
+@import '_sizing'; // Override
 @import '../../FLEX/scss/_media-queries.scss';
 @import '../../FLEX/scss/_grid.scss';
 // @import '../../FLEX/scss/_colors.scss';
 @import '../../FLEX/scss/_fonts.scss';
-@import 'fonts'; // Override
+@import '_fonts'; // Override
 @import '../../FLEX/scss/_fonts-mixins.scss';
 @import '../scss/_colors.scss';
 @import '../../FLEX/scss/_typography-base.scss';
