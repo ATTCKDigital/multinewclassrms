@@ -18,6 +18,7 @@ const smp = new SpeedMeasurePlugin({
 const isDevEnv = 'production' !== process.env.NODE_ENV;
 
 const devPlugins = [];
+
 const productionPlugins = [
       // Minify Images
       // Include after plugins that add images, eg. copy-webpack-plugin
@@ -26,6 +27,7 @@ const productionPlugins = [
         test: /\.(jpe?g|png|gif|svg)$/i
       }),
 ]
+
 const plugins = isDevEnv ? devPlugins : productionPlugins;
 
 /*
@@ -61,7 +63,6 @@ module.exports = smp.wrap({
     'admin': path.resolve(__dirname, './scss/admin.scss'),
     'admin-colors': path.resolve(__dirname, './scss/admin-color-scheme.scss'),
     'wysiwyg': path.resolve(__dirname, './scss/wysiwyg.scss'),
-
   },
 
   devtool: isDevEnv ? 'cheap-eval-source-map' : false,
@@ -163,7 +164,6 @@ module.exports = smp.wrap({
     ...plugins,
     new WebpackNotifierPlugin(),
 
-
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].[hash].css',
@@ -180,5 +180,4 @@ module.exports = smp.wrap({
     ]),
 
   ],
-
 });
