@@ -1,5 +1,3 @@
-<?php // Global Footer ?>
-
 <section class="component-row-full component-row">
 	<div class="flex-grid component-alignment-top component-row-wide padding-global-top-2x padding-global-bottom-2x padding-left-3x padding-right-3x padding-desktop-left-0x padding-desktop-right-0x">
 		<div class="flex-desktop-2-12 flex-tablet-landscape-2-12 flex-tablet-portrait-2-12 flex-12-12 padding-bottom-2x padding-tablet-portrait-bottom-0x padding-tablet-portrait-right-1x">

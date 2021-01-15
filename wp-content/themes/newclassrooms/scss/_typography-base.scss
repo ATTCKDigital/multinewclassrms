@@ -194,6 +194,7 @@ th, tr, td {
 
 .headline4,
 .is-style-headline4 {
+	color: color('brand', 'accent');
 	line-height: 1.41;
 	@include secondary-semi;
 	@include font-size($font-size-headline4);

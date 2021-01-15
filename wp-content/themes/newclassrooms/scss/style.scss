@@ -11,7 +11,8 @@
 @import '_sizing.scss'; // Overrides FLEX
 @import '../../FLEX/scss/_media-queries.scss';
 @import '../../FLEX/scss/_grid.scss';
-@import '../../FLEX/scss/_colors.scss';
+// @import '../../FLEX/scss/_colors.scss';
+@import '_colors.scss';
 @import '../../FLEX/scss/_fonts.scss';
 // @import 'fonts'; // Override parent theme fonts variables from child if needed
 // @import '../../FLEX/scss/_fonts-mixins.scss';

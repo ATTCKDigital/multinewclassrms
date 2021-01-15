@@ -78,12 +78,14 @@ $font-size-headline4: (
 );
 
 $font-size-headline5: (
-	'phone'				: 20px,
-	'tablet-portrait'	: 20px,
-	'tablet-landscape'	: 24px,
-	'desktop'			: 24px,
-	'xl'				: 24px,
-	'xl2'				: 24px,
+	'default'			: 24px,
+	'phone'				: 24px,
+	'phone-plus'		: 24px,
+	'tablet-portrait'	: 42px,
+	'tablet-landscape'	: 42px,
+	'desktop'			: 42px,
+	'xl'				: 42px,
+	'xl2'				: 42px,
 );
 
 $font-size-headline6: (
