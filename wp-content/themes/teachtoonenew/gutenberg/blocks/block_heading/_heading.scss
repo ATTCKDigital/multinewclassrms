@@ -1,71 +1,82 @@
-/**** Headline Styles ****/
+/**
+ * Headline Styles 
+ */
 
-.headline1, .is-style-headline1 {
-	line-height: 1.111;
+.headline1,
+.is-style-headline1 {
 	letter-spacing: -.5px;
+	line-height: 1.111;
 	@include secondary-medium;
 	@include font-size($font-size-headline1);
 }
 
-.headline2, .is-style-headline2 {
-	line-height: 1.166;
+.headline2,
+.is-style-headline2 {
 	letter-spacing: -.5px;
+	line-height: 1.166;
 	@include secondary-medium;
 	@include font-size($font-size-headline2);
 }
 
-.headline3, .is-style-headline3 {
-	line-height: 1.25;
+.headline3,
+.is-style-headline3 {
 	letter-spacing: -.5px;
+	line-height: 1.25;
 	@include secondary-semi;
 	@include font-size($font-size-headline3);
 }
 
-.headline4, .is-style-headline4 {
-	line-height: 1.333;
+.headline4,
+.is-style-headline4 {
 	letter-spacing: -.5px;
+	line-height: 1.333;
 	@include secondary-semi;
 	@include font-size($font-size-headline4);
 }
 
-.headline5, .is-style-headline5 {
-	line-height: 1.2;
+.headline5,
+.is-style-headline5 {
 	letter-spacing: -.5px;
+	line-height: 1.2;
 	@include secondary-semi;
 	@include font-size($font-size-headline5);
 }
 
-.headline6, .is-style-headline6 {
+.headline6,
+.is-style-headline6 {
 	line-height: 1.285;
 	@include secondary-semi;
 	@include font-size($font-size-headline6);
 }
 
-.component-heading .subtitle, .is-style-default.subtitle {
+.component-heading .subtitle,
+.is-style-default.subtitle {
+	font-family: $secondarySemi;
 	font-size: 14px;
 	font-weight: 600;
 	line-height: 1.42;
 	text-transform: uppercase;
-	font-family: $secondarySemi;
 }
 
-.component-heading.has-image {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
+.component-heading {
+	&.has-image {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
 
-	img {
+		img {
 
-		max-width: 45px;
-		width: auto;
-		height: auto;
-		max-height: 30px;
-		margin-right: $gap*5;
+			height: auto;
+			margin-right: $gap*5;
+			max-height: 30px;
+			max-width: 45px;
+			width: auto;
 
-		@include mediaquery(tablet-portrait) {
-			max-width: 80px;
-			max-height: 50px;
-			margin-right: $gap*2;
+			@include mediaquery(tablet-portrait) {
+				margin-right: $gap*2;
+				max-height: 50px;
+				max-width: 80px;
+			}
 		}
 	}
 }
