@@ -1,0 +1,87 @@
+/**
+ * Button Styles
+ */
+ 
+.cta, 
+.is-style-cta {
+	background-color: transparent;
+	border: 1px solid color('text', 'body');
+	border-radius: $gap * 3;
+	box-shadow: none;
+	box-sizing: border-box;
+	color: color('text', 'body');
+	cursor: pointer;
+	display: inline-block;
+	font-size: px-to-rem(16px);
+    font-weight: 700;
+    height: auto;
+    letter-spacing: 0.2rem;
+	line-height: 1;
+    min-height: auto;
+	overflow: hidden;
+    padding: $gap*1 $gap*3;
+	position: relative;
+    text-transform: uppercase;
+	transition: background .4s ease-out, border-color .4s ease-out;
+	text-align: center;
+	z-index: 2;
+
+	@include mediaquery(desktop) {
+		&:hover {
+			background: color('brand', 'accent');
+			border-color: color('brand', 'accent');
+			color: color('text', 'white');
+		}
+	}
+
+	&.cta-solid, 
+	&.is-style-cta-solid {
+		// background: color('text', 'white');
+		
+		@include mediaquery(desktop) {
+			&:hover {
+				background: color('brand', 'accent');
+				border-color: color('brand', 'accent');
+				color: color('text', 'white');
+			}
+		}
+	}
+
+	&.cta-accent, 
+	&.is-style-cta-accent {
+		border-color: color('brand', 'accent');
+		background-color: color('brand', 'accent');
+		color: $white;
+		transition: background .4s ease-out, border-color .4s ease-out, color .4s ease-out;
+
+		@include mediaquery(desktop) {
+			&:hover {
+				background: $white;
+				border-color: $white;
+				color: color('brand', 'accent');
+			}
+		}
+	}
+
+	&.cta-negative, 
+	&.is-style-cta-negative {
+		border-color: $white;
+		color: $white;
+		background: transparent;
+		opacity: 1;
+		transition: opacity .3s ease-out;
+		
+		@include mediaquery(desktop)  {
+			&:hover {
+				background: transparent;
+				border-color: $white;
+				opacity: .5;
+			}
+		}
+	}
+
+	&.cta-inactive {
+		pointer-events: none;
+		opacity: .5;
+	}
+}
