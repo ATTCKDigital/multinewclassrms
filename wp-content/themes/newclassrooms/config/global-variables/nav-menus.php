@@ -1,6 +1,7 @@
 <?php
 	$menus = array(
 		'primary' => __('Primary Navigation', '_flex'),
+		'secondary' => __('Secondary Navigation', '_flex'),
 		'footer' => __('Footer Navigation', '_flex'),
 	);
 
