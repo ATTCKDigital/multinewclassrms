@@ -3,14 +3,14 @@
 /**
  * Class WPML_Media_Img_Parse
  */
-class WPML_Media_Img_Parse{
+class WPML_Media_Img_Parse {
 
 	/**
 	 * @param string $text
 	 *
 	 * @return array
 	 */
-	public function get_imgs( $text ){
+	public function get_imgs( $text ) {
 		$images = $this->get_from_img_tags( $text );
 
 		if ( $this->can_parse_blocks( $text ) ) {
@@ -31,16 +31,16 @@ class WPML_Media_Img_Parse{
 	private function get_from_img_tags( $text ) {
 		$images = array();
 
-		if( preg_match_all( '/<img ([^>]+)>/s', $text, $matches ) ){
-			foreach ( $matches[1] as $i => $match ){
-				if( preg_match_all('/(\S+)\\s*=\\s*["\']?((?:.(?!["\']?\s+(?:\S+)=|[>"\']))+.)["\']?/', $match, $attribute_matches ) ){
+		if ( preg_match_all( '/<img ([^>]+)>/s', $text, $matches ) ) {
+			foreach ( $matches[1] as $i => $match ) {
+				if ( preg_match_all( '/(\S+)\\s*=\\s*["\']?((?:.(?!["\']?\s+(?:\S+)=|[>"\']))+.)["\']?/', $match, $attribute_matches ) ) {
 					$attributes = array();
-					foreach( $attribute_matches[1] as $k => $key ){
-						$attributes[$key] = $attribute_matches[2][$k];
+					foreach ( $attribute_matches[1] as $k => $key ) {
+						$attributes[ $key ] = $attribute_matches[2][ $k ];
 					}
-					if( isset( $attributes['src'] ) ){
-						$images[$i]['attributes'] = $attributes;
-						$images[$i]['attachment_id'] = $this->get_attachment_id_from_attributes( $images[$i]['attributes'] );
+					if ( isset( $attributes['src'] ) ) {
+						$images[ $i ]['attributes']    = $attributes;
+						$images[ $i ]['attachment_id'] = $this->get_attachment_id_from_attributes( $images[ $i ]['attributes'] );
 					}
 				}
 			}
@@ -57,7 +57,7 @@ class WPML_Media_Img_Parse{
 	private function get_from_css_background_images( $text ) {
 		$images = array();
 
-		if( preg_match_all( '/<\w+[^>]+style\s?=\s?"[^"]*?background-image:url\(\s?([^\s\)]+)\s?\)/', $text, $matches ) ){
+		if ( preg_match_all( '/<\w+[^>]+style\s?=\s?"[^"]*?background-image:url\(\s?([^\s\)]+)\s?\)/', $text, $matches ) ) {
 			foreach ( $matches[1] as $src ) {
 				$images[] = array(
 					'attributes'    => array( 'src' => $src ),
@@ -82,7 +82,7 @@ class WPML_Media_Img_Parse{
 
 			if ( ! empty( $block->innerBlocks ) ) {
 				$inner_images = $this->get_from_css_background_images_in_blocks( $block->innerBlocks );
-				$images = array_merge( $images, $inner_images );
+				$images       = array_merge( $images, $inner_images );
 				continue;
 			}
 
@@ -131,11 +131,11 @@ class WPML_Media_Img_Parse{
 	 *
 	 * @return null|int
 	 */
-	private function get_attachment_id_from_attributes( $attributes ){
+	private function get_attachment_id_from_attributes( $attributes ) {
 		$attachment_id = null;
-		if( isset( $attributes['class'] ) ){
-			if( preg_match('/wp-image-([0-9]+)\b/', $attributes['class'], $id_match ) ){
-				if( 'attachment' === get_post_type( (int) $id_match[1] ) ){
+		if ( isset( $attributes['class'] ) ) {
+			if ( preg_match( '/wp-image-([0-9]+)\b/', $attributes['class'], $id_match ) ) {
+				if ( 'attachment' === get_post_type( (int) $id_match[1] ) ) {
 					$attachment_id = (int) $id_match[1];
 				}
 			}

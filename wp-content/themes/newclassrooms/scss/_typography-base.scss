@@ -1,0 +1,216 @@
+address, 
+.footer-link {
+	font-size: px-to-rem(14px);
+	display: block;
+	font-style: normal;
+	line-height: 1.4;
+	@include primary-regular;
+}
+
+a {
+	color: inherit;
+	cursor: pointer;
+	text-decoration: none;
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	letter-spacing: inherit;
+
+	@include mediaquery(desktop)  {
+		&:hover {
+		}
+	}
+}
+
+small {
+	font-size: 12px;
+}
+
+em, i {
+	color: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	font-family: inherit;
+}
+
+hr {
+	background: $borderColor;
+	border: 0;
+	height: 1px;
+	margin: 25px auto;
+}
+
+del {
+	color: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	font-family: inherit;
+}
+
+p,
+.body1,
+.body {
+	font-size: 14px;
+	line-height: 1.3;
+	margin-bottom: $gap;
+	letter-spacing: 0;
+	@include primary-regular;
+}
+
+p {
+
+	a {
+		color: color('text', 'link');
+		text-decoration: none;
+		transition: color .3s ease-out;
+
+		@include mediaquery(desktop)  {
+			&:hover {
+				color: color('text', 'hover');
+			}
+		}
+	} 
+}
+
+span {
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+}
+
+u {
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+}
+
+strong, b {
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	letter-spacing: inherit;
+	line-height: inherit;
+}
+
+th, tr, td {
+	color: inherit;
+}
+
+
+/** Error & Message Styles **/
+.error {
+	@extend .body;
+	color: red;
+}
+
+.underline {
+	// for use in WYSIWYG as <u></u> was deprecated in 4.7+
+	display: inline;
+	font-family: inherit;
+	font-size:inherit;
+	font-style:inherit;
+	font-weight:inherit;
+	line-height: inherit;
+	text-decoration:underline;
+}
+
+.strikethrough {
+	// for use in WYSIWYG 
+	display: inline;
+	font-family: inherit;
+	font-size:inherit;
+	font-style:inherit;
+	font-weight:inherit;
+	line-height: inherit;
+	text-decoration: line-through;
+}
+
+.lowercase {
+	text-transform: lowercase;
+}
+
+.nocase {
+	text-transform: none;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.display-block {
+	display: block;
+}
+
+.display-inline-block {
+	display: inline-block;
+}
+
+.text-columns,
+.is-style-text-columns {
+	@include mediaquery(tablet-landscape) {
+		column-count: 2;
+		column-gap: $gap*15;
+		column-break-inside: avoid; /* Chrome, Safari, Opera */
+		page-break-inside: avoid; /* Firefox */
+		break-inside: avoid;
+	}
+}
+
+.list-columns,
+.is-style-list-columns {
+	column-count: 2;
+	column-gap: $gap*10;
+	column-break-inside: avoid; /* Chrome, Safari, Opera */
+	page-break-inside: avoid; /* Firefox */
+	break-inside: avoid;
+}
+
+.headline1,
+.is-style-headline1 {
+	line-height: 1.25;
+	letter-spacing: -.5px;
+	@include secondary-semi;
+	@include font-size($font-size-headline1);
+}	
+
+.headline2,
+.is-style-headline2 {
+	color: color('brand', 'accent');
+	line-height: 1.375;
+	letter-spacing: -.5px;
+	@include secondary-semi;
+	@include font-size($font-size-headline2);
+}	
+
+.headline3,
+.is-style-headline3 {
+	line-height: 1.25;
+	@include primary-semi;
+	@include font-size($font-size-headline3);
+}
+
+.headline4,
+.is-style-headline4 {
+	line-height: 1.41;
+	@include secondary-semi;
+	@include font-size($font-size-headline4);
+}	
+
+.headline5,
+.is-style-headline5 {
+	line-height: 1.3;
+	letter-spacing: .2px;
+	@include primary-semi;
+	@include font-size($font-size-headline5);
+}
+
+.headline6,
+.is-style-headline6 {
+	line-height: 1.4;
+	letter-spacing: .2px;
+	@include primary-semi;
+	@include font-size($font-size-headline6);
+}

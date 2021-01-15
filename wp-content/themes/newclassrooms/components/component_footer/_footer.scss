@@ -1,0 +1,21 @@
+/** 
+ * Child Footer Styles 
+ **/
+.component-footer {
+	background: color('brand', 'primary');
+
+	.menu-item {
+		display: block;
+		font-size: px-to-rem(16px);
+		margin-bottom: $gap;
+		@include primary-bold;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.footer-link {
+		margin-bottom: $gap*.25;
+	}
+}

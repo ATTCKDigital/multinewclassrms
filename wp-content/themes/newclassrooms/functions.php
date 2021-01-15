@@ -34,10 +34,11 @@ include_once(locate_template('config/admin-configs/remove-comments-column.php'))
 
 /*** Theme Configs ***/
 // include_once(locate_template('config/theme-configs/custom-post-types.php'));
+// include_once(locate_template('config/theme-configs/customizer-colors.php')); //REQUIRED
 // include_once(locate_template('config/theme-configs/disable-tax-archive.php'));
 // include_once(locate_template('config/theme-configs/geotarget.php'));
 include_once(locate_template('config/theme-configs/load-more.php')); //RECOMMENDED
 include_once(locate_template('config/theme-configs/author-slug.php'));
 // include_once(locate_template('config/theme-configs/password-protection.php'));
-// include_once(locate_template('config/theme-configs/wpml-language-switcher.php'));
+include_once(locate_template('config/theme-configs/wpml-language-switcher.php'));
 

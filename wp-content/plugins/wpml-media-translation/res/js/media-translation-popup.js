@@ -1,16 +1,16 @@
 /* globals wpml_media_popup */
 
-jQuery(document).ready(function ($) {
-	var dialogBox           = $('#wpml-media-dialog');
-	var dialogForm          = $('#wpml-media-dialog-form');
-	var mediaFileUploadForm = $('#wpml-media-file-upload-form');
+jQuery(function ($) {
+    var dialogBox = $('#wpml-media-dialog');
+    var dialogForm = $('#wpml-media-dialog-form');
+    var mediaFileUploadForm = $('#wpml-media-file-upload-form');
 
-	dialogBox.dialog({
-		resizable:     false,
-		draggable:     false,
-		height:        'auto',
-		width:         800,
-		autoOpen:      false,
+    dialogBox.dialog({
+                         resizable: false,
+                         draggable: false,
+                         height   : 'auto',
+                         width    : 800,
+                         autoOpen : false,
 		modal:         true,
 		closeOnEscape: false,
 		dialogClass:   'otgs-ui-dialog wpml-media-dialog wpml-dialog-translate',

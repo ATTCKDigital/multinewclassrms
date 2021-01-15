@@ -1,19 +1,24 @@
 /**** Variables related to heights and widths ****/
+.testingSizingStart {
+	color: red;
+}
 
 $gap						: 16px;
 $siteWidth					: 1024px;
 $navMobileHeight			: 56px;
 $navHeight					: 80px;
 $positions					: top, left, bottom, right;
-$screensizes				: none, phone, tablet-portrait, tablet-landscape, desktop, xl, xl2;
+$screensizes				: none, default, phone, phone-plus, tablet-portrait, tablet-landscape, desktop, xl, xl2;
 $counterIncrement 			: 8;
 $x 							: 50;
 // x is the max number of loops the padding and margins mixin should run
 //gap and increment should be the same value. 2 variables are required, one without px
 
 // Breakpoints
+$default					: 0px;
 $none						: 0px;
 $phone						: 375px;
+$phone-plus                 : 414px;
 $tablet-portrait			: 768px;
 $tablet-landscape			: 1024px;
 $desktop					: 1100px;
@@ -40,8 +45,42 @@ $large-row					: 700px;
 // Add as many as needed.
 // Add fonts sizes for each break point. Font sizes will be converted to rems.
 // Usage:  @include font-size($font-size)
+$font-size-body-text: (
+	'default'			: 13px,
+	'phone'				: 13px,
+	'phone-plus'		: 13px,
+	'tablet-portrait'	: 15px,
+	'tablet-landscape'	: 17px,
+	'desktop'			: 17px,
+	'xl'				: 17px,
+	'xl2'				: 17px,
+);
+
+$font-size-body-text2: (
+	'default'			: 13px,
+	'phone'				: 13px,
+	'phone-plus'		: 13px,
+	'tablet-portrait'	: 15px,
+	'tablet-landscape'	: 18px,
+	'desktop'			: 18px,
+	'xl'				: 18px,
+	'xl2'				: 18px,
+);
+
+$font-size-default: (
+	'default'			: 15px,
+	'phone'				: 17px,
+	'phone-plus'		: 20px,
+	'tablet-portrait'	: 22px,
+	'tablet-landscape'	: 22px,
+	'desktop'			: 22px,
+	'xl'				: 22px,
+	'xl2'				: 22px,
+);
+
 $font-size-headline1: (
 	'phone'				: 44px,
+	'phone-plus'		: 44px,
 	'tablet-portrait'	: 44px,
 	'tablet-landscape'	: 72px,
 	'desktop'			: 72px,
@@ -51,6 +90,7 @@ $font-size-headline1: (
 
 $font-size-headline2: (
 	'phone'				: 36px,
+	'phone-plus'		: 36px,
 	'tablet-portrait'	: 36px,
 	'tablet-landscape'	: 48px,
 	'desktop'			: 48px,
@@ -60,6 +100,7 @@ $font-size-headline2: (
 
 $font-size-headline3: (
 	'phone'				: 28px,
+	'phone-plus'		: 28px,
 	'tablet-portrait'	: 28px,
 	'tablet-landscape'	: 32px,
 	'desktop'			: 32px,
@@ -69,6 +110,7 @@ $font-size-headline3: (
 
 $font-size-headline4: (
 	'phone'				: 22px,
+	'phone-plus'		: 22px,
 	'tablet-portrait'	: 22px,
 	'tablet-landscape'	: 24px,
 	'desktop'			: 24px,
@@ -78,6 +120,7 @@ $font-size-headline4: (
 
 $font-size-headline5: (
 	'phone'				: 16px,
+	'phone-plus'		: 16px,
 	'tablet-portrait'	: 16px,
 	'tablet-landscape'	: 20px,
 	'desktop'			: 20px,
@@ -87,6 +130,7 @@ $font-size-headline5: (
 
 $font-size-headline6: (
 	'phone'				: 14px,
+	'phone-plus'		: 14px,
 	'tablet-portrait'	: 14px,
 	'tablet-landscape'	: 14px,
 	'desktop'			: 14px,
@@ -109,3 +153,6 @@ $font-size-headline6: (
 	@return #{$remSize}rem;
 }
 
+.testingSizingEnd {
+	color: green;
+}

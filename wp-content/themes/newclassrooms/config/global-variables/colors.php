@@ -1,9 +1,7 @@
 <?php
-
 /**
- * Set child theme colors
+ * Child theme colors
  */
-
 
 $colors = array(
 	array(
