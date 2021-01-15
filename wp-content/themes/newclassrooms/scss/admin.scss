@@ -1,6 +1,10 @@
+/**
+ * Child theme admin SASS files
+ */
 
 // SCSS files to include in admin
-@import '../../FLEX/scss/_css-vars.scss';
+// @import '../../FLEX/scss/_css-vars.scss';
+@import '_css-vars.scss';
 @import '../../FLEX/scss/_wysiwyg.scss';
 @import '../../FLEX/scss/_sass-utils.scss';
 @import '../../FLEX/scss/_sizing.scss';
@@ -21,6 +25,7 @@
 @import '../../FLEX/gutenberg/blocks/block_heading/_heading.scss';
 @import '../../FLEX/gutenberg/blocks/block_button/_buttons.scss';
 @import '../../FLEX/scss/_body-text.scss';
+@import '../../FLEX/scss/_typography-base.scss';
 @import '../../FLEX/scss/_admin-styles.scss';
 @import '../../FLEX/scss/_images.scss';
 @import '../../FLEX/gutenberg/blocks/block_paragraph/_paragraph.scss';
