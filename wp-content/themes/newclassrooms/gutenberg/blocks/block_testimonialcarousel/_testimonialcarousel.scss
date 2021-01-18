@@ -4,18 +4,21 @@
     padding-bottom: 75px;
 
     @include mediaquery('tablet-landscape') {
-        padding-top: 95px;
+        padding-top: 65px;
         padding-bottom: 95px;
     }
 
     blockquote {
-        font-size: 20px;
-        line-height: 1.6;
-        font-style: italic;
-        font-family: $tertiaryRegularItalic;
+        p {
+            font-size: 20px;
+            line-height: 1.6;
+            // font-family: $tertiaryRegular;
+            font-weight: 600;
+            color: color('brand', 'accent');
 
-        @include mediaquery('desktop') {
-            font-size: 24px;
+            @include mediaquery('desktop') {
+                font-size: 32px;
+            }
         }
     }
 
@@ -84,15 +87,18 @@
         }
 
         .slide {
-            .quote-image {
-                min-height: 45px;
-                margin-bottom: 32px;
-                // background: url(../assets/images/quotes.svg) left top no-repeat;
+            padding-left: 80px;
+            padding-right: 100px;
+            // position: relative;
 
-                @include mediaquery('tablet-landscape') {
-                    margin-bottom: 0;
-                    background-position: center top;
-                }
+            .quote-image {
+                position: absolute;
+                left: -120px;
+                top: 0;
+                height: 45px;
+                width: 60px;
+                background: url(../assets/images/Quotation.png) left top no-repeat;
+                background-size: contain;
             }
 
             .quote-container {

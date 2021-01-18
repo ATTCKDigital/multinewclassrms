@@ -22,24 +22,15 @@ $slides = get_field('testimonials');
             <?php foreach ($slides as $index => $slide): ?>
                 <li class="slide" data-slide-index="<?= $index; ?>">
                     <div class="component-row-wide flex-grid quote-container">
-                        <section class="flex-12-12 flex-tablet-landscape-3-12 quote-image">
+                        <section class="quote-image">
                         </section>
-                        <section class="flex-12-12 flex-tablet-landscape-9-12">
+                        <section class="flex-12-12">
                             <blockquote>
                                 <p><?= $slide['quote']; ?></p>
                             </blockquote>
                         </section>
                     </div>
                     <div class="component-row-wide flex-grid author-dots-row">
-                        <section class="flex-12-12 flex-tablet-landscape-3-12 dots-container">
-                            <ul class="dots-component">
-                                <?php
-                                foreach ($slides as $i => $_slide) {
-                                    echo '<li class="dot"><a href="#' . $i . '"></a></li>';
-                                }
-                                ?>
-                            </ul>
-                        </section>
                         <section class="flex-12-12 flex-tablet-landscape-9-12 author-container">
                             <div class="author-image" style="background-image: url(<?= $slide['author_image']; ?>)"></div>
                             <div class="author-data">
