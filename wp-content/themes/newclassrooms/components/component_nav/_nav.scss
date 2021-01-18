@@ -14,9 +14,7 @@
 
 	@include mediaquery(tablet-landscape)  {
 		align-items: center;
-		display: flex;
 		height: $navHeight;
-
 	}
 
 	.hideNav & {
