@@ -3,16 +3,6 @@
  */
 
 // General variables and setup
-<<<<<<< HEAD
-@import 'FLEX/scss/_css-vars.scss';
-@import 'FLEX/scss/_sass-utils.scss';
-@import 'FLEX/scss/_reset.scss';
-@import 'FLEX/scss/_sizing.scss';
-@import './sizing.scss'; // Override parent theme sizing variables
-@import 'FLEX/scss/_media-queries.scss';
-@import 'FLEX/scss/_grid.scss';
-@import 'FLEX/scss/_fonts.scss';
-=======
 @import '../../FLEX/scss/_css-vars.scss';
 // @import '_css-vars.scss';
 @import '../../FLEX/scss/_sass-utils.scss';
@@ -23,7 +13,6 @@
 @import '../../FLEX/scss/_grid.scss';
 @import '../../FLEX/scss/_colors.scss';
 @import '../../FLEX/scss/_fonts.scss';
->>>>>>> c70ffdf36d06f175c891f9482101b7609a1458fe
 // @import 'fonts'; // Override parent theme fonts variables from child if needed
 // @import '../../FLEX/scss/_fonts-mixins.scss';
 @import '_fonts-mixins.scss';
@@ -62,19 +51,12 @@
 @import 'FLEX/components/component_nav/_nav.scss';
 @import '../components/component_nav/_nav.scss';
 
+@import '../components/component_carousel/_carousel.scss';
 @import 'FLEX/components/component_footer/_footer.scss';
 @import 'FLEX/components/component_archive-feed/_archive-feed.scss';
 @import 'FLEX/components/component_share/_share.scss';
 @import 'FLEX/gutenberg/blocks/block_quote/_quote.scss';
 @import 'FLEX/gutenberg/blocks/block_video/_video.scss';
-
-	// temporary full width class
-	.full-width {
-		.component-row-wide {
-			max-width: none;
-			height: 100%;
-		}
-	}
 
 // @import '../../FLEX/gutenberg/blocks/block_heading/_heading.scss';
 @import '../gutenberg/blocks/block_heading/_heading.scss';
@@ -88,15 +70,5 @@
 @import '../../FLEX/scss/_forms.scss';
 @import '../../FLEX/scss/_styleguide.scss';
 
-//Blocks
-@import '../../FLEX/gutenberg/blocks/block_quote/_quote.scss';
-@import '../../FLEX/gutenberg/blocks/block_social_media/_social-media.scss';
-
-// Components
-@import '../../FLEX/components/component_nav/_nav.scss';
-// @import '../../FLEX/components/component_footer/_footer.scss';
-@import '../components/component_footer/_footer.scss';
-@import '../../FLEX/components/component_archive-feed/_archive-feed.scss';
-@import '../../FLEX/components/component_share/_share.scss';
-@import '../../FLEX/gutenberg/blocks/block_quote/_quote.scss';
-@import '../../FLEX/gutenberg/blocks/block_video/_video.scss';
+// Custom Classes
+@import 'custom-classes/newsletter.scss';

@@ -22,7 +22,12 @@ $brand-colors: (
 		'secondary': var(--color-brand-secondary),
 		'accent': var(--color-brand-accent),
 	),
-
+	'secondary': (
+		'purple': #873B75,
+		'grey'  : #5E7185,
+		'pink'  : #D48D86,
+		'green'	: #6D8D6F
+	),
 	'text': (
 		'body': var(--color-text-body),
 		'link': var(--color-text-link),
