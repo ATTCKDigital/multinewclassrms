@@ -1,5 +1,5 @@
 //Change name space on line 4 and line 15
-function Test($el) {
+function HeroSlider($el) {
 
 	//Add your functions here.
 
@@ -10,4 +10,4 @@ function Test($el) {
 	return this.init($el);
 }
 
-export default Test;
+export default HeroSlider;

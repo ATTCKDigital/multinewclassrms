@@ -14,7 +14,7 @@ $id = 'hero-slider-' . $block['id'];
 $align_class = $block['align'] ? 'align' . $block['align'] : '';
 
 ?>
-<div class="component-hero-slider component <?php echo $align_class; ?>" id="<?php echo $id; ?>">
+<div class="component-hero-slider component <?php echo $align_class; ?>" id="<?php echo $id; ?>" data-component-name="Carousel">
 	<ul class="slider">
 		<?php foreach ($slides as $key => $slide): ?>
 			<li
@@ -41,9 +41,12 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 		<?php endforeach; ?>
 	</ul>
 	<nav class="slider-navigation">
-		<ul class="points">
-			<?php foreach ($slides as $key => $slide): ?>
-				<li class="point"></li>
+
+		<ul class="dots-component">
+			<?php foreach ($slides as $i => $slide): ?>
+				<li class="dot <?= $i == 0 ? 'active' : '' ?>">
+					<a href="#<?= $i ?>"></a>
+				</li>
 			<?php endforeach; ?>
 		</ul>
 	</nav>
