@@ -4,7 +4,6 @@
 // Available Blocks
 // Enable your acf created blocks by using acf/block_name
 // Enable FLEX created blocks by using FLEX/block_name
-
 $blocks = array(
 	'flexlayout/row', // REQUIRED
 	'flexlayout/column', // REQUIRED
@@ -19,6 +18,7 @@ $blocks = array(
 	'flexlayout/shortcode',
 	'flexlayout/source',
 	'flexlayout/socialmedia',
+	'flexlayout/hr',
 
 	//  DEPRECATED, replaced by List and Paragraph. 
 	// If your project is already using this, 
@@ -29,7 +29,8 @@ $blocks = array(
 	'flexlayout/video',
 	'flexlayout/share',
 	'acf/divider',
-	'acf/hero-slider'
+	'acf/hero-slider',
+	'acf/testimonialcarousel'
 );
 
 define('FLEXLAYOUT_BLOCKS', $blocks);

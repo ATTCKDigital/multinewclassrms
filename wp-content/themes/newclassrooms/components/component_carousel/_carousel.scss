@@ -1,0 +1,94 @@
+.component-carousel {
+    .slides {
+        width: 100%;
+        position: relative;
+    }
+
+    .slide {
+        top: 0;
+        opacity: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transition: opacity 1s ease-in-out;
+
+        &.active {
+            opacity: 1;
+            z-index: 2;
+            position: relative;
+        }
+    }
+
+    .nav {
+        top: 50%;
+        z-index: 100;
+        position: absolute;
+        font-style: italic;
+        letter-spacing: 0.6px;
+        font-size: px-to-rem(20px);
+        transform: translateY(-50%);
+        font-family: $primaryRegular;
+
+        &.prev {
+            left: -85px;
+
+            &:before {
+                content: '';
+                width: 35px;
+                height: 35px;
+                margin-right: 10px;
+                display: inline-block;
+                background: url(../assets/images/Carousel_Arrow.png);
+                background-repeat: no-repeat;
+                background-position: center;
+                border-radius: 100%;
+                background-size: contain;
+            }
+        }
+
+        &.next {
+            right: -85px;
+
+            &:after {
+                content: '';
+                width: 35px;
+                height: 35px;
+                margin-left: 10px;
+                display: inline-block;
+                background: url(../assets/images/Carousel_Arrow.png);
+                background-repeat: no-repeat;
+                background-position: center;
+                border-radius: 100%;
+                background-size: contain;
+            }
+        }
+    }
+
+    .dots-component {
+        display: flex;
+        margin-top: 40px;
+        justify-content: center;
+        visibility: hidden;
+        width: 100%;
+
+        .dot {
+            a {
+                width: 5px;
+                height: 5px;
+                display: block;
+                cursor: pointer;
+                border-radius: 50%;
+                background-color: #221F1F;
+            }
+
+            &:not(.active) {
+                opacity: 0.3;
+            }
+
+            &:not(:last-child) {
+                margin-right: 20px;
+            }
+        }
+    }
+}
