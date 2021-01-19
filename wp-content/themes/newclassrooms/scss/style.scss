@@ -70,5 +70,8 @@
 @import '../../FLEX/scss/_forms.scss';
 @import '../../FLEX/scss/_styleguide.scss';
 
+@import '../components/component_video-popup/_video-popup.scss';
+
 // Custom Classes
 @import 'custom-classes/newsletter.scss';
+@import 'custom-classes/_helpers.scss';

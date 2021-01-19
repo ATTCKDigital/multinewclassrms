@@ -14,7 +14,7 @@ $id = 'hero-slider-' . $block['id'];
 $align_class = $block['align'] ? 'align' . $block['align'] : '';
 
 ?>
-<div class="component-hero-slider component <?php echo $align_class; ?>" id="<?php echo $id; ?>" data-component-name="HeroSlider">
+<div class="component-hero-slider component <?php echo $align_class; ?>" id="<?php echo $id; ?>" data-component-name="HeroSlider VideoPopup">
 	<ul class="slides">
 		<?php foreach ($slides as $key => $slide): ?>
 			<li
@@ -30,8 +30,8 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 						<?= $slide['title'] ?>
 					</h2>
 					<?php if (!empty($slide['video_url'])): ?>
-						<div class="component-button component  align-left margin-phone-top-4x ">
-							<a href="#" class="cta cta--video prepare-in-view">
+						<div class="component-button component align-left margin-phone-top-4x ">
+							<button class="cta cta--video prepare-in-view" data-video-src="<?= $slide['video_url'] ?>">
 								<?php _e('Watch Video', '_flex') ?>
 							</a>
 						</div>
@@ -49,4 +49,7 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 			<?php endforeach; ?>
 		</ul>
 	</nav>
+	<?php
+		echo Utils::render_template('components/component_video-popup/video-popup.php');
+	?>
 </div>
