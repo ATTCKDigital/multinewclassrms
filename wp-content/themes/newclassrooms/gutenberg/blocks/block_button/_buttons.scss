@@ -22,7 +22,7 @@
 	height: 60px;
 	background: $white;
 	color: $defaultTextColor;
-	border-color: $borderColor;
+	border-color: $defaultTextColor;
 
 	&--video {
 		padding-left: 20px;
@@ -32,7 +32,7 @@
 			width: 25px;
 			height: 25px;
 			display: inline-block;
-			background: url(../assets/images/Play_Button.png);
+			background: url(../assets/images/Play_Button.svg);
 			background-repeat: no-repeat;
 			background-position: 50%;
 			border-radius: 100%;
