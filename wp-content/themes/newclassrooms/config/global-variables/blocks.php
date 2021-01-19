@@ -28,7 +28,6 @@ $blocks = array(
 	// 'flexlayout/users',
 	'flexlayout/video',
 	'flexlayout/share',
-	'acf/divider',
 	'acf/hero-slider',
 	'acf/testimonialcarousel'
 );
@@ -37,7 +36,6 @@ define('FLEXLAYOUT_BLOCKS', $blocks);
 
 //Add all of the acf blocks that should be registered. Only put the block name. The components must be named as described in the read me.
 $registerBlocks = array(
-	'divider',
 	'testimonialcarousel',
 	'hero-slider'
 );
