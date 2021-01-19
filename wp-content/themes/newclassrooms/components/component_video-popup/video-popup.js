@@ -10,15 +10,14 @@ function VideoPopup ($el, params={}) {
 	var $iframe;
 	const $body = $('body');
 
-
 	function bindEvents() {
 		console.log('/newclassrooms/\tcomponents	/\tcomponent_video-popup/\t	video-popup.js', 'bindEvents()');
 
-		$('.cta--video', $el).on('click', function (e) {
+		$watchButton.on('click', function (e) {
 			displayPopup($(this));
 		});
 
-		$('.close-button', $el).on('click', function (e) {
+		$closeButton.on('click', function (e) {
 			e.preventDefault();
 
 			hidePopup();
@@ -31,14 +30,14 @@ function VideoPopup ($el, params={}) {
 		addVideoSrc(src);
 
 		$popup.addClass('active');
-		$body.addClass('scroll-locked');
+		$body.addClass('popup-open');
 	}
 
 	function hidePopup() {
 		console.log('/newclassrooms/\tcomponents	/\tcomponent_video-popup/\t	video-popup.js', 'hidePopup()');
 
 		$popup.removeClass('active');
-		$body.removeClass('scroll-locked');
+		$body.removeClass('popup-open');
 	}
 
 	function addVideoSrc(src) {
@@ -58,8 +57,8 @@ function VideoPopup ($el, params={}) {
 
 	this.init = function ($el) {
 		console.log('/newclassrooms/\tcomponents	/\tcomponent_video-popup/\t	video-popup.js', 'e()');
-		bindEvents();
 		render();
+		bindEvents();
 
 		return this;
 	}
