@@ -52,9 +52,8 @@
 					));
 				?>	
 				<li class="language-switcher menu-item">
-					Language
 					<?php
-						// flexlayout_language_switcher();
+						flexlayout_language_switcher();
 					?>
 				</li>	
 			</ul>
