@@ -45,7 +45,6 @@
                 </div>
             </div>
 		</div>
-
         <div class="flex-12-12 flex-tablet-portrait-0-12">
             <small class="display-block"><?= get_field('footer_copyright', 'options');?></small>
         </div>

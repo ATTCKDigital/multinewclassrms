@@ -1,30 +1,27 @@
-/**
- * Button Styles
- */
- 
 .cta, 
 .is-style-cta {
 	background-color: transparent;
-	border: 1px solid color('text', 'body');
-	border-radius: $gap * 3;
+	border: 1px solid $black;
 	box-shadow: none;
 	box-sizing: border-box;
-	color: color('text', 'body');
 	cursor: pointer;
-	display: inline-block;
 	font-size: px-to-rem(16px);
-    font-weight: 700;
-    height: auto;
-    letter-spacing: 0.2rem;
 	line-height: 1;
-    min-height: auto;
+	min-height: 50px;
 	overflow: hidden;
-    padding: $gap*1 $gap*3;
+	padding: 10px 25px 9px;
 	position: relative;
-    text-transform: uppercase;
 	transition: background .4s ease-out, border-color .4s ease-out;
 	text-align: center;
 	z-index: 2;
+	border-radius: 40px;
+	font-weight: 600;
+	align-items: center;
+	display: inline-flex;
+	height: 60px;
+	background: $white;
+	color: $defaultTextColor;
+	border-color: $defaultTextColor;
 
 	&--video {
 		padding-left: 20px;
@@ -52,14 +49,14 @@
 	}
 
 	&.cta-solid, 
-	&.is-style-cta-solid {
-		background: $white;
-		
+    &.is-style-cta-solid {
+		background-color: $white;
+		color:  $black;
+
 		@include mediaquery(desktop) {
 			&:hover {
 				background: color('brand', 'accent');
-				border-color: $white;
-				color: $white;
+				border-color: color('brand', 'accent');
 			}
 		}
 	}
