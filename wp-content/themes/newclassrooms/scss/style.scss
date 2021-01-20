@@ -18,15 +18,15 @@
 @import '_layout.scss'; // @extends FLEX/_layout
 @import '../../FLEX/scss/_component.scss';
 @import '../../FLEX/scss/_hidden.scss';
-@import '../../FLEX/scss/_row-theme.scss';
+@import '_row-theme.scss';
 @import '../../FLEX/scss/_popups-overlays.scss';
 @import '../../FLEX/scss/_animations.scss';
 @import '../../FLEX/scss/_images.scss';
 @import '../../FLEX/scss/_typography-base.scss';
 @import '_typography-base.scss';
-@import '../../FLEX/scss/_body-text.scss';
+@import '_body-text.scss';
 @import '../../FLEX/scss/_iconography.scss';
-@import '../../FLEX/scss/_forms.scss';
+@import '_forms.scss';
 @import '../../FLEX/scss/_styleguide.scss';
 
 // Gutenberg Blocks
@@ -51,9 +51,9 @@
 
 // FLEX Components
 @import '../../FLEX/components/component_archive-feed/_archive-feed.scss';
-@import '../../FLEX/components/component_footer/_footer.scss';
 @import '../../FLEX/components/component_nav/_nav.scss';
 @import '../../FLEX/components/component_share/_share.scss';
+@import '../components/component_footer/_footer.scss';
 @import '../components/component_carousel/_carousel.scss';
 @import '../components/component_nav/_nav.scss';
 @import '../components/component_newsletter/_newsletter.scss';

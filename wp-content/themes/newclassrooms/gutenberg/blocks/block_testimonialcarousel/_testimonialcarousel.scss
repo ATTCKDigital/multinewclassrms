@@ -1,21 +1,31 @@
+.carousel-padding {
+	@include mediaquery('tablet-portrait') {
+		padding: 0 40px;
+	}
+
+	@include mediaquery('tablet-landscape') {
+		padding-left: 80px;
+		padding-right: 100px;
+	}
+}
+
 .component-testimonialcarousel {
-    // padding-top: 60px;
     background: $white;
-    padding-bottom: 75px;
-    padding-top: 0;
+    // padding-bottom: 75px;
+    // padding-top: 0;
 
     @include mediaquery('tablet-landscape') {
-        padding-top: 65px;
-        padding-bottom: 95px;
+        // padding-top: 65px;
+        // padding-bottom: 95px;
     }
 
     blockquote {
         p {
+            color: color('brand', 'accent');
             font-size: 20px;
-            line-height: 1.6;
             // font-family: $tertiaryRegular;
             font-weight: 600;
-            color: color('brand', 'accent');
+            line-height: 1.6;
 
             @include mediaquery('desktop') {
                 font-size: 32px;
@@ -100,14 +110,7 @@
         }
 
         .slide {
-            @include mediaquery('tablet-portrait') {
-                padding: 0 40px;
-            }
-
-            @include mediaquery('tablet-landscape') {
-                padding-left: 80px;
-                padding-right: 100px;
-            }
+        	@extend .carousel-padding;
 
             .quote-image {
                 position: absolute;

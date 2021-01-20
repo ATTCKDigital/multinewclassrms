@@ -1,58 +1,50 @@
 .component-newsletter {
-    .email-input-wrapper {
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-start;
+	.email-input-wrapper {
+		align-items: flex-end;
+		display: flex;
+		justify-content: flex-start;
 
-        @include mediaquery('tablet-landscape') {
-            justify-content: center;
-        }
-    }
+		@include mediaquery('tablet-landscape') {
+			justify-content: center;
+		}
+	}
 
-    input {
-        &[type="submit"] {
-            font-size: 12px;
-            padding-left: 50px;
-            padding-right: 50px;
-            flex-shrink: 0;
-            margin-left: 20px;
-            height: 50px;
-        }
+	input {
+		&[type="submit"] {
+			margin-left: 20px;
+			padding-left: 50px;
+			padding-right: 50px;
+		}
 
-        &[type="checkbox"] {
-    
-            &:checked + .wpcf7-list-item-label:after {
-                background-color: color('brand', 'accent');
-            }
-        }
+		&[type="checkbox"] {
+			&:checked + .wpcf7-list-item-label:after {
+				background-color: color('brand', 'accent');
+			}
+		}
 
-        &[type="email"] {
-            height: auto;
-            margin-top: 3.5px;
-            padding: 0 0 6px;
-            background: transparent;
-            border: none;
-            border-bottom: 2px solid $borderColor;
-        }
-    }
+		&[type="email"] {
+			margin-top: 3.5px;
+			padding: 0 0 6px;
+		}
+	}
 
-    .wpcf7-response-output {
-        margin-top: 0;
-    }
+	.wpcf7-response-output {
+		margin-top: 0;
+	}
 }
 
 .newsletter-image {
-    height: 50px;
+	height: 50px;
 
-    @include mediaquery('tablet-landscape') {
-        height: 65px;
-    }
+	@include mediaquery('tablet-landscape') {
+		height: 65px;
+	}
 
-    .image-wrapper {
-        height: 100%;
-    }
+	.image-wrapper {
+		height: 100%;
+	}
 
-    img {
-        height: 100%;
-    }
+	img {
+		height: 100%;
+	}
 }

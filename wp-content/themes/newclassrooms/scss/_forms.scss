@@ -1,1 +1,256 @@
-/**** Form global styles ****/
+// WordPress Post Password Form
+.post-password-form {
+	align-items: center;
+	display: flex;
+	background-color: white;
+	height: 100%;
+	justify-content: center;
+	min-height: calc(100vh - 150px);
+	padding-top: 64px;
+	width: 100%;
+
+	input[type="password"] {
+		border-bottom: 1px solid $borderColor;
+		border-radius: 0;
+		font-size: 11px;
+		height: 30px;
+		letter-spacing: -0.1px;
+		line-height: 1.3;
+		margin-bottom: $gap;
+		width: 100%;
+		@include secondary-regular;
+		@include placeholder($black);
+
+		@include mediaquery(tablet-landscape)  {
+			font-size: 16px;
+			letter-spacing: -0.15px;
+		}
+	}
+
+	input[type="submit"] {
+		@extend .cta;
+		border: 0;
+		display: inline-block;
+		width: auto;
+		margin-top: $gap*.5;
+		height: 36px;
+	}
+}
+
+// General Form Styles
+input[type="text"], 
+input[type="email"], 
+textarea {
+	border: 1px solid $borderColor;
+	font-size: px-to-rem(16px);
+	height: 48px;
+	letter-spacing: .2px;
+	padding: $gap*2 $gap $gap $gap;
+	width: 100%;
+	@include primary-regular;
+}
+
+textarea {
+	height: 200px;
+}
+
+label, 
+.wpcf7-list-item-label, 
+.wpcf7-checkbox .wpcf7-list-item-label {
+	display: block;
+	font-size: px-to-rem(15px);
+	letter-spacing: .2px;
+	line-height: 1.6;
+	margin-bottom: $gap*.5;
+	@include primary-regular;
+}
+
+
+// CF7 Form Styles
+.wpcf7-radio {
+	.wpcf7-list-item {
+		display: block;
+		margin-bottom: $gap*1.5;
+	}
+
+	.wpcf7-list-item-label {
+		display: block;
+		cursor: pointer;
+		padding-left: $gap*3;
+		position: relative;
+
+		&:after {
+			border-radius: 50%;
+			border: 1px solid $borderColor;
+			content: '';
+			height: 20px;
+			left: 0;
+			position: absolute;
+			top: 2px;
+			width: 20px;
+		}
+
+		&:before {
+			background: transparent;
+			border-radius: 50%;
+			content: '';
+			height: 8px;
+			left: 7px;
+			position: absolute;
+			top: 9px;
+			width: 8px;
+			z-index: 1;
+		}
+
+	}
+
+	input[type="radio"] {
+		display: none;
+
+		&:checked + .wpcf7-list-item-label:after {
+			background-color: $borderColor;
+		}
+
+		&:checked + .wpcf7-list-item-label:before {
+			background-color: $borderColor;
+		}
+	}
+}
+
+.wpcf7-checkbox {
+	.wpcf7-list-item {
+		display: block;
+		margin-bottom: $gap*.5;
+	}
+
+	.wpcf7-list-item-label {
+		display: block;
+		cursor: pointer;
+		padding-left: 38px;
+		position: relative;
+
+		&:after {
+			border-radius: 0px;
+			border: 1px solid $borderColor;
+			content: '';
+			height: 24px;
+			left: 0;
+			position: absolute;
+			top: -1px;
+			width: 24px;
+		}
+
+		&:before {
+			border: 0;
+			color: white;
+			content: '\f00c';
+			font-family: 'Font Awesome 5 Free';
+			font-weight: 900;
+			font-size: 13px;
+			left: 7px;
+			position: absolute;
+			top: 4px;
+			width: 8px;
+			z-index: 1;
+			display: none;
+		}
+	}
+
+	input[type="checkbox"] {
+		display: none;
+
+		&:checked + .wpcf7-list-item-label:after {
+			// background-color: $borderColor;
+			background-color: color('brand', 'accent');
+			border-color: color('brand', 'accent');
+		}
+
+		&:checked + .wpcf7-list-item-label:before {
+			background-color: transparent;
+			display: block;
+		}
+	}
+}
+
+.screen-reader-response {
+	display: none;
+}
+
+.subscribe-error {
+	margin: $gap*.5 0;
+}
+
+.ajax-loader {
+	display: none;
+}
+
+.wpcf7-form-control-wrap {
+	display: block;
+	margin-bottom: 0;
+	position: relative;
+
+}
+
+.wpcf7-not-valid-tip {
+	@extend .body;
+	color: red;
+	display: block;
+	margin-top: $gap * .25;
+	opacity: 1;
+	text-transform: none;
+
+	.deadline &, .budget & {
+		position: absolute;
+		top: 10px;
+	}
+
+	.row-text-white & {
+		color: red;
+	}
+}
+
+.wpcf7-response-output {
+	@extend .body;
+	color: red;
+	clear: both;
+	margin-top: $gap*2;
+}
+
+.wpcf7-mail-sent-ok {
+}
+
+
+input {
+	&[type="submit"] {
+		flex-shrink: 0;
+		font-size: 12px;
+	}
+
+	&[type="checkbox"] {
+		&:checked + .wpcf7-list-item-label:after {
+			background-color: color('brand', 'accent');
+		}
+	}
+
+	&[type="email"] {
+		height: auto;
+		background: transparent;
+		border: none;
+		border-bottom: 2px solid $borderColor;
+	}
+}
+
+.component-homepage-newsletter {
+	section {
+		margin-top: 24px;
+	}
+
+	.homepage-newsletter-label {
+		float: left;
+		width: auto;
+
+		input[type=email] {
+			padding: 10px 16px 16px;
+		}
+	}
+}
