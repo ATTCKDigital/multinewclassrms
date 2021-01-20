@@ -15,9 +15,6 @@ function HeroSlider($el) {
 
 	function bindEvents() {
 		console.log('/newclassrooms/\tguttenberg /\tblocks/\t hero-slider', 'bindEvents()');
-		// Arrow click events
-		$el.on('carousel.goPrev', goPrev);
-		$el.on('carousel.goNext', goNext);
 
 		// Dot click events
 		$el.on('click', '.dots-component a', function (e) {
@@ -185,7 +182,7 @@ function HeroSlider($el) {
 	function go() {
 		console.log('/newclassrooms/\tguttenberg /\tblocks/\t hero-slider', 'go()');
 		// Indicate CSS transition is in progress
-		CSStransitionInProgress = true;
+		// CSStransitionInProgress = true;
 
 		$slides.eq(index).removeClass('previous next').addClass('active');
 
@@ -206,7 +203,7 @@ function HeroSlider($el) {
 			}
 		}
 
-		updateDots(index);
+		// updateDots(index);
 
 		$(document.body).trigger('FLEX.slideUpdate', {
 			id: $el.attr('id')
@@ -244,19 +241,7 @@ function HeroSlider($el) {
 		}
 
 		// Set active dot
-		updateDots(0);
-	}
-
-	/**
-	 * Update the active dot.
-	 * @param {Number} current - Zero-based current slide number.
-	 */
-	function updateDots(current) {
-		console.log('/newclassrooms/\tguttenberg /\tblocks/\t hero-slider', 'curren()');
-		$dotsContainer.each(function () {
-			$(this).find('li.dot').removeClass('active');
-			$(this).find('li.dot').eq(current).addClass('active');
-		});
+		// updateDots(0);
 	}
 	
 	function render() {

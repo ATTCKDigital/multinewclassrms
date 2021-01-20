@@ -20,11 +20,12 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 			<li
 				class="slide <?= $key == 0 ? 'active' : '' ?>"
 			>
-				<div class="side-column flex-4-12" style="background-color: <?= $slide['accent_color'] ?>;"></div>
+				<div class="side-column flex-0-1 flex-tablet-landscape-4-12" style="background-color: <?= $slide['accent_color'] ?>;"></div>
 				<div class="image-wrapper">
 					<img class="image" src="<?= $slide['background_image']['url'] ?>" alt="<?= $slide['background_image']['alt'] ?>">
 				</div>
 				<div class="content">
+					<div class="side-row" style="background-color: <?= $slide['accent_color'] ?>;"></div>
 					<h1 class="headline6 is-style-headline6 align-left"><?= $slide['subtitle']; ?></h1>
 					<h2 class="headline1 is-style-headline1 align-left">
 						<?= $slide['title'] ?>
@@ -36,19 +37,19 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 							</a>
 						</div>
 					<?php endif; ?>
+					<nav class="slider-navigation">
+						<ul class="dots-component">
+							<?php foreach ($slides as $i => $slide): ?>
+								<li class="dot <?= $i == $key ? 'active' : '' ?>">
+									<a href="#<?= $i ?>"></a>
+								</li>
+							<?php endforeach; ?>
+						</ul>
+					</nav>
 				</div>
 			</li>
 		<?php endforeach; ?>
 	</ul>
-	<nav class="slider-navigation">
-		<ul class="dots-component">
-			<?php foreach ($slides as $i => $slide): ?>
-				<li class="dot <?= $i == 0 ? 'active' : '' ?>">
-					<a href="#<?= $i ?>"></a>
-				</li>
-			<?php endforeach; ?>
-		</ul>
-	</nav>
 	<?php
 		echo Utils::render_template('components/component_video-popup/video-popup.php');
 	?>

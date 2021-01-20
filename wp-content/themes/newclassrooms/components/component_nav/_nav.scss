@@ -53,20 +53,18 @@
 		max-width: 173px;
 		transition: all .3s ease-in-out;
 		position: absolute;
-		left: -150px;
+		left: 20px;
 		top: 16px;
 
-		@include mediaquery-max-device-width(tablet-landscape) {
-			max-width: 132px;
-
-			.navOpen & {
-				opacity: 0;
-				visibility: hidden;
-			}
+		@include mediaquery('xl2') {
+			left: -150px;
 		}
 
 		.nav-logo {
 			display: block;
+			height: 32px;
+			object-fit: contain;
+			width: auto;
 
 			&.logo-white {
 				display: none;
@@ -106,13 +104,24 @@
 
 	.secondary-nav {
 		position: absolute;
-		left: 100%;
-		top: 16px;
+		right: 0;
+		top: 25px;
+
+		@include mediaquery('xl2') {
+			left: 100%;
+			top: 16px;
+		}
 
 		.menu-item:not(:last-of-type) {
+			display: none;
 			margin-right: 30px;
 			margin-left: 0;
 			font-size: 10px;
+
+			@include mediaquery('xl2') {
+				display: block;
+				flex-direction: column;
+			}
 		}
 	}
 
@@ -228,10 +237,11 @@
 
 		.sub-menu {
 			color: $defaultTextColor;
-			box-shadow: 0px 8px 10px 2px rgba($black, 0.25);
-			border-radius: 7px;
 
-			@include mediaquery-max-device-width(tablet-landscape) {
+			@include mediaquery('tablet-landscape') {
+				box-shadow: 0px 8px 10px 2px rgba($black, 0.25);
+				border-radius: 7px;
+
 				.menu-item {
 					margin-top: 30px;
 				}

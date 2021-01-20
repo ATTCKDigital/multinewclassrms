@@ -15,11 +15,15 @@
     height: 100%;
 		justify-content: center;
 		align-items: center;
-		flex-direction: column;
 		display: none;
 		position: relative;
 		flex-shrink: 0;
 		transition: opacity .3s;
+		flex-direction: column-reverse;
+
+		@include mediaquery('tablet-landscape') {
+			flex-direction: column;
+		}
 
 		&.active {
 			display: flex;
@@ -27,7 +31,7 @@
 	}
 
 	.image-wrapper {
-		position: absolute;
+		position: relative;
     height: 100%;
     width: 100%;
 		
@@ -39,6 +43,10 @@
 			top: 0;
 			position: absolute;
 			background: rgba($black, .2);
+		}
+
+		@include mediaquery('tablet-landscape') {
+			position: absolute;
 		}
 	}
 
@@ -59,14 +67,15 @@
     justify-content: center;
 		flex-direction: column;
 		z-index: 1;
-		padding: 0 20px;
+		padding: 90px 20px 30px;
 
 		@include mediaquery('tablet-landscape') {
-			padding: 0;
+			padding: 0 20px;
 		}
 	}
 
 	.side-column {
+		display: block;
 		position: absolute;
 		left: 0;
 		top: 0;
@@ -74,15 +83,25 @@
 		z-index: 1;
 	}
 
-	.slider-navigation {
+	.side-row {
 		position: absolute;
-    width: 100%;
-    max-width: 1024px;
-    height: 50px;
-    bottom: 64px;
-    left: 50%;
-		transform: translateX(-50%);
-		z-index: 1;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		z-index: -1;
+
+		@include mediaquery('tablet-landscape') {
+			display: none;
+		}
+	}
+
+	.slider-navigation {
+		margin-top: 30px;
+
+		@include mediaquery('tablet-landscape') {
+			margin-top: 65px;
+		}
 	}
 
 	.dots-component {
