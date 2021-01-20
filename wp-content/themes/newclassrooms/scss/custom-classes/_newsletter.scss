@@ -2,7 +2,11 @@
     .email-input-wrapper {
         display: flex;
         align-items: flex-end;
-        justify-content: center;
+        justify-content: flex-start;
+
+        @include mediaquery('tablet-landscape') {
+            justify-content: center;
+        }
     }
 
     input {
@@ -30,5 +34,17 @@
             border: none;
             border-bottom: 2px solid $borderColor;
         }
+    }
+
+    .wpcf7-response-output {
+        margin-top: 0;
+    }
+}
+
+.newsletter-image {
+    width: 75px;
+
+    @include mediaquery('tablet-landscape') {
+        width: 102px;
     }
 }
