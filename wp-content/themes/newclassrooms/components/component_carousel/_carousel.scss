@@ -23,15 +23,12 @@
     .nav {
         top: 50%;
         z-index: 100;
-        position: absolute;
         font-style: italic;
         letter-spacing: 0.6px;
         font-size: px-to-rem(20px);
-        transform: translateY(-50%);
         font-family: $primaryRegular;
 
         &.prev {
-            left: -85px;
 
             &:before {
                 content: '';
@@ -48,7 +45,6 @@
         }
 
         &.next {
-            right: -85px;
 
             &:after {
                 content: '';

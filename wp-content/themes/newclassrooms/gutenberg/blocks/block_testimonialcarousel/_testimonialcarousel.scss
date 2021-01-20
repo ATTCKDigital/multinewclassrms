@@ -1,7 +1,8 @@
 .component-testimonialcarousel {
-    padding-top: 60px;
+    // padding-top: 60px;
     background: $white;
     padding-bottom: 75px;
+    padding-top: 0;
 
     @include mediaquery('tablet-landscape') {
         padding-top: 65px;
@@ -22,23 +23,40 @@
         }
     }
 
-    .nav {
-        top: auto;
-        bottom: 0;
-        transform: translateY(calc(50% + 6px));
+    .nav-buttons {
+        position: absolute;
+        bottom: -80px;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 5;
+        width: 100%;
 
         @include mediaquery('tablet-landscape') {
+            justify-content: space-between;
             top: 50%;
-            bottom: auto;
             transform: translateY(-50%);
+            height: auto;
+            height: 0;
+        }
+
+        @include mediaquery('xl') {
+            width: calc(100% + 190px);
+            left: -85px;
+        }
+    }
+
+    .nav {
+        position: relative;
+
+        @include mediaquery('tablet-landscape') {
+            position: relative;
         }
 
         &.prev {
-            left: 13px;
-
-            @include mediaquery('tablet-landscape') {
-                left: 53px;
-            }
+            left: auto;
+            position: relative;
 
             &:before {
                 content: '';
@@ -47,17 +65,13 @@
                 transform: none;
                 margin-right: 10px;
                 display: inline-block;
-                // background: url(../assets/images/arrow-slider.svg);
                 background-repeat: no-repeat;
             }
         }
 
         &.next {
-            right: 13px;
-
-            @include mediaquery('tablet-landscape') {
-                right: 53px;
-            }
+            right: auto;
+            position: relative;
 
             &:after {
                 content: '';
@@ -66,7 +80,6 @@
                 margin-left: 10px;
                 display: inline-block;
                 transform: scaleX(-1);
-                // background: url(../assets/images/arrow-slider.svg);
                 background-repeat: no-repeat;
             }
         }
@@ -74,7 +87,7 @@
 
     .component-carousel {
         height: 100%;
-        padding: 0 20px;
+        padding-bottom: 40px;
         margin-top: 30px;
 
         @include mediaquery('tablet-landscape') {
@@ -87,22 +100,34 @@
         }
 
         .slide {
-            padding-left: 80px;
-            padding-right: 100px;
-            // position: relative;
+            @include mediaquery('tablet-portrait') {
+                padding: 0 40px;
+            }
+
+            @include mediaquery('tablet-landscape') {
+                padding-left: 80px;
+                padding-right: 100px;
+            }
 
             .quote-image {
                 position: absolute;
-                left: -120px;
-                top: 0;
-                height: 45px;
+                left: 0;
+                height: 50px;
+                top: -15px;
                 width: 60px;
                 background: url(../assets/images/Quotation.svg) left top no-repeat;
                 background-size: contain;
+
+                @include mediaquery('tablet-landscape') {
+                    left: -120px;
+                    top: 0;
+                    height: 45px;
+                }
             }
 
             .quote-container {
                 margin-bottom: 24px;
+                padding: 0;
 
                 @include mediaquery('tablet-landscape') {
                     min-height: 200px;
@@ -136,6 +161,7 @@
 
         .author-dots-row {
             flex-direction: column-reverse;
+            padding: 0;
 
             @include mediaquery('tablet-landscape') {
                 flex-direction: row;
