@@ -1,4 +1,10 @@
 .component-footer {
+	background-color: color('brand', 'primary');
+	
+	* {
+		visibility: hidden; // For now
+	}
+
 	color: $white;
 	background: #191559;
 
