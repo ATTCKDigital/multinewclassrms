@@ -1,0 +1,7 @@
+.popup-open {
+    overflow: hidden;
+
+    .component-header {
+        pointer-events: none;
+    }
+}
