@@ -38,10 +38,10 @@
 		align-items: center;
 		padding: $gap * .75;
 		max-width: $siteWidth;
-		justify-content: flex-end;
+		justify-content: flex-start;
 
-		@include mediaquery(desktop)  {
-			padding: $gap*.75 0;
+		@include mediaquery('tablet-landscape') {
+			padding: 0;		
 		}
 	}
 
@@ -53,6 +53,10 @@
 		position: absolute;
 		left: 20px;
 		top: 16px;
+
+		@include mediaquery('tablet-landscape') {
+			top: 32px;
+		}
 
 		@include mediaquery('xl2') {
 			left: -150px;
@@ -71,6 +75,7 @@
 	}
 
 	.main-nav {
+		padding-top: 32px;
 		@include mediaquery-max-width(tablet-landscape) {
 			//Mobile only mediaquery so less overrides are necessary
 			top: 0;
@@ -103,23 +108,31 @@
 	.secondary-nav {
 		position: absolute;
 		right: 0;
-		top: 25px;
+		top: 16px;
 
 		@include mediaquery('xl2') {
-			left: 100%;
+			left: calc(100% + 70px);
 			top: 16px;
 		}
 
-		.menu-item:not(:last-of-type) {
+		.menu-item {
 			display: none;
+
+			@include mediaquery('tablet-landscape') {
+				display: block;
+			}
+		}
+
+		.menu-item:not(:last-of-type) {
+			// display: none;
 			margin-right: 30px;
 			margin-left: 0;
 			font-size: 10px;
 
-			@include mediaquery('xl2') {
-				display: block;
-				flex-direction: column;
-			}
+			// @include mediaquery('xl2') {
+			// 	display: block;
+			// 	flex-direction: column;
+			// }
 		}
 	}
 
@@ -308,6 +321,17 @@
 
 		.languages {
 			display: flex;
+			align-items: center;
+
+			&::before {
+				content: '';
+				height: 12px;
+				width: 12px;
+				background: url(../assets/images/Language_Header_Negative.png);
+				margin-right: 5px;
+				background-size: contain;
+
+			}
 		}
 
 		.language {
