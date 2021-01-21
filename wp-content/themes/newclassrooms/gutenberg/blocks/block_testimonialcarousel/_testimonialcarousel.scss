@@ -1,23 +1,9 @@
 .carousel-padding {
-	@include mediaquery('tablet-portrait') {
-		padding: 0 40px;
-	}
-
-	@include mediaquery('tablet-landscape') {
-		padding-left: 80px;
-		padding-right: 100px;
-	}
+    padding: 0;
 }
 
 .component-testimonialcarousel {
     background: $white;
-    // padding-bottom: 75px;
-    // padding-top: 0;
-
-    @include mediaquery('tablet-landscape') {
-        // padding-top: 65px;
-        // padding-bottom: 95px;
-    }
 
     blockquote {
         p {
@@ -52,8 +38,8 @@
         }
 
         @include mediaquery('xl') {
-            width: calc(100% + 190px);
-            left: -85px;
+            width: calc(100% + 270px);
+            left: -135px;
         }
     }
 
@@ -97,7 +83,7 @@
 
     .component-carousel {
         height: 100%;
-        padding-bottom: 40px;
+        padding-bottom: 100px;
         margin-top: 30px;
 
         @include mediaquery('tablet-landscape') {
@@ -122,9 +108,9 @@
                 background-size: contain;
 
                 @include mediaquery('tablet-landscape') {
-                    left: -120px;
+                    left: -95px;
                     top: 0;
-                    height: 45px;
+                    height: 55px;
                 }
             }
 

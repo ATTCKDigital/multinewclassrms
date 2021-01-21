@@ -20,7 +20,7 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 			<li
 				class="slide <?= $key == 0 ? 'active' : '' ?>"
 			>
-				<div class="side-column flex-0-1 flex-tablet-landscape-4-12" style="background-color: <?= $slide['accent_color'] ?>;"></div>
+				<div class="side-column" style="background-color: <?= $slide['accent_color'] ?>;"></div>
 				<div class="image-wrapper">
 					<img class="image" src="<?= $slide['background_image']['url'] ?>" alt="<?= $slide['background_image']['alt'] ?>">
 				</div>
@@ -32,7 +32,7 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 					</h2>
 					<?php if (!empty($slide['video_url'])): ?>
 						<div class="component-button component align-left margin-phone-top-4x ">
-							<button class="cta cta--video prepare-in-view" data-video-src="<?= $slide['video_url'] ?>">
+							<button class="cta video-button prepare-in-view" data-video-src="<?= $slide['video_url'] ?>">
 								<?php _e('Watch Video', '_flex') ?>
 							</a>
 						</div>
