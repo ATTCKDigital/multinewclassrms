@@ -35,9 +35,6 @@
             transform: translateY(-50%);
             height: auto;
             height: 0;
-        }
-
-        @include mediaquery('xl') {
             width: calc(100% + 270px);
             left: -135px;
         }
