@@ -3,6 +3,7 @@
 		align-items: flex-end;
 		display: flex;
 		justify-content: flex-start;
+		margin-top: 16px;
 
 		@include mediaquery('tablet-landscape') {
 			justify-content: center;

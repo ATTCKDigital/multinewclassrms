@@ -27,17 +27,17 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 				<div class="content">
 					<div class="side-row" style="background-color: <?= $slide['accent_color'] ?>;"></div>
 					<h1 class="headline6 is-style-headline6 align-left"><?= $slide['subtitle']; ?></h1>
-					<h2 class="headline1 is-style-headline1 align-left">
+					<h2 class="headline1 is-style-headline1 align-left margin-top-1x">
 						<?= $slide['title'] ?>
 					</h2>
 					<?php if (!empty($slide['video_url'])): ?>
-						<div class="component-button component align-left margin-phone-top-4x ">
+						<div class="component-button component align-left margin-top-4x margin-tablet-landscape-top-8x ">
 							<button class="cta video-button prepare-in-view" data-video-src="<?= $slide['video_url'] ?>">
 								<?php _e('Watch Video', '_flex') ?>
 							</a>
 						</div>
 					<?php endif; ?>
-					<nav class="slider-navigation">
+					<nav class="slider-navigation margin-top-4x margin-tablet-landscape-top-8x">
 						<ul class="dots-component">
 							<?php foreach ($slides as $i => $slide): ?>
 								<li class="dot <?= $i == $key ? 'active' : '' ?>">
