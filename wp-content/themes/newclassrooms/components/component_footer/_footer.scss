@@ -11,7 +11,7 @@
 		flex-direction: column-reverse;
 
 		@include mediaquery('tablet-portrait') {
-			flex-direction: column;
+			flex-direction: row;
 		}
 	}
 
@@ -47,7 +47,7 @@
 	// 	@include secondary-medium;
 	// }
 	
-	.copyright-desktop  {
+	.footer-copyright {
 		opacity: .75;
 		letter-spacing: 1.5px;
 

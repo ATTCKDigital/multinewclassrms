@@ -18,18 +18,18 @@
         echo Utils::render_template('components/component_social-media/social-media.php', array(
           "iconStyle"   => '',
           "alignment"      => 'align-left',
-          "colorClass"    => 'color-default-white',
-          "facebook"          => true,
-          "twitter"           => true,
-          "instagram"         => true,
+          "colorClass"    => 'color-default-white'
         ));
       ?>
+      <div class="flex-12-12 flex-tablet-portrait-0-12 margin-top-4x margin-tablet-portrait-top-0x">
+        <small class="display-block footer-copyright"><?= get_field('footer_copyright', 'options'); ?></small>
+      </div>
     </div>
     <div class="flex-desktop-7-12 flex-tablet-landscape-7-12 flex-tablet-portrait-7-12 flex-12-12 padding-bottom-4x padding-tablet-portrait-bottom-0x padding-tablet-portrait-right-1x">
       <?php
       echo Utils::render_template('components/component_footer/footer-nav.php');
       ?>
-      <div class="footer-nav-row margin-top-1x margin-tablet-portrait-top-2x">
+      <div class="footer-nav-row margin-top-1x margin-tablet-portrait-top-4x">
         <nav class="footer-secondary-nav flex-tablet-landscape-3-12 padding-tablet-portrait-right-3x" role="navigation" aria-label="Site navigation in the footer">
           <ul class="menu-items">
             <?php
@@ -41,10 +41,7 @@
             ?>		
           </ul>
         </nav>
-        <small class="display-block copyright-desktop flex-tablet-landscape-7-12"><?= get_field('footer_copyright', 'options'); ?></small>
-        <!-- <div class="flex-12-12 flex-tablet-portrait-0-12">
-          <small class="display-block"><?= get_field('footer_copyright', 'options'); ?></small>
-        </div> -->
+        <small class="display-block footer-copyright copyright-desktop flex-tablet-landscape-7-12"><?= get_field('footer_copyright', 'options'); ?></small>
       </div>
     </div>
   </div>
