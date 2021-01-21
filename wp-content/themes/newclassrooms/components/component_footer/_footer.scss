@@ -113,9 +113,9 @@
 	}
 
 	.menu-item + .menu-item {
-		@include mediaquery('tablet-portrait') {
-			padding-left: 10px;
-		}
+		// @include mediaquery('tablet-portrait') {
+		// 	padding-left: 10px;
+		// }
 
 		@include mediaquery('tablet-landscape') {
 			padding-left: 50px;
