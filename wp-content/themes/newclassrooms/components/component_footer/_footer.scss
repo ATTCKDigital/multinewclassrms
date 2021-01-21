@@ -1,12 +1,19 @@
 .component-footer {
 	background-color: color('brand', 'primary');
-	
-	* {
-		visibility: hidden; // For now
-	}
+	// * {
+	// 	visibility: hidden; // For now
+	// }
 
 	color: $white;
-	background: #191559;
+	background: $defaultTextColor;
+
+	.footer-wrapper {
+		flex-direction: column-reverse;
+
+		@include mediaquery('tablet-portrait') {
+			flex-direction: column;
+		}
+	}
 
 	.component-row {
 		padding-top: 65px;
@@ -34,11 +41,19 @@
 		}
 	}
 
-	p, p > span {
-		font-size: 10px;
+	// p, p > span {
+
+	// 	// text-transform: uppercase;
+	// 	@include secondary-medium;
+	// }
+	
+	.copyright-desktop  {
+		opacity: .75;
 		letter-spacing: 1.5px;
-		text-transform: uppercase;
-		@include secondary-medium;
+
+		p {
+			font-size: px-to-rem(10px);
+		}
 	}
 
 	.footer-nav {
@@ -46,24 +61,47 @@
 			padding: 0;
 			display: flex;
 			flex-wrap: wrap;
-			max-height: 160px;
-			flex-direction: column;
+			// max-height: 160px;
+			// flex-direction: column;
 
-			@include mediaquery('tablet-landscape') {
-				max-height: 170px;
+			& > .menu-item {
+				width: 50%;
+				margin-bottom: 30px;
+
+				@include mediaquery('tablet-landscape') {
+					width: auto;
+					max-width: 25%;
+					min-width: 100px;
+					margin-bottom: 0;
+				}
 			}
 		}
+	}
+
+	.footer-secondary-nav {
+		opacity: .8;
+
+		.menu-item {
+			@include secondary-regular;
+		}
+	}
+
+	.footer-nav-row {
+		// margin-top: 55px;
 	}
 
 	.menu-item {
 		display: block;
 		line-height: 1;
-		padding-left: $gap;
-		margin-bottom: $gap;
+		margin-bottom: 8px;
 		letter-spacing: 2px;
-		text-transform: uppercase;
+		// text-transform: uppercase;
 		font-size: px-to-rem(12px);
 		@include secondary-bold;
+
+		@include mediaquery('tablet-portrait') {
+			margin-bottom: $gap;
+		}
 
 		&:last-child {
 			margin-bottom: 0;
@@ -71,6 +109,26 @@
 
 		a {
 			text-decoration: none;
+		}
+	}
+
+	.menu-item + .menu-item {
+		@include mediaquery('tablet-portrait') {
+			padding-left: 10px;
+		}
+
+		@include mediaquery('tablet-landscape') {
+			padding-left: 50px;
+		}
+	}
+
+	.sub-menu {
+		opacity: .8;
+		margin-top: 24px;
+
+		.menu-item {
+			padding: 0;
+			@include secondary-regular;
 		}
 	}
 
