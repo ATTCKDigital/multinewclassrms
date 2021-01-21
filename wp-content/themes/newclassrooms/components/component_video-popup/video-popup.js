@@ -50,7 +50,7 @@ function VideoPopup ($el, params={}) {
 		console.log('/newclassrooms/\tcomponents	/\tcomponent_video-popup/\t	video-popup.js', 'render()');
 
 		$closeButton = $('.close-button', $el);
-		$watchButton = $('.cta--video', $el);
+		$watchButton = $('.video-button', $el);
 		$iframe = $('iframe', $el);
 		$popup = $('.component-video-popup');
 	}
