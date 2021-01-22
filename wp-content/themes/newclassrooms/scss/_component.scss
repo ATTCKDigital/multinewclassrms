@@ -1,0 +1,193 @@
+// Component Settings
+.component {
+	width: 100%;
+}
+
+// Bottom align elements in a row
+.component-alignment-bottom,
+.component-alignment-bottom .editor-block-list__layout {
+	display: flex;
+	align-items: flex-end;
+	align-content: flex-end;
+	height: 100%;
+}
+
+// Center align elements in a row
+.component-alignment-center, 
+.component-alignment-center .editor-block-list__layout {
+	display: flex;
+	align-items: center;
+	align-content: center;
+	height: 100%;
+}
+
+// Stretch elements in a row
+.component-alignment-stretch, 
+.component-alignment-stretch .editor-block-list__layout {
+	display: flex;
+	align-items: stretch;
+	height: 100%;
+}
+
+// Top align elements in a row
+.component-alignment-top, 
+.component-alignment-top .editor-block-list__layout {
+	display: flex;
+	align-items: flex-start;
+	align-content: flex-start;
+}
+
+.component-column {
+	&.column-align-left {
+		display: block !important;
+		margin-left: 0 !important;
+		margin-right: auto !important;
+	}
+
+	&.column-align-center {
+		display: block !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+
+	&.column-align-right {
+		display: block !important;
+		margin-left: auto !important;
+		margin-right: 0 !important;
+	}
+}
+
+.component-row {
+	height: auto;
+	position: relative;
+	width: 100%;
+	z-index: 2;
+
+	@include mediaquery-max-width(tablet-portrait) {
+		// reverse media query to avoid extra css
+		&.component-row-reverse-mobile {
+			.flex-grid {
+				display: flex;
+				flex-direction: column-reverse;
+				flex-wrap: inherit;
+				
+				&:after {
+					display: none;
+				}
+			}
+		}
+	}
+
+	&.zindexTop {
+		z-index: 1000;
+	}
+}
+
+// Row block in 2 widths
+.component-row-wide {
+	margin: 0 auto;
+	max-width: $siteWidth;
+	padding: 0 20px;
+	position: relative;
+	width: 100%;
+
+	@include mediaquery(desktop)  {
+		padding: 0;
+	}
+
+}
+
+// Remove padding on a row without making it full bleed
+@include mediaquery-max-width(desktop) {
+	// reverse media query to avoid extra css
+	.component-row-no-padding {
+		.component-row-wide {
+			padding: 0;
+		}
+	}
+}
+
+.component-row-full {
+	margin: 0 auto;
+	max-width: none;
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+//Fixed row heights
+
+.component-row-height-none {
+	height: 100%;
+}
+
+.component-row-height-small {
+	height: $small-row-mobile;
+	overflow: hidden;
+
+	@include mediaquery(tablet-portrait)  {
+		height: $small-row;
+
+	}
+
+	.wp-admin & {
+		min-height: $small-row-mobile;
+		height: auto;
+
+		@include mediaquery(tablet-portrait)  {
+			min-height: $small-row;
+			height: auto;
+
+		}
+	}
+}
+
+.component-row-height-medium {
+	height: $medium-row-mobile;
+	overflow: hidden;
+
+	@include mediaquery(tablet-portrait)  {
+		height: $medium-row;
+
+	}
+
+	.wp-admin & {
+		min-height: $medium-row-mobile;
+		height: auto;
+
+		@include mediaquery(tablet-portrait)  {
+			min-height: $medium-row;
+			height: auto;
+
+		}
+	}
+}
+
+.component-row-height-large {
+	height: $large-row-mobile;
+	overflow: hidden;
+
+	@include mediaquery(tablet-portrait)  {
+		height: $large-row;
+
+	}
+
+	.wp-admin & {
+		min-height: $large-row-mobile;
+		height: auto;
+
+		@include mediaquery(tablet-portrait)  {
+			min-height: $large-row;
+			height: auto;
+		}
+	}
+}
+
+.component-row-height-full-height {
+	height: 100vh;
+	overflow: hidden;
+
+	.component-row {
+		height: 100%;
+	}
+}
