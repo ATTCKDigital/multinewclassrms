@@ -137,15 +137,15 @@
 	}
 
 	.menu-items {
-		margin: auto;
-		display: flex;
 		align-items: center;
+		display: flex;
 		justify-content: center;
+		margin: auto;
 
 		@include mediaquery-max-width(tablet-landscape) {
-			//Mobile only mediaquery so less overrides are necessary
-			text-align: center;
+			// Mobile only mediaquery so less overrides are necessary
 			flex-direction: column;
+			text-align: center;
 
 			> .menu-item:not(:first-of-type) {
 				margin-top: 30px;
@@ -153,11 +153,11 @@
 		}
 
 		@include mediaquery(tablet-landscape)  {
-			//Large mobile +
-			width: 100%;
-			height: 100%;
+			// Large mobile +
 			display: flex;
+			height: 100%;
 			position: relative;
+			width: 100%;
 		}
 	}
 
@@ -169,8 +169,11 @@
 		position: relative;
 		letter-spacing: 0.5px;
 		text-transform: uppercase;
-		color: $white;
 		@include secondary-semi;
+
+		.home & {
+			color: $white;
+		}
 
 		@include mediaquery-max-width(tablet-landscape) {
 			//Mobile only mediaquery so less overrides are necessary
