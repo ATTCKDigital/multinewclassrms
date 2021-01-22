@@ -4,12 +4,11 @@
 .body1,
 .is-style-body1 p,
 .is-style-body1 {
-	font-size: 14px;
-	line-height: 1.3;
-	margin-bottom: $gap;
+	font-size: 17px;
 	letter-spacing: 0;
+	line-height: 1.6;
+	margin-bottom: $gap;
 	@include primary-regular;
-
 
 	&:last-child {
 		margin-bottom: 0;
@@ -20,9 +19,9 @@
 .is-style-body2 p,
 .is-style-body2 {
 	font-size: 16px;
+	letter-spacing: 0;
 	line-height: 1.3;
 	margin-bottom: $gap;
-	letter-spacing: 0;
 	@include primary-regular;
 
 	&:last-child {
@@ -120,7 +119,7 @@
 		}
 	}
 
-	//ctas and links
+	// CTAs and links
 	& + a {
 		margin-top: $gap*1.5;
 	}
@@ -153,7 +152,7 @@
 		text-decoration: none;
 	}
 
-	//list styles
+	// List styles
 	ul,
 	ol {
 		margin-left: $gap*.75;
@@ -219,4 +218,3 @@
 		margin-bottom: $gap;
 	}
 }
-

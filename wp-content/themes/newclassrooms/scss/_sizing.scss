@@ -1,6 +1,5 @@
 $gap						: 16px;
 $siteWidth					: 1024px;
-$navWidth					: 1368px;
 $navMobileHeight			: 56px;
 $navHeight					: 80px;
 $positions					: top, left, bottom, right;
@@ -29,19 +28,19 @@ $max-desktop				: 1099px;
 $max-xl						: 1279px;
 $max-xl2					: 1439px;
 
-//Fixed row heights
+// Fixed row heights
 $small-row-mobile			: 50vh;
 $small-row					: 400px;
 $medium-row-mobile			: 100vh;
 $medium-row					: 500px;
 $large-row-mobile			: 100vh;
-$large-row					: 700px;
+$large-row					: 80vh;
 
 // Responsive Font Size Map
-//
-// Add as many as needed.
-// Add fonts sizes for each break point. Font sizes will be converted to rems.
-// Usage:  @include font-size($font-size)
+// — Add as many as needed.
+// — Add fonts sizes for each break point. 
+// — Font sizes will be converted to rems.
+// — USAGE:  @include font-size($font-size)
 $font-size-body-text: (
 	'default'			: 16px,
 	'phone'				: 16px,
@@ -77,6 +76,7 @@ $font-size-default: (
 
 $font-size-headline1: (
 	'phone'				: 44px,
+	'phone-plus'		: 44px,
 	'tablet-portrait'	: 44px,
 	'tablet-landscape'	: 72px,
 	'desktop'			: 72px,
@@ -85,25 +85,38 @@ $font-size-headline1: (
 );
 
 $font-size-headline2: (
-	'phone'				: 36px,
-	'tablet-portrait'	: 36px,
-	'tablet-landscape'	: 48px,
-	'desktop'			: 48px,
-	'xl'				: 48px,
-	'xl2'				: 48px,
+	'phone'				: 42px,
+	'phone-plus'		: 42px,
+	'tablet-portrait'	: 42px,
+	'tablet-landscape'	: 51px,
+	'desktop'			: 51px,
+	'xl'				: 51px,
+	'xl2'				: 51px,
 );
 
+// $font-size-headline3: (
+// 	'phone'				: 28px,
+// 	'phone-plus'		: 28px,
+// 	'tablet-portrait'	: 28px,
+// 	'tablet-landscape'	: 32px,
+// 	'desktop'			: 32px,
+// 	'xl'				: 32px,
+// 	'xl2'				: 32px,
+// );
+
 $font-size-headline3: (
-	'phone'				: 28px,
-	'tablet-portrait'	: 28px,
-	'tablet-landscape'	: 32px,
-	'desktop'			: 32px,
-	'xl'				: 32px,
-	'xl2'				: 32px,
+	'phone'				: 29px,
+	'phone-plus'		: 29px,
+	'tablet-portrait'	: 29px,
+	'tablet-landscape'	: 36px,
+	'desktop'			: 36px,
+	'xl'				: 36px,
+	'xl2'				: 36px,
 );
 
 $font-size-headline4: (
 	'phone'				: 22px,
+	'phone-plus'		: 22px,
 	'tablet-portrait'	: 22px,
 	'tablet-landscape'	: 24px,
 	'desktop'			: 24px,
@@ -113,6 +126,7 @@ $font-size-headline4: (
 
 $font-size-headline5: (
 	'phone'				: 16px,
+	'phone-plus'		: 16px,
 	'tablet-portrait'	: 16px,
 	'tablet-landscape'	: 20px,
 	'desktop'			: 20px,
@@ -122,6 +136,7 @@ $font-size-headline5: (
 
 $font-size-headline6: (
 	'phone'				: 14px,
+	'phone-plus'		: 14px,
 	'tablet-portrait'	: 14px,
 	'tablet-landscape'	: 14px,
 	'desktop'			: 14px,
@@ -137,10 +152,11 @@ $font-size-headline6: (
 	}
 }
 
-/** Convert px to rem **/
-// Usage:  font-size: px-to-rem(12px);
+/**
+ * Converts px to rem 
+ * — USAGE:  font-size: px-to-rem(12px);
+ */
 @function px-to-rem($size) {
 	$remSize: $size / 13px;
 	@return #{$remSize}rem;
 }
-

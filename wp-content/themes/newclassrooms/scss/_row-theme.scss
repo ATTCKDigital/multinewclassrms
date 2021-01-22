@@ -1,6 +1,3 @@
-/**
- * Row Theme Settings
- */
 .component-image-background, 
 .component-color-background, 
 .component-video-background {
@@ -26,11 +23,11 @@
 		}
 	}
 
-	&.video-width-50 { .video-container { width: 50%; } }
-	&.video-width-60 { .video-container { width: 60%; } }
-	&.video-width-70 { .video-container { width: 70%; } }
-	&.video-width-80 { .video-container { width: 80%; } }
-	&.video-width-90 { .video-container { width: 90%; } }
+	&.video-width-50  { .video-container { width: 50%;  } }
+	&.video-width-60  { .video-container { width: 60%;  } }
+	&.video-width-70  { .video-container { width: 70%;  } }
+	&.video-width-80  { .video-container { width: 80%;  } }
+	&.video-width-90  { .video-container { width: 90%;  } }
 	&.video-width-100 { .video-container { width: 100%; } }
 
 	&.full-video-container {

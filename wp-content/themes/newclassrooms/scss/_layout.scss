@@ -1,3 +1,91 @@
+@mixin verticalCenter() {
+	display: flex;
+	align-items: center;
+}
+
+@mixin allCenter() {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin horizontalCenter() {
+	display: flex;
+	justify-content: center;
+}
+
+@mixin cssColumns($columns, $colGap, $break) {
+	column-count:$columns;
+	column-gap: $colGap;
+	page-break-inside: $break; /* Firefox */
+	break-inside: $break;
+}
+
+// Clearfix: contain floats
+// Available as class or mixin
+.clearfix:before,
+.clearfix:after {
+	content: " "; // 1
+	display: table; // 2
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+@mixin clearRow {
+	&:after {
+		clear: both;
+		content: '';
+		display: block;
+		height: 0;
+		width: 100%;
+	}
+}
+
+// Helper Classes
+.align-center,
+.text-align-center {
+	text-align: center;
+}
+
+.align-left,
+.text-align-left {
+	text-align: left;
+}
+
+.align-right,
+.text-align-right {
+	text-align: right;
+}
+
+.block {
+	display: block !important;
+}
+
+.center,
+.block-align-center {
+	margin: 0 auto !important;
+}
+
+.float-left,
+.block-align-left {
+	float: left !important;
+}
+
+.float-right,
+.block-align-right {
+	float: right !important;
+}
+
+.nofloat {
+	float: none;
+}
+
+.relative {
+	position: relative !important;
+}
+
 .popup-open {
     overflow: hidden;
 
