@@ -1,0 +1,27 @@
+.component-colortile {
+	position: relative;
+	top: -30px;
+
+	// !important needed to override default component fade animation
+	transition: top 3s cubic-bezier(0, 0, 0.04, 0.96) !important;
+
+	&:before {
+		content: "";
+		display: block;
+		background: color('default', 'white');
+		position: absolute;
+		top: -160px;
+		left: 40px;
+		width: 6px;
+		height: 100%;
+		transition: top 2s cubic-bezier(0, 0, 0.04, 0.96);
+	}
+
+	&.element-in-view {
+		top: 0;
+
+		&:before {
+			top: -30px;
+		}
+	}
+}
