@@ -1,5 +1,3 @@
-
-
 // Global Nav & Header behavior
 function Nav($el) {
 	// Cache the body
