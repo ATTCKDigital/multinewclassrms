@@ -58,11 +58,11 @@
 }
 
 .component-image-background {
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: cover;
-
 	&.component-image-background-wide {
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+
 		&:before {
 			content: '';
 			display: block;
