@@ -130,14 +130,14 @@ label,
 		position: relative;
 
 		&:after {
-			border-radius: 0px;
+			border-radius: 2px;
 			border: 1px solid $borderColor;
 			content: '';
-			height: 24px;
+			height: 22px;
 			left: 0;
 			position: absolute;
 			top: -1px;
-			width: 24px;
+			width: 22px;
 		}
 
 		&:before {
@@ -149,8 +149,8 @@ label,
 			font-size: 13px;
 			left: 7px;
 			position: absolute;
-			top: 4px;
-			width: 8px;
+			top: 2px;
+			width: 6px;
 			z-index: 1;
 			display: none;
 		}

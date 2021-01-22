@@ -3,7 +3,7 @@
     <div class="flex-tablet-landscape-5-12 flex-tablet-portrait-5-12 flex-12-12 padding-tablet-portrait-right-8x padding-tablet-landscape-right-16x">
       <div class="newsletter margin-botoom-1x margin-tablet-portrait-bottom-3x">
         <h3 class="is-style-default is-style-headline6 margin-bottom-1x margin-tablet-portrait-bottom-3x">Signup for newsletter</h3>
-        <div class="component-newsletter newsletter-light component">
+        <div class="component-newsletter newsletter-light newsletter-footer component">
           <?php
           $embedCode = get_field('newsletter_embed_code', 'options');
 

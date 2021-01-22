@@ -21,7 +21,7 @@
 
     .nav-buttons {
         position: absolute;
-        bottom: -80px;
+        bottom: -70px;
         left: 0;
         display: flex;
         justify-content: center;
@@ -112,7 +112,7 @@
             }
 
             .quote-container {
-                margin-bottom: 24px;
+                margin-bottom: 12px;
                 padding: 0;
 
                 @include mediaquery('tablet-landscape') {
