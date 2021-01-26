@@ -3,30 +3,30 @@
 // NOTE: Import order shouldn't be changed in this group as subsequent
 // files rely on mixins and variables in files included earlier
 // TODO: Find better way to enforce load order. -DP
-@import '../../FLEX/scss/_css-vars.scss';
-@import '../../FLEX/scss/_sass-utils.scss';
-@import '../../FLEX/scss/_reset.scss';
+@import '_css-vars.scss';
+@import '_sass-utils.scss';
+@import '_reset.scss';
 // @import '../../FLEX/scss/_wysiwyg.scss';
 @import '_sizing.scss';
-@import '../../FLEX/scss/_media-queries.scss';
-@import '../../FLEX/scss/_grid.scss';
+@import '_media-queries.scss';
+@import '_grid.scss';
 @import '_fonts.scss';
-@import '../../FLEX/scss/_fonts-mixins.scss';
+@import '_fonts-mixins.scss';
 @import '_colors.scss';
-@import '../../FLEX/scss/_debug.scss';
-@import '../../FLEX/scss/_global.scss';
+@import '_debug.scss';
+@import '_global.scss';
 @import '_layout.scss';
 @import '_component.scss';
-@import '../../FLEX/scss/_hidden.scss';
+@import '_hidden.scss';
 @import '_row-theme.scss';
-@import '../../FLEX/scss/_popups-overlays.scss';
-@import '../../FLEX/scss/_animations.scss';
-@import '../../FLEX/scss/_images.scss';
+@import '_popups-overlays.scss';
+@import '_animations.scss';
+@import '_images.scss';
 @import '_typography-base.scss';
 @import '_body-text.scss';
-@import '../../FLEX/scss/_iconography.scss';
+@import '_iconography.scss';
 @import '_forms.scss';
-@import '../../FLEX/scss/_styleguide.scss';
+@import '_styleguide.scss';
 // @import '../../FLEX/scss/_admin-styles.scss';
 
 // Gutenberg Blocks

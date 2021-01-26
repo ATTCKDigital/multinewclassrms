@@ -1,8 +1,10 @@
-/**** Global Iconography ****/
+@import '../../FLEX/scss/_iconography.scss';
+
 .hamburger-wrapper {
-  height: 56px;
+	height: 56px;
 }
+
 .hamburger {
-  border-top: none;
-  top: 17px;
+	border-top: none;
+	top: 17px;
 }
