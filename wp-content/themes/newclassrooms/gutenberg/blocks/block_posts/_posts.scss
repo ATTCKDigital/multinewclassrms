@@ -1,4 +1,5 @@
 .component-archive-posts {
+  $card-border-radius: 10px;
 
   .categories {
     width: 100%;
@@ -10,6 +11,7 @@
   .cat-list {
     max-width: 83.3333%;
     margin: 0 auto;
+    align-items: flex-end;
 
     .cat-item + .cat-item {
       margin-left: 0;
@@ -26,6 +28,87 @@
         color: $defaultTextColor;
       }
     }
+
+    .cat-button {
+      &::before {
+        content: '';
+        background-image: url(../assets/images/category-icons/Thought_Leadership_Positive.svg);
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 18px;
+        width: 18px;
+        margin-right: 5px;
+      }
+    }
+
+    &.cat-events {
+      .cat-button {
+        &::before {
+          background-image: url(../assets/images/category-icons/Event_Negative.svg);
+        }
+      }
+
+      &.active,
+      &:hover {
+        .cat-button {
+          &::before {
+            background-image: url(../assets/images/category-icons/Event_Positive.svg);
+          }
+        }
+      }
+    }
+
+    &.cat-news {
+      .cat-button {
+        &::before {
+          background-image: url(../assets/images/category-icons/News_Negative.svg);
+        }
+      }
+
+      &.active,
+      &:hover {
+        .cat-button {
+          &::before {
+            background-image: url(../assets/images/category-icons/News_Positive.svg);
+          }
+        }
+      }
+    }
+
+    &.cat-partner-updates {
+      .cat-button {
+        &::before {
+          background-image: url(../assets/images/category-icons/Partner_Updates_Negative.svg);
+        }
+      }
+
+      &.active,
+      &:hover {
+        .cat-button {
+          &::before {
+            background-image: url(../assets/images/category-icons/Partner_Updates_Positive.svg);
+          }
+        }
+      }
+    }
+    
+    &.cat-thought-leadership {
+      .cat-button {
+        &::before {
+          background-image: url(../assets/images/category-icons/Thought_Leadership_Negative.svg);
+        }
+      }
+
+      &.active,
+      &:hover {
+        .cat-button {
+          &::before {
+            background-image: url(../assets/images/category-icons/Thought_Leadership_Positive.svg);
+          }
+        }
+      }
+    }
   }
 
   .cat-button {
@@ -36,6 +119,10 @@
     transition: background-color .3s, color .3s;
     padding: 16px 16px 8px 16px;
     font-weight: 600;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
       opacity: 1;
@@ -48,8 +135,10 @@
   }
 
   .sort-filter {
+    justify-content: flex-end;
+    
     label {
-      font-weight: 600;
+      font-weight: 500;
       margin-bottom: 0;
     }
   }
@@ -58,6 +147,9 @@
     font-weight: 600;
     border: none;
     outline: none;
+    color: $defaultTextColor;
+    margin-left: 10px;
+    font-family: $primaryRegular;
 
     &:focus {
       border: none;
@@ -88,11 +180,13 @@
   }
 
   .posts-item-wrapper {
-    border-radius: 10px;
+    border-radius: $card-border-radius;
     border: $light-gray 1px solid;
     transition: box-shadow .3s;
     position: relative;
     height: 320px;
+    display: flex;
+    flex-direction: column;
 
     &::before {
       content: '';
@@ -100,7 +194,7 @@
       z-index: -1;
       width: 100%;
       height: 100%;
-      border-radius: 10px;
+      border-radius: $card-border-radius;
       top: 1px;
       left: 0;
       opacity: 0;
@@ -110,14 +204,43 @@
   }
 
   .image-wrapper {
-    border-radius: 10px 10px 0 0;
+    border-radius: $card-border-radius $card-border-radius 0 0;
     overflow: hidden;
+    height: 140px;
+    background-color: $defaultTextColor;
   }
 
   .post-content {
     display: flex;
     flex-direction: column;
     padding: 16px 16px 24px 16px;
+    position: relative;
+    flex-grow: 1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      right: 8px;
+      top: -16px;
+      background-color: $white;
+      border: $light-gray 1px solid;
+      height: 31px;
+      width: 31px;
+      border-radius: 100%;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 15px;
+      top: -10px;
+      background-image: url(../assets/images/category-icons/Thought_Leadership_Positive.svg);
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 18px;
+      width: 18px;
+    }
   }
 
   .cta-link {
@@ -125,6 +248,7 @@
     bottom: 24px;
     left: 16px;
     width: 100%;
+    font-weight: 600;
 
     &::after {
       content: '';
@@ -134,9 +258,46 @@
 
   .post-date {
     text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 500;
   }
 
   .post-title {
     padding-bottom: 16px;
+    padding-right: 60px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .post-category-news {
+    .post-content {
+      &::after {
+        background-image: url(../assets/images/category-icons/News_Positive.svg);
+      }
+    }
+  }
+
+  .post-category-events {
+    .post-content {
+      &::after {
+        background-image: url(../assets/images/category-icons/Event_Positive.svg);
+      }
+    }
+  }
+
+  .post-category-partner-updates {
+    .post-content {
+      &::after {
+        background-image: url(../assets/images/category-icons/Partner_Updates_Positive.svg);
+      }
+    }
+  }
+
+  .post-category-thought-leadership {
+    .post-content {
+      &::after {
+        background-image: url(../assets/images/category-icons/Thought_Leadership_Positive.svg);
+      }
+    }
   }
 }
