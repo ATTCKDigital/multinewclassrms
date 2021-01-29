@@ -57,6 +57,29 @@
 	}
 }
 
+.component-image-background {
+	&.component-image-background-wide {
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		&:before {
+			content: '';
+			display: block;
+			// background-color: rgba(255, 0, 0, 0.3);
+			// background-image: url(http://local.newclassrooms.org/wp-content/uploads/Oval.png);
+			background-repeat: no-repeat;
+			background-size: 50%;
+			background-position: center center;
+			bottom: -100%;
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: -100%;
+		}
+	}
+}
+
 .component-row {
 	height: auto;
 	position: relative;
