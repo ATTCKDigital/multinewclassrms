@@ -9,123 +9,173 @@
   }
 
   .cat-list {
-    max-width: 83.3333%;
-    margin: 0 auto;
     align-items: flex-end;
+    flex-direction: column;
+    display: none;
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    z-index: 1;
+    border: 1px $light-gray solid;
+    margin: 0;
+
+    @include mediaquery('tablet-portrait') {
+      max-width: 83.3333%;
+      margin: 0 auto;
+    }
+
+    @include mediaquery('tablet-landscape') {
+      flex-direction: row;
+      position: relative;
+      transform: none;
+      display: flex;
+      left: auto;
+      top: auto;
+      border: none;
+    }
 
     .cat-item + .cat-item {
+      margin-top: -1px;
       margin-left: 0;
+
+      @include mediaquery('tablet-landscape') {
+        margin-left: -1px;
+        margin-top: 0;
+      }
     }
   }
 
   .cat-item {
     width: 100%;
-
-    &.active,
-    &:hover {
-      .cat-button {
-        background-color: $white;
-        color: $defaultTextColor;
-      }
-    }
-
-    .cat-button {
-      &::before {
-        content: '';
-        background-image: url(../assets/images/category-icons/Thought_Leadership_Positive.svg);
-        background-position: 50%;
-        background-repeat: no-repeat;
-        background-size: contain;
-        height: 18px;
-        width: 18px;
-        margin-right: 5px;
-      }
-    }
-
-    &.cat-events {
-      .cat-button {
-        &::before {
-          background-image: url(../assets/images/category-icons/Event_Negative.svg);
-        }
-      }
-
-      &.active,
-      &:hover {
-        .cat-button {
-          &::before {
-            background-image: url(../assets/images/category-icons/Event_Positive.svg);
-          }
-        }
-      }
-    }
-
-    &.cat-news {
-      .cat-button {
-        &::before {
-          background-image: url(../assets/images/category-icons/News_Negative.svg);
-        }
-      }
-
-      &.active,
-      &:hover {
-        .cat-button {
-          &::before {
-            background-image: url(../assets/images/category-icons/News_Positive.svg);
-          }
-        }
-      }
-    }
-
-    &.cat-partner-updates {
-      .cat-button {
-        &::before {
-          background-image: url(../assets/images/category-icons/Partner_Updates_Negative.svg);
-        }
-      }
-
-      &.active,
-      &:hover {
-        .cat-button {
-          &::before {
-            background-image: url(../assets/images/category-icons/Partner_Updates_Positive.svg);
-          }
-        }
-      }
-    }
-    
-    &.cat-thought-leadership {
-      .cat-button {
-        &::before {
-          background-image: url(../assets/images/category-icons/Thought_Leadership_Negative.svg);
-        }
-      }
-
-      &.active,
-      &:hover {
-        .cat-button {
-          &::before {
-            background-image: url(../assets/images/category-icons/Thought_Leadership_Positive.svg);
-          }
-        }
-      }
-    }
   }
 
   .cat-button {
     background-color: $defaultTextColor;
     color: $white;
-    border-radius: 10px 10px 0 0;
     width: 100%;
     transition: background-color .3s, color .3s;
-    padding: 16px 16px 8px 16px;
+    padding: 16px;
     font-weight: 600;
     text-transform: uppercase;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1rem;
+
+    @include mediaquery('tablet-landscape') {
+      padding: 16px 16px 8px 16px;
+    }
+
+    &.active,
+    &:hover {
+      background-color: $white;
+      color: $defaultTextColor;
+    }
+
+    &.active {
+      display: none;
+    
+      @include mediaquery('tablet-landscape') {
+        display: flex;
+      }
+    }
+
+    &::before {
+      content: '';
+      background-image: url(../assets/images/category-icons/Thought_Leadership_Positive.svg);
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 18px;
+      width: 18px;
+      margin-right: 5px;
+    }
+
+    @include mediaquery('tablet-landscape') {
+      border-radius: 10px 10px 0 0;
+    }
 
     &:hover {
       opacity: 1;
+    }
+  }
+
+  .cat-events {
+    &::before {
+      background-image: url(../assets/images/category-icons/Event_Negative.svg);
+    }
+
+    &.active,
+    &:hover {
+      &::before {
+        background-image: url(../assets/images/category-icons/Event_Positive.svg);
+      }
+    }
+  }
+
+  .cat-news {
+    &::before {
+      background-image: url(../assets/images/category-icons/News_Negative.svg);
+    }
+
+    &.active,
+    &:hover {
+      &::before {
+        background-image: url(../assets/images/category-icons/News_Positive.svg);
+      }
+    }
+  }
+
+  .cat-partner-updates {
+    &::before {
+      background-image: url(../assets/images/category-icons/Partner_Updates_Negative.svg);
+    }
+
+    &.active,
+    &:hover {
+      &::before {
+        background-image: url(../assets/images/category-icons/Partner_Updates_Positive.svg);
+      }
+    }
+  }
+
+  .cat-thought-leadership {
+    &::before {
+      background-image: url(../assets/images/category-icons/Thought_Leadership_Negative.svg);
+    }
+
+    &.active,
+    &:hover {
+      &::before {
+        background-image: url(../assets/images/category-icons/Thought_Leadership_Positive.svg);
+      }
+    }
+  }
+
+  .cat-dropdown {
+    background: $white;
+    color: $defaultTextColor;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    margin-bottom: -1px;
+
+    &.active {
+      background-color: $white;
+      color: $defaultTextColor;
+      display: flex;
+    }
+
+    @include mediaquery('tablet-portrait') {
+      max-width: 83.3333%;
+      margin: 0 auto;
+    }
+
+    @include mediaquery('tablet-landscape') {
+      &.active {
+        display: none;
+      }
     }
   }
 
@@ -136,41 +186,44 @@
 
   .sort-filter {
     justify-content: flex-end;
-    
+
     label {
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: 0;
     }
   }
 
-  .dropdown {
-    font-weight: 600;
-    border: none;
-    outline: none;
-    color: $defaultTextColor;
-    margin-left: 10px;
-    font-family: $primaryRegular;
+  .dropdown-button {
+    transition: color .3s;
 
-    &:focus {
-      border: none;
+    &:hover {
+      color: color('brand', 'accent');
     }
+  }
 
-    option {
-      font-weight: 600;
-
-      &:checked {
-        display: none;
-      }
-    }
+  .dropdown-list {
+    border-radius: 5px;
   }
 
   .posts-items {
     margin: -16px -8px;
-    padding-bottom: 64px;
-  } 
+    // padding-bottom: 64px;
+  }
 
   .posts-item {
     padding: 8px 5px;
+    min-width: 100%;
+    flex-grow: 1;
+
+    
+    @include mediaquery('tablet-portrait') {
+      min-width: 360px;
+    }
+
+    @include mediaquery('tablet-landscape') {
+      min-width: unset;
+      flex-grow: 0;
+    }
 
     &:hover {
       .posts-item-wrapper::before {
@@ -187,6 +240,12 @@
     height: 320px;
     display: flex;
     flex-direction: column;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
 
     &::before {
       content: '';
@@ -206,16 +265,25 @@
   .image-wrapper {
     border-radius: $card-border-radius $card-border-radius 0 0;
     overflow: hidden;
-    height: 140px;
+    height: 190px;
     background-color: $defaultTextColor;
+
+    @include mediaquery('tablet-landscape') {
+      height: 140px;
+    }
   }
 
   .post-content {
     display: flex;
     flex-direction: column;
-    padding: 16px 16px 24px 16px;
+    padding: 16px;
     position: relative;
     flex-grow: 1;
+    background: $white;
+
+    @include mediaquery('tablet-landscape') {
+      padding: 16px 16px 24px 16px;
+    }
 
     &::before {
       content: '';
@@ -246,13 +314,31 @@
   .cta-link {
     position: absolute;
     bottom: 24px;
-    left: 16px;
+    left: 0;
+    padding: 0 16px;
     width: 100%;
     font-weight: 600;
 
+
     &::after {
       content: '';
+      position: absolute;
+      right: 16px;
+      top: 0;
+      background-image: url(../assets/images/Cta_Arrow.svg);
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 10px;
+      width: 20px;
+      animation: move-cta-arrow 1s infinite ease-in-out;
+      animation-play-state: paused;
+    }
 
+    &:hover {
+      &::after {
+        animation-play-state: running;
+      }
     }
   }
 
@@ -266,6 +352,7 @@
     padding-bottom: 16px;
     padding-right: 60px;
     font-weight: 600;
+    font-size: 1.2rem;
     line-height: 1.4;
   }
 
@@ -299,5 +386,40 @@
         background-image: url(../assets/images/category-icons/Thought_Leadership_Positive.svg);
       }
     }
+  }
+
+  .pagination-nav {
+    margin-top: 64px;
+    
+    .page-numbers {
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .next,
+    .prev {
+      border: none;
+      background-image: url(../assets/images/Pagination_Right_Arrow.svg);
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 12px;
+      width: 12px;
+    }
+
+    .prev {
+      transform: rotate(180deg);
+      left: 0;
+    }
+
+    .next {
+      transform: rotate(0);
+    }
+  }
+}
+
+@keyframes move-cta-arrow {
+  50% {
+    transform: translateX(-50%);
   }
 }
