@@ -10,12 +10,21 @@
 			<?php 
 				$customLogoID = get_theme_mod( 'custom_logo' );
 				$customLogoURL = wp_get_attachment_image_url( $customLogoID , 'full' );
+				$secondaryLogoID = get_field('secondary_logo', 'options');
+				$secondaryLogoURL = wp_get_attachment_image_url( $secondaryLogoID , 'full' );
 			?>
 			<img 
 				src="<?= $customLogoURL;?>" 
 				class="nav-logo" 
 				alt="<?= bloginfo('name');?>" 
-				title="<?= bloginfo('name');?>" />
+				title="<?= bloginfo('name');?>" 
+			/>
+			<img 
+				src="<?= $secondaryLogoURL;?>" 
+				class="nav-logo secondary-nav-logo" 
+				alt="<?= bloginfo('name');?>" 
+				title="<?= bloginfo('name');?>" 
+			/>
 		</a>
 		<div class="hamburger-wrapper">
 			<mark class="hamburger"></mark>

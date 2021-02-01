@@ -67,10 +67,10 @@
 			height: 32px;
 			object-fit: contain;
 			width: auto;
+		}
 
-			&.logo-white {
-				display: none;
-			}
+		.secondary-nav-logo {
+			display: none;
 		}
 	}
 
@@ -330,10 +330,10 @@
 				content: '';
 				height: 12px;
 				width: 12px;
-				background: url(../assets/images/Language_Header_Negative.png);
+				background-image: url(../assets/images/Language_Header_Negative.png);
 				margin-right: 5px;
 				background-size: contain;
-
+    		background-repeat: no-repeat;
 			}
 		}
 
@@ -376,6 +376,50 @@
 					content: '/';
 				}
 			}
+		}
+	}
+
+	.logoDark & {
+		.nav-logo {
+			display: none;
+		}
+
+		.secondary-nav-logo {
+			display: block;
+		}
+
+		.menu-item {
+			color: $defaultTextColor;
+		}
+
+		.languages {
+			&::before {
+				background-image: url(../assets/images/Language_Header_Positive.png);
+			}
+		}
+
+		.language {
+			color: $defaultTextColor;
+		}
+
+		.menu-item-has-children {
+			&::after {
+				border-top-color: $defaultTextColor;
+			}
+		}
+	}
+	
+	.logoLight & {
+		.nav-logo {
+			display: block;
+		}
+
+		.secondary-nav-logo {
+			display: none;
+		}
+
+		.menu-item {
+			color: $white;
 		}
 	}
 }

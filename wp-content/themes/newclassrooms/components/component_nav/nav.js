@@ -56,7 +56,7 @@ function Nav($el) {
 	function logoColor($el) {
 		// Change the logo color as you scroll down the page. Can also be used to change the hamburger color. Make color changes using CSS.
 		var row = $('.component-row');
-		var footer = $('.global-footer').offset().top
+		var footer = $('.component-footer').offset().top
 
 		$(document.body).bind('FLEX.scroll', function (e, data) {
 			var viewportHeight = data.viewportHeight;
@@ -67,7 +67,7 @@ function Nav($el) {
 				var logoColor = $(this).data('logo-color');
 
 				if (rowTop <= scrollTop + 20 ) {
-					if (logoColor === 'logo-color-white') {
+					if (logoColor === 'logo-color-light') {
 						$body.addClass('logoLight').removeClass('logoDark');
 					}
 
@@ -90,6 +90,7 @@ function Nav($el) {
 	function bindEvents() {
 		$el.find('.hamburger-wrapper').on('click', navToggle);
 
+		logoColor();
 		scrolledNav();
 
 		// Detect if the page was initialized with a different scroll position
