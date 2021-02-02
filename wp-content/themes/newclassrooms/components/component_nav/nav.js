@@ -67,17 +67,11 @@ function Nav($el) {
 				var logoColor = $(this).data('logo-color');
 
 				if (rowTop <= scrollTop + 20 ) {
-					if (logoColor === 'logo-color-light') {
-						$body.addClass('logoLight').removeClass('logoDark');
-					}
-
-					if (logoColor === 'logo-color-dark') {
-						$body.addClass('logoDark').removeClass('logoLight');
-					}
+					setLogoClass(logoColor);
 				}
 
 				if (scrollTop === 0 ) {
-					$body.removeClass('logoDark logoLight');
+					setLogoClass(logoColor);		
 				}
 			});
 
@@ -87,9 +81,27 @@ function Nav($el) {
 		});
 	}
 
+	function initLogoColor() {
+		var $row = $('.component-row').first();
+		var logoColor = $row.data('logo-color');
+
+		setLogoClass(logoColor);
+	}
+
+	function setLogoClass(logoColor) {
+		if (logoColor === 'logo-color-light') {
+			$body.addClass('logoLight').removeClass('logoDark');
+		}
+
+		if (logoColor === 'logo-color-dark') {
+			$body.addClass('logoDark').removeClass('logoLight');
+		}
+	}
+
 	function bindEvents() {
 		$el.find('.hamburger-wrapper').on('click', navToggle);
 
+		initLogoColor();
 		logoColor();
 		scrolledNav();
 
