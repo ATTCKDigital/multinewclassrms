@@ -49,7 +49,7 @@ class WPML_LS_Display_As_Translated_Link {
 		$url = null;
 
 		if ( $this->sitepress->is_display_as_translated_post_type( $queried_object->post_type ) &&
-		     isset( $translations[ $this->default_language ] ) ) {
+			 isset( $translations[ $this->default_language ] ) ) {
 
 			$this->sitepress->switch_lang( $this->default_language );
 			$this->processed_language = $lang;
@@ -67,7 +67,7 @@ class WPML_LS_Display_As_Translated_Link {
 		$url = null;
 
 		if ( $this->sitepress->is_display_as_translated_taxonomy( $queried_object->taxonomy ) &&
-		     isset( $translations[ $this->default_language ] ) ) {
+			 isset( $translations[ $this->default_language ] ) ) {
 
 			$url = get_term_link( (int) $translations[ $this->default_language ]->term_id, $queried_object->taxonomy );
 			$url = $this->url_converter->convert_url_string( $url, $lang );

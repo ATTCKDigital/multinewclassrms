@@ -26,6 +26,9 @@ class Logic {
 
 	use Macroable;
 
+	/**
+	 * @return void
+	 */
 	public static function init() {
 		self::macro( 'not', curryN( 1, function ( $v ) { return ! Fns::value( $v ); } ) );
 		self::macro( 'isNotNull', curryN( 1, pipe( 'is_null', self::not() ) ) );

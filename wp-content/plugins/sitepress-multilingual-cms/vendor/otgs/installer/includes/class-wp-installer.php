@@ -887,10 +887,6 @@ class WP_Installer {
 					if ( isset( $this->config['repositories_exclude'] ) && in_array( $id, $this->config['repositories_exclude'] ) ) {
 						continue;
 					}
-					// includes rule;
-					if ( isset( $this->config['repositories_include'] ) && ! in_array( $id, $this->config['repositories_include'] ) ) {
-						continue;
-					}
 
 					$data['api-url']  = strval( $repo->apiurl );
 
@@ -947,12 +943,6 @@ class WP_Installer {
 				if ( isset( $this->config['repositories_exclude'] ) && in_array( $id, $this->config['repositories_exclude'] ) ) {
 					unset( $this->settings['repositories'][ $id ] );
 				}
-
-				// includes rule;
-				if ( isset( $this->config['repositories_include'] ) && ! in_array( $id, $this->config['repositories_include'] ) ) {
-					unset( $this->settings['repositories'][ $id ] );
-				}
-
 
 			}
 		}
@@ -1015,8 +1005,12 @@ class WP_Installer {
 	 * @return int
 	 */
 	private function getLastSuccessSubscriptionFetch( $repositoryId ) {
-		if ( isset( $this->settings['repositories'][ $repositoryId ]['subscription_fetch_time'] ) ) {
-			return (int)$this->settings['repositories'][ $repositoryId ]['subscription_fetch_time'];
+		if ( defined( 'OTGS_INSTALLER_OVERRIDE_LAST_SUCCESS_SUBSCRIPTION_FETCH' ) ) {
+			return constant( 'OTGS_INSTALLER_OVERRIDE_LAST_SUCCESS_SUBSCRIPTION_FETCH' );
+		}
+
+		if ( isset( $this->settings['repositories'][ $repositoryId ]['last_successful_subscription_fetch'] ) ) {
+			return (int) $this->settings['repositories'][ $repositoryId ]['last_successful_subscription_fetch'];
 		} else {
 			return time();
 		}
@@ -1028,7 +1022,7 @@ class WP_Installer {
 	 * @return array
 	 */
 	private function setLastSuccessSubscriptionFetch( $repositoryId ) {
-		$this->settings['repositories'][ $repositoryId ]['subscription_fetch_time'] = time();
+		$this->settings['repositories'][ $repositoryId ]['last_successful_subscription_fetch'] = time();
 	}
 
     private function log_subscription_update( $message ) {
@@ -2888,8 +2882,8 @@ class WP_Installer {
 
 	}
 
-	public function compare_package_order($a, $b) {
-	  return $a['order'] > $b['order'];
+	public function compare_package_order( $a, $b ) {
+		return $a['order'] - $b['order'];
 	}
 
 	public function get_support_tag_by_name( $name, $repository ) {

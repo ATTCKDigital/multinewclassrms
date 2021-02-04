@@ -1,4 +1,4 @@
-/*global jQuery, icl_ajx_url, icl_ajx_saved, icl_ajx_error, icl_ajxloaderimg_src */
+/*global jQuery, icl_ajx_url, icl_ajx_saved, icl_ajx_error, icl_ajxloaderimg_src, wpml_core_strings */
 
 var WPML_core = WPML_core || {};
 
@@ -7,20 +7,26 @@ WPML_core.htmlentities = function( s ) {
 };
 
 
-jQuery(document).ready(function($){
+jQuery(function ($) {
+    // Predefine closeText of JQuery UI diaog
+    jQuery.extend(jQuery.ui.dialog.prototype.options, { closeText: wpml_core_strings.dialogCloseText });
+
+
     var catAdder = jQuery('#category-adder');
     if (catAdder.html()) {
         catAdder.prepend('<p>' + icl_cat_adder_msg + '</p>');
     }
-    jQuery('select[name="icl_translation_of"]').change(function(){jQuery('#icl_translate_options').fadeOut();});
+    jQuery('select[name="icl_translation_of"]').change(function () {
+        jQuery('#icl_translate_options').fadeOut();
+    });
     jQuery('#icl_dismiss_help').click(iclDismissHelp);
     jQuery('#icl_dismiss_upgrade_notice').click(iclDismissUpgradeNotice);
-    jQuery(document).delegate('a.icl_toggle_show_translations', 'click', iclToggleShowTranslations);
+    jQuery(document).on('click', 'a.icl_toggle_show_translations', iclToggleShowTranslations);
 
     /* needed for tagcloud */
     oldajaxurl = false;
 
-    jQuery(document).delegate("#icl_make_translatable_submit", 'click', icl_make_translatable);
+    jQuery(document).on('click', "#icl_make_translatable_submit", icl_make_translatable);
 
     jQuery('a.icl_user_notice_hide').click(icl_hide_user_notice);
 
@@ -89,24 +95,24 @@ jQuery(document).ready(function($){
 		locks.on( 'click', click_on_lock );
 	}
 
-	$(document).on('icl-bind-locks', function( e ) {
-		sync_lock_on_custom_fields_and_terms( e.detail );
-	});
+    $(document).on('icl-bind-locks', function (e) {
+        sync_lock_on_custom_fields_and_terms(e.detail);
+    });
 
-	$( '#icl_custom_posts_sync_options .js-wpml-sync-lock, #icl_custom_tax_sync_options .js-wpml-sync-lock' ).on(
-		'click',
-		click_on_lock
-	);
+    $('#icl_custom_posts_sync_options .js-wpml-sync-lock, #icl_custom_tax_sync_options .js-wpml-sync-lock').on(
+        'click',
+        click_on_lock
+    );
 
-	$(document).ready( function() {
-		$( '.js-type-translation-row' ).each( function() {
-			if ( $( this ).find( '.js-disabled-externally' ).length === 3 ) {
-				$( this ).hide();
-			}
-		});
-	});
+    $(function () {
+        $('.js-type-translation-row').each(function () {
+            if ($(this).find('.js-disabled-externally').length === 3) {
+                $(this).hide();
+            }
+        });
+    });
 
-    jQuery(document).delegate('.icl_error_input', 'focus', function() {
+    jQuery(document).on('focus', '.icl_error_input', function () {
         jQuery(this).removeClass('icl_error_input');
     });
 
@@ -182,7 +188,7 @@ jQuery(document).ready(function($){
 	};
 
 	update_icl_untranslated_blog_posts();
-	icl_untranslated_blog_posts.bind('click', update_icl_untranslated_blog_posts);
+	icl_untranslated_blog_posts.on('click', update_icl_untranslated_blog_posts);
 
 	var last_form_id = localStorage.getItem( 'wpml-mlcs-last-form-id' );
 	if ( last_form_id ) {

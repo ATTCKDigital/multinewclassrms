@@ -381,28 +381,42 @@ class WPML_Query_Filter extends  WPML_Full_Translation_API {
 		return $active;
 	}
 
-	private function is_media_and_cant_be_translated($post_type) {
+	private function is_media_and_cant_be_translated( $post_type ) {
 		$is_attachment_and_cant_be_translated = ( $post_type === 'attachment' && ! $this->sitepress->is_translated_post_type( 'attachment' ) );
 
 		return $is_attachment_and_cant_be_translated;
 	}
 
 	/**
+	 * @param \WP_Comment_Query $comment_query
+	 *
+	 * @return int|null
+	 */
+	private function get_post_id_from_comment_query( WP_Comment_Query $comment_query ) {
+		if ( isset( $comment_query->query_vars['post_id'] ) ) {
+			return $comment_query->query_vars['post_id'];
+		} elseif ( isset( $comment_query->query_vars['post_ID'] ) ) {
+			return $comment_query->query_vars['post_ID'];
+		}
+
+		return null;
+	}
+
+	/**
 	 * Checks if the comment query applies to posts that are of a translated type.
 	 *
 	 * @param WP_Comment_Query $comment_query
+	 *
 	 * @return bool
 	 */
 	private function is_comment_query_filtered( $comment_query ) {
 		$filtered = true;
-		if ( isset( $comment_query->query_vars[ 'post_id' ] ) ) {
-			$post_id = $comment_query->query_vars[ 'post_id' ];
-		} elseif ( isset( $comment_query->query_vars[ 'post_ID' ] ) ) {
-			$post_id = $comment_query->query_vars[ 'post_ID' ];
-		}
-		if ( !empty( $post_id ) ) {
-			$post = get_post ( $post_id );
-			if ( (bool) $post === true && !$this->sitepress->is_translated_post_type ( $post->post_type ) ) {
+
+		$post_id  = $this->get_post_id_from_comment_query( $comment_query );
+
+		if ( $post_id ) {
+			$post = get_post( $post_id );
+			if ( (bool) $post === true && ! $this->sitepress->is_translated_post_type( $post->post_type ) ) {
 				$filtered = false;
 			}
 		}
@@ -438,7 +452,7 @@ class WPML_Query_Filter extends  WPML_Full_Translation_API {
 	}
 
 	/**
-	 * @param $requested_id
+	 * @param int $requested_id
 	 *
 	 * @return bool|mixed|null|string
 	 */

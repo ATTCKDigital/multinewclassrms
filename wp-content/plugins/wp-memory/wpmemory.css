@@ -1,0 +1,31 @@
+.wrap-wpmemory  {
+  background-color: #fff;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 20px;
+  padding-bottom:30px;
+}
+.wrap-wpmemory   h2.title {
+    padding: 15px;
+    background-color: #0073aa;
+    color: #fff;
+    border-radius: 5px 5px 0px 0px;
+    font-size: 20px;
+}
+.wrap-wpmemory   p.description {
+    /* padding: 10px; */
+    font-size: 18px;
+    color: #0554e7;
+}
+.wpmemory  -form{
+padding: 0% 0 0% 5%;
+}
+.wpmemory  -submit{
+  background: #0073aa;
+color: #fff;
+padding: 10px 20px 10px 20px;
+border: 0;
+font-size: 15px;
+margin: 0 auto;
+}

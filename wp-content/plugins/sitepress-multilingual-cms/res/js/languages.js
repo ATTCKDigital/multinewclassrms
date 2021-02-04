@@ -4,7 +4,7 @@
 (function () {
     "use strict";
 
-    jQuery(document).ready(function () {
+    jQuery(function () {
         var icl_hide_languages;
 
         var compatibilityNextButton = jQuery('#icl_setup_next_5');

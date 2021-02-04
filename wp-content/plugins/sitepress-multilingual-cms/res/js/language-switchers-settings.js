@@ -433,7 +433,7 @@ WPML_core.languageSwitcher = (function( $, wpml_ls ) {
 				buttons: function( event, t ) {
 					var button = $('<a class="close" href="#">&nbsp;</a>');
 
-					return button.bind( 'click.pointer', function(e) {
+					return button.on( 'click.pointer', function(e) {
 						e.preventDefault();
 						t.element.pointer('close');
 					});
@@ -881,8 +881,8 @@ WPML_core.languageSwitcher = (function( $, wpml_ls ) {
 
 })( jQuery, wpml_language_switcher_admin );
 
-jQuery(document).ready(function () {
-	"use strict";
+jQuery(function () {
+    "use strict";
 
-	WPML_core.languageSwitcher.init();
+    WPML_core.languageSwitcher.init();
 });

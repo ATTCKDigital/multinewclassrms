@@ -25,9 +25,9 @@ class WPML_URL_Converter_Factory {
 	const DOMAIN = 2;
 
 	/**
-	 * @param array $settings
+	 * @param array  $settings
 	 * @param string $default_lang_code
-	 * @param array $active_language_codes
+	 * @param array  $active_language_codes
 	 */
 	public function __construct( $settings, $default_lang_code, $active_language_codes ) {
 		$this->settings              = $settings;
@@ -105,7 +105,7 @@ class WPML_URL_Converter_Factory {
 	private function create_domain_converter() {
 		$domains            = isset( $this->settings['language_domains'] ) ? $this->settings['language_domains'] : array();
 		$wpml_wp_api        = new WPML_WP_API();
-		$strategy = new WPML_URL_Converter_Domain_Strategy( $domains, $this->default_lang_code, $this->active_language_codes );
+		$strategy           = new WPML_URL_Converter_Domain_Strategy( $domains, $this->default_lang_code, $this->active_language_codes );
 		$wpml_url_converter = new WPML_URL_Cached_Converter(
 			$strategy,
 			$this->get_object_url_helper_factory()->create(),
@@ -130,7 +130,7 @@ class WPML_URL_Converter_Factory {
 	 * @return WPML_URL_Cached_Converter
 	 */
 	private function create_parameter_converter() {
-		$strategy = new WPML_URL_Converter_Parameter_Strategy( $this->default_lang_code, $this->active_language_codes );
+		$strategy           = new WPML_URL_Converter_Parameter_Strategy( $this->default_lang_code, $this->active_language_codes );
 		$wpml_url_converter = new WPML_URL_Cached_Converter(
 			$strategy,
 			$this->get_object_url_helper_factory()->create(),

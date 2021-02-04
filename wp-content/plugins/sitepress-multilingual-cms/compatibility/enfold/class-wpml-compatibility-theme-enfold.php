@@ -1,5 +1,7 @@
 <?php
 
+use WPML\PB\Gutenberg\StringsInBlock\Base;
+
 /**
  * Class WPML_Compatibility_Theme_Enfold
  */
@@ -46,7 +48,7 @@ class WPML_Compatibility_Theme_Enfold {
 
 	/**
 	 * @param string $content
-	 * @param int $post_id
+	 * @param int    $post_id
 	 *
 	 * @return string
 	 */
@@ -55,14 +57,19 @@ class WPML_Compatibility_Theme_Enfold {
 		if ( $this->is_active( $post_id ) ) {
 			$content = str_replace( "\r\n", "\n", get_post_meta( $post_id, '_aviaLayoutBuilderCleanData', true ) );
 		}
+
+		if ( 'VISUAL' !== Base::get_string_type( $content ) ) {
+			$content = html_entity_decode( $content );
+		}
+
 		return $content;
 	}
 
 	/**
-	 * @param int $master_post_id
+	 * @param int    $master_post_id
 	 * @param string $lang
-	 * @param array $post_array
-	 * @param int $id
+	 * @param array  $post_array
+	 * @param int    $id
 	 */
 	function sync_duplicate( $master_post_id, $lang, $post_array, $id ) {
 		if ( $this->is_active( $master_post_id ) ) {

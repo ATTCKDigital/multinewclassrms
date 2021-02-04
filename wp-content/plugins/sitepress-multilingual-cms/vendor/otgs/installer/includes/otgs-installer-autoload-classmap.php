@@ -103,4 +103,5 @@ return [
 	'OTGS\Installer\Recommendations\Storage'                       => $baseDir . '/src/Recommendations/Storage.php',
 	'OTGS\Installer\AdminNotices\Notices\Recommendation'           => $baseDir . '/includes/admin-notices/notices/Recommendation.php',
 	'OTGS\Installer\AdminNotices\Notices\Dismissions'              => $baseDir . '/includes/admin-notices/notices/Dismissions.php',
+	'OTGS\Installer\Loader\Config'                           => $baseDir . '/includes/loader/Config.php',
 ];

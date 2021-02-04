@@ -5,10 +5,10 @@
  *
  * @package    wpml-core
  * @subpackage url-handling
- *
  */
 
-use \WPML\UrlHandling\WPLoginUrlConverter;
+use WPML\SuperGlobals\Server;
+use WPML\UrlHandling\WPLoginUrlConverter;
 
 class WPML_URL_Converter {
 	/**
@@ -40,10 +40,10 @@ class WPML_URL_Converter {
 	protected $object_url_helper;
 
 	/**
-	 * @param IWPML_URL_Converter_Strategy $strategy
+	 * @param IWPML_URL_Converter_Strategy   $strategy
 	 * @param WPML_Resolve_Object_Url_Helper $object_url_helper
-	 * @param $default_language
-	 * @param $active_languages
+	 * @param string                         $default_language
+	 * @param array<string>                  $active_languages
 	 */
 	public function __construct(
 		IWPML_URL_Converter_Strategy $strategy,
@@ -51,12 +51,12 @@ class WPML_URL_Converter {
 		$default_language,
 		$active_languages
 	) {
-		$this->strategy = $strategy;
+		$this->strategy          = $strategy;
 		$this->object_url_helper = $object_url_helper;
-		$this->default_language = $default_language;
-		$this->active_languages = $active_languages;
+		$this->default_language  = $default_language;
+		$this->active_languages  = $active_languages;
 
-		$this->lang_param = new WPML_URL_Converter_Lang_Param_Helper( $active_languages );
+		$this->lang_param   = new WPML_URL_Converter_Lang_Param_Helper( $active_languages );
 		$this->slash_helper = new WPML_Slash_Management();
 	}
 
@@ -121,7 +121,7 @@ class WPML_URL_Converter {
 	 *
 	 * WARNING: The URI slugs won't be translated for arbitrary URL (not the current one)
 	 *
-	 * @param $url
+	 * @param string $url
 	 * @param bool $lang_code
 	 *
 	 * @return bool|mixed|string
@@ -137,7 +137,7 @@ class WPML_URL_Converter {
 		if ( ! $lang_code ) {
 			$lang_code = $sitepress->get_current_language();
 		}
-		$language_from_url  = $this->get_language_from_url( $url );
+		$language_from_url = $this->get_language_from_url( $url );
 
 		if ( $language_from_url === $lang_code ) {
 			$new_url = $url;
@@ -162,8 +162,8 @@ class WPML_URL_Converter {
 	 */
 	public function get_language_from_url( $url ) {
 		$http_referer_factory = new WPML_URL_HTTP_Referer_Factory();
-		$http_referer = $http_referer_factory->create();
-		$url = $http_referer->get_url( $url );
+		$http_referer         = $http_referer_factory->create();
+		$url                  = $http_referer->get_url( $url );
 
 		if ( ! ( $language = $this->lang_param->lang_by_param( $url ) ) ) {
 			$language = $this->get_strategy()->get_lang_from_url_string( $url );
@@ -208,10 +208,9 @@ class WPML_URL_Converter {
 	 * @return bool
 	 */
 	private function can_resolve_object_url( $url ) {
-		$server_name = isset( $_SERVER['SERVER_NAME'] ) ? $_SERVER['SERVER_NAME'] : '';
 		$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '';
 		$server_name = strpos( $request_uri, '/' ) === 0
-			? untrailingslashit( $server_name ) : trailingslashit( $server_name );
+			? untrailingslashit( Server::getServerName() ) : trailingslashit( Server::getServerName() );
 		$request_url = stripos( get_option( 'siteurl' ), 'https://' ) === 0
 			? 'https://' . $server_name . $request_uri : 'http://' . $server_name . $request_uri;
 

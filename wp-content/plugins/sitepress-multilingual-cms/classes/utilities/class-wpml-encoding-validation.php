@@ -5,7 +5,7 @@ class WPML_Encoding_Validation {
 	const MIN_CHAR_SIZE = 20;
 
 	/**
-	 * @param $string
+	 * @param string $string
 	 *
 	 * @return int
 	 */
