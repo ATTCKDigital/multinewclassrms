@@ -1,12 +1,9 @@
-//Change name space on line 4 and line 15
 function HeroSlider($el) {
-
-	//Add your functions here.
+	const AUTO_SCROLL_TIME = 5000;
 
 	var index = 0;
 	var nextIndex = 0;
 	var prevIndex = 0;
-	const AUTO_SCROLL_TIME = 5000;
 	var CSStransitionInProgress = false;
 	var $dotsContainer;
 	var $slidesContainer;
@@ -246,6 +243,7 @@ function HeroSlider($el) {
 	
 	function render() {
 		console.log('/newclassrooms/\tguttenberg /\tblocks/\t hero-slider', 'render()');
+		
 		$dotsContainer = $('.dots-component', $el);
 		$slidesContainer = $('.slides', $el);
 		$slides = $('.slides > li', $el);

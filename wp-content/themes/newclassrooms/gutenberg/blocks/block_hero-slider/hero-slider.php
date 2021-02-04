@@ -7,12 +7,11 @@
 
 $slides = get_field('hero_slider');
 
-// create id attribute for specific styling
+// Create id attribute for specific styling
 $id = 'hero-slider-' . $block['id'];
 
-// create align class ("alignwide") from block setting ("wide")
+// Create align class ("alignwide") from block setting ("wide")
 $align_class = $block['align'] ? 'align' . $block['align'] : '';
-
 ?>
 <div class="component-hero-slider component <?php echo $align_class; ?>" id="<?php echo $id; ?>" data-component-name="HeroSlider VideoPopup">
 	<ul class="slides">
