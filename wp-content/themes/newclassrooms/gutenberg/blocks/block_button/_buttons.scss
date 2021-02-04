@@ -1,0 +1,125 @@
+.cta, 
+.is-style-cta {
+	align-items: center;
+	background: $white;
+	border: 1px solid $black;
+	border-color: $defaultTextColor;
+	border-radius: 40px;
+	box-shadow: none;
+	box-sizing: border-box;
+	color: $defaultTextColor;
+	cursor: pointer;
+	display: inline-flex;
+	font-weight: 600;
+	line-height: 1;
+	overflow: hidden;
+	position: relative;
+	text-transform: uppercase;
+	transition: background .4s ease-out, border-color .4s ease-out;
+	text-align: center;
+	z-index: 2;
+	padding: $gap $gap*2 $gap $gap;
+	font-size: px-to-rem(12px);
+
+	@include mediaquery(tablet-portrait) {
+		padding: $gap $gap*3 $gap;
+		font-size: px-to-rem(16px);
+	}
+
+	&.video-button {
+		padding-left: 20px;
+
+		&::before {
+			background: url(../assets/images/Play_Button.svg);
+			background-position: 50%;
+			background-repeat: no-repeat;
+			background-size: contain;
+			border-radius: 100%;
+			content: '';
+			display: inline-block;
+			height: 20px;
+			margin-right: 30px;
+			width: 20px;
+
+			@include mediaquery(tablet-portrait) {
+				height: 25px;
+				margin-right: 35px;
+				width: 25px;
+			}
+		}
+	}
+
+	@include mediaquery(desktop) {
+		&:hover {
+			background: color('brand', 'accent');
+			border-color: color('brand', 'accent');
+		}
+	}
+
+	&.cta-solid, 
+    &.is-style-cta-solid {
+		background-color: $white;
+		color:  $black;
+
+		@include mediaquery(desktop) {
+			&:hover {
+				background: color('brand', 'accent');
+				border-color: color('brand', 'accent');
+			}
+		}
+	}
+
+	&.cta-accent, 
+    &.is-style-cta-accent {
+		border-color: color('brand', 'accent');
+		background-color: color('brand', 'accent');
+		color: $white;
+		transition: background .4s ease-out, border-color .4s ease-out, color .4s ease-out;
+
+		@include mediaquery(desktop) {
+			&:hover {
+				background: $white;
+				border-color: $white;
+				color: color('brand', 'accent');
+			}
+		}
+	}
+
+	&.cta-negative, 
+    &.is-style-cta-negative {
+		border-color: $white;
+		color: $white;
+		background: transparent;
+		opacity: 1;
+		transition: opacity .3s ease-out;
+		
+		@include mediaquery(desktop)  {
+			&:hover {
+				background: transparent;
+				border-color: $white;
+				opacity: .5;
+			}
+		}
+	}
+
+	&.cta-inactive {
+		pointer-events: none;
+		opacity: .5;
+	}
+
+	&.cta-small {
+		letter-spacing: .12rem;
+		padding: 16px 32px;
+		text-transform: uppercase;
+	}
+
+	&.cta-extra-small {
+		&[type="submit"] {
+			font-size: px-to-rem(8px);
+			letter-spacing: .12rem;
+			padding: 12px 16px;
+			text-transform: uppercase;
+			max-width: 100px;
+		}
+	}
+}

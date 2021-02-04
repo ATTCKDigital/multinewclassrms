@@ -1,0 +1,178 @@
+.component-image-background, 
+.component-color-background, 
+.component-video-background {
+	background-size: cover;
+	background-position: right center;
+	background-repeat: no-repeat;
+	min-height: 100%;
+}
+
+.component-video-background {
+	overflow: hidden;
+	position: relative;
+
+	.video-container {
+		height: 100%;
+		position: absolute;
+		z-index: -1;
+	}
+
+	&.align-video-right {
+		.video-container {
+			right: 0;
+		}
+	}
+
+	&.video-width-50  { .video-container { width: 50%;  } }
+	&.video-width-60  { .video-container { width: 60%;  } }
+	&.video-width-70  { .video-container { width: 70%;  } }
+	&.video-width-80  { .video-container { width: 80%;  } }
+	&.video-width-90  { .video-container { width: 90%;  } }
+	&.video-width-100 { .video-container { width: 100%; } }
+
+	&.full-video-container {
+		.video-container {
+			left: 50%;
+			min-height: 100%;
+			min-width: 100%;
+			object-fit: cover;
+			object-position: center center;
+			opacity: 0;
+			transform: translate(-50%, -50%);
+			top: 50%;
+			width: 100%;
+		}
+	}
+	
+	.video-thumbnail-wrapper {
+		height: 100%;
+		min-height: 100%;
+		min-width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: -1;
+		opacity: 1;
+		transition: opacity .1s ease-in, z-index .1s ease-in;
+
+		img {
+			height: 100%;
+			left: 50%;
+			min-height: 100%;
+			min-width: 100%;
+			object-fit: cover;
+			object-position: center center;
+			position: absolute;
+			transform: translate(-50%, -50%);
+			top: 50%;
+			width: 100%;
+		}
+	}
+
+	.playingVideo {
+		.video-thumbnail-wrapper {
+			opacity: 0;
+			z-index: -2;
+		}
+
+		.video-container {
+			opacity: 1;
+		}
+	}
+}
+
+.overlay {
+	background-color: rgba(0, 0, 0, .3);
+	height: 100%;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+$yPositions: top, center, bottom;
+$xPositions: left, right, center;
+
+@each $yPosition in $yPositions {
+  	@each $xPosition in $xPositions {
+		.component-background-#{$xPosition}-#{$yPosition} { 
+			@include mediaquery(tablet-portrait) {
+				background-position: #{$xPosition} #{$yPosition};
+			}
+		}
+	}
+}
+
+@each $yPosition in $yPositions {
+  	@each $xPosition in $xPositions {
+		.component-mobile-background-#{$xPosition}-#{$yPosition} { 
+			@include mediaquery-max-width(tablet-portrait) {
+				background-position: #{$xPosition} #{$yPosition};
+			}
+		}
+	}
+}
+
+@each $xPosition in $xPositions {
+	.component-background-position-x-#{$xPosition} { 
+		background-position-x: #{$xPosition};
+	}
+}
+
+@each $yPosition in $yPositions {
+	.component-background-position-y-#{$yPosition} { 
+		background-position-y: #{$yPosition};
+	}
+}
+
+// Border classes
+@each $position in $positions {
+	.component-#{$position}-border-none,
+	.wp-block .component-#{$position}-border-none > .flex-grid {
+		border-#{$position}: 0;
+	}
+
+	.component-#{$position}-border,
+	.component-#{$position}-border-default,
+	.wp-block .component-#{$position}-border-default > .flex-grid {
+		border-#{$position}: px solid $borderColor;
+	}
+
+	.component-#{$position}-border-white,
+	.wp-block .component-#{$position}-border-white > .flex-grid {
+		border-#{$position}: px solid $white;
+	}
+
+	.component-#{$position}-border-brand-primary,
+	.wp-block .component-#{$position}-border-brand-primary > .flex-grid {
+		border-#{$position}: px solid color('brand', 'primary');
+	}
+
+	.component-#{$position}-border-brand-accent,
+	.wp-block .component-#{$position}-border-brand-accent > .flex-grid {
+		border-#{$position}: px solid color('brand', 'accent');
+	}
+
+	.component-#{$position}-border-brand-secondary,
+	.wp-block .component-#{$position}-border-brand-secondary > .flex-grid {
+		border-#{$position}: px solid color('brand', 'secondary');
+	}
+
+	.component-#{$position}-border-black,
+	.wp-block .component-#{$position}-border-black > .flex-grid {
+		border-#{$position}: px solid $black;
+	}
+
+	.component-#{$position}-border-mobile {
+		@include mediaquery-max-width(tablet-portrait) {
+			border-#{$position}: px solid $borderColor;
+		}
+	}
+
+	.component-#{$position}-border-tablet-portrait-up {
+		@include mediaquery(tablet-portrait)  {
+			border-#{$position}: px solid $borderColor;
+		}
+	}
+}

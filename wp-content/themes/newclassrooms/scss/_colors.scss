@@ -1,0 +1,115 @@
+// Default Colors
+$modalColor: #ffffff;
+$popupColor: rgba(0, 0, 0, .7);
+$defaultTextColor: var(--color-text-body);
+$borderColor: #15224B;
+$white: #FFFFFF;
+$black: #000000;
+$light-gray: #CCC;
+$light-gray--faded: rgba(#CCC, 0.5);
+
+
+// Colors
+$brand-color-key: 'red' !default;
+$brand-colors: (
+	'debug': (
+		'red': #f00
+	),
+	'brand': (
+		'primary': var(--color-brand-primary),
+		'secondary': var(--color-brand-secondary),
+		'accent': var(--color-brand-accent),
+	),
+	'secondary': (
+		'purple': #873B75,
+		'grey'  : #5E7185,
+		'pink'  : #D48D86,
+		'green'	: #6D8D6F
+	),
+	'text': (
+		'body': var(--color-text-body),
+		'link': var(--color-text-link),
+		'hover': var(--color-text-hover),
+		'white':	var(--color-text-white),
+		'black':	var(--color-text-black),
+	),
+
+	'default': (
+		'white':	var(--color-default-white),
+		'black':	var(--color-default-black),
+	),
+
+	'social':(
+		'facebook': #3b5998,
+		'twitter': #1da1f2,
+		'linkedin': #0077b5
+	),
+	'gradients': (
+	)
+);
+
+/** Generate colors **/
+// Usage: color('key', 'variant');
+@function color($key: 'debug', $variant: $brand-color-key) {
+	$color: null;
+	$color-spectrum: map-get($brand-colors, $key);
+
+	@if $color-spectrum {
+		$color: map-get($color-spectrum, $variant);
+	}
+
+	@return $color;
+}
+
+/** Mixin for placeholder color **/
+@mixin placeholder($color) {
+	&::-webkit-input-placeholder {
+		color: $color;
+	}
+
+	&:-moz-placeholder { /* Firefox 18- */
+		color: $color;
+	}
+
+	&::-moz-placeholder {  /* Firefox 19+ */
+		color: $color;
+	}
+
+	&:-ms-input-placeholder {
+		color: $color;
+	}
+}
+
+/**** Color classes ****/
+// Use dynamically generated color classes as follows:
+//
+// Classes:
+//
+// 		.background-key-variant
+// 		.color-color-key-variant
+//
+// For example:
+//
+// 		.background-accent-blue
+// 		.color-accent-blue
+//
+
+@each $key, $map in $brand-colors {
+	@each $variant, $color in $map {
+		.has-#{$key}-#{$variant}-background-color {
+			background-color: #{$color};
+		}
+
+		.has-#{$key}-#{$variant}-color {
+			color: #{$color};
+		}
+
+		.component-theme-#{$key}-#{$variant} {
+			background: #{$color};
+		}
+
+		.color-#{$key}-#{$variant} {
+			color: #{$color};
+		}
+	}
+}

@@ -1,0 +1,197 @@
+.carousel-padding {
+    padding: 0;
+}
+
+.component-testimonialcarousel {
+    background: $white;
+
+    blockquote {
+        p {
+            color: color('brand', 'accent');
+            font-size: 20px;
+            // font-family: $tertiaryRegular;
+            font-weight: 600;
+            line-height: 1.6;
+
+            @include mediaquery('desktop') {
+                font-size: 32px;
+            }
+        }
+    }
+
+    .nav-buttons {
+        position: absolute;
+        bottom: -70px;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 5;
+        width: 100%;
+
+        @include mediaquery('tablet-landscape') {
+            justify-content: space-between;
+            top: 50%;
+            transform: translateY(-50%);
+            height: auto;
+            height: 0;
+            width: calc(100% + 270px);
+            left: -135px;
+        }
+    }
+
+    .nav {
+        position: relative;
+
+        @include mediaquery('tablet-landscape') {
+            position: relative;
+        }
+
+        &.prev {
+            left: auto;
+            position: relative;
+
+            &:before {
+                content: '';
+                width: 56px;
+                height: 56px;
+                transform: none;
+                margin-right: 10px;
+                display: inline-block;
+                background-repeat: no-repeat;
+            }
+        }
+
+        &.next {
+            right: auto;
+            position: relative;
+
+            &:after {
+                content: '';
+                width: 56px;
+                height: 56px;
+                margin-left: 10px;
+                display: inline-block;
+                transform: scaleX(-1);
+                background-repeat: no-repeat;
+            }
+        }
+    }
+
+    .component-carousel {
+        height: 100%;
+        padding-bottom: 100px;
+        margin-top: 30px;
+
+        @include mediaquery('tablet-landscape') {
+            padding: 0;
+            margin-top: 0;
+        }
+
+        .slides {
+            height: 100%;
+        }
+
+        .slide {
+        	@extend .carousel-padding;
+
+            .quote-image {
+                position: absolute;
+                left: 0;
+                height: 50px;
+                top: -15px;
+                width: 60px;
+                background: url(../assets/images/Quotation.svg) left top no-repeat;
+                background-size: contain;
+
+                @include mediaquery('tablet-landscape') {
+                    left: -95px;
+                    top: 0;
+                    height: 55px;
+                }
+            }
+
+            .quote-container {
+                margin-bottom: 12px;
+                padding: 0;
+
+                @include mediaquery('tablet-landscape') {
+                    min-height: 200px;
+                    margin-bottom: 20px;
+                }
+            }
+
+            .author-container {
+                align-items: center;
+                display: flex;
+
+                .author-image {
+                    width: 48px;
+                    height: 48px;
+                    flex: 0 0 auto;
+                    margin-right: 14px;
+                    border-radius: 50%;
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+
+                .author-data {
+                    //flex: 1 0 auto;
+                }
+
+                .author-name {
+                    margin-bottom: 5px;
+                }
+            }
+        }
+
+        .author-dots-row {
+            flex-direction: column-reverse;
+            padding: 0;
+
+            @include mediaquery('tablet-landscape') {
+                flex-direction: row;
+            }
+        }
+
+        .dots-component {
+            margin-top: 45px;
+            @include mediaquery('tablet-landscape') {
+                margin-top: 40px;
+            }
+
+            .dot {
+                position: relative;
+
+                a {
+                    width: 4px;
+                    height: 4px;
+                    background-color: #A5D4F0;
+                }
+
+                &:not(.active) {
+                    opacity: 1;
+                }
+
+                &.active {
+                    a {
+                        background-color: #59869F;
+                    }
+
+                    &:before {
+                        top: 50%;
+                        left: 50%;
+                        content: "";
+                        width: 12px;
+                        height: 12px;
+                        position: absolute;
+                        border-radius: 50%;
+                        border: 2px solid #A5D4F0;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+            }
+        }
+    }
+}

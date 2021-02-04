@@ -1,0 +1,186 @@
+/**** Component Hero Slider ****/
+//Component styles go here.
+.component-hero-slider {
+	width: 100%;
+	height: 80vh;
+	min-height: 780px;
+	overflow: hidden;
+
+	.slides {
+		display: flex;
+		height: 100%;
+		width: 100%;
+	}
+
+	.slide {
+		width: 100%;
+	height: 100%;
+		align-items: center;
+		display: none;
+		position: relative;
+		flex-shrink: 0;
+		transition: opacity .3s;
+		flex-direction: column-reverse;
+		justify-content: flex-end;
+
+		@include mediaquery('tablet-landscape') {
+			flex-direction: column;
+			// justify-content: center;
+		}
+
+		&.active {
+			display: flex;
+		}
+	}
+
+	.image-wrapper {
+		position: relative;
+	height: 100%;
+	width: 100%;
+		
+		&::after {
+			content: '';
+			height: 100%;
+			width: 100%;
+			left: 0;
+			top: 0;
+			position: absolute;
+			background: rgba($black, .2);
+		}
+
+		@include mediaquery('tablet-landscape') {
+			position: absolute;
+		}
+	}
+
+	.image {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	}
+
+	.content {
+		position: relative;
+		color: $white;
+		max-width: $siteWidth;
+		width: 100%;
+		// height: 100%;
+		margin: 0 auto;
+	display: flex;
+	justify-content: center;
+		flex-direction: column;
+		z-index: 1;
+		padding: 90px 20px 32px;
+
+		@include mediaquery('tablet-landscape') {
+			padding: 0 20px;
+		}
+
+		@include mediaquery('xl2') {
+			max-width: 1368px;
+			padding-left: 100px;
+		}
+	}
+
+	.side-column {
+		display: none;
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		z-index: 1;
+		width: 31%;
+
+		@include mediaquery('tablet-landscape') {
+			display: block;
+		}
+	}
+
+	.side-row {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		z-index: -1;
+
+		@include mediaquery('tablet-landscape') {
+			display: none;
+		}
+	}
+
+	.dots-component {
+		display: flex;
+
+		@include mediaquery('tablet-landscape') {
+			margin-left: 8px;
+		}
+	}
+
+	.dot {
+		position: relative;
+		cursor: pointer;
+		margin: 0 7px;
+		height: 12px;
+		width: 12px;
+
+		@include mediaquery('tablet-landscape') {
+			margin: 0 10px;
+			height: 20px;
+			width: 20px;
+		}
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		a {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+	
+		&:before {
+			content: '';
+			height: 3px;
+			width: 3px;
+			border-radius: 100%;
+			background-color: $white;
+			position: absolute;
+			transform: translate(-50%,-50%);
+			top: 50%;
+			left: 50%;
+			pointer-events: none;
+
+			@include mediaquery('tablet-landscape') {
+				height: 5px;
+				width: 5px;
+			}
+		}
+
+		&:after {
+			top: 50%;
+			left: 50%;
+			content: "";
+			width: 0;
+			height: 0;
+			position: absolute;
+			border-radius: 100%;
+			border: 2px solid $white;
+			transform: translate(-50%,-50%);
+			transition: height .3s, width .3s;
+			pointer-events: none;
+
+			@include mediaquery('tablet-landscape') {
+				border-width: 1px;
+			}
+		}
+
+		&.active {
+			&::after {
+				width: 12px;
+				height: 12px;
+			}
+		}
+	}
+}
