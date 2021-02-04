@@ -1,0 +1,25 @@
+.component-popup {
+  .close-button a {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: -15px;
+    right: -15px;
+    border-radius: 100%;
+    background: url(../assets/images/Close_Button.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+  }
+
+  .component-column {
+    position: relative;
+  }
+}

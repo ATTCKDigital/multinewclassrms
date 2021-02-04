@@ -61,6 +61,13 @@ function Nav($el) {
 		$(document.body).bind('FLEX.scroll', function (e, data) {
 			var viewportHeight = data.viewportHeight;
 			var scrollTop = data.currentScrollTop;
+			
+			if (scrollTop === 0 ) {
+				var logoColor = $(row).data('logo-color');
+				setLogoClass(logoColor);		
+
+				return;
+			}
 
 			$(row).each(function () {
 				var rowTop = $(this).offset().top;
@@ -68,10 +75,6 @@ function Nav($el) {
 
 				if (rowTop <= scrollTop + 20 ) {
 					setLogoClass(logoColor);
-				}
-
-				if (scrollTop === 0 ) {
-					setLogoClass(logoColor);		
 				}
 			});
 

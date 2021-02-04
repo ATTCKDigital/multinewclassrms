@@ -13,8 +13,22 @@ $id = 'hero-slider-' . $block['id'];
 // create align class ("alignwide") from block setting ("wide")
 $align_class = $block['align'] ? 'align' . $block['align'] : '';
 
+$popup_names = [];
+
+foreach ($slides as $key => $slide) {
+	if (!empty($slide['popup_name']))
+		$popup_names[$key] = [
+			'popupName' => $slide['popup_name']
+		];
+}
+
+$popup_names = htmlspecialchars(json_encode($popup_names));
 ?>
-<div class="component-hero-slider component <?php echo $align_class; ?>" id="<?php echo $id; ?>" data-component-name="HeroSlider VideoPopup">
+<div 
+	class="component-hero-slider component <?php echo $align_class; ?>" id="<?php echo $id; ?>" 
+	data-component-name="HeroSlider PopupController"
+	data-component-options="<?= $popup_names ?>"
+>
 	<ul class="slides">
 		<?php foreach ($slides as $key => $slide): ?>
 			<li
@@ -30,9 +44,9 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 					<h2 class="headline1 is-style-headline1 align-left margin-top-1x">
 						<?= $slide['title'] ?>
 					</h2>
-					<?php if (!empty($slide['video_url'])): ?>
+					<?php if (!empty($slide['popup_name'])): ?>
 						<div class="component-button component align-left margin-top-4x margin-tablet-landscape-top-6x ">
-							<button class="cta video-button prepare-in-view" data-video-src="<?= $slide['video_url'] ?>">
+							<button class="cta video-button open-popup-button prepare-in-view" >
 								<?php _e('Watch Video', '_flex') ?>
 							</a>
 						</div>
