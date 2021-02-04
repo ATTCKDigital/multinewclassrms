@@ -3,30 +3,30 @@
 // NOTE: Import order shouldn't be changed in this group as subsequent
 // files rely on mixins and variables in files included earlier
 // TODO: Find better way to enforce load order. -DP
-@import '_css-vars.scss';
-@import '_sass-utils.scss';
-@import '_reset.scss';
-// @import '../../FLEX/scss/_wysiwyg.scss';
-@import '_sizing.scss';
-@import '_media-queries.scss';
-@import '_grid.scss';
-@import '_fonts.scss';
-@import '_fonts-mixins.scss';
-@import '_colors.scss';
-@import '_debug.scss';
-@import '_global.scss';
-@import '_layout.scss';
-@import '_component.scss';
-@import '_hidden.scss';
-@import '_row-theme.scss';
-@import '_popups-overlays.scss';
-@import '_animations.scss';
-@import '_images.scss';
-@import '_typography-base.scss';
-@import '_body-text.scss';
-@import '_iconography.scss';
-@import '_forms.scss';
-@import '_styleguide.scss';
+@import '_css-vars';
+@import '_sass-utils';
+@import '_reset';
+// @import '../../FLEX/scss/_wysiwyg';
+@import '_sizing';
+@import '_media-queries';
+@import '_grid';
+@import '_fonts';
+@import '_fonts-mixins';
+@import '_colors';
+@import '_debug';
+@import '_global';
+@import '_layout';
+@import '_component';
+@import '_hidden';
+@import '_row-theme';
+@import '_popups-overlays';
+@import '_animations';
+@import '_images';
+@import '_typography-base';
+@import '_body-text';
+@import '_iconography';
+@import '_forms';
+@import '_styleguide';
 // @import '../../FLEX/scss/_admin-styles.scss';
 
 // Gutenberg Blocks
@@ -40,10 +40,9 @@
 // @import '../../FLEX/gutenberg/blocks/block_video/_video.scss';
 @import '../../FLEX/gutenberg/blocks/block_quote/_quote.scss';
 @import '../gutenberg/blocks/block_button/_buttons.scss';
-@import '../gutenberg/blocks/block_hero-slider/_hero-slider.scss';
-@import '../gutenberg/blocks/block_hr/_hr.scss';
 @import '../gutenberg/blocks/block_heading/_heading.scss';
 @import '../gutenberg/blocks/block_hero-slider/_hero-slider.scss';
+@import '../gutenberg/blocks/block_hr/_hr.scss';
 @import '../gutenberg/blocks/block_testimonialcarousel/_testimonialcarousel.scss';
 
 // Gutenberg Components

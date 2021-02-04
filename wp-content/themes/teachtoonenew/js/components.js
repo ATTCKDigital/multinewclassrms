@@ -1,4 +1,5 @@
 import FLEX from 'FLEX/js/clientNamespace';
+
 // import your child components
 import Nav from '../components/component_nav/nav';
 import Carousel from '../components/component_carousel/carousel';
@@ -13,4 +14,5 @@ FLEX.ChildComponents = {
 };
 
 // Custom code non related to FLEX
-ContactForm()
+// TODO: Move this into a FLEX component. -DP
+ContactForm();

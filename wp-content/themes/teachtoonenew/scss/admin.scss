@@ -1,22 +1,23 @@
-/**
- * Child theme admin SASS files
- */
-
+// General variables and setup
+//
 // Only applys to WP Admin
+// NOTE: Import order shouldn't be changed in this group as subsequent
+// files rely on mixins and variables in files included earlier
+// TODO: Find better way to enforce load order. -DP
 @import '../../FLEX/scss/_css-vars.scss';
-@import '../../FLEX/scss/_wysiwyg.scss';
 @import '../../FLEX/scss/_sass-utils.scss';
 // @import '../../FLEX/scss/_reset.scss';
+@import '../../FLEX/scss/_wysiwyg.scss';
 @import '../../FLEX/scss/_sizing.scss';
-@import 'sizing'; // Override
+@import '_sizing'; // Override
 @import '../../FLEX/scss/_media-queries.scss';
 @import '../../FLEX/scss/_grid.scss';
 // @import '../../FLEX/scss/_colors.scss';
 @import '../../FLEX/scss/_fonts.scss';
-@import 'fonts'; // Override
+@import '_fonts'; // Override
 @import '../../FLEX/scss/_fonts-mixins.scss';
 // @import '../../FLEX/scss/_typography-base.scss';
-@import '../scss/_colors.scss';
+@import '_colors.scss';
 // @import '../../FLEX/scss/_debug.scss';
 @import '../../FLEX/scss/_global.scss';
 // @import '_global'; // Override
@@ -56,5 +57,4 @@
 
 @import '../../FLEX/components/component_archive-feed/_archive-feed.scss';
 
-@import 'custom-classes/features-card.scss';
 @import '../components/component_circle-image/_circle-image.scss';

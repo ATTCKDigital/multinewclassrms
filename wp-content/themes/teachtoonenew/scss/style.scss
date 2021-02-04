@@ -1,53 +1,81 @@
-/**
- * Child theme SASS files
- */
-
 // General variables and setup
-@import '../../FLEX/scss/_css-vars.scss';
-// @import '../../FLEX/scss/_wysiwyg.scss';
-@import '../../FLEX/scss/_sass-utils.scss';
-@import '../../FLEX/scss/_reset.scss';
-// @import '../../FLEX/scss/_sizing.scss';
-@import '_sizing'; // Override
-@import '../../FLEX/scss/_media-queries.scss';
-@import '../../FLEX/scss/_grid.scss';
-// @import '../../FLEX/scss/_colors.scss';
-@import '../../FLEX/scss/_fonts.scss';
-@import '_fonts'; // Override
-@import '../../FLEX/scss/_fonts-mixins.scss';
-@import '../scss/_colors.scss';
-@import '../../FLEX/scss/_typography-base.scss';
-@import '../../FLEX/scss/_debug.scss';
-@import '../../FLEX/scss/_global.scss';
-@import '_global'; // Override
-@import '../../FLEX/scss/_layout.scss';
-@import '../../FLEX/scss/_component.scss';
-@import '../../FLEX/scss/_hidden.scss';
-@import '../../FLEX/scss/_row-theme.scss';
-@import '../../FLEX/scss/_popups-overlays.scss';
-@import '../../FLEX/scss/_animations.scss';
-@import '../../FLEX/scss/_images.scss';
-@import '../../FLEX/scss/_iconography.scss';
-@import '../../FLEX/gutenberg/components/gb-component_padding/_padding.scss';
-@import '../../FLEX/gutenberg/components/gb-component_margin/_margin.scss';
-@import '../../FLEX/gutenberg/blocks/block_paragraph/_paragraph.scss';
+//
+// NOTE: Import order shouldn't be changed in this group as subsequent
+// files rely on mixins and variables in files included earlier
+// TODO: Find better way to enforce load order. -DP
+@import '_css-vars';
+@import '_sass-utils';
+@import '_reset';
+// @import '../../FLEX/scss/_wysiwyg';
+@import '_sizing';
+@import '_media-queries';
+@import '_grid';
+@import '_fonts';
+@import '_fonts-mixins';
+@import '_colors';
+@import '_debug';
+@import '_global';
+@import '_layout';
+@import '_component';
+@import '_hidden';
+@import '_row-theme';
+@import '_popups-overlays';
+@import '_animations';
+@import '_images';
+@import '_typography-base';
+@import '_body-text';
+@import '_forms';
+@import '_styleguide';
+@import '_iconography';
+
+// Gutenberg Blocks
+// @import '../../FLEX/gutenberg/blocks/block_button/_button-admin.scss';
+@import '../../FLEX/gutenberg/blocks/block_hr/_hr.scss';
+@import '../../FLEX/gutenberg/blocks/block_image/_image.scss';
 @import '../../FLEX/gutenberg/blocks/block_list/_list.scss';
 @import '../gutenberg/blocks/block_list/_list.scss'; // Overriden
+@import '../../FLEX/gutenberg/blocks/block_paragraph/_paragraph.scss';
+@import '../../FLEX/gutenberg/blocks/block_social_media/_social-media.scss';
+// @import '../../FLEX/gutenberg/blocks/block_video/_editor.scss';
+// @import '../../FLEX/gutenberg/blocks/block_video/_video.scss';
+	@import '../../FLEX/gutenberg/blocks/block_quote/_quote.scss';
+	@import '../gutenberg/blocks/block_button/_buttons.scss';
+	@import '../gutenberg/blocks/block_heading/_heading.scss';
+	// @import '../gutenberg/blocks/block_hero-slider/_hero-slider.scss';
+	// @import '../gutenberg/blocks/block_hr/_hr.scss';
+	@import '../gutenberg/blocks/block_testimonialcarousel/_testimonialcarousel.scss';
+
+// Gutenberg Components
+	// @import '../../FLEX/gutenberg/components/gb-component_background-options/_editor.scss';
+	@import '../../FLEX/gutenberg/components/gb-component_margin/_margin.scss';
+	// @import '../../FLEX/gutenberg/components/gb-component_margin/_editor.scss';
+	@import '../../FLEX/gutenberg/components/gb-component_padding/_padding.scss';
+	// @import '../../FLEX/gutenberg/components/gb-component_padding/_editor.scss';
+	// @import '../../FLEX/gutenberg/components/gb-component_row-height/_editor.scss';
+	// @import '../../FLEX/gutenberg/components/gb-component_scroller/_editor.scss';
+	// @import '../../FLEX/gutenberg/components/gb-component_text-colors/_editor.scss';
+
+// FLEX Components
+	@import '../../FLEX/components/component_archive-feed/_archive-feed.scss';
+	@import '../../FLEX/components/component_nav/_nav.scss';
+	@import '../../FLEX/components/component_share/_share.scss';
+	// @import '../components/component_colortile/_colortile.scss';
+	@import '../components/component_carousel/_carousel.scss';
+	@import '../components/component_footer/_footer.scss';
+	@import '../components/component_nav/_nav.scss';
+	@import '../components/component_newsletter/_newsletter.scss';
+	@import '../components/component_features-card/_features-card.scss';
+	// @import '../components/component_video-popup/_video-popup.scss';
+
+@import '../../FLEX/gutenberg/components/gb-component_padding/_padding.scss';
+@import '../../FLEX/gutenberg/components/gb-component_margin/_margin.scss';
 @import '../gutenberg/blocks/block_heading/_heading.scss'; // Overriden
 @import '../gutenberg/blocks/block_button/_buttons.scss';
-@import '../../FLEX/scss/_body-text.scss';
 //@import 'body-text.scss'; // Override parent theme body variables
 // @import '../../FLEX/scss/_admin-styles.scss';
 
-// GB Component Specific Overrides
-@import '_body-text.scss'; // Override parent theme body variables
-@import '../../FLEX/gutenberg/blocks/block_image/_image.scss';
-@import '../scss/_iconography.scss';
-@import '../../FLEX/scss/_forms.scss';
-@import '../scss/_forms.scss';  // Overriden
-@import '../../FLEX/scss/_styleguide.scss';
-
-// Blocks
+@import '../../FLEX/gutenberg/blocks/block_quote/_quote.scss';
+@import '../../FLEX/gutenberg/blocks/block_social_media/_social-media.scss';
 @import '../../FLEX/gutenberg/blocks/block_hr/_hr.scss';
 @import '../../FLEX/gutenberg/blocks/block_quote/_quote.scss';
 @import '../../FLEX/gutenberg/blocks/block_social_media/_social-media.scss';
@@ -64,9 +92,4 @@
 @import '../../FLEX/components/component_share/_share.scss';
 @import '../../FLEX/gutenberg/blocks/block_video/_video.scss';
 
-@import '../gutenberg/blocks/block_testimonialcarousel/_testimonialcarousel.scss';
 
-// Custom Classes
-@import 'custom-classes/_helpers.scss';
-@import 'custom-classes/_newsletter.scss';
-@import 'custom-classes/_features-card.scss';

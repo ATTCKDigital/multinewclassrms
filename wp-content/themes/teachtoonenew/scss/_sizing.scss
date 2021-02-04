@@ -1,8 +1,3 @@
-/**** Variables related to heights and widths ****/
-.testingSizingStart {
-	color: red;
-}
-
 $gap						: 16px;
 $siteWidth					: 1024px;
 $navMobileHeight			: 56px;
@@ -27,6 +22,7 @@ $xl2						: 1440px;
 
 // Max width breakpoints
 $max-phone					: 568px;
+$max-phone-plus				: 413px;
 $max-tablet-portrait		: 767px;
 $max-tablet-landscape		: 1023px;
 $max-desktop				: 1099px;
@@ -41,10 +37,11 @@ $medium-row					: 500px;
 $large-row-mobile			: 100vh;
 $large-row					: 700px;
 
-/** Responsive Font Size Map **/
-// Add as many as needed.
-// Add fonts sizes for each break point. Font sizes will be converted to rems.
-// Usage:  @include font-size($font-size)
+// Responsive Font Size Map
+// — Add as many as needed.
+// — Add fonts sizes for each break point. 
+// — Font sizes will be converted to rems.
+// — USAGE:  @include font-size($font-size)
 $font-size-body-text: (
 	'default'			: 13px,
 	'phone'				: 13px,
