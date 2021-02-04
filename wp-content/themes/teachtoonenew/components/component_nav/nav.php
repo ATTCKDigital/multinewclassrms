@@ -1,37 +1,65 @@
-<?php
-	//Global Nav
+<?php 
+	// Global Nav 
 ?>
-
-<header class="component-header component" data-component-name="Nav" role="banner">
+<header 
+	class="component-header component" 
+	data-component-name="Nav" 
+	role="banner">
 	<div class="header-inner">
 		<a href="<?php echo get_home_url() ?>" class="logo-wrapper">
-			<?php
-                // Commenting because not used
+			<?php 
 				$customLogoID = get_theme_mod( 'custom_logo' );
 				$customLogoURL = wp_get_attachment_image_url( $customLogoID , 'full' );
+				$secondaryLogoID = get_field('secondary_logo', 'options');
+				$secondaryLogoURL = wp_get_attachment_image_url( $secondaryLogoID , 'full' );
 			?>
-            <img src="<?php echo $customLogoURL ?>" class="nav-logo" alt="<?= bloginfo('name');?>" title="<?= bloginfo('name');?>" />
-            <!--img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo-white.png" class="nav-logo logo-white" alt="<?= bloginfo('name');?>" title="<?= bloginfo('name');?>" />
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo-dark.png" class="nav-logo logo-dark" alt="<?= bloginfo('name');?>" title="<?= bloginfo('name');?>" /-->
+			<img 
+				src="<?= $customLogoURL;?>" 
+				class="nav-logo" 
+				alt="<?= bloginfo('name');?>" 
+				title="<?= bloginfo('name');?>" 
+			/>
 		</a>
-		<nav class="main-nav" aria-label="Main site navigation" role="navigation">
+		<div class="hamburger-wrapper">
+			<mark class="hamburger"></mark>
+		</div>
+		<nav 
+			class="main-nav flex-11-12" 
+			aria-label="Main site navigation" 
+			role="navigation">
 			<ul class="menu-items">
 				<?php
-					//Default is 'primary' nav.
-					//To use another nav, create one in /config/theme-configs/register-nav-menus.php and change variable below.
+					// Default is 'primary' nav. 
+					// To use another nav, create one in /config/theme-configs/register-nav-menus.php and change variable below.
 					echo Utils::render_template('config/theme-includes/menu.php', array(
 						'menuLocation' => 'primary',
 					));
+				?>		
+			</ul>
+			<div class="language-switcher">
+				<?php
+					// flexlayout_language_switcher();
 				?>
+			</div>
+		</nav>
+		<nav 
+			class="secondary-nav" 
+			role="navigation" 
+			aria-label="Secondary menu">
+			<ul class="menu-items">
+				<?php
+					// Default is 'primary' nav. 
+					// To use another nav, create one in /config/theme-configs/register-nav-menus.php and change variable below.
+					echo Utils::render_template('config/theme-includes/menu.php', array(
+						'menuLocation' => 'secondary',
+					));
+				?>	
+				<li class="language-switcher menu-item">
+					<?php
+						flexlayout_language_switcher();
+					?>
+				</li>	
 			</ul>
 		</nav>
-        <div class="language-switcher">
-            <?php
-                flexlayout_language_switcher();
-            ?>
-        </div>
-        <div class="hamburger-wrapper">
-            <mark class="hamburger"></mark>
-        </div>
 	</div>
 </header>

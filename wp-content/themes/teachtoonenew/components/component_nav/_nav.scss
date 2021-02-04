@@ -1,5 +1,3 @@
-/**** Global Nav Styles ****/
-//Override with custom styles in child theme
 .component-header {
 	top: 0;
 	left: 0;
@@ -9,14 +7,12 @@
 	position: fixed;
 	background: #F9F8F5;
 	height: $navMobileHeight;
-	border-bottom: 1px solid $light-gray--faded;
+	// border-bottom: 1px solid $light-gray--faded;
 	transition: top .3s ease-in-out, background .3s ease-in-out;
 
 	@include mediaquery(tablet-landscape)  {
 		align-items: center;
-		display: flex;
 		height: $navHeight;
-
 	}
 
 	.hideNav & {
@@ -34,6 +30,7 @@
 	}
 
 	.header-inner {
+		position: relative;
 		width: 100%;
 		height: 100%;
 		display: flex;
@@ -41,10 +38,10 @@
 		align-items: center;
 		padding: $gap * .75;
 		max-width: $siteWidth;
-		justify-content: space-between;
+		justify-content: flex-start;
 
-		@include mediaquery(desktop)  {
-			padding: $gap*.75 0;
+		@include mediaquery('tablet-landscape') {
+			padding: 0;		
 		}
 	}
 
@@ -52,35 +49,40 @@
 		z-index: 10;
 		display: block;
 		max-width: 173px;
-		position: relative;
 		transition: all .3s ease-in-out;
+		position: absolute;
+		left: 20px;
+		top: 16px;
 
-		@include mediaquery-max-device-width(tablet-landscape) {
-			max-width: 132px;
+		@include mediaquery('tablet-landscape') {
+			top: 32px;
+		}
 
-			.navOpen & {
-				opacity: 0;
-				visibility: hidden;
-			}
+		@include mediaquery('xl2') {
+			left: -150px;
 		}
 
 		.nav-logo {
 			display: block;
+			height: 32px;
+			object-fit: contain;
+			width: auto;
+		}
 
-			&.logo-white {
-				display: none;
-			}
+		.secondary-nav-logo {
+			display: none;
 		}
 	}
 
 	.main-nav {
+		padding-top: 32px;
 		@include mediaquery-max-width(tablet-landscape) {
 			//Mobile only mediaquery so less overrides are necessary
 			top: 0;
 			width: 100%;
 			display: flex;
 			height: 100vh;
-			right: -100vw;
+			right: -100%;
 			position: absolute;
 			background-color: #f4ecb4;
 			transition: right .3s ease-in;
@@ -103,15 +105,47 @@
 		}
 	}
 
+	.secondary-nav {
+		position: absolute;
+		right: 0;
+		top: 16px;
+
+		@include mediaquery('xl2') {
+			left: calc(100% + 70px);
+			top: 16px;
+		}
+
+		.menu-item {
+			display: none;
+
+			@include mediaquery('tablet-landscape') {
+				display: block;
+			}
+		}
+
+		.menu-item:not(:last-of-type) {
+			// display: none;
+			margin-right: 30px;
+			margin-left: 0;
+			font-size: 10px;
+
+			// @include mediaquery('xl2') {
+			// 	display: block;
+			// 	flex-direction: column;
+			// }
+		}
+	}
+
 	.menu-items {
-		margin: auto;
-		display: flex;
 		align-items: center;
+		display: flex;
+		justify-content: center;
+		margin: auto;
 
 		@include mediaquery-max-width(tablet-landscape) {
-			//Mobile only mediaquery so less overrides are necessary
-			text-align: center;
+			// Mobile only mediaquery so less overrides are necessary
 			flex-direction: column;
+			text-align: center;
 
 			> .menu-item:not(:first-of-type) {
 				margin-top: 30px;
@@ -119,12 +153,11 @@
 		}
 
 		@include mediaquery(tablet-landscape)  {
-			//Large mobile +
-			width: 100%;
-			height: 100%;
+			// Large mobile +
 			display: flex;
+			height: 100%;
 			position: relative;
-			justify-content: flex-end;
+			width: 100%;
 		}
 	}
 
@@ -136,8 +169,11 @@
 		position: relative;
 		letter-spacing: 0.5px;
 		text-transform: uppercase;
-		color: color('text', 'body');
 		@include secondary-semi;
+
+		.home & {
+			color: $white;
+		}
 
 		@include mediaquery-max-width(tablet-landscape) {
 			//Mobile only mediaquery so less overrides are necessary
@@ -157,7 +193,7 @@
 			transition: opacity .2s ease-in;
 
 			&:not(:last-of-type) {
-				margin-right: 90px;
+				margin-right: 50px;
 			}
 		}
 
@@ -169,23 +205,13 @@
 			}
 
 			&:after {
-				left: 0;
-				opacity: 0;
-				height: 6px;
-				content: '';
-				width: 100%;
-				display: block;
-				bottom: $gap * -.75;
-				position: absolute;
-				background-color: transparent;
-				transition: background-color .1s ease-in-out, opacity .1s ease-in-out;
+				content: none;
 			}
 		}
 
 		&.current-menu-item {
 			> a:after {
 				opacity: 1;
-				color: red !important;
 				background-color: color('text', 'body');
 			}
 		}
@@ -200,23 +226,15 @@
 		}
 
 		&.menu-item-has-children {
-			&.menu-item-login {
-				@include mediaquery-max-device-width(tablet-landscape) {
-					margin-top: 0;
-					> a {
-						display: none;
-					}
-				}
-			}
-
-			@include mediaquery(tablet-landscape) {
-				&:after {
-					width: 8px;
-					height: 4px;
-					content: "";
-					margin-left: 4px;
-					background: url('../assets/images/caret-dark.svg') no-repeat;
-				}
+			&::after {
+				content: '';
+				width: 0;
+				height: 0;
+				border-left: 5px solid transparent;
+				border-right: 5px solid transparent;
+				border-top: 5px solid $white;
+				transition: transform .3s;
+				margin-left: 10px;
 			}
 		}
 
@@ -225,12 +243,19 @@
 				opacity: 1;
 				pointer-events: auto;
 			}
+
+			&:after {
+				transform: rotate(180deg);
+			}
 		}
 
 		.sub-menu {
-			color: $black;
+			color: $defaultTextColor;
 
-			@include mediaquery-max-device-width(tablet-landscape) {
+			@include mediaquery('tablet-landscape') {
+				box-shadow: 0px 8px 10px 2px rgba($black, 0.25);
+				border-radius: 7px;
+
 				.menu-item {
 					margin-top: 30px;
 				}
@@ -261,7 +286,9 @@
 					height: auto;
 					display: block;
 					white-space: nowrap;
+					color: $defaultTextColor;
 					@include secondary-bold;
+					transition: color .3s;
 
 					&:not(:first-of-type) {
 						margin-top: 16px;
@@ -272,22 +299,42 @@
 							content: none;
 						}
 					}
+
+					&:hover {
+						color: color('brand', 'accent');
+					}
+				}
+			}
+		}
+
+		@include mediaquery(desktop)  {
+			&:hover {
+				opacity: 1;
+
+				a:after {
+					background-color: $black;
+					opacity: 1;
 				}
 			}
 		}
 	}
 
 	.language-switcher {
-		right: 65px;
-		z-index: -1;
-		position: absolute;
-
-		@include mediaquery(tablet-landscape) {
-			right: 13px;
-		}
+		margin-left: 0;
 
 		.languages {
 			display: flex;
+			align-items: center;
+
+			&::before {
+				content: '';
+				height: 12px;
+				width: 12px;
+				// background-image: url(../assets/images/Language_Header_Negative.png);
+				margin-right: 5px;
+				background-size: contain;
+    		background-repeat: no-repeat;
+			}
 		}
 
 		.language {
@@ -295,8 +342,10 @@
 			line-height: 1;
 			letter-spacing: 1px;
 			@include secondary-bold;
-			color: color('text', 'body');
+			color: $white;
 			border: 1px solid transparent;
+			display: flex;
+			align-items: center;
 
 			a {
 				padding: 7px 6px;
@@ -304,86 +353,73 @@
 				text-decoration: none;
 			}
 
-			&:first-child {
-				border-radius: 2px 0 0 2px;
-			}
+			// &:first-child {
+			// 	border-radius: 2px 0 0 2px;
+			// }
 			&:last-child {
-				border-radius: 0 2px 2px 0;
+				&::before {
+					content: '/';
+				}
 			}
 
-			&:not(.activeLanguage) {
-				border: 1px solid color('text', 'body');
-			}
+			// &:not(.activeLanguage) {
+			// 	border: 1px solid color('text', 'body');
+			// }
 
-			&.activeLanguage {
-				color: $white;
-				background-color: color('text', 'body');
+			// &.activeLanguage {
+			// 	color: $white;
+			// 	background-color: color('text', 'body');
+			// }
+
+			& + & {
+				&::before {
+					content: '/';
+				}
 			}
 		}
 	}
 
-	// 09 / 22 / 2020 - Commented to remove the change in background/styles on scroll
-	/*.home:not(.backgroundNav) & {
-
+	.logoDark & {
 		.nav-logo {
-			&.logo-dark {
-				display: none;
-			}
-
-			&.logo-white {
-				display: block;
-			}
+			display: none;
 		}
 
-		.language-switcher {
-			.language {
-				color: $white;
-
-				&:not(.activeLanguage) {
-					border: 1px solid $white;
-				}
-
-				&.activeLanguage {
-					background-color: $white;
-					color: color('text', 'body');
-				}
-			}
+		.secondary-nav-logo {
+			display: block;
 		}
 
 		.menu-item {
-			@include mediaquery(tablet-landscape) {
-				color: $white;
+			color: $defaultTextColor;
+		}
+
+		.languages {
+			&::before {
+				// background-image: url(../assets/images/Language_Header_Positive.png);
 			}
+		}
 
-			&.menu-item-has-children {
-				&:after {
-					background: url('../assets/images/caret.svg') no-repeat;
-				}
+		.language {
+			color: $defaultTextColor;
+		}
 
-				.menu-item {
-					color: color('text', 'body');
-				}
-			}
-
-			&.current-menu-item {
-				> a:after {
-					opacity: 1;
-					background-color: $white;
-				}
-			}
-
-			@include mediaquery(desktop)  {
-				&:hover {
-					a:after {
-						opacity: 1;
-						background-color: $white;
-					}
-				}
+		.menu-item-has-children {
+			&::after {
+				border-top-color: $defaultTextColor;
 			}
 		}
 	}
+	
+	.logoLight & {
+		.nav-logo {
+			display: block;
+		}
 
-	.backgroundNav & {
-		background: #e8f2f9;
-	}*/
+		.secondary-nav-logo {
+			display: none;
+		}
+
+		.menu-item {
+			color: $white;
+		}
+	}
 }

@@ -34,6 +34,7 @@
 @import '../../FLEX/gutenberg/blocks/block_list/_list.scss';
 // @import '../gutenberg/blocks/block_list/_list.scss'; // Overriden
 @import '../gutenberg/blocks/block_heading/_heading.scss'; // Overriden
+@import '../../FLEX/gutenberg/blocks/block_hr/_hr.scss';
 @import '../gutenberg/blocks/block_button/_buttons.scss'; // Overriden
 @import '../../FLEX/scss/_body-text.scss';
 //@import 'body-text.scss'; // Override parent theme body variables
@@ -56,3 +57,4 @@
 @import '../../FLEX/components/component_archive-feed/_archive-feed.scss';
 
 @import 'custom-classes/features-card.scss';
+@import '../components/component_circle-image/_circle-image.scss';
