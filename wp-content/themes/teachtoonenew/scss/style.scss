@@ -48,12 +48,14 @@
 @import '../../FLEX/scss/_styleguide.scss';
 
 // Blocks
+@import '../../FLEX/gutenberg/blocks/block_hr/_hr.scss';
 @import '../../FLEX/gutenberg/blocks/block_quote/_quote.scss';
 @import '../../FLEX/gutenberg/blocks/block_social_media/_social-media.scss';
 
 // Components
 // @import '../../FLEX/scss/components/component_column/_column.scss';
 @import '../components/component_carousel/_carousel.scss';
+@import '../components/component_circle-image/_circle-image.scss';
 @import '../components/component_nav/_nav.scss'; // Overriden
 @import '../components/component_footer/_footer.scss'; // Overriden
 @import '../components/component_social-media/_social-media.scss'; // Overriden
