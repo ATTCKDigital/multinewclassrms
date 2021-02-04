@@ -37,6 +37,7 @@
 @import '../../FLEX/gutenberg/blocks/block_paragraph/_paragraph.scss';
 @import '../../FLEX/gutenberg/blocks/block_popup/_popup.scss';
 @import '../../FLEX/gutenberg/blocks/block_social_media/_social-media.scss';
+@import '../../FLEX/gutenberg/blocks/block_posts/_posts.scss';
 
 // @import '../../FLEX/gutenberg/blocks/block_video/_editor.scss';
 // @import '../../FLEX/gutenberg/blocks/block_video/_video.scss';
@@ -48,6 +49,7 @@
 @import '../gutenberg/blocks/block_hero-slider/_hero-slider.scss';
 @import '../gutenberg/blocks/block_popup/_popup.scss';
 @import '../gutenberg/blocks/block_testimonialcarousel/_testimonialcarousel.scss';
+@import '../gutenberg/blocks/block_posts/_posts.scss';
 
 // Gutenberg Components
 // @import '../../FLEX/gutenberg/components/gb-component_background-options/_editor.scss';
@@ -71,3 +73,4 @@
 @import '../components/component_nav/_nav.scss';
 @import '../components/component_newsletter/_newsletter.scss';
 @import '../components/component_video-popup/_video-popup.scss';
+@import '../components/component_post/_post-header.scss';

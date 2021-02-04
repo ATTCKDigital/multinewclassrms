@@ -29,6 +29,7 @@ $blocks = array(
 	// 'flexlayout/users',
 	'flexlayout/video',
 	'flexlayout/share',
+	'flexlayout/posts',
 	'acf/hero-slider',
 	'acf/testimonialcarousel'
 );
