@@ -5,10 +5,15 @@
 	position: fixed;
 	right: 0;
 	top: 0;
-	// border-bottom: 1px solid $light-gray--faded;
 	transition: top .3s ease-in-out, background .3s ease-in-out;
 	width: 100%;
 	z-index: 1000;
+
+	.home & {
+		background: transparent;
+
+
+	}
 
 	@include mediaquery(tablet-landscape)  {
 		align-items: center;
