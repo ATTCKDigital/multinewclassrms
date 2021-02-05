@@ -1,9 +1,13 @@
 @import '../../FLEX/scss/_body-text.scss';
 
-.body1, 
-.is-style-body1 p, 
-.is-style-body1, p {
+// Styles for content within a WYSIWYG.
+// All WYSIWYG content should be wrapped in a "body-text" div
+.body1,
+.is-style-body1 p,
+.is-style-body1, 
+p {
 	font-size: 18px;
+	letter-spacing: 0;
 	line-height: 1.77;
 
 	@include mediaquery(desktop)  {

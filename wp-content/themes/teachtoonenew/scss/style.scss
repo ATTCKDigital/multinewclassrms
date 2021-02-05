@@ -6,7 +6,6 @@
 @import '_css-vars';
 @import '_sass-utils';
 @import '_reset';
-// @import '../../FLEX/scss/_wysiwyg';
 @import '_sizing';
 @import '_media-queries';
 @import '_grid';
@@ -29,72 +28,35 @@
 @import '_iconography';
 
 // Gutenberg Blocks
-// @import '../../FLEX/gutenberg/blocks/block_button/_button-admin.scss';
 @import '../../FLEX/gutenberg/blocks/block_hr/_hr.scss';
 @import '../../FLEX/gutenberg/blocks/block_image/_image.scss';
 @import '../../FLEX/gutenberg/blocks/block_list/_list.scss';
-@import '../gutenberg/blocks/block_list/_list.scss'; // Overriden
 @import '../../FLEX/gutenberg/blocks/block_paragraph/_paragraph.scss';
+@import '../../FLEX/gutenberg/blocks/block_quote/_quote.scss';
 @import '../../FLEX/gutenberg/blocks/block_social_media/_social-media.scss';
-// @import '../../FLEX/gutenberg/blocks/block_video/_editor.scss';
-// @import '../../FLEX/gutenberg/blocks/block_video/_video.scss';
-	@import '../../FLEX/gutenberg/blocks/block_quote/_quote.scss';
-	@import '../gutenberg/blocks/block_button/_buttons.scss';
-	@import '../gutenberg/blocks/block_heading/_heading.scss';
-	// @import '../gutenberg/blocks/block_hero-slider/_hero-slider.scss';
-	// @import '../gutenberg/blocks/block_hr/_hr.scss';
-	@import '../gutenberg/blocks/block_testimonialcarousel/_testimonialcarousel.scss';
+@import '../../FLEX/gutenberg/blocks/block_quote/_quote.scss';
+@import '../../FLEX/gutenberg/blocks/block_social_media/_social-media.scss';
+@import '../../FLEX/gutenberg/blocks/block_video/_video.scss';
+@import '../gutenberg/blocks/block_button/_buttons.scss';
+@import '../gutenberg/blocks/block_circle-image/_circle-image.scss';
+@import '../gutenberg/blocks/block_heading/_heading.scss';
+@import '../gutenberg/blocks/block_list/_list.scss';
+@import '../gutenberg/blocks/block_share/_share.scss';
+@import '../gutenberg/blocks/block_testimonialcarousel/_testimonialcarousel.scss';
 
 // Gutenberg Components
-	// @import '../../FLEX/gutenberg/components/gb-component_background-options/_editor.scss';
-	@import '../../FLEX/gutenberg/components/gb-component_margin/_margin.scss';
-	// @import '../../FLEX/gutenberg/components/gb-component_margin/_editor.scss';
-	@import '../../FLEX/gutenberg/components/gb-component_padding/_padding.scss';
-	// @import '../../FLEX/gutenberg/components/gb-component_padding/_editor.scss';
-	// @import '../../FLEX/gutenberg/components/gb-component_row-height/_editor.scss';
-	// @import '../../FLEX/gutenberg/components/gb-component_scroller/_editor.scss';
-	// @import '../../FLEX/gutenberg/components/gb-component_text-colors/_editor.scss';
+@import '../../FLEX/gutenberg/components/gb-component_margin/_margin.scss';
+@import '../../FLEX/gutenberg/components/gb-component_padding/_padding.scss';
 
 // FLEX Components
-	@import '../../FLEX/components/component_archive-feed/_archive-feed.scss';
-	@import '../components/component_archive-feed/_archive-feed.scss';
-	@import '../../FLEX/components/component_nav/_nav.scss';
-	@import '../../FLEX/components/component_share/_share.scss';
-	// @import '../components/component_colortile/_colortile.scss';
-	@import '../components/component_carousel/_carousel.scss';
-	@import '../components/component_footer/_footer.scss';
-	@import '../components/component_nav/_nav.scss';
-	@import '../components/component_newsletter/_newsletter.scss';
-	@import '../components/component_features-card/_features-card.scss';
-	// @import '../components/component_video-popup/_video-popup.scss';
-
-@import '../../FLEX/gutenberg/components/gb-component_padding/_padding.scss';
-@import '../../FLEX/gutenberg/components/gb-component_margin/_margin.scss';
-@import '../gutenberg/blocks/block_heading/_heading.scss'; // Overriden
-@import '../gutenberg/blocks/block_button/_buttons.scss';
-//@import 'body-text.scss'; // Override parent theme body variables
-// @import '../../FLEX/scss/_admin-styles.scss';
-
-@import '../../FLEX/gutenberg/blocks/block_quote/_quote.scss';
-@import '../../FLEX/gutenberg/blocks/block_social_media/_social-media.scss';
-@import '../../FLEX/gutenberg/blocks/block_hr/_hr.scss';
-@import '../../FLEX/gutenberg/blocks/block_quote/_quote.scss';
-@import '../../FLEX/gutenberg/blocks/block_social_media/_social-media.scss';
-
-// Blocks
-@import '../gutenberg/blocks/block_share/_share.scss';
-@import '../gutenberg/blocks/block_circle-image/_circle-image.scss';
-
-// Components
-// @import '../../FLEX/scss/components/component_column/_column.scss';
-@import '../components/component_carousel/_carousel.scss';
-@import '../components/component_circle-image/_circle-image.scss';
-@import '../components/component_dropdown-section/_dropdown-section.scss';
-@import '../components/component_nav/_nav.scss'; // Overriden
-@import '../components/component_footer/_footer.scss'; // Overriden
-@import '../components/component_post/_post-header.scss'; // Overriden
-@import '../components/component_social-media/_social-media.scss'; // Overriden
-//@import '../components/component_newsletter/_newsletter.scss';
+@import '../../FLEX/components/component_archive-feed/_archive-feed.scss';
+@import '../../FLEX/components/component_share/_share.scss';
 @import '../../FLEX/gutenberg/blocks/block_video/_video.scss';
-
+@import '../../FLEX/components/component_video-popup/_video-popup.scss';
+@import '../components/component_carousel/_carousel.scss';
+@import '../components/component_features-card/_features-card.scss';
+@import '../components/component_footer/_footer.scss';
+@import '../components/component_nav/_nav.scss';
+@import '../components/component_newsletter/_newsletter.scss';
+@import '../components/component_social-media/_social-media.scss';
 

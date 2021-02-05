@@ -1,3 +1,5 @@
+//Change name space on line 4 and line 15
+// Change name space on line 4 and line 15
 function HeroSlider($el) {
 	const AUTO_SCROLL_TIME = 5000;
 

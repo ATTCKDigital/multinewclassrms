@@ -14,6 +14,7 @@ $blocks = array(
 	'flexlayout/image',
 	'flexlayout/list',
 	'flexlayout/paragraph',
+	'flexlayout/popup',
 	'flexlayout/quote',
 	'flexlayout/shortcode',
 	'flexlayout/source',
@@ -28,6 +29,7 @@ $blocks = array(
 	// 'flexlayout/users',
 	'flexlayout/video',
 	'flexlayout/share',
+	'flexlayout/posts',
 	'acf/hero-slider',
 	'acf/testimonialcarousel'
 );

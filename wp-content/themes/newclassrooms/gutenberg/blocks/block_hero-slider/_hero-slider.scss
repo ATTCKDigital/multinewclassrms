@@ -59,6 +59,7 @@
 	.content {
 		display: flex;
 		color: $white;
+		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		margin: 0 auto;
@@ -163,9 +164,9 @@
 			left: 50%;
 			pointer-events: none;
 			position: absolute;
-			top: 50%;
 			transform: translate(-50%,-50%);
 			transition: height .3s, width .3s;
+			top: 50%;
 			width: 0;
 
 			@include mediaquery(tablet-landscape) {
