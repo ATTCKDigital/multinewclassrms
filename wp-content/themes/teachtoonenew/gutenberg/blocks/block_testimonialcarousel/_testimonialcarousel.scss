@@ -9,13 +9,15 @@
     }
 
     blockquote {
-        font-size: 20px;
-        line-height: 1.6;
-        font-style: italic;
-        font-family: $tertiaryRegularItalic;
-
-        @include mediaquery('desktop') {
+        p {
             font-size: 24px;
+            line-height: 1.66;
+            font-style: italic;
+            font-family: $secondaryMedium;
+    
+            @include mediaquery('desktop') {
+                font-size: 24px;
+            }
         }
     }
 
@@ -30,43 +32,44 @@
             transform: translateY(-50%);
         }
 
+        &.next,
         &.prev {
-            left: 13px;
-
-            @include mediaquery('tablet-landscape') {
-                left: 53px;
-            }
-
-            &:before {
-                content: '';
-                width: 56px;
-                height: 56px;
-                transform: none;
-                margin-right: 10px;
-                display: inline-block;
-                background: url(../assets/images/arrow-slider.svg);
-                background-repeat: no-repeat;
-            }
-        }
-
-        &.next {
+            align-items: center;
+            background: $white;
+            box-shadow: 0px 4px 5px 1px rgba(0, 0, 0, 0.15);
+            border-radius: 100%;
+            display: flex;
             right: 13px;
+            width: 40px;
+            height: 40px;
+            justify-content: center;
 
             @include mediaquery('tablet-landscape') {
                 right: 53px;
             }
 
             &:after {
-                content: '';
-                width: 56px;
-                height: 56px;
-                margin-left: 10px;
-                display: inline-block;
-                transform: scaleX(-1);
-                background: url(../assets/images/arrow-slider.svg);
-                background-repeat: no-repeat;
+				content: '';
+				width: 0;
+				height: 0;
+				border-left: 5px solid transparent;
+				border-right: 5px solid transparent;
+				border-top: 5px solid #50535C;
+                transition: transform .3s;
+                transform: rotate(-90deg);
+				margin-left: 10px;
             }
         }
+
+        &.prev {
+            &:after {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    .dot-container {
+        padding-left: 10px;
     }
 
     .component-carousel {
@@ -88,6 +91,7 @@
                 min-height: 45px;
                 margin-bottom: 32px;
                 background: url(../assets/images/quotes.svg) left top no-repeat;
+                background-size: 20%;
 
                 @include mediaquery('tablet-landscape') {
                     margin-bottom: 0;
@@ -124,6 +128,7 @@
 
                 .author-name {
                     margin-bottom: 5px;
+                    font-weight: 600;
                 }
             }
         }
@@ -148,7 +153,7 @@
                 a {
                     width: 4px;
                     height: 4px;
-                    background-color: #A5D4F0;
+                    background-color: $light-gray;
                 }
 
                 &:not(.active) {
@@ -157,7 +162,7 @@
 
                 &.active {
                     a {
-                        background-color: #59869F;
+                        background-color: $light-gray;
                     }
 
                     &:before {
@@ -168,7 +173,7 @@
                         height: 12px;
                         position: absolute;
                         border-radius: 50%;
-                        border: 2px solid #A5D4F0;
+                        border: 2px solid $light-gray;
                         transform: translate(-50%, -50%);
                     }
                 }

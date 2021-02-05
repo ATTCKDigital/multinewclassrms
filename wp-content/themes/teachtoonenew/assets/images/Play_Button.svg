@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="57px" viewBox="0 0 56 57" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/Large/Play/Default</title>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03.01_Roadmap" transform="translate(-956.000000, -4835.000000)">
+            <g id="Group-2" transform="translate(-1.000000, 4524.000000)">
+                <g id="Group-5-Copy-5" transform="translate(738.000000, 201.000000)">
+                    <g id="Group-3" transform="translate(12.593750, 10.656250)">
+                        <g id="Group" transform="translate(203.437500, 96.875000)">
+                            <g id="Group-9" transform="translate(3.875000, 3.875000)">
+                                <circle id="Oval" fill-opacity="0.72" fill="#0D9CF8" cx="27.125" cy="27.125" r="27.125"></circle>
+                                <circle id="Oval" stroke="#FFFFFF" stroke-width="1.6" cx="27.125" cy="27.125" r="27.125"></circle>
+                                <polygon id="Triangle" fill="#FFFFFF" transform="translate(30.515625, 27.125000) rotate(-270.000000) translate(-30.515625, -27.125000) " points="30.515625 20.34375 38.75 33.90625 22.28125 33.90625"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

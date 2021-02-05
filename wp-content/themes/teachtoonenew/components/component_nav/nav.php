@@ -10,8 +10,6 @@
 			<?php 
 				$customLogoID = get_theme_mod( 'custom_logo' );
 				$customLogoURL = wp_get_attachment_image_url( $customLogoID , 'full' );
-				$secondaryLogoID = get_field('secondary_logo', 'options');
-				$secondaryLogoURL = wp_get_attachment_image_url( $secondaryLogoID , 'full' );
 			?>
 			<img 
 				src="<?= $customLogoURL;?>" 
@@ -36,11 +34,6 @@
 					));
 				?>		
 			</ul>
-			<div class="language-switcher">
-				<?php
-					// flexlayout_language_switcher();
-				?>
-			</div>
 		</nav>
 		<nav 
 			class="secondary-nav" 

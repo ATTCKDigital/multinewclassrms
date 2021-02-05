@@ -48,29 +48,22 @@
 	.logo-wrapper {
 		z-index: 10;
 		display: block;
-		max-width: 173px;
+		max-width: 188px;
 		transition: all .3s ease-in-out;
 		position: absolute;
 		left: 20px;
-		top: 16px;
-
-		@include mediaquery('tablet-landscape') {
-			top: 32px;
-		}
+    top: 50%;
+		transform: translateY(-50%);
 
 		@include mediaquery('xl2') {
-			left: -150px;
+			left: -170px;
 		}
 
 		.nav-logo {
 			display: block;
-			height: 32px;
+			height: 26px;
 			object-fit: contain;
-			width: auto;
-		}
-
-		.secondary-nav-logo {
-			display: none;
+			width: 100%;
 		}
 	}
 
@@ -107,32 +100,28 @@
 
 	.secondary-nav {
 		position: absolute;
+		height: 100%;
 		right: 0;
-		top: 16px;
+		top: 0;
+		padding-top: 8px;
 
 		@include mediaquery('xl2') {
-			left: calc(100% + 70px);
-			top: 16px;
+			right: -200px;
+			padding-top: 8px;
 		}
 
 		.menu-item {
 			display: none;
 
 			@include mediaquery('tablet-landscape') {
-				display: block;
+				display: flex;
+				font-size: 10px;
 			}
 		}
 
 		.menu-item:not(:last-of-type) {
-			// display: none;
 			margin-right: 30px;
-			margin-left: 0;
-			font-size: 10px;
-
-			// @include mediaquery('xl2') {
-			// 	display: block;
-			// 	flex-direction: column;
-			// }
+			margin-left: 0
 		}
 	}
 
@@ -170,10 +159,8 @@
 		letter-spacing: 0.5px;
 		text-transform: uppercase;
 		@include secondary-semi;
-
-		.home & {
-			color: $white;
-		}
+		margin-left: 25px;
+		padding-bottom: 32px;
 
 		@include mediaquery-max-width(tablet-landscape) {
 			//Mobile only mediaquery so less overrides are necessary
@@ -193,7 +180,7 @@
 			transition: opacity .2s ease-in;
 
 			&:not(:last-of-type) {
-				margin-right: 50px;
+				margin-right: 25px;
 			}
 		}
 
@@ -226,15 +213,19 @@
 		}
 
 		&.menu-item-has-children {
+			align-items: center;
+			display: flex;
+		
 			&::after {
 				content: '';
-				width: 0;
-				height: 0;
 				border-left: 5px solid transparent;
 				border-right: 5px solid transparent;
-				border-top: 5px solid $white;
+				border-top: 5px solid $defaultTextColor;
+				height: 0;
+				width: 0;
 				transition: transform .3s;
 				margin-left: 10px;
+				margin-bottom: 3px;
 			}
 		}
 
@@ -253,9 +244,6 @@
 			color: $defaultTextColor;
 
 			@include mediaquery('tablet-landscape') {
-				box-shadow: 0px 8px 10px 2px rgba($black, 0.25);
-				border-radius: 7px;
-
 				.menu-item {
 					margin-top: 30px;
 				}
@@ -266,20 +254,21 @@
 				position: absolute;
 				background: $white;
 				pointer-events: none;
-				transform: translateX(-20%);
+				transform: translate(-20%, 1px);
 				color: color('text', 'body');
 				padding: 25px 15px 20px 25px;
-				top: calc(100% + (#{$gap}*.75));
+				top: 100%;
 				transition: opacity .3s ease-in;
+				padding: 30px 32px 30px 22px;
 
-				&:before {
-					content: '';
-					left: 0;
-					top: -20px;
-					width: 100%;
-					height: 20px;
-					position: absolute;
-				}
+				// &:before {
+				// 	content: '';
+				// 	left: 0;
+				// 	top: -20px;
+				// 	width: 100%;
+				// 	height: 20px;
+				// 	position: absolute;
+				// }
 
 				.menu-item {
 					margin: 0;
@@ -289,9 +278,11 @@
 					color: $defaultTextColor;
 					@include secondary-bold;
 					transition: color .3s;
+					padding-bottom: 0;
+					margin-top: 20px;
 
-					&:not(:first-of-type) {
-						margin-top: 16px;
+					&:first-child {
+						margin-top: 0;
 					}
 
 					a {
@@ -303,6 +294,10 @@
 					&:hover {
 						color: color('brand', 'accent');
 					}
+				}
+
+				.menu-item + .menu-item {
+					margin-top: 20px;
 				}
 			}
 		}

@@ -28,6 +28,54 @@
 		}
 	}
 
+	&.video-button {
+		// padding-left: 20px;
+		align-items: center;
+		background: $white;
+		border: 1px solid $black;
+		border-color: $defaultTextColor;
+		border-radius: 40px;
+		box-shadow: none;
+		box-sizing: border-box;
+		color: $defaultTextColor;
+		cursor: pointer;
+		display: inline-flex;
+		font-weight: 600;
+		height: 57px;
+		justify-content: space-between;
+		min-width: none;
+		padding: 4px 4px 4px 30px;
+		text-transform: uppercase;
+		transition: background .4s ease-out, border-color .4s ease-out;
+		text-align: center;
+
+		@include mediaquery(desktop) {
+			&:hover {
+				background: color('brand', 'accent');
+				border-color: color('brand', 'accent');
+			}
+		}
+
+		&::after {
+			background: url(../assets/images/Play_Button.svg);
+			background-position: 50%;
+			background-repeat: no-repeat;
+			background-size: contain;
+			border-radius: 100%;
+			content: '';
+			display: inline-block;
+			height: 25px;
+			margin-left: 30px;
+			width: 25px;
+
+			@include mediaquery(tablet-portrait) {
+				height: 50px;
+				margin-left: 35px;
+				width: 50px;
+			}
+		}
+	}
+
 	&.cta-solid,
     &.is-style-cta-solid {
 		background-color: $white;

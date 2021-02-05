@@ -57,6 +57,7 @@
 
 // FLEX Components
 	@import '../../FLEX/components/component_archive-feed/_archive-feed.scss';
+	@import '../components/component_archive-feed/_archive-feed.scss';
 	@import '../../FLEX/components/component_nav/_nav.scss';
 	@import '../../FLEX/components/component_share/_share.scss';
 	// @import '../components/component_colortile/_colortile.scss';
@@ -88,7 +89,6 @@
 @import '../components/component_footer/_footer.scss'; // Overriden
 @import '../components/component_social-media/_social-media.scss'; // Overriden
 //@import '../components/component_newsletter/_newsletter.scss';
-@import '../../FLEX/components/component_archive-feed/_archive-feed.scss';
 @import '../../FLEX/components/component_share/_share.scss';
 @import '../../FLEX/gutenberg/blocks/block_video/_video.scss';
 
