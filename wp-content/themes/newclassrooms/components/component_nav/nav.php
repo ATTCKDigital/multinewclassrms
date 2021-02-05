@@ -42,11 +42,6 @@
 					));
 				?>		
 			</ul>
-			<div class="language-switcher">
-				<?php
-					// flexlayout_language_switcher();
-				?>
-			</div>
 		</nav>
 		<nav 
 			class="secondary-nav" 

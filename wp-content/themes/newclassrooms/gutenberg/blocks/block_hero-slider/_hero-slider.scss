@@ -107,6 +107,7 @@
 
 	.dots-component {
 		display: flex;
+		list-style: none;
 
 		@include mediaquery(tablet-landscape) {
 			margin-left: 8px;
