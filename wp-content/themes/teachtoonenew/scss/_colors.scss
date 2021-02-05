@@ -1,5 +1,3 @@
-/**** Colors ****/
-
 // Default Colors
 $modalColor: #ffffff;
 $popupColor: rgba(0, 0, 0, .7);
@@ -50,7 +48,7 @@ $brand-colors: (
 	)
 );
 
-/** Generate colors **/
+// Generate colors
 // Usage: color('key', 'variant');
 @function color($key: 'debug', $variant: $brand-color-key) {
 	$color: null;
@@ -63,7 +61,7 @@ $brand-colors: (
 	@return $color;
 }
 
-/** Mixin for placeholder color **/
+// Mixin for placeholder color
 @mixin placeholder($color) {
 	&::-webkit-input-placeholder {
 		color: $color;
@@ -82,20 +80,20 @@ $brand-colors: (
 	}
 }
 
-/**** Color classes ****/
-// Use dynamically generated color classes as follows:
-//
-// Classes:
-//
-// 		.background-key-variant
-// 		.color-color-key-variant
-//
-// For example:
-//
-// 		.background-accent-blue
-// 		.color-accent-blue
-//
-
+/**
+ * Color classes
+ * Use dynamically generated color classes as follows:
+ *
+ * Classes:
+ *
+ * 		.background-key-variant
+ * 		.color-color-key-variant
+ *
+ * For example:
+ *
+ * 		.background-accent-blue
+ * 		.color-accent-blue
+ */
 @each $key, $map in $brand-colors {
 	@each $variant, $color in $map {
 		.has-#{$key}-#{$variant}-background-color {

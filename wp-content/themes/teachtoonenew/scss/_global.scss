@@ -1,3 +1,5 @@
+@import '../../FLEX/scss/_global.scss';
+
 body {
     background: #E8F2F9;
 
@@ -7,25 +9,25 @@ body {
                 position: relative;
 
                 &:before {
-                    top: 0;
+                    background: $light-gray--faded;
+                    content: '';
+                    height: 100%;
                     left: 80px;
+                    position: absolute;
+                    top: 0;
                     width: 1px;
                     z-index: 1;
-                    content: "";
-                    height: 100%;
-                    position: absolute;
-                    background: $light-gray--faded;
                 }
 
                 &:after {
+                    background: $light-gray--faded;
+                    content: '';
+                    height: 100%;
+                    position: absolute;
+                    right: 80px;
                     top: 0;
                     width: 1px;
                     z-index: 1;
-                    right: 80px;
-                    content: "";
-                    height: 100%;
-                    position: absolute;
-                    background: $light-gray--faded;
                 }
             }
         }

@@ -1,11 +1,15 @@
-/** Body Copy **/
+// @import '../../FLEX/scss/_body-text.scss';
+
 // Styles for content within a WYSIWYG.
 // All WYSIWYG content should be wrapped in a "body-text" div
-.body1, .is-style-body1 p, .is-style-body1, p {
+.body1,
+.is-style-body1 p,
+.is-style-body1, 
+p {
 	font-size: 18px;
+	letter-spacing: 0;
 	line-height: 1.77;
 	margin-bottom: $gap;
-	letter-spacing: 0;
 	@include primary-regular;
 
 	@include mediaquery(desktop)  {

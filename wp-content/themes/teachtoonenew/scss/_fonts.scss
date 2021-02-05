@@ -1,20 +1,5 @@
-/**** Fonts global styles ****/
+@import '../../FLEX/scss/_fonts.scss';
 
-/** Font Face Declarations **/
-
-// Example:
-// @font-face {
-// 	font-family: 'Primary-Font';
-// 	font-style: normal;
-// 	font-weight: 300;
-// 	src: url('~FLEX/assets/fonts/primary-font-300.eot'); /* IE9 Compat Modes */
-// 	src: local('Primary Font Light'), local('Primary-Font-Light'),
-// 			 url('~FLEX/assets/fonts/primary-font-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-// 			 url('~FLEX/assets/fonts/primary-font-300.woff2') format('woff2'), /* Super Modern Browsers */
-// 			 url('~FLEX/assets/fonts/primary-font-300.woff') format('woff'), /* Modern Browsers */
-// 			 url('~FLEX/assets/fonts/primary-font-300.ttf') format('truetype'), /* Safari, Android, iOS */
-// 			 url('~FLEX/assets/fonts/primary-font-300.svg#Poppins') format('svg'); /* Legacy iOS */
-// }
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&display=swap');
 
 @font-face {
@@ -62,14 +47,6 @@
     font-style: normal;
 }
 
-
-
-/** Font Variables **/
-
-// Override font variables from parent theme as required
-
-// $headerFont1: 'Lora', Helvetica, Arial, sans-serif;
-
 $primaryLight: "Lora", Helvetica, Arial, sans-serif;
 $primaryLightItalic: "Lora", Helvetica, Arial, sans-serif;
 $primaryRegular: "Lora", Helvetica, Arial, sans-serif;
@@ -80,8 +57,6 @@ $primarySemi: "Lora", Helvetica, Arial, sans-serif;
 $primarySemiItalic: "Lora", Helvetica, Arial, sans-serif;
 $primaryBold: "Lora", Helvetica, Arial, sans-serif;
 $primaryBoldItalic: "Lora", Helvetica, Arial, sans-serif;
-
-// $headerFont2: 'Poppins', Helvetica, Arial, sans-serif;
 
 $secondaryLight: "Poppins", Helvetica, Arial, sans-serif;
 $secondaryLightItalic: "Poppins", Helvetica, Arial, sans-serif;
@@ -94,8 +69,6 @@ $secondarySemiItalic: "Poppins", Helvetica, Arial, sans-serif;
 $secondaryBold: "Poppins", Helvetica, Arial, sans-serif;
 $secondaryBoldItalic: "Poppins", Helvetica, Arial, sans-serif;
 
-// $headerFont3: 'PT Serif', serif;
-
 $tertiaryLight: "PT Serif", serif;
 $tertiaryLightItalic: "PT Serif", serif;
 $tertiaryRegular: "PT Serif", serif;
@@ -106,44 +79,3 @@ $tertiarySemi: "PT Serif", serif;
 $tertiarySemiItalic: "PT Serif", serif;
 $tertiaryBold: "PT Serif", serif;
 $tertiaryBoldItalic: "PT Serif", serif;
-
-//Primary Font
-
-// $primaryLight: "Primary-Font-Light", Helvetica, Arial, sans-serif;
-// $primaryLightItalic: "Primary-Font-LightItalic", Helvetica, Arial, sans-serif;
-// $primaryRegular: "Primary-Font-Regular", Helvetica, Arial, sans-serif;
-// $primaryRegularItalic: "Primary-Font-Italic", Helvetica, Arial, sans-serif;
-// $primaryMedium: "Primary-Font-Medium", Helvetica, Arial, sans-serif;
-// $primaryMediumItalic: "Primary-Font-MediumItalic", Helvetica, Arial, sans-serif;
-// $primarySemi: "Primary-Font-Bold", Helvetica, Arial, sans-serif;
-// $primarySemiItalic: "Primary-Font-BoldItalic", Helvetica, Arial, sans-serif;
-// $primaryBold: "Primary-Font-Black", Helvetica, Arial, sans-serif;
-// $primaryBoldItalic: "Primary-Font-BlackItalic", Helvetica, Arial, sans-serif;
-
-
-//Secondary Font
-
-// $secondaryLight: "Secondary-Font-Light", Helvetica, Arial, sans-serif;
-// $secondaryLightItalic: "Secondary-Font-LightItalic", Helvetica, Arial, sans-serif;
-// $secondaryRegular: "Secondary-Font-Regular", Helvetica, Arial, sans-serif;
-// $secondaryRegularItalic: "Secondary-Font-Italic", Helvetica, Arial, sans-serif;
-// $secondaryMedium: "Secondary-Font-Medium", Helvetica, Arial, sans-serif;
-// $secondaryMediumItalic: "Secondary-Font-MediumItalic", Helvetica, Arial, sans-serif;
-// $secondarySemi: "Secondary-Font-Bold", Helvetica, Arial, sans-serif;
-// $secondarySemiItalic: "Secondary-Font-BoldItalic", Helvetica, Arial, sans-serif;
-// $secondaryBold: "Secondary-Font-Black", Helvetica, Arial, sans-serif;
-// $secondaryBoldItalic: "Secondary-Font-BlackItalic", Helvetica, Arial, sans-serif;
-
-
-//Tertiary Font
-
-// $tertiaryLight: "Tertiary-FontLight", Georgia, Times, serif;
-// $tertiaryLightItalic: "Tertiary-FontLight Italic", Georgia, Times, serif;
-// $tertiaryRegular: "Tertiary-FontRegular", Georgia, Times, serif;
-// $tertiaryRegularItalic: "Tertiary-FontItalic", Georgia, Times, serif;
-// $tertiaryMedium: "Tertiary-FontMedium", Georgia, Times, serif;
-// $tertiaryMediumItalic: "Tertiary-FontMedium Italic", Georgia, Times, serif;
-// $tertiarySemi: "Tertiary-FontSemiBold", Georgia, Times, serif;
-// $tertiarySemiItalic: "Tertiary-FontSemiBold Italic", Georgia, Times, serif;
-// $tertiaryBold: "Tertiary-FontBold", Georgia, Times, serif;
-// $tertiaryBoldItalic: "Tertiary-FontBold Italic", Georgia, Times, serif;
