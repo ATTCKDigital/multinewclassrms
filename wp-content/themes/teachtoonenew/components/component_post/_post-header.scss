@@ -1,0 +1,77 @@
+/*** Single Post Header ***/
+
+.component-post-header {
+	.featured-image {
+    height: 295px;
+    max-width: 517px;
+		overflow: hidden;
+    margin: 0 auto;
+  
+		img {
+			object-fit: cover;
+			object-position: center center;
+			height: 100%;
+			border-radius: 10px;
+		}
+	}
+
+	.date {
+		font-weight: 600;
+    @include secondary-bold;
+	}
+
+	.category {
+		display: flex;
+    justify-content: center;
+    position: relative;
+		
+    &::before {
+      content: '';
+      background-image: url(../assets/images/category-icons/Thought_Leadership_Positive.svg);
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 24px;
+      width: 24px;
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &::after {
+      content: '';
+      height: 48px;
+      width: 48px;
+      border-radius: 100%;
+      border: 2px solid $defaultTextColor;
+      background: $white;
+      display: inline-flex;
+    }
+  }
+
+	.category-events {
+    &::before {
+      background-image: url(../assets/images/category-icons/Event_Positive.svg);
+    }
+  }
+
+  .category-news {
+    &::before {
+      background-image: url(../assets/images/category-icons/News_Positive.svg);
+    }
+  }
+
+  .category-partner-updates {
+    &::before {
+      background-image: url(../assets/images/category-icons/Partner_Updates_Positive.svg);
+    }
+  }
+
+  .category-thought-leadership {
+    &::before {
+      background-image: url(../assets/images/category-icons/Thought_Leadership_Positive.svg);
+    }
+  }
+}
