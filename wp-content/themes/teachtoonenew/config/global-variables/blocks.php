@@ -14,6 +14,7 @@ $blocks = array(
 	'flexlayout/hr',
 	'flexlayout/image',
 	'flexlayout/quote',
+	'flexlayout/share',
 	'flexlayout/shortcode',
 	'flexlayout/source',
 	'flexlayout/socialmedia',
