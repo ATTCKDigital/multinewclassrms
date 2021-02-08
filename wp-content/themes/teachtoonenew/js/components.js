@@ -4,6 +4,7 @@ import FLEX from 'FLEX/js/clientNamespace';
 import Nav from '../components/component_nav/nav';
 import Carousel from '../components/component_carousel/carousel';
 import ContactForm from '../components/component_contact-form/contact-form';
+import DropdownSection from '../components/component_dropdown-section/dropwdown-section';
 import TestimonialCarousel from "../gutenberg/blocks/block_testimonialcarousel/testimonialcarousel";
 
 // then add them to this object
@@ -11,6 +12,7 @@ FLEX.ChildComponents = {
     'Nav': Nav,
     'Carousel': Carousel,
     'TestimonialCarousel': TestimonialCarousel,
+    'DropdownSection': DropdownSection,
 };
 
 // Custom code non related to FLEX
