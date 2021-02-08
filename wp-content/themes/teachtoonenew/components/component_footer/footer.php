@@ -1,29 +1,15 @@
 <section class="component-row-full component-row">
-    <div class="footer-wrapper flex-12-12 flex-tablet-landscape-10-12 flex-grid component-alignment-center component-row-wide padding-global-top-2x padding-global-bottom-2x padding-left-3x padding-right-3x padding-desktop-left-0x padding-desktop-right-0x padding-tablet-portrait-bottom-3x padding-tablet-portrait-top-3x">
+    <div class="footer-wrapper flex-12-12 flex-tablet-landscape-12-12 flex-grid component-alignment-center component-row-wide padding-global-bottom-2x padding-left-3x padding-right-3x padding-desktop-left-0x padding-desktop-right-0x padding-tablet-portrait-bottom-3x">
         <div class="flex-12-12 flex-tablet-portrait-2-12 margin-top-4x margin-tablet-portrait-top-0x">
             <small class="display-block footer-copyright"><?= get_field('footer_copyright', 'options'); ?></small>
         </div>
-        <div class="flex-desktop-7-12 flex-tablet-landscape-7-12 flex-tablet-portrait-7-12 flex-12-12 padding-bottom-4x padding-tablet-portrait-bottom-0x padding-tablet-portrait-right-1x">
+        <div class="flex-tablet-portrait-4-12 flex-12-12 padding-bottom-4x padding-tablet-portrait-bottom-0x padding-tablet-portrait-right-1x">
             <?php
                 echo Utils::render_template('components/component_footer/footer-nav.php');
             ?>
-            <div class="footer-nav-row margin-top-1x margin-tablet-portrait-top-4x">
-                <nav class="footer-secondary-nav flex-tablet-portrait-4-12 padding-tablet-portrait-right-3x" role="navigation" aria-label="Site navigation in the footer">
-                    <ul class="menu-items">
-                        <?php
-                        // Default is 'primary' nav. 
-                        // To use another nav, create one in /config/theme-configs/register-nav-menus.php and change variable below.
-                        echo Utils::render_template('config/theme-includes/menu.php', array(
-                            'menuLocation' => 'footer-secondary',
-                        ));
-                        ?>
-                    </ul>
-                </nav>
-                <small class="display-block footer-copyright copyright-desktop flex-tablet-portrait-7-12"><?= get_field('footer_copyright', 'options'); ?></small>
-            </div>
         </div>
-        <div class="flex-tablet-landscape-4-12 flex-12-12 padding-tablet-portrait-right-8x padding-tablet-landscape-right-16x">
-            <div class="flex-grid">
+        <div class="flex-tablet-landscape-4-12 flex-12-12 newsletter-social-media flex-grid">
+            <div class="flex-grid social-media-wrapper">
                 <h3 class="is-style-headline6 social-media-text"><?= __('Follow Us') ?></h3>
                 <?php
                     //To make this into a share component, change componentType value to "share"
@@ -35,7 +21,7 @@
                 ?>  
             </div>
             <div class="newsletter margin-botoom-1x margin-tablet-portrait-bottom-3x">
-                <h3 class="is-style-default is-style-headline6 margin-bottom-1x margin-tablet-portrait-bottom-3x"><?= __('Newsletter') ?></h3>
+                <h3 class="is-style-default is-style-headline6 margin-bottom-1x margin-tablet-portrait-bottom-2x"><?= __('Newsletter') ?></h3>
                 <div class="component-newsletter newsletter-light newsletter-footer component">
                     <?php
                     $embedCode = get_field('newsletter_embed_code', 'options');
