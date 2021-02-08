@@ -88,7 +88,7 @@
 		@include mediaquery(tablet-landscape)  {
 			//Large mobile +
 			height: 100%;
-			margin-left: 80px;
+			// margin-left: 80px;
 			width: calc(100% - 160px);
 
 
@@ -162,6 +162,10 @@
 		margin-left: 25px;
 		padding-bottom: 32px;
 
+		&:first-child {
+			margin-left: 0;
+		}
+
 		@include mediaquery-max-width(tablet-landscape) {
 			//Mobile only mediaquery so less overrides are necessary
 			display: block;
@@ -187,12 +191,17 @@
 		a {
 			text-decoration: none;
 
-			@include mediaquery-max-device-width(tablet-landscape) {
-				position: relative;
-			}
-
 			&:after {
-				content: none;
+				left: 0;
+				opacity: 0;
+				height: 6px;
+				content: '';
+				width: 100%;
+				display: block;
+				bottom: $gap * -.75;
+				position: absolute;
+				background-color: transparent;
+				transition: background-color .1s ease-in-out, opacity .1s ease-in-out;
 			}
 		}
 
@@ -200,15 +209,6 @@
 			> a:after {
 				opacity: 1;
 				background-color: color('text', 'body');
-			}
-		}
-
-		@include mediaquery(desktop)  {
-			&:hover {
-				a:after {
-					opacity: 1;
-					background-color: color('text', 'body');
-				}
 			}
 		}
 
@@ -261,15 +261,6 @@
 				transition: opacity .3s ease-in;
 				padding: 30px 32px 30px 22px;
 
-				// &:before {
-				// 	content: '';
-				// 	left: 0;
-				// 	top: -20px;
-				// 	width: 100%;
-				// 	height: 20px;
-				// 	position: absolute;
-				// }
-
 				.menu-item {
 					margin: 0;
 					height: auto;
@@ -320,16 +311,6 @@
 		.languages {
 			display: flex;
 			align-items: center;
-
-			&::before {
-				content: '';
-				height: 12px;
-				width: 12px;
-				// background-image: url(../assets/images/Language_Header_Negative.png);
-				margin-right: 5px;
-				background-size: contain;
-    		background-repeat: no-repeat;
-			}
 		}
 
 		.language {
@@ -348,23 +329,11 @@
 				text-decoration: none;
 			}
 
-			// &:first-child {
-			// 	border-radius: 2px 0 0 2px;
-			// }
 			&:last-child {
 				&::before {
 					content: '/';
 				}
 			}
-
-			// &:not(.activeLanguage) {
-			// 	border: 1px solid color('text', 'body');
-			// }
-
-			// &.activeLanguage {
-			// 	color: $white;
-			// 	background-color: color('text', 'body');
-			// }
 
 			& + & {
 				&::before {
@@ -385,12 +354,6 @@
 
 		.menu-item {
 			color: $defaultTextColor;
-		}
-
-		.languages {
-			&::before {
-				// background-image: url(../assets/images/Language_Header_Positive.png);
-			}
 		}
 
 		.language {

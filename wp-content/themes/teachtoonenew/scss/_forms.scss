@@ -11,15 +11,11 @@ form.wpcf7-form {
                 padding-right: 14px;
             }
         }
-        &:last-child {
+        &:not(:only-child):last-child {
             @include mediaquery(tablet-landscape) {
                 padding-left: 14px;
             }
         }
-    }
-
-    .submit-container {
-        text-align: center;
     }
 
     label {
