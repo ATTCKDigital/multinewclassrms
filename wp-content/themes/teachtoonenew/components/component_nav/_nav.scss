@@ -104,6 +104,11 @@
 		right: 0;
 		top: 0;
 		padding-top: 8px;
+		display: none;
+
+		@include mediaquery('tablet-landscape') {
+			display: block;
+		}
 
 		@include mediaquery('xl2') {
 			right: -200px;
@@ -112,6 +117,7 @@
 
 		.menu-item {
 			display: none;
+			font-weight: 500;
 
 			@include mediaquery('tablet-landscape') {
 				display: flex;
@@ -128,8 +134,9 @@
 	.menu-items {
 		align-items: center;
 		display: flex;
-		justify-content: center;
 		margin: auto;
+		justify-content: flex-start;
+    padding-left: 8px;
 
 		@include mediaquery-max-width(tablet-landscape) {
 			// Mobile only mediaquery so less overrides are necessary
@@ -189,6 +196,7 @@
 		}
 
 		a {
+			position: static;
 			text-decoration: none;
 
 			&:after {
@@ -198,7 +206,7 @@
 				content: '';
 				width: 100%;
 				display: block;
-				bottom: $gap * -.75;
+				bottom: 0;
 				position: absolute;
 				background-color: transparent;
 				transition: background-color .1s ease-in-out, opacity .1s ease-in-out;
@@ -257,7 +265,7 @@
 				transform: translate(-20%, 1px);
 				color: color('text', 'body');
 				padding: 25px 15px 20px 25px;
-				top: 100%;
+				top: 99%;
 				transition: opacity .3s ease-in;
 				padding: 30px 32px 30px 22px;
 
@@ -305,8 +313,45 @@
 		}
 	}
 
+	.column-menu {
+		& > .sub-menu {
+			display: flex;
+			align-items: flex-start;
+			padding: 24px 53px 32px 32px;
+
+			& > .menu-item + .menu-item {
+				margin-top: 0;
+				margin-left: 20px;
+			}
+		}
+
+		.menu-item-has-children {
+			margin-top: 0;
+			min-width: 150px;
+
+			&:after {
+				content: none;
+			}
+		
+			& > a {
+				border-bottom: 1px solid #979797;
+				display: block;
+				padding-bottom: 20px;
+			}
+
+			.sub-menu {
+				background: transparent;
+				display: block;
+				left: 0;
+				padding: 24px 0 0 0;
+				position: relative;
+				transform: none;
+			}
+		}
+	}
+
 	.language-switcher {
-		margin-left: 0;
+		margin-left: -10px;
 
 		.languages {
 			display: flex;
@@ -314,32 +359,35 @@
 		}
 
 		.language {
-			font-size: 8px;
+			align-items: center;
+			border: 1px solid transparent;
+			color: $defaultTextColor;
+			display: flex;
+			font-size: px-to-rem(10px);
 			line-height: 1;
 			letter-spacing: 1px;
-			@include secondary-bold;
-			color: $white;
-			border: 1px solid transparent;
-			display: flex;
-			align-items: center;
+			@include secondary-regular;
+			font-weight: 500;
 
 			a {
-				padding: 7px 6px;
 				display: block;
+				padding: 7px 6px;
 				text-decoration: none;
-			}
 
-			&:last-child {
-				&::before {
-					content: '/';
+				&:hover {
+					text-decoration: underline;
+				}
+
+				&::after {
+					content: none;
 				}
 			}
+		}
+	}
 
-			& + & {
-				&::before {
-					content: '/';
-				}
-			}
+	.language + .language {
+		&::before {
+			content: '/';
 		}
 	}
 
