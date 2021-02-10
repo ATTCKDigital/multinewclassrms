@@ -25,6 +25,7 @@
 			class="main-nav flex-11-12" 
 			aria-label="Main site navigation" 
 			role="navigation">
+			<?php echo Utils::render_template('components/component_logo-animation/logo-animation.php'); ?>
 			<ul class="menu-items">
 				<?php
 					// Default is 'primary' nav. 

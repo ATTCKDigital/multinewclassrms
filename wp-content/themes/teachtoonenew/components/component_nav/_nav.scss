@@ -47,13 +47,20 @@
 
 	.logo-wrapper {
 		z-index: 10;
-		display: block;
 		max-width: 188px;
 		transition: all .3s ease-in-out;
 		position: absolute;
 		left: 20px;
     top: 50%;
 		transform: translateY(-50%);
+
+		.navOpen & {
+			display: none;
+		}
+
+		@include mediaquery('tablet-landscape') {
+			display: block;
+		}
 
 		@include mediaquery('xl2') {
 			left: -170px;
@@ -77,8 +84,9 @@
 			height: 100vh;
 			right: -100%;
 			position: absolute;
-			background-color: #f4ecb4;
+			background-color: #18255B;
 			transition: right .3s ease-in;
+			color: $white;
 
 			.navOpen & {
 				right: 0;
@@ -136,24 +144,24 @@
 		display: flex;
 		margin: auto;
 		justify-content: flex-start;
-    padding-left: 8px;
 
 		@include mediaquery-max-width(tablet-landscape) {
 			// Mobile only mediaquery so less overrides are necessary
 			flex-direction: column;
 			text-align: center;
 
-			> .menu-item:not(:first-of-type) {
-				margin-top: 30px;
-			}
+			// > .menu-item:not(:first-of-type) {
+			// 	margin-top: 30px;
+			// }
 		}
 
 		@include mediaquery(tablet-landscape)  {
 			// Large mobile +
-			display: flex;
+			// display: flex;
 			height: 100%;
 			position: relative;
 			width: 100%;
+			padding-left: 8px;
 		}
 	}
 
@@ -166,18 +174,26 @@
 		letter-spacing: 0.5px;
 		text-transform: uppercase;
 		@include secondary-semi;
-		margin-left: 25px;
-		padding-bottom: 32px;
+		display: none;
 
 		&:first-child {
 			margin-left: 0;
 		}
 
+		&.mobile {
+			display: block;
+
+			@include mediaquery('tablet-landscape')  {
+				display: none;
+			}
+		}
+
 		@include mediaquery-max-width(tablet-landscape) {
 			//Mobile only mediaquery so less overrides are necessary
-			display: block;
 			text-align: center;
-			font-size: px-to-rem(14px);
+			font-size: px-to-rem(20px);
+			padding-bottom: 0;
+			margin-bottom: 32px;
 		}
 
 		@include mediaquery(tablet-landscape)  {
@@ -189,6 +205,8 @@
 			letter-spacing: 2px;
 			font-size: px-to-rem(12px);
 			transition: opacity .2s ease-in;
+			margin-left: 25px;
+			padding-bottom: 32px;
 
 			&:not(:last-of-type) {
 				margin-right: 25px;
@@ -196,8 +214,11 @@
 		}
 
 		a {
-			position: static;
 			text-decoration: none;
+
+			@include mediaquery(tablet-landscape)  {
+				position: static;
+			}
 
 			&:after {
 				left: 0;
@@ -221,11 +242,13 @@
 		}
 
 		&.menu-item-has-children {
-			align-items: center;
-			display: flex;
-		
+			@include mediaquery('tablet-landscape') {
+				align-items: center;
+				display: flex;
+			}
+
 			&::after {
-				content: '';
+				content: none;
 				border-left: 5px solid transparent;
 				border-right: 5px solid transparent;
 				border-top: 5px solid $defaultTextColor;
@@ -234,6 +257,10 @@
 				transition: transform .3s;
 				margin-left: 10px;
 				margin-bottom: 3px;
+
+				@include mediaquery('tablet-landscape') {
+					content: '';
+				}
 			}
 		}
 
@@ -249,18 +276,11 @@
 		}
 
 		.sub-menu {
-			color: $defaultTextColor;
-
 			@include mediaquery('tablet-landscape') {
-				.menu-item {
-					margin-top: 30px;
-				}
-			}
-
-			@include mediaquery(tablet-landscape) {
 				opacity: 0;
 				position: absolute;
 				background: $white;
+				color: $defaultTextColor;
 				pointer-events: none;
 				transform: translate(-20%, 1px);
 				color: color('text', 'body');
@@ -314,38 +334,55 @@
 	}
 
 	.column-menu {
-		& > .sub-menu {
-			display: flex;
-			align-items: flex-start;
-			padding: 24px 53px 32px 32px;
+		margin-bottom: 0;
 
-			& > .menu-item + .menu-item {
-				margin-top: 0;
-				margin-left: 20px;
+		& > :first-child {
+			@include mediaquery-max-width('tablet-landscape')  {
+				margin-bottom: 32px;
+				display: block;
+			}
+		}
+	
+		& > .sub-menu {
+			@include mediaquery('tablet-landscape')  {
+				display: flex;
+				align-items: flex-start;
+				padding: 24px 53px 32px 32px;
+	
+				& > .menu-item + .menu-item {
+					margin-top: 0;
+					margin-left: 20px;
+				}
 			}
 		}
 
 		.menu-item-has-children {
-			margin-top: 0;
-			min-width: 150px;
+			@include mediaquery('tablet-landscape')  {
+				margin-top: 0;
+				min-width: 150px;
+			}
 
 			&:after {
 				content: none;
 			}
 		
 			& > a {
-				border-bottom: 1px solid #979797;
-				display: block;
-				padding-bottom: 20px;
+				@include mediaquery('tablet-landscape')  {
+					border-bottom: 1px solid #979797;
+					display: block;
+					padding-bottom: 20px;
+				}
 			}
 
 			.sub-menu {
 				background: transparent;
 				display: block;
-				left: 0;
-				padding: 24px 0 0 0;
 				position: relative;
 				transform: none;
+
+				@include mediaquery('tablet-landscape')  {
+					padding: 24px 0 0 0;
+				}
 			}
 		}
 	}
@@ -426,6 +463,33 @@
 
 		.menu-item {
 			color: $white;
+		}
+	}
+
+	.hamburger-wrapper {
+		z-index: 1;
+		transform: none;
+
+		.navOpen & {
+			mark {
+				&::before,
+				&::after {
+					background-color: $white;
+				}
+			}
+		}
+	}
+
+	.component-logo-animation {
+		position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 40%;
+    transform: translateY(-50%);
+		opacity: .2;
+
+		@include mediaquery('tablet-landscape')  {
+			display: none;
 		}
 	}
 }
