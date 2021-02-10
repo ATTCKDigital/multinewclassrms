@@ -10,13 +10,13 @@
 
     blockquote {
         p {
-            font-size: 24px;
-            line-height: 1.66;
             font-style: italic;
-            font-family: $secondaryMedium;
+            font-family: $tertiaryRegular;
+            font-size: px-to-rem(20px);
+            line-height: 32px;
     
-            @include mediaquery('desktop') {
-                font-size: 24px;
+            @include mediaquery('tablet-landscape') {
+                font-size: px-to-rem(24px);
             }
         }
     }
@@ -89,7 +89,7 @@
         .slide {
             .quote-image {
                 min-height: 45px;
-                margin-bottom: 32px;
+                margin-bottom: 24px;
                 background: url(../assets/images/quotes.svg) left top no-repeat;
                 background-size: 20%;
 

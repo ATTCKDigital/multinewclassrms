@@ -22,7 +22,7 @@ $slides = get_field('testimonials');
             <?php foreach ($slides as $index => $slide): ?>
                 <li class="slide" data-slide-index="<?= $index; ?>">
                     <div class="component-row-wide flex-grid quote-container">
-                        <section class="flex-12-12 flex-tablet-landscape-3-12 quote-image">
+                        <section class="flex-3-12 quote-image">
                         </section>
                         <section class="flex-12-12 flex-tablet-landscape-9-12">
                             <blockquote>
