@@ -5,7 +5,7 @@
 
 add_action('acf/init', 'register_block_hero_slider');
 function register_block_hero_slider() {
-	
+
 	// check function exists
 	if( function_exists('acf_register_block') ) {
 		
@@ -18,7 +18,6 @@ function register_block_hero_slider() {
 			'category'			=> 'formatting',
 			'icon'				=> 'admin-comments',
 			'keywords'			=> array( 'hero-slider', 'slider' ),
-			'parent'			=> ['flexlayout/row'],
 			'mode'				=> 'edit'
 		));
 	}
