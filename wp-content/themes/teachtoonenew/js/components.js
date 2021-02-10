@@ -6,6 +6,7 @@ import Carousel from '../components/component_carousel/carousel';
 import ContactForm from '../components/component_contact-form/contact-form';
 import DropdownSection from '../components/component_dropdown-section/dropwdown-section';
 import TestimonialCarousel from "../gutenberg/blocks/block_testimonialcarousel/testimonialcarousel";
+import CircleImage from "../gutenberg/blocks/block_circle-image/circle-image";
 
 // then add them to this object
 FLEX.ChildComponents = {
@@ -13,6 +14,7 @@ FLEX.ChildComponents = {
     'Carousel': Carousel,
     'TestimonialCarousel': TestimonialCarousel,
     'DropdownSection': DropdownSection,
+    'CircleImage': CircleImage,
 };
 
 // Custom code non related to FLEX

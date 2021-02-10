@@ -81,6 +81,10 @@
 @import '../../FLEX/gutenberg/blocks/block_quote/_quote.scss';
 @import '../../FLEX/gutenberg/blocks/block_social_media/_social-media.scss';
 
+// Blocks
+@import '../gutenberg/blocks/block_share/_share.scss';
+@import '../gutenberg/blocks/block_circle-image/_circle-image.scss';
+
 // Components
 // @import '../../FLEX/scss/components/component_column/_column.scss';
 @import '../components/component_carousel/_carousel.scss';
@@ -91,7 +95,6 @@
 @import '../components/component_post/_post-header.scss'; // Overriden
 @import '../components/component_social-media/_social-media.scss'; // Overriden
 //@import '../components/component_newsletter/_newsletter.scss';
-@import '../../FLEX/components/component_share/_share.scss';
 @import '../../FLEX/gutenberg/blocks/block_video/_video.scss';
 
 
