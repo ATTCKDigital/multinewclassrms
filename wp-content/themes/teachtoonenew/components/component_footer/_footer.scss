@@ -4,19 +4,14 @@
 	color: $white;
 	background: #191659;
 
-	// temporarily
-	display: none;
-
-	@include mediaquery('tablet-landscape') {
-		display: block;
-	}
-
 	.footer-wrapper {
-		flex-direction: column-reverse;
+		flex-direction: column;
+		padding: 0;
 
 		@include mediaquery('tablet-portrait') {
 			flex-direction: row;
 			justify-content: space-between;
+			padding: 0 20px;
 		}
 	}
 
@@ -29,32 +24,19 @@
 		max-width: 173px;
 		margin-bottom: 43px;
 
-		@include mediaquery('tablet-landscape') {
-			margin-bottom: 70px;
-		}
-	}
-
-	.copyright-desktop {
-		display: none;
-
 		@include mediaquery('tablet-portrait') {
-			display: block;
-		}
-
-		a {
-			color: inherit;
+			margin-bottom: 70px;
 		}
 	}
 	
 	.footer-copyright {
-		opacity: .75;
-		letter-spacing: 1.5px;
-
 		p {
 			font-size: px-to-rem(10px);
-			margin-bottom: 24px;
+			margin-bottom: 16px;
 			text-transform: uppercase;
-			@include secondary-regular;
+			line-height: 16px;
+			letter-spacing: 1px;
+			@include secondary-medium;
 
 			a {
 				text-decoration: none;
@@ -75,18 +57,17 @@
 			display: flex;
 			flex-wrap: wrap;
 			flex-direction: column;
-			max-height: 260px;
+			max-height: 250px;
 
 			& > .menu-item {
 				width: 50%;
-				margin-bottom: 30px;
 				margin-right: 20px;
+				white-space: nowrap;
 
-				@include mediaquery('tablet-landscape') {
+				@include mediaquery('tablet-portrait') {
 					width: auto;
 					max-width: 45%;
 					min-width: 100px;
-					margin-bottom: 0;
 					margin-right: 65px;
 				}
 			}
@@ -95,46 +76,25 @@
 
 	.menu-item {
 		display: block;
-		line-height: 1;
 		letter-spacing: 2px;
 		text-transform: uppercase;
 		font-size: px-to-rem(12px);
+		line-height: 16px;
 		@include secondary-bold;
 		padding-top: 16px;
-
-		@include mediaquery('tablet-landscape') {
-			padding-top: 24px;
-		}
-
-		@include mediaquery('tablet-portrait') {
-			margin-bottom: $gap;
-		}
-
-		&:last-child {
-			margin-bottom: 0;
-		}
 
 		a {
 			text-decoration: none;
 		}
 	}
 
-	.menu-item + .menu-item {
-
-	}
-
 	.sub-menu {
-		opacity: .8;
-		margin-top: 16px;
+		margin-top: 8px;
 
 		.menu-item {
 			padding: 0;
-			@include secondary-regular;
-			margin-bottom: 8px;
-
-			&:last-child {
-				margin-bottom: 0;
-			}
+			font-size: px-to-rem(10px);
+			letter-spacing: 1px;
 		}
 	}
 
@@ -146,9 +106,14 @@
 		flex-direction: row;
 		align-items: center;
 
-
 		.component-social-media {
 			width: auto;
+		}
+
+		.social-media-text {
+			line-height: 20px;
+			letter-spacing: 0.5px;
+			text-transform: uppercase;
 		}
 	}
 
@@ -161,7 +126,14 @@
 			margin-bottom: 0;
 		}
 
+		.newsletter-title {
+			line-height: 20px;
+			letter-spacing: 0.5px;
+			text-transform: uppercase;
+		}
+
 		.component-newsletter {
+			margin-top: 8px;
 			margin-bottom: 0;
 		}
 	}
