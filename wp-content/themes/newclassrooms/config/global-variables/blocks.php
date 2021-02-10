@@ -19,7 +19,7 @@ $blocks = array(
 	'flexlayout/shortcode',
 	'flexlayout/source',
 	'flexlayout/socialmedia',
-	'flexlayout/hr',
+	// 'flexlayout/hr',
 
 	//  DEPRECATED, replaced by List and Paragraph. 
 	// If your project is already using this, 
