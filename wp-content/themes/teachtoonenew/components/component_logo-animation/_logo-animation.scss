@@ -1,0 +1,92 @@
+.component-logo-animation {
+  padding: 8px;
+  width: 75px;
+  height: 75px;//75px
+  margin: 0 auto;
+
+  .circle-svg {
+    width: 100%;
+    height: 100%;
+    background: transparent !important;
+    z-index: 1;
+    overflow: inherit;
+    outline: none !important;
+  }
+  
+  .animate .circle {
+    animation: scale 1s forwards cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  
+  .animate .circle-stroke{
+    animation: extend 1s forwards cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  
+  .circle {
+    r: 0px;
+    z-index: 1;
+  }
+  
+  .circle-stroke {
+    cy: 50%;
+    cx: 50%;
+    r: 50%;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: -315;
+    stroke-width: 26px;
+    stroke-linecap: round;
+    transform-origin: center;
+  }
+  
+  .circle1 {
+    cx: 50%;
+    cy: 0%;
+  }
+  .circle2 {
+    cx: 0%;
+    cy: 50%;
+    animation-delay: 1s !important;
+  }
+  
+  .circle3 {
+    cx: 50%;
+    cy: 100%;
+    animation-delay: 2s !important;
+  }
+  
+  .circle4 {
+    cx: 100%;
+    cy: 50%;
+    animation-delay: 3s !important;
+  }
+  
+  .circle1-line {
+    transform: rotate(269deg);
+    animation-delay: 1s !important;
+  }
+  .circle2-line {
+    transform: rotate(179deg);
+    animation-delay: 2s !important;
+  }
+  
+  .circle3-line {
+    transform: rotate(89deg);
+    animation-delay: 3s!important;
+  }
+  
+  .circle4-line {
+    animation-delay: 4s !important;
+  }
+  
+  @keyframes scale {
+    100% {
+      r: 13px;
+    }
+  }
+  
+  @keyframes extend {
+    100% {
+      stroke-dashoffset: -237;
+    }
+  }
+  
+}
