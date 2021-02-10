@@ -36,13 +36,14 @@
 	}
 
 	.circle-stroke {
-		stroke-dasharray: 1000;
-		stroke-dashoffset: -1000;
 		cy: 50%;
     cx: 50%;
 		r: 48%;
+		stroke-dasharray: 1000;
+		stroke-dashoffset: -1000;
     stroke-width: 4px;
-		transition: stroke-dashoffset 1s;
+		stroke-linecap: round;
+		transition: stroke-dashoffset 1s cubic-bezier(0.65, 0, 0.35, 1);
 	}
 
 	.image {
@@ -54,6 +55,6 @@
 		transform: scale(1.2);
 		border-radius: 100%;
 		padding: 6px;
-		transition: opacity .3s .8s, transform .3s .8s;
+		transition: opacity .3s .8s ease-in-out, transform .3s .8s ease-in-out;
 	}
 }

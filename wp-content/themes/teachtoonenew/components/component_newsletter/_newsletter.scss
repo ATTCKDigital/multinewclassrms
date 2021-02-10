@@ -68,7 +68,7 @@
 
     input {
         outline: none;
-        @include primary-regular;
+        @include secondary-regular;
 
         &[type="submit"] {
             width: 30%;
@@ -118,6 +118,14 @@
                 color: $white;
                 position: relative;
                 padding: 0 94px 0 34px;
+
+                &::placeholder {
+                    color: $white;
+                }
+
+                .wpcf-form {
+                    display: inline-flex;
+                }
             }
         }
     }
