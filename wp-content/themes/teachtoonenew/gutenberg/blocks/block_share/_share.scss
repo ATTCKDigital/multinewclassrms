@@ -1,0 +1,23 @@
+.component-share {
+  padding: 0;
+  border: none;
+
+  .share-list {
+    color: $brandThirdly;
+    align-items: center;
+    display: flex;
+
+    .caption2 {
+      margin: 0;
+      padding: 0;
+      font-size: px-to-rem(12px);
+      @include secondary-bold;
+    }
+  }
+
+  .social-icon {
+    a {
+      text-decoration: none;
+    }
+  }
+}

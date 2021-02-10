@@ -4,6 +4,13 @@
 	color: $white;
 	background: #191659;
 
+	// temporarily
+	display: none;
+
+	@include mediaquery('tablet-landscape') {
+		display: block;
+	}
+
 	.footer-wrapper {
 		flex-direction: column-reverse;
 
