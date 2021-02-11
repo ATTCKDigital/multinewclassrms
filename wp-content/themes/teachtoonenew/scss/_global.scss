@@ -2,35 +2,5 @@
 
 body {
     background: #E8F2F9;
-
-    @include mediaquery(tablet-landscape) {
-        main.content, .component-footer {
-            > .component-row {
-                position: relative;
-
-                &:before {
-                    top: 0;
-                    left: 80px;
-                    width: 1px;
-                    z-index: 1;
-                    content: "";
-                    height: 100%;
-                    position: absolute;
-                    background: $light-gray--faded;
-                }
-
-                &:after {
-                    top: 0;
-                    width: 1px;
-                    z-index: 1;
-                    right: 80px;
-                    content: "";
-                    height: 100%;
-                    position: absolute;
-                    background: $light-gray--faded;
-                }
-            }
-        }
-    }
 }
 

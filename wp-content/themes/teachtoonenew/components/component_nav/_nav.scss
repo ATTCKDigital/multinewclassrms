@@ -96,7 +96,7 @@
 		@include mediaquery(tablet-landscape)  {
 			//Large mobile +
 			height: 100%;
-			// margin-left: 80px;
+			margin-left: 80px;
 			width: calc(100% - 160px);
 
 
@@ -311,7 +311,7 @@
 					}
 
 					&:hover {
-						color: color('brand', 'accent');
+						color: $light-gray;
 					}
 				}
 
@@ -487,6 +487,11 @@
     height: 40%;
     transform: translateY(-50%);
 		opacity: .2;
+		display: none;
+
+		.navOpen & {
+			display: block;
+		}
 
 		@include mediaquery('tablet-landscape')  {
 			display: none;

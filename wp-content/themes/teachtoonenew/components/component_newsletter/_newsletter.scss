@@ -68,7 +68,7 @@
 
     input {
         outline: none;
-        @include secondary-regular;
+        @include secondary-bold;
 
         &[type="submit"] {
             width: 30%;

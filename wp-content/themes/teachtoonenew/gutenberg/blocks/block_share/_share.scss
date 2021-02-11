@@ -10,8 +10,10 @@
     .caption2 {
       margin: 0;
       padding: 0;
-      font-size: px-to-rem(12px);
-      @include secondary-bold;
+      font-size: px-to-rem(10px);
+      @include secondary-medium;
+      line-height: 16px;
+      letter-spacing: 1px;
     }
   }
 
