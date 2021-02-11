@@ -40,7 +40,7 @@
 @import '../../FLEX/scss/_body-text.scss';
 //@import 'body-text.scss'; // Override parent theme body variables
 @import '../../FLEX/scss/_admin-styles.scss';
-@import '../../FLEX/gutenberg/blocks/block_posts/_posts.scss';
+// @import '../../FLEX/gutenberg/blocks/block_posts/_posts.scss'; // commented out until merging posts branch in FLEX
 @import '../gutenberg/blocks/block_posts/_posts.scss';
 
 // GB Component Specific Overrides
