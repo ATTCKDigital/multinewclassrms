@@ -21,6 +21,7 @@ $blocks = array(
 	'flexlayout/text',
     'flexlayout/list',
     'flexlayout/paragraph',
+	'flexlayout/posts',
 	// 'flexlayout/users',
 	'flexlayout/video',
 	
