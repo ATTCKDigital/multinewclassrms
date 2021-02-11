@@ -1,7 +1,7 @@
 function DropdownSection($el) {
 
 	var $dropdownButton;
-	var $el;
+	var $dropdownSection;
 	var openText;
 	var closeText;
 	var isDropdownOpen;
@@ -25,54 +25,67 @@ function DropdownSection($el) {
 			closeSection();
 		}
 
-		$el.attr('aria-hidden', isDropdownOpen);
+		$dropdownSection.attr('aria-hidden', isDropdownOpen);
 	}
 
 	function openSection() {
 		console.log('DropdownSection.js › openSection()');
 
-		$el.animate({
-			maxHeight: $el[0].scrollHeight,
+		if (closeText) {
+			$('a', $dropdownButton).text(closeText);
+		}
+
+		$dropdownButton.addClass('active');
+
+		$dropdownSection.animate({
+			maxHeight: $dropdownSection[0].scrollHeight,
 			opacity: 1
 		}, 
 		300, 
 		function() { // Animation Complete
-			$el.addClass('visible');
-			$el.maxHeight = ''
+			$dropdownSection.removeClass('hidden-section');
+			$dropdownSection.maxHeight = '';
 			isDropdownOpen = true;
-			$('a', $dropdownButton).text(closeText);
-			$('a', $dropdownButton).addClass('active');
 		})
 	}
 
 	function closeSection() {
 		console.log('DropdownSection.js › closeSection()');
 
-		$el.animate({
+		$dropdownSection.animate({
 			maxHeight: 0,
 			opacity: 0
 		}, 
 		300, 
 		function() { // Animation Complete
-			$el.removeClass('visible');
+			$dropdownSection.addClass('hidden-section');
 			isDropdownOpen = false;
-			$('a', $dropdownButton).text(openText);
-			$('a', $dropdownButton).removeClass('active');
+
+			if (openText) {
+				$('a', $dropdownButton).text(openText);
+			}
+
+			$dropdownButton.removeClass('active');
 		})
 	}
 
 	function render() {
 		console.log('DropdownSection.js › render()');
 
-		$dropdownButton = $el.siblings('.dropdown-button');
-		isDropdownOpen = true;
-		$el.attr('aria-hidden', isDropdownOpen);
-		let options = $el.data('componentOptions');
-		options = options.replace(/'/g, '"')
-		options = JSON.parse(options);
+		$dropdownButton = $('.dropdown-toggle', $el);
+		$dropdownSection = $('.dropdown-section', $el);
 
-		openText = options['openText'] ?? 'Show More';
-		closeText = options['closeText'] ?? 'Close';
+		isDropdownOpen = true;
+		$dropdownSection.attr('aria-hidden', isDropdownOpen);
+
+		let options = $el.data('componentOptions');
+		if (options) {
+			options = options.replace(/'/g, '"')
+			options = JSON.parse(options);
+	
+			openText = options['openText'] ?? 'Show More';
+			closeText = options['closeText'] ?? 'Close';
+		}
 	}
 
 	this.init = function ($el) {
