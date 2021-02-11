@@ -96,7 +96,7 @@
 		}
 
 		@include mediaquery('tablet-landscape') {
-			border-radius: 10px 10px 0 0;
+			border-radius: $card-border-radius $card-border-radius 0 0;
 		}
 
 		&:hover {
@@ -159,7 +159,7 @@
 	.cat-dropdown {
 		background: $white;
 		color: $defaultTextColor;
-		border-radius: 10px 10px 0 0;
+		border-radius: $card-border-radius $card-border-radius 0 0;
 		width: 100%;
 		margin-bottom: -1px;
 
@@ -282,6 +282,7 @@
 		position: relative;
 		flex-grow: 1;
 		background: $white;
+		border-radius: $card-border-radius;
 
 		@include mediaquery('tablet-landscape') {
 			padding: 16px 16px 24px 16px;
