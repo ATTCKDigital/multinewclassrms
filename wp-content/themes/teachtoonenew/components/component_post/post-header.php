@@ -1,6 +1,8 @@
 <?php // Single Post Header 
 	$category = get_the_category(); 
 	$category_slug = $category[0]->slug;
+
+	$postsLink = get_permalink( get_option( 'page_for_posts' ) );
 ?>
 <section class="component-post-header component-row flex-grid padding-tablet-landscape-bottom-8x padding-bottom-4x padding-tablet-landscape-top-4x margin-top-2x" data-logo-color="logo-color-dark">
 	<div class="component-row component-background-center-center padding-tablet-landscape-top-8x margin-top-8x margin-tablet-landscape-top-2x" data-section-id="937">
@@ -8,6 +10,7 @@
 	</div>
 	<div class="column flex-12-12 text-align-center">
 		<header class="single-header flex-tablet-landscape-8-12 flex-12-12">
+			<a class="posts-link" href="<?= $postsLink ?>"><?= __('< Back to all news') ?></a>
 			<div class="color-text-primary display-block margin-bottom-2x margin-tablet-landscape-bottom-3x text-align-center category category-<?= $category_slug; ?>"></div>
 			<h1 class="headline2 title color-text-primary flex-tablet-landscape-8-12 flex-12-12 text-align-center margin-bottom-2x margin-tablet-landscape-bottom-3x"><?php the_title();?></h1>
 			<span class="eyebrow uppercase display-block text-align-center date"><?= get_the_time('F j, Y');?></span>

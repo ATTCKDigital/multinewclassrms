@@ -1,4 +1,4 @@
-// @import '../../FLEX/gutenberg/blocks/block_posts/_posts.scss';
+// @import '../../FLEX/gutenberg/blocks/block_posts/_posts.scss'; // commented out until merging posts branch in FLEX
 
 .component-archive-posts {
 	$card-border-radius: 10px;
@@ -59,7 +59,6 @@
 		width: 100%;
 		transition: background-color .3s, color .3s;
 		padding: 16px;
-		font-weight: 600;
 		text-transform: uppercase;
 		display: flex;
 		align-items: center;
@@ -164,7 +163,7 @@
 		justify-content: flex-end;
 
 		label {
-			font-weight: 600;
+			@include secondary-semi;
 			margin-bottom: 0;
 		}
 	}
@@ -183,6 +182,7 @@
 
 	.posts-items {
 		margin: -16px -8px;
+		display: flex;
 		// padding-bottom: 64px;
 	}
 
@@ -213,7 +213,7 @@
 		border: $light-gray 1px solid;
 		transition: box-shadow .3s;
 		position: relative;
-		height: 320px;
+		height: 100%;
 		display: flex;
 		flex-direction: column;
 		text-decoration: none;
@@ -242,50 +242,42 @@
 	.image-wrapper {
 		border-radius: $card-border-radius $card-border-radius 0 0;
 		overflow: hidden;
-		height: 190px;
+		height: 185px;
 		background-color: $brandThirdly;
-
-		@include mediaquery('tablet-landscape') {
-			height: 140px;
-		}
 	}
 
 	.post-content {
 		display: flex;
 		flex-direction: column;
-		padding: 16px;
+		padding: 24px 24px 26px 16px;
 		position: relative;
 		flex-grow: 1;
 		background: $white;
 		border-radius: $card-border-radius;
 
-		@include mediaquery('tablet-landscape') {
-			padding: 16px 16px 24px 16px;
-		}
-
 		&::before {
 			content: '';
 			position: absolute;
 			right: 8px;
-			top: -16px;
+			top: -24px;
 			background-color: $white;
 			border: $light-gray 1px solid;
-			height: 31px;
-			width: 31px;
+			height: 48px;
+			width: 48px;
 			border-radius: 100%;
 		}
 
 		&::after {
 			content: '';
 			position: absolute;
-			right: 15px;
-			top: -10px;
+	    right: 21px;
+    	top: -13px;
 			background-image: url(../assets/images/category-icons/Thought_Leadership_Positive.svg);
 			background-position: 50%;
 			background-repeat: no-repeat;
 			background-size: contain;
-			height: 18px;
-			width: 18px;
+			height: 24px;
+			width: 24px;
 		}
 	}
 
@@ -321,17 +313,28 @@
 	}
 
 	.post-date {
+		@include secondary-medium;
 		text-transform: uppercase;
 		font-size: 10px;
-		font-weight: 500;
+		color: #50525C;
+		line-height: 16px;
+		letter-spacing: 1px;
 	}
 
 	.post-title {
-		padding-bottom: 16px;
-		padding-right: 60px;
-		font-weight: 600;
-		font-size: 1.2rem;
-		line-height: 1.4;
+		@include secondary-semi;
+		padding-bottom: 8px;
+		// padding-right: 60px;
+		font-size: px-to-rem(20px);
+		line-height: 24px;
+		letter-spacing: -0.5px;
+	}
+
+	.post-excerpt {
+		margin-top: 16px;
+		line-height: 24px;
+		font-size: px-to-rem(16px);
+		color: #50525C;
 	}
 
 	.post-category-news {

@@ -17,6 +17,17 @@
 		}
 	}
 
+  .posts-link {
+    @include secondary-bold;
+    font-size: px-to-rem(10px);
+    line-height: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
 	.date {
 		font-weight: 600;
     @include secondary-bold;
