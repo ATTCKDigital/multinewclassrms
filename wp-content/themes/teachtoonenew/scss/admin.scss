@@ -40,8 +40,8 @@
 @import '../../FLEX/scss/_body-text.scss';
 //@import 'body-text.scss'; // Override parent theme body variables
 @import '../../FLEX/scss/_admin-styles.scss';
-// @import '../../FLEX/gutenberg/blocks/block_posts/_posts.scss'; // commented out until merging posts branch in FLEX
 @import '../gutenberg/blocks/block_posts/_posts.scss';
+@import '../gutenberg/blocks/block_popup/_popup.scss';
 
 // GB Component Specific Overrides
 @import '../../FLEX/gutenberg/components/gb-component_background-options/_editor.scss';
@@ -62,3 +62,4 @@
 @import '../../FLEX/components/component_archive-feed/_archive-feed.scss';
 @import '../components/component_logo-animation/_logo-animation.scss'; 
 @import '../components/component_dropdown-section/_dropdown-section.scss';
+@import '../components/component_schedule-button/_schedule-button.scss';

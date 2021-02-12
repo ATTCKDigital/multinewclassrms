@@ -41,8 +41,8 @@
 @import '../gutenberg/blocks/block_circle-image/_circle-image.scss';
 @import '../gutenberg/blocks/block_heading/_heading.scss';
 @import '../gutenberg/blocks/block_list/_list.scss';
-// @import '../../FLEX/gutenberg/blocks/block_posts/_posts.scss'; // commented out until merging posts branch in FLEX
 @import '../gutenberg/blocks/block_posts/_posts.scss';
+@import '../gutenberg/blocks/block_popup/_popup.scss';
 @import '../gutenberg/blocks/block_testimonialcarousel/_testimonialcarousel.scss';
 
 // Gutenberg Components
@@ -65,4 +65,4 @@
 @import '../components/component_logo-animation/_logo-animation.scss';
 @import '../components/component_dropdown-section/_dropdown-section.scss';
 @import '../components/component_post/_post-header.scss';
-
+@import '../components/component_schedule-button/_schedule-button.scss';

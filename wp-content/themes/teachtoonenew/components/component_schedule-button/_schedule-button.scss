@@ -1,0 +1,75 @@
+.component-schedule-button {
+  height: 56px;
+  position: absolute;
+  right: 20px;
+  top: 618px;
+  z-index: 10;
+  width: 95px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .link-button {
+    max-width: 56px;
+    position: relative;
+
+    a {
+      padding: 0;
+      min-width: auto;
+
+      &::before {
+        background-color: $white;
+        border: 2px solid $light-gray;
+        border-radius: 100%;
+        content: '';
+        display: block;
+        height: 50px;
+        width: 50px;
+        transition: background-color .3s, border-color .3s;
+      }
+  
+      &::after {
+        background-image: url(../assets/images/calendar-positive.svg);
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: '';
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 28px;
+        width: 26px;
+      }
+
+      &:hover {
+        &::before {
+          border-color: $LinkColor;
+          background-color: #42B2FA;
+        }
+    
+        &::after {
+          background-image: url(../assets/images/calendar-negative.svg);
+        }
+      }
+    }
+  }
+
+  .link-text {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 10px;
+
+    p {
+      @include secondary-bold;
+      font-size: px-to-rem(8px);
+      line-height: 8px;
+      text-align: center;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+  }
+}

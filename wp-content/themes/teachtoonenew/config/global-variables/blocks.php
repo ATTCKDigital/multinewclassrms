@@ -22,6 +22,7 @@ $blocks = array(
     'flexlayout/list',
     'flexlayout/paragraph',
 	'flexlayout/posts',
+	'flexlayout/popup',
 	// 'flexlayout/users',
 	'flexlayout/video',
 	
