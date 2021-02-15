@@ -4,6 +4,7 @@ import FLEX from 'FLEX/js/clientNamespace';
 import Nav from '../components/component_nav/nav';
 import Carousel from '../components/component_carousel/carousel';
 import ColorTile from '../components/component_colortile/colortile';
+import ContactForm from '../components/component_contact-form/contact-form';
 import VideoPopup from '../components/component_video-popup/video-popup';
 
 // Gutenberg blocks
@@ -19,3 +20,7 @@ FLEX.ChildComponents = {
   'TestimonialCarousel': TestimonialCarousel,
   'VideoPopup': VideoPopup
 };
+
+// Custom code non related to FLEX
+// TODO: Move this into a FLEX component. -DP
+ContactForm();
