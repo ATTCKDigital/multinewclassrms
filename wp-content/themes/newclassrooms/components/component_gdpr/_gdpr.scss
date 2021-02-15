@@ -1,0 +1,18 @@
+@import '../../FLEX/components/component_gdpr/_gdpr.scss';
+
+.component-gdpr {
+	background: rgba(255, 255, 255, .9);
+	border-color: black;
+
+	.gdpr-message {
+		p {
+			color: black;
+		}
+		
+		span.gdprAgree {
+			border: 1px solid black;
+			color: black;
+			justify-content: center;
+		}
+	}
+}
