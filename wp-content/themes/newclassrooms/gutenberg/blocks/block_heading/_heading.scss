@@ -1,23 +1,54 @@
-.component-heading {
-	width: 100%;
+@import '../../FLEX/gutenberg/blocks/block_heading/_heading.scss';
 
-	&.has-image {
-		align-items: center;
-		display: flex;
-		flex-wrap: wrap;
+// .component-heading {
+// 	width: 100%;
 
-		img {
-			height: auto;
-			margin-right: $gap*5;
-			max-height: 30px;
-			max-width: 45px;
-			width: auto;
+// 	&.has-image {
+// 		align-items: center;
+// 		display: flex;
+// 		flex-wrap: wrap;
 
-			@include mediaquery(tablet-portrait) {
-				margin-right: $gap*2;
-				max-height: 50px;
-				max-width: 80px;
-			}
-		}
-	}
-}
+// 		img {
+// 			height: auto;
+// 			margin-right: $gap*5;
+// 			max-height: 30px;
+// 			max-width: 45px;
+// 			width: auto;
+
+// 			@include mediaquery(tablet-portrait) {
+// 				margin-right: $gap*2;
+// 				max-height: 50px;
+// 				max-width: 80px;
+// 			}
+// 		}
+// 	}
+
+// 	// TODO: (DP) Eventually use this:
+// 	// https://developer.mozilla.org/en-US/docs/Web/CSS/hanging-punctuation
+// 	.show-hanging-quote &,
+// 	&.show-hanging-quote {
+// 		position: relative;
+
+// 		&:before {
+// 			background: url(../assets/images/Quotation.svg) 0 0 no-repeat;
+// 			background-size: contain;
+// 			content: '';
+// 			position: absolute;
+// 			left: -2rem;
+// 			right: 0;
+
+// 			height: 55px;
+// 			width: 60px;
+// 		}
+// 	}
+// }
+
+
+	// position: absolute;
+ //    left: 0;
+ //    height: 50px;
+ //    top: -15px;
+ //    width: 60px;
+ //    left: -95px;
+ //    top: 0;
+ //    height: 55px;

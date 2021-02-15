@@ -24,11 +24,10 @@ function register_block_hero_slider() {
 }
 
 function block_render_callback_hero_slider( $block ) {
-	
-	// convert name ("acf/hero-slider") into path friendly slug ("hero-slider")
+	// Convert name ("acf/hero-slider") into path friendly slug ("hero-slider")
 	$slug = str_replace('acf/', '', $block['name']);
 	
-	// include a template part from within the "template-parts/block" folder
+	// Include a template part from within the "template-parts/block" folder
 	if( file_exists( locate_template("gutenberg/blocks/block_{$slug}/{$slug}.php") ) ) {
 		include( locate_template("gutenberg/blocks/block_{$slug}/{$slug}.php") );
 	}

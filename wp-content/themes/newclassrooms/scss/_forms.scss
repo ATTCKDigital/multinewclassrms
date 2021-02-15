@@ -241,6 +241,9 @@ input {
 	}
 }
 
+// This is already a component so even though the component-homepage-newsletter
+// isn't used exclusively on the homepage anymore, we will keep the name the same.
+// .component-newsletter,
 .component-homepage-newsletter {
 	section {
 		margin-top: 24px;

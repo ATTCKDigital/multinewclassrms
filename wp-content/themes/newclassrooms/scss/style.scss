@@ -6,7 +6,6 @@
 @import '_css-vars';
 @import '_sass-utils';
 @import '_reset';
-// @import '../../FLEX/scss/_wysiwyg';
 @import '_sizing';
 @import '_media-queries';
 @import '_grid';
@@ -27,7 +26,6 @@
 @import '_iconography';
 @import '_forms';
 @import '_styleguide';
-// @import '../../FLEX/scss/_admin-styles.scss';
 
 // Gutenberg Blocks
 // @import '../../FLEX/gutenberg/blocks/block_button/_button-admin.scss';
@@ -42,7 +40,6 @@
 @import '../gutenberg/blocks/block_heading/_heading.scss';
 @import '../gutenberg/blocks/block_hero-slider/_hero-slider.scss';
 @import '../gutenberg/blocks/block_hr/_hr.scss';
-@import '../gutenberg/blocks/block_heading/_heading.scss';
 @import '../gutenberg/blocks/block_hero-slider/_hero-slider.scss';
 @import '../gutenberg/blocks/block_popup/_popup.scss';
 @import '../gutenberg/blocks/block_posts/_posts.scss';
@@ -58,7 +55,9 @@
 @import '../../FLEX/components/component_video-popup/_video-popup.scss';
 @import '../components/component_colortile/_colortile.scss';
 @import '../components/component_carousel/_carousel.scss';
+@import '../components/component_features-card/_features-card.scss';
 @import '../components/component_footer/_footer.scss';
+@import '../components/component_gdpr/_gdpr.scss';
 @import '../components/component_nav/_nav.scss';
 @import '../components/component_newsletter/_newsletter.scss';
 @import '../components/component_post/_post-header.scss';
