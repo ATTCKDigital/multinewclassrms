@@ -18,7 +18,6 @@ function register_block_testimonialcarousel() {
 			'category'			=> 'common',
 			'icon'				=> 'update',
 			'keywords'			=> array( 'testimonialcarousel' ),
-			'parent'			=> ['flexlayout/column'],
 			'mode'				=> 'edit'
 		));
 	}
