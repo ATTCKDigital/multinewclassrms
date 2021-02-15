@@ -46,9 +46,11 @@
 				<div class="content padding-tablet-landscape-bottom-12x">
 					<div class="side-row" style="background-color: <?= $slide['accent_color'] ?>;"></div>
 					<h1 class="headline6 is-style-headline6 align-left"><?= $slide['subtitle']; ?></h1>
-					<h2 class="headline1 is-style-headline1 align-left margin-top-1x">
-						<?= $slide['title'] ?>
-					</h2>
+					<div class="headline-container">
+						<h2 class="headline1 is-style-headline1 align-left margin-top-1x flex-tablet-portrait-7-12">
+							<?= $slide['title'] ?>
+						</h2>
+					</div>
 					<?php if (!empty($slide['popup_name'])): ?>
 						<div class="component-button component align-left margin-top-4x margin-tablet-landscape-top-6x ">
 							<button class="cta video-button open-popup-button prepare-in-view" >

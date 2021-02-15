@@ -1,7 +1,5 @@
-//Change name space on line 4 and line 15
-// Change name space on line 4 and line 15
 function HeroSlider($el) {
-	const AUTO_SCROLL_TIME = 5000;
+	const AUTO_SCROLL_TIME = 30000;
 
 	var index = 0;
 	var nextIndex = 0;
@@ -209,7 +207,7 @@ function HeroSlider($el) {
 		});
 	}
 
-		/**
+	/**
 	 * Initializes all default active states
 	 */
 	function setActiveItems() {
@@ -260,6 +258,16 @@ function HeroSlider($el) {
 				'visibility': 'visible'
 			});
 		}
+
+		// Duplicate header elements for outline effect
+		$slides.each(function () {
+			if ($('.headline1', this).length > 0) {
+				$('.headline1', this)
+					.clone()
+					.addClass('dup')
+					.insertAfter($('.headline1', this));
+			}
+		});
 
 		setActiveItems();
 	}

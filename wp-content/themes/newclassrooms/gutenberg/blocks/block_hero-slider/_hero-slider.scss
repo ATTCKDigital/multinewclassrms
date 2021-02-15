@@ -12,21 +12,92 @@
 
 	.slide {
 		align-items: center;
-		display: none;
+		display: flex;
 		flex-shrink: 0;
 		flex-direction: column-reverse;
 		height: 100%;
 		justify-content: flex-end;
-		position: relative;
-		transition: opacity .3s;
+		pointer-events: none;
+		position: absolute;
+		transition: opacity .2s;
 		width: 100%;
+		z-index: 1;
+
+		.content {
+			opacity: 0;
+			transition: opacity 1s ease-in-out;
+
+			.headline1 {
+				-webkit-text-stroke-width: 1px;
+				-webkit-text-stroke-color: rgba(255, 255, 255, 1);
+				-webkit-text-fill-color: rgba(255, 255, 255, 0);
+
+				&.dup {
+					position: absolute;
+					top: 0;
+					left: 0;
+					transition: all 1.5s ease-in-out;
+
+					-webkit-text-fill-color: white;
+					-webkit-mask-image: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,0) 35%, rgba(255,255,255,0) 69%, rgba(255,255,255,1) 69%);
+					-webkit-mask-position: 100% 0%;
+					-webkit-mask-size: 3600px 276px; /* 6x text width, 1x text height */
+
+					/*.Start animation on load */
+					animation: 2s ease-in-out 2s 1 wipe-animate;
+					
+					-webkit-transform: translateZ(0);
+				}
+			}
+
+			.headline-container {
+				overflow: hidden;
+				position: relative;
+			}
+		}
 
 		@include mediaquery(tablet-landscape) {
 			flex-direction: column;
 		}
 
+		.side-column {
+			transition: all 1s ease-in-out;
+			left: -100%;
+		}
+
 		&.active {
-			display: flex;
+			pointer-events: auto;
+			z-index: 2;
+
+			.content {
+				opacity: 1;
+
+				.headline1.dup {
+					-webkit-mask-position: 0% 0%;
+				}
+			}
+
+			.side-column {
+				transition: all 1s ease-in-out;
+				width: 100%;
+				left: -69%
+			}
+		}
+
+		&.next {
+			.side-column {
+				left: -100%;
+				transition: all 2s ease-in-out;
+				width: 100%;
+			}
+		}
+
+		&.previous {
+			.side-column {
+				left: 100%;
+				transition: all 2s ease-in-out;
+				width: 200%;
+			}
 		}
 	}
 
@@ -85,7 +156,8 @@
 		left: 0;
 		position: absolute;
 		top: 0;
-		width: 31%;
+		transition: all 1s ease-in-out;
+		width: 100%;
 		z-index: 1;
 
 		@include mediaquery(tablet-landscape) {
@@ -180,5 +252,23 @@
 				width: 12px;
 			}
 		}
+	}
+}
+
+// @-webkit-keyframes diagonal-wipe-animate {
+// 	from {
+// 		-webkit-mask-position: 0% 100%;
+// 	}
+// 	to {
+// 		-webkit-mask-position: 0% -190%;
+// 	}
+// }
+
+@keyframes wipe-animate {
+	from {
+		-webkit-mask-position: 100% 0%;
+	}
+	to {
+		-webkit-mask-position: 0% 0%;
 	}
 }
