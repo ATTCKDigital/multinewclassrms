@@ -135,4 +135,10 @@
 	.footer-link {
 		margin-bottom: $gap*.25;
 	}
+
+	.social-icon {
+		a {
+			text-decoration: none;
+		}
+	}
 }
