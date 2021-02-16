@@ -7,4 +7,11 @@
 .hamburger {
 	border-top: none;
 	top: 17px;
+
+	.logoDark & {
+		&::before,
+		&::after {
+			background-color: $black;
+		}
+	}
 }
