@@ -11,7 +11,7 @@ function HeroSlider($el) {
 	var slidesLength;
 
 	function bindEvents() {
-		console.log('/newclassrooms/\tguttenberg /\tblocks/\t hero-slider', 'bindEvents()');
+		console.log('/newclassrooms/\tguttenberg/\tblocks/\thero-slider', 'bindEvents()');
 
 		// Dot click events
 		$el.on('click', '.dots-component a', function (e) {
@@ -46,14 +46,14 @@ function HeroSlider($el) {
 			CSStransitionInProgress = false;
 		});
 
-		// Auto-scroll every five seconds
+		// Auto-scroll every X seconds
 		setInterval(function () {
 			goNext();
 		}, AUTO_SCROLL_TIME);
 	}
 
 	function detectSwipes() {
-		console.log('/newclassrooms/\tguttenberg /\tblocks/\t hero-slider', 'detectSwipes()');
+		console.log('/newclassrooms/\tguttenberg/\tblocks/\thero-slider', 'detectSwipes()');
 		let start = null;
 		let carousel = $('.component-carousel', $el);
 
@@ -68,10 +68,11 @@ function HeroSlider($el) {
 		});
 
 		carousel.on("touchend", function(event) {
-			var offset = 100;//at least 100px are a swipe
+			// At least 100px are a swipe
+			var offset = 100;
 
 			if(start){
-				//the only finger that hit the screen left it
+				// The only finger that hit the screen left it
 				var end = event.changedTouches.item(0).clientX;
 
 				if(end > start + offset) {
@@ -86,7 +87,8 @@ function HeroSlider($el) {
 	}
 
 	function goNext() {
-		console.log('/newclassrooms/\tguttenberg /\tblocks/\t hero-slider', 'goNext()');
+		// console.log('/newclassrooms/\tguttenberg/\tblocks/\thero-slider', 'goNext()');
+		
 		// Proceed only if no CSS transition is in progress
 		if (CSStransitionInProgress) return;
 
@@ -114,6 +116,8 @@ function HeroSlider($el) {
 	}
 
 	function goPrev() {
+		// console.log('/newclassrooms/\tguttenberg/\tblocks/\thero-slider', 'goPrev()');
+
 		// Proceed only if no CSS transition is in progress
 		if (CSStransitionInProgress) return;
 
@@ -146,7 +150,8 @@ function HeroSlider($el) {
 	}
 
 	function goTo(arg) {
-		console.log('/newclassrooms/\tguttenberg /\tblocks/\t hero-slider', 'ar()');
+		console.log('/newclassrooms/\tguttenberg/\tblocks/\thero-slider', 'goTo(arg:)', arg);
+
 		// Proceed only if no CSS transition is in progress
 		if (CSStransitionInProgress) return;
 
@@ -177,7 +182,8 @@ function HeroSlider($el) {
 	}
 
 	function go() {
-		console.log('/newclassrooms/\tguttenberg /\tblocks/\t hero-slider', 'go()');
+		console.log('/newclassrooms/\tguttenberg/\tblocks/\thero-slider', 'go()');
+		
 		// Indicate CSS transition is in progress
 		// CSStransitionInProgress = true;
 
@@ -211,7 +217,7 @@ function HeroSlider($el) {
 	 * Initializes all default active states
 	 */
 	function setActiveItems() {
-		console.log('/newclassrooms/\tguttenberg /\tblocks/\t hero-slider', 'setActiveItems()');
+		console.log('/newclassrooms/\tguttenberg/\tblocks/\thero-slider', 'setActiveItems()');
 		// - first LI of first UL
 		$('.slides.active li', $el).eq(0).addClass('active');
 
@@ -242,7 +248,7 @@ function HeroSlider($el) {
 	}
 	
 	function render() {
-		console.log('/newclassrooms/\tguttenberg /\tblocks/\t hero-slider', 'render()');
+		console.log('/newclassrooms/\tguttenberg/\tblocks/\thero-slider', 'render()');
 		
 		$dotsContainer = $('.dots-component', $el);
 		$slidesContainer = $('.slides', $el);
@@ -273,7 +279,7 @@ function HeroSlider($el) {
 	}
 
 	this.init = function ($el) {
-		console.log('/newclassrooms/\tguttenberg /\tblocks/\t hero-slider', 'e()');
+		console.log('/newclassrooms/\tguttenberg/\tblocks/\thero-slider', 'e()');
 		bindEvents();
 		render();
 	

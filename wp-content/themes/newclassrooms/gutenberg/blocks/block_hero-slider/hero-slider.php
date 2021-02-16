@@ -31,7 +31,7 @@
 ?>
 <div 
 	class="component-hero-slider component <?php echo $align_class; ?>" id="<?php echo $id; ?>" 
-	data-component-name="HeroSlider PopupController"
+	data-component-name="HeroSlider PopupController VideoPopup"
 	data-component-options="<?= $popup_names ?>"
 	>
 	<ul class="slides">
@@ -53,7 +53,7 @@
 					</div>
 					<?php if (!empty($slide['popup_name'])): ?>
 						<div class="component-button component align-left margin-top-4x margin-tablet-landscape-top-6x ">
-							<button class="cta video-button open-popup-button prepare-in-view" >
+							<button class="cta video-button open-popup-button prepare-in-view" data-popup-content-id="<?= $slide['popup_name'] ?>">
 								<?php _e('Watch Video', '_flex') ?>
 							</a>
 						</div>
