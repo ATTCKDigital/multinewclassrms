@@ -41,7 +41,7 @@
             ?>		
           </ul>
         </nav>
-        <small class="display-block footer-copyright copyright-desktop flex-tablet-portrait-7-12"><?= get_field('footer_copyright', 'options'); ?></small>
+        <small class="footer-copyright copyright-desktop flex-0-12 flex-tablet-portrait-7-12"><?= get_field('footer_copyright', 'options'); ?></small>
       </div>
     </div>
   </div>
