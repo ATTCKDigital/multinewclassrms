@@ -9,7 +9,7 @@ $blocks = array(
 	'flexlayout/column', // REQUIRED
 	'flexlayout/animated-gif',
 	'flexlayout/button',
-	'flexlayout/feed',
+	// 'flexlayout/feed',
 	'flexlayout/heading',
 	'flexlayout/image',
 	'flexlayout/list',
@@ -31,7 +31,8 @@ $blocks = array(
 	'flexlayout/share',
 	'flexlayout/posts',
 	'acf/hero-slider',
-	'acf/testimonialcarousel'
+	'acf/testimonialcarousel',
+	'acf/feed-section'
 );
 
 define('FLEXLAYOUT_BLOCKS', $blocks);
@@ -39,7 +40,8 @@ define('FLEXLAYOUT_BLOCKS', $blocks);
 //Add all of the acf blocks that should be registered. Only put the block name. The components must be named as described in the read me.
 $registerBlocks = array(
 	'testimonialcarousel',
-	'hero-slider'
+	'hero-slider',
+	'feed-section'
 );
 
 

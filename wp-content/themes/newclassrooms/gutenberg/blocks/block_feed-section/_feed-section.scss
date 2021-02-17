@@ -1,0 +1,58 @@
+.component-feed-section {
+	.feed-items {
+		margin-top: -60px;
+	}
+
+	.feed-item {
+		margin-top: 60px;
+	}
+
+	.feed-item-link {
+		text-decoration: none;
+	}
+
+	.post-title {
+		color: color('brand', 'accent');
+		margin-top: 16px;
+	}
+
+	.post-cat {
+		display: flex;
+		align-items: center;
+
+		&::before {
+			content: '';
+			background-image: url(../assets/images/category-icons/Thought_Leadership_Positive.svg);
+			background-position: 50%;
+			background-repeat: no-repeat;
+			background-size: contain;
+			height: 16px;
+			width: 16px;
+			margin-right: 8px;
+		}
+	}
+
+	.post-cat-news {
+		&::before {
+			background-image: url(../assets/images/category-icons/News_Positive.svg);
+		}
+	}
+
+	.post-cat-events {
+		&::before {
+			background-image: url(../assets/images/category-icons/Event_Positive.svg);
+		}
+	}
+
+	.post-cat-partner-updates {
+		&::before {
+			background-image: url(../assets/images/category-icons/Partner_Updates_Positive.svg);
+		}
+	}
+
+	.post-cat-thought-leadership {
+		&::before {
+			background-image: url(../assets/images/category-icons/Thought_Leadership_Positive.svg);
+		}
+	}
+}
