@@ -5,6 +5,12 @@
 
 	.feed-item {
 		margin-top: 60px;
+
+		&:nth-child(odd) {
+			@include mediaquery('tablet-portrait')  {
+				padding-right: 75px;
+			}
+		}
 	}
 
 	.feed-item-link {
