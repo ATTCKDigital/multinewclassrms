@@ -3,4 +3,8 @@
  */
  .component-hr {
 	height: 4px;
+
+	&.thin-line {
+		height: 1px;
+	}
 }

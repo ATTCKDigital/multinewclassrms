@@ -6,6 +6,7 @@ import Carousel from '../components/component_carousel/carousel';
 import ColorTile from '../components/component_colortile/colortile';
 import ContactForm from '../components/component_contact-form/contact-form';
 import VideoPopup from '../components/component_video-popup/video-popup';
+import DropdownSection from '../components/component_dropdown-section/dropwdown-section';
 
 // Gutenberg blocks
 import HeroSlider from '../gutenberg/blocks/block_hero-slider/hero-slider';
@@ -18,7 +19,8 @@ FLEX.ChildComponents = {
   'HeroSlider': HeroSlider,
   'Nav': Nav,
   'TestimonialCarousel': TestimonialCarousel,
-  'VideoPopup': VideoPopup
+  'VideoPopup': VideoPopup,
+  'DropdownSection': DropdownSection,
 };
 
 // Custom code non related to FLEX
