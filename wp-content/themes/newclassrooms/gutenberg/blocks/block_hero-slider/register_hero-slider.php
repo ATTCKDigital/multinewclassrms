@@ -16,7 +16,7 @@ function register_block_hero_slider() {
 			'description'		=> __('A custom hero slider block.'),
 			'render_callback'	=> 'block_render_callback_hero_slider',
 			'category'			=> 'formatting',
-			'icon'				=> 'admin-comments',
+			'icon'				=> 'slides',
 			'keywords'			=> array( 'hero-slider', 'slider' ),
 			'mode'				=> 'edit'
 		));
