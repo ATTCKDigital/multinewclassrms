@@ -12,6 +12,10 @@
 		&::before,
 		&::after {
 			background-color: $black;
+
+			.navOpen {
+				background-color: $white;
+			}
 		}
 	}
 }
