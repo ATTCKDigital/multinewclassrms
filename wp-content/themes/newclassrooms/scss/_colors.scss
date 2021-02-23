@@ -21,20 +21,20 @@ $brand-colors: (
 		'red': #f00
 	),
 	'brand': (
-		'primary': var(--color-brand-primary),
-		'secondary': var(--color-brand-secondary),
-		'accent': var(--color-brand-accent),
+		'primary': 	var(--color-brand-primary),
+		'secondary':var(--color-brand-secondary),
+		'accent': 	var(--color-brand-accent),
 	),
 	'secondary': (
-		'purple': #873B75,
-		'grey'  : #5E7185,
-		'pink'  : #D48D86,
-		'green'	: #6D8D6F
+		'purple': 	#873B75,
+		'grey'  : 	#5E7185,
+		'pink'  : 	#D48D86,
+		'green'	: 	#6D8D6F
 	),
 	'text': (
-		'body': var(--color-text-body),
-		'link': var(--color-text-link),
-		'hover': var(--color-text-hover),
+		'body': 	var(--color-text-body),
+		'link': 	var(--color-text-link),
+		'hover': 	var(--color-text-hover),
 		'white':	var(--color-text-white),
 		'black':	var(--color-text-black),
 	),
@@ -46,7 +46,7 @@ $brand-colors: (
 
 	'social':(
 		'facebook': #3b5998,
-		'twitter': #1da1f2,
+		'twitter': 	#1da1f2,
 		'linkedin': #0077b5
 	),
 	'gradients': (
