@@ -32,6 +32,10 @@
 		&[type="email"] {
 			margin-top: 3.5px;
 			padding: 0 0 6px;
+
+			footer & {
+				color: white;
+			}
 		}
 	}
 
