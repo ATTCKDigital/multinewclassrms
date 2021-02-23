@@ -14,8 +14,6 @@
 
 	.home & {
 		background: transparent;
-
-
 	}
 
 	@include mediaquery(tablet-landscape)  {
@@ -187,6 +185,10 @@
 			position: relative;
 			width: 100%;
 		}
+
+		a[href='#…'] {
+			visibility: hidden;
+		}
 	}
 
 	.menu-item {
@@ -200,14 +202,16 @@
 		position: relative;
 		@include secondary-semi;
 
-		.home & {
+		.home &,
+		.navOpen & {
 			color: $white;
 		}
 
 		@include mediaquery-max-width(tablet-landscape) {
 			// Mobile only mediaquery so less overrides are necessary
 			display: block;
-			font-size: px-to-rem(14px);
+			font-size: px-to-rem(27px);
+			line-height: 35px;
 			margin-bottom: 0;
 			text-align: left;
 		}
@@ -366,8 +370,12 @@
 			display: block;
 		}
 
-		.menu-item {
-			color: $defaultTextColor;
+		// Only apply dark version on desktop. Mobile hamburger menu 
+		// background color is always the same
+		@include mediaquery(tablet-portrait) {
+			.menu-item {
+				color: $defaultTextColor;
+			}
 		}
 
 		.languages {
@@ -383,6 +391,22 @@
 		.menu-item-has-children {
 			&::after {
 				border-top-color: $defaultTextColor;
+			}
+		}
+	}
+
+	@include mediaquery-max-width(tablet-landscape) {
+		.logoDark.navOpen & {
+			.menu-item {
+				color: $white;
+			}
+
+			.nav-logo {
+				display: block;
+			}
+
+			.secondary-nav-logo {
+				display: none;
 			}
 		}
 	}
