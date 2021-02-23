@@ -1,8 +1,8 @@
 <?php
 	/**
-	 * Block Name: Feed Section
+	 * Block Name: Content Feed
 	 *
-	 * This is the template that displays the feed-section block.
+	 * This is the template that displays the content-feed block.
 	 */
 	$categories = get_field('archive_categories');
 	$number_of_items = get_field('number_to_display');
@@ -46,20 +46,20 @@
 	}
 
 	// Create id attribute for specific styling
-	$id = 'feed-section-' . $block['id'];
+	$id = 'content-feed-' . $block['id'];
 
 	// Create align class ("alignwide") from block setting ("wide")
 	$align_class = $block['align'] ? 'align' . $block['align'] : '';
 
 	// create id attribute for specific styling
-	$id = 'feed-section-' . $block['id'];
+	$id = 'content-feed-' . $block['id'];
 
 	// Create align class ("alignwide") from block setting ("wide")
 	$align_class = $block['align'] ? 'align' . $block['align'] : '';
 
 ?>
 <div 
-	class="component-feed-section component <?php echo $align_class; ?>" id="<?php echo $id; ?>"
+	class="component-content-feed component <?php echo $align_class; ?>" id="<?php echo $id; ?>"
 	>
 	<ul class="feed-items flex-grid">
 		<?php foreach ($posts as $post) : ?>

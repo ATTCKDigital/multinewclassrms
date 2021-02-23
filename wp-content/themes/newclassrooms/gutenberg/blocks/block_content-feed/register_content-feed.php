@@ -3,27 +3,27 @@
 //Additional details: https://www.advancedcustomfields.com/blog/acf-5-8-introducing-acf-blocks-for-gutenberg/
 //Namespace function names "register_block_blockname" & "block_render_callback_feed-section"
 
-add_action('acf/init', 'register_block_feed_section');
-function register_block_feed_section() {
+add_action('acf/init', 'register_block_content_feed');
+function register_block_content_feed() {
 
 	// check function exists
 	if( function_exists('acf_register_block') ) {
 		
 		// register a feed-section block
 		acf_register_block(array(
-			'name'				=> 'feed-section',
-			'title'				=> __('Feed Section'),
-			'description'		=> __('A custom Feed Section block.'),
-			'render_callback'	=> 'block_render_callback_feed_section',
+			'name'				=> 'content-feed',
+			'title'				=> __('Content Feed'),
+			'description'		=> __('Displays custom post content.'),
+			'render_callback'	=> 'block_render_callback_content_feed',
 			'category'			=> 'formatting',
-			'icon'				=> 'admin-comments',
-			'keywords'			=> array( 'feed-section', 'feed' ),
+			'icon'				=> 'editor-table',
+			'keywords'			=> array( 'content-feed', 'feed' ),
 			'mode'				=> 'edit'
 		));
 	}
 }
 
-function block_render_callback_feed_section( $block ) {
+function block_render_callback_content_feed( $block ) {
 	// Convert name ("acf/feed-section") into path friendly slug ("feed-section")
 	$slug = str_replace('acf/', '', $block['name']);
 	

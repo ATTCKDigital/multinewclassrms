@@ -1,6 +1,6 @@
 {
     "key": "group_602d0dcd9f295",
-    "title": "Block: Feed Section",
+    "title": "Block: Content Feed",
     "fields": [
         {
             "key": "field_602d0dd48ea34",
@@ -81,7 +81,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/feed-section"
+                "value": "acf\/content-feed"
             }
         ]
     ],
