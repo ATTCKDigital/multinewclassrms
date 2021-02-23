@@ -54,9 +54,10 @@ $font-size-default: (
 );
 
 $font-size-headline1: (
-	'phone'				: 44px,
-	'phone-plus'		: 44px,
-	'tablet-portrait'	: 44px,
+	'default'			: 34px,
+	'phone'				: 34px,
+	'phone-plus'		: 40px,
+	'tablet-portrait'	: 57px,
 	'tablet-landscape'	: 72px,
 	'desktop'			: 72px,
 	'xl'				: 72px,
@@ -64,6 +65,7 @@ $font-size-headline1: (
 );
 
 $font-size-headline2: (
+	'default'			: 42px,
 	'phone'				: 42px,
 	'phone-plus'		: 42px,
 	'tablet-portrait'	: 42px,
@@ -74,7 +76,8 @@ $font-size-headline2: (
 );
 
 $font-size-headline3: (
-	'phone'				: 29px,
+	'default'			: 21px,
+	'phone'				: 21px,
 	'phone-plus'		: 29px,
 	'tablet-portrait'	: 29px,
 	'tablet-landscape'	: 36px,
@@ -84,6 +87,7 @@ $font-size-headline3: (
 );
 
 $font-size-headline4: (
+	'default'			: 22px,
 	'phone'				: 22px,
 	'phone-plus'		: 22px,
 	'tablet-portrait'	: 22px,
@@ -94,6 +98,7 @@ $font-size-headline4: (
 );
 
 $font-size-headline5: (
+	'default'			: 16px,
 	'phone'				: 16px,
 	'phone-plus'		: 16px,
 	'tablet-portrait'	: 16px,
@@ -104,11 +109,12 @@ $font-size-headline5: (
 );
 
 $font-size-headline6: (
+	'default'			: 14px,
 	'phone'				: 14px,
 	'phone-plus'		: 14px,
-	'tablet-portrait'	: 14px,
-	'tablet-landscape'	: 14px,
-	'desktop'			: 14px,
-	'xl'				: 14px,
-	'xl2'				: 14px,
+	'tablet-portrait'	: 16px,
+	'tablet-landscape'	: 16px,
+	'desktop'			: 16px,
+	'xl'				: 16px,
+	'xl2'				: 16px,
 );
