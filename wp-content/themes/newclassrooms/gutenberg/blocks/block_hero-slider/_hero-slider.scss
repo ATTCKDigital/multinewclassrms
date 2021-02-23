@@ -45,7 +45,7 @@
 					-webkit-mask-size: 3600px 276px; /* 6x text width, 1x text height */
 
 					/*.Start animation on load */
-					animation: 4s ease-in-out 2s 1 wipe-animate;
+					animation: 6s ease-in-out 3s 1 wipe-animate;
 					
 					-webkit-transform: translateZ(0);
 				}
@@ -67,6 +67,7 @@
 		}
 
 		&.active {
+			opacity: 1;
 			pointer-events: auto;
 			z-index: 2;
 
@@ -86,6 +87,8 @@
 		}
 
 		&.next {
+			opacity: 1;
+
 			.side-column {
 				left: -100%;
 				transition: all 2s ease-in-out;
@@ -94,6 +97,7 @@
 		}
 
 		&.previous {
+			opacity: 0;
 			.side-column {
 				left: 100%;
 				transition: all 2s ease-in-out;
@@ -125,18 +129,18 @@
 
 	.image {
 		height: 100%;
+    	left: 0;
 		object-fit: cover;
-		width: 100%;
-    left: 0;
+    	position: absolute;
 		top: 0;
-    position: absolute;
+		width: 100%;
 	}
 
 	.content {
 		color: $white;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: flex-end;
 		margin: 0 auto;
 		max-width: $siteWidth;
 		padding: 90px 20px 32px;
