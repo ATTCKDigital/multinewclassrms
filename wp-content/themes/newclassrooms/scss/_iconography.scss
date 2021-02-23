@@ -8,14 +8,25 @@
 	border-top: none;
 	top: 17px;
 
-	.logoDark & {
+	&::before,
+	&::after {
+		background-color: $white;
+	}	
+}
+
+.logoDark .hamburger {
+	&::before,
+	&::after {
+		background-color: $black;
+
+	}
+}
+
+.logoDark.navOpen .hamburger {
+	@include mediaquery-max-width(tablet-landscape) {
 		&::before,
 		&::after {
-			background-color: $black;
-
-			.navOpen {
-				background-color: $white;
-			}
+			background-color: $white;
 		}
 	}
 }
