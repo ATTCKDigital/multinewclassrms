@@ -122,6 +122,12 @@
 		}
 	}
 
+	.menu-items {
+		a[href='#…'] {
+			visibility: hidden;
+		}
+	}
+
 	.sub-menu {
 		opacity: .8;
 		margin-top: 24px;
