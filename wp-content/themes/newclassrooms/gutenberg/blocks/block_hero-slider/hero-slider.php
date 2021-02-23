@@ -43,7 +43,7 @@
 				<div class="image-wrapper">
 					<img class="image" src="<?= $slide['background_image']['url'] ?>" alt="<?= $slide['background_image']['alt'] ?>">
 				</div>
-				<div class="content padding-tablet-landscape-bottom-12x">
+				<div class="content padding-tablet-landscape-bottom-8x">
 					<div class="side-row" style="background-color: <?= $slide['accent_color'] ?>;"></div>
 					<h1 class="headline6 is-style-headline6 align-left flex-tablet-portrait-18-24">
 						<?= $slide['subtitle']; ?>
