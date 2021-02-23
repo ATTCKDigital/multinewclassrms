@@ -32,7 +32,7 @@ $blocks = array(
 	'flexlayout/posts',
 	'acf/hero-slider',
 	'acf/testimonialcarousel',
-	'acf/feed-section'
+	'acf/content-feed'
 );
 
 define('FLEXLAYOUT_BLOCKS', $blocks);
@@ -41,7 +41,7 @@ define('FLEXLAYOUT_BLOCKS', $blocks);
 $registerBlocks = array(
 	'testimonialcarousel',
 	'hero-slider',
-	'feed-section'
+	'content-feed'
 );
 
 
