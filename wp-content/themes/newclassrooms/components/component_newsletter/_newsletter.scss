@@ -39,8 +39,9 @@
 		}
 	}
 
-	.wpcf7-response-output {
-		margin-top: 0;
+	// TODO; (DP) Move these to a global CF7 styles component
+	.wpcf7-not-valid-tip {
+		font-size: 1rem;
 	}
 
 	&.newsletter-light {
@@ -62,6 +63,12 @@
 			margin-left: 0;
 		}
 	}
+}
+
+.wpcf7-response-output.wpcf7-response-output {
+	color: color('brand', 'accent');
+	font-size: 1rem;
+	margin-top: 0;
 }
 
 .newsletter-image {

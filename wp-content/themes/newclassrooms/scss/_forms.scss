@@ -213,9 +213,11 @@ label,
 
 .wpcf7-response-output {
 	@extend .body;
+	color: color('brand', 'accent');
 	color: red;
 	clear: both;
-	margin-top: $gap*2;
+	font-size: 1rem;
+	margin-top: 0;
 }
 
 .wpcf7-mail-sent-ok {
