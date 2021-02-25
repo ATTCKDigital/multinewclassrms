@@ -49,7 +49,7 @@
 						<?= $slide['subtitle']; ?>
 					</h1>
 					<div class="headline-container">
-						<h2 class="headline1 is-style-headline1 align-left margin-top-1x flex-tablet-portrait-13-24">
+						<h2 class="headline1 is-style-headline1 align-left margin-top-1x flex-18-24 flex-tablet-portrait-18-24 flex-desktop-16-24">
 							<?= $slide['title'] ?>
 						</h2>
 					</div>
