@@ -37,7 +37,7 @@
 					position: absolute;
 					top: 0;
 					left: 0;
-					transition: all 1.5s ease-in-out;
+					transition: all 3s ease-in-out;
 
 					-webkit-text-fill-color: white;
 					-webkit-mask-image: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,0) 35%, rgba(255,255,255,0) 69%, rgba(255,255,255,1) 69%);
@@ -45,7 +45,7 @@
 					-webkit-mask-size: 3600px 276px; /* 6x text width, 1x text height */
 
 					/*.Start animation on load */
-					animation: 6s ease-in-out 3s 1 wipe-animate;
+					animation: 3s ease-in-out 1.5s 1 wipe-animate;
 					
 					-webkit-transform: translateZ(0);
 				}
@@ -76,6 +76,7 @@
 
 				.headline1.dup {
 					-webkit-mask-position: 0% 0%;
+					// animation: 6s ease-in-out 3s 1 wipe-animate;
 				}
 			}
 

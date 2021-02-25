@@ -1,5 +1,5 @@
 function HeroSlider($el) {
-	const AUTO_SCROLL_TIME = 30000;
+	const AUTO_SCROLL_TIME = 15000;
 
 	var index = 0;
 	var nextIndex = 0;
