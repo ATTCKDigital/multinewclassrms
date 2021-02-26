@@ -1,13 +1,85 @@
-@import '../../FLEX/scss/_fonts.scss';
+// @import '../../FLEX/scss/_fonts.scss';
 
+@import url(https://use.typekit.net/wej0cgp.css);
 
-$primaryLight: "Poppins", Helvetica, Arial, sans-serif;
-$primaryLightItalic: "Poppins", Helvetica, Arial, sans-serif;
-$primaryRegular: "Poppins", Helvetica, Arial, sans-serif;
-$primaryRegularItalic: "Poppins", Helvetica, Arial, sans-serif;
-$primaryMedium: "Poppins", Helvetica, Arial, sans-serif;
-$primaryMediumItalic: "Poppins", Helvetica, Arial, sans-serif;
-$primarySemi: "Poppins", Helvetica, Arial, sans-serif;
-$primarySemiItalic: "Poppins", Helvetica, Arial, sans-serif;
-$primaryBold: "Poppins", Helvetica, Arial, sans-serif;
-$primaryBoldItalic: "Poppins", Helvetica, Arial, sans-serif;
+// Fabriga Medium
+@font-face {
+	font-family: 'Fabriga';
+	font-style: normal;
+	// font-weight: 300;
+	src: url('~FLEX/assets/fonts/Fabriga/Fabriga-Medium.eot'); /* IE9 Compat Modes */
+	src: local('Fabriga Medium'), local('Fabriga-Medium'),
+			 url('~FLEX/assets/fonts/Fabriga/Fabriga-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+			 url('~FLEX/assets/fonts/Fabriga/Fabriga-Medium.woff2') format('woff2'), /* Super Modern Browsers */
+			 url('~FLEX/assets/fonts/Fabriga/Fabriga-Medium.woff') format('woff'), /* Modern Browsers */
+			 url('~FLEX/assets/fonts/Fabriga/Fabriga-Medium.ttf') format('truetype'), /* Safari, Android, iOS */
+			 url('~FLEX/assets/fonts/Fabriga/Fabriga-Medium.svg#Fabriga') format('svg'); /* Legacy iOS */
+}
+
+// // Museo Sans - normal
+// @font-face {
+// 	font-family: 'Museo Sans';
+// 	font-style: normal;
+// 	font-weight: 500;
+// 	src: local('musel-sans'), local('museo-sans');
+// }
+
+// // Museo Sans - normal italic
+// @font-face {
+// 	font-family: 'Museo Sans Italic';
+// 	font-style: italic;
+// 	font-weight: 500;
+// 	src: local('musel-sans'), local('museo-sans');
+// }
+
+// // Museo Sans - bold
+// @font-face {
+// 	font-family: 'Museo Sans Bold';
+// 	font-style: normal;
+// 	font-weight: 900;
+// 	src: local('musel-sans'), local('museo-sans');
+// }
+
+// // Museo Sans - bold italic
+// @font-face {
+// 	font-family: 'Museo Sans Bold Italic';
+// 	font-style: italic;
+// 	font-weight: 900;
+// 	src: local('musel-sans'), local('museo-sans');
+// }
+
+// Primary (body copy)
+$primaryLight: "museo-sans", Georgia, Times, serif;
+$primaryLightItalic: "museo-sans", Georgia, Times, serif;
+$primaryRegular: "museo-sans", Georgia, Times, serif;
+$primaryRegularItalic: "museo-sans", Georgia, Times, serif;
+$primaryMedium: "museo-sans", Georgia, Times, serif;
+$primaryMediumItalic: "museo-sans", Georgia, Times, serif;
+$primarySemi: "museo-sans", Georgia, Times, serif;
+$primarySemiItalic: "museo-sans", Georgia, Times, serif;
+$primaryBold: "museo-sans", Georgia, Times, serif;
+$primaryBoldItalic: "museo-sans", Georgia, Times, serif;
+
+// Secondary (headers)
+$secondaryLight: "Fabriga", Helvetica, Arial, sans-serif;
+$secondaryLightItalic: "Fabriga", Helvetica, Arial, sans-serif;
+$secondaryRegular: "Fabriga", Helvetica, Arial, sans-serif;
+$secondaryRegularItalic: "Fabriga", Helvetica, Arial, sans-serif;
+$secondaryMedium: "Fabriga", Helvetica, Arial, sans-serif;
+$secondaryMediumItalic: "Fabriga", Helvetica, Arial, sans-serif;
+$secondarySemi: "Fabriga", Helvetica, Arial, sans-serif;
+$secondarySemiItalic: "Fabriga", Helvetica, Arial, sans-serif;
+$secondaryBold: "Fabriga", Helvetica, Arial, sans-serif;
+$secondaryBoldItalic: "Fabriga", Helvetica, Arial, sans-serif;
+
+// Tertiary 
+$tertiaryLight: "museo-sans", Helvetica, Arial, sans-serif;
+$tertiaryLightItalic: "museo-sans", Helvetica, Arial, sans-serif;
+$tertiaryRegular: "museo-sans", Helvetica, Arial, sans-serif;
+$tertiaryRegularItalic: "museo-sans", Helvetica, Arial, sans-serif;
+$tertiaryMedium: "museo-sans", Helvetica, Arial, sans-serif;
+$tertiaryMediumItalic: "museo-sans", Helvetica, Arial, sans-serif;
+$tertiarySemi: "museo-sans", Helvetica, Arial, sans-serif;
+$tertiarySemiItalic: "museo-sans", Helvetica, Arial, sans-serif;
+$tertiaryBold: "museo-sans", Helvetica, Arial, sans-serif;
+$tertiaryBoldItalic: "museo-sans", Helvetica, Arial, sans-serif;
