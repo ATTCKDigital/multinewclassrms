@@ -17,19 +17,24 @@
 		flex-direction: column-reverse;
 		height: 100%;
 		justify-content: flex-end;
+		// opacity: 0;
 		pointer-events: none;
 		position: absolute;
-		transition: opacity .2s;
+		// transition: all 2s;
 		width: 100%;
 		z-index: 1;
 
+		@include mediaquery(tablet-landscape) {
+			flex-direction: column;
+		}
+
 		.content {
 			height: 100%;
-			opacity: 0;
-			transition: opacity 1s ease-in-out;
+			opacity: 1;
+			// transition: opacity 1s ease-in-out;
 
 			.headline1 {
-				-webkit-text-stroke-width: 1px;
+				-webkit-text-stroke-width: .01px;
 				-webkit-text-stroke-color: rgba(255, 255, 255, 1);
 				-webkit-text-fill-color: rgba(255, 255, 255, 0);
 
@@ -38,14 +43,17 @@
 					top: 0;
 					left: 0;
 					transition: all 3s ease-in-out;
+					transition-delay: 2s;
 
 					-webkit-text-fill-color: white;
 					-webkit-mask-image: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,0) 35%, rgba(255,255,255,0) 69%, rgba(255,255,255,1) 69%);
 					-webkit-mask-position: 100% 0%;
-					-webkit-mask-size: 3600px 276px; /* 6x text width, 1x text height */
 
-					/*.Start animation on load */
-					animation: 3s ease-in-out 1.5s 1 wipe-animate;
+					// 6x text width, 1x text height
+					-webkit-mask-size: 3600px 276px;
+
+					// Start animation 1.5s after load for 3s
+					animation: 3s ease-in-out 1.5s 1 hero-slider-wipe-animate;
 					
 					-webkit-transform: translateZ(0);
 				}
@@ -57,22 +65,35 @@
 			}
 		}
 
-		@include mediaquery(tablet-landscape) {
-			flex-direction: column;
+		.image-wrapper {
+			// opacity: 0;
+			// transition: opacity 1s;
 		}
 
+		// &.firstLoad {
+		// 	.image-wrapper {
+		// 		opacity: 1;
+		// 	}
+		// }
+
 		.side-column {
-			transition: all 1s ease-in-out;
-			left: -100%;
+			left: -69%;
+			// opacity: 0;
+			// transition: all 1s ease-in-out;
 		}
 
 		&.active {
-			opacity: 1;
-			pointer-events: auto;
-			z-index: 2;
+			pointer-events: initial;
+			// z-index: 2;
 
 			.content {
-				opacity: 1;
+				// animation-name: hero-slider-copy-fade-in;
+				// animation-duration: 1.5s; 
+				// animation-timing-function: ease-out; 
+				// animation-delay: 0s;
+				// animation-direction: normal;
+				// animation-iteration-count: 1;
+				// animation-fill-mode: forwards;
 
 				.headline1.dup {
 					-webkit-mask-position: 0% 0%;
@@ -80,29 +101,135 @@
 				}
 			}
 
+			.image-wrapper {
+				animation-name: hero-slider-background-image-fade-in;
+				animation-duration: .5s; 
+				animation-timing-function: ease-out; 
+				animation-delay: 3s;
+				animation-direction: normal;
+				animation-iteration-count: 1;
+				animation-fill-mode: forwards;
+			}
+
 			.side-column {
-				transition: all 1s ease-in-out;
-				width: 100%;
-				left: -69%
+				animation-name: hero-slider-color-column-wipe-in;
+				animation-duration: 1.5s; 
+				animation-timing-function: ease-out; 
+				animation-delay: 1s;
+				animation-direction: normal;
+				animation-iteration-count: 1;
+				animation-fill-mode: forwards;
+			}
+
+			// First load needs less delay to accomodate the previous 
+			// slide from transitioning away.
+			&.firstLoad.active {
+				.content {
+					// animation-name: hero-slider-copy-fade-in;
+					// animation-duration: 1.5s; 
+					// animation-timing-function: ease-out; 
+					// animation-delay: 2s;
+					// animation-direction: normal;
+					// animation-iteration-count: 1;
+					// animation-fill-mode: forwards;
+
+					.headline1.dup {
+						-webkit-mask-position: 0% 0%;
+						// animation: 6s ease-in-out 3s 1 wipe-animate;
+					}
+				}
+
+				.image-wrapper {
+					animation-name: none;
+				}
+
+				.side-column {
+					// animation-name: hero-slider-color-column-wipe-in;
+					// animation-duration: 1.5s; 
+					// animation-timing-function: ease-out; 
+					// animation-delay: 0s;
+					// animation-direction: normal;
+					// animation-iteration-count: 1;
+					// animation-fill-mode: forwards;
+				}
 			}
 		}
 
+		// This class is removed after the first slide transition
+		// Prevents 'previous' slide from visibly animating away 
+		// on first page load.
+		&.firstLoad {
+			// z-index: 2;
+
+			.content {
+				opacity: 1;
+			}
+
+			.image-wrapper {
+				opacity: 1;
+			}
+
+			.previous {
+				visibility: hidden;
+			}
+		}
+
+		// This slide is reset to starting position and comes 
+		// right after the active slide
 		&.next {
-			opacity: 1;
+			// z-index: -1;
+			opacity: 0;
+			pointer-evets: none;
 
 			.side-column {
-				left: -100%;
-				transition: all 2s ease-in-out;
+				opacity: 1;
+				left: -69%;
 				width: 100%;
 			}
 		}
 
 		&.previous {
-			opacity: 0;
-			.side-column {
-				left: 100%;
-				transition: all 2s ease-in-out;
-				width: 200%;
+			// opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			// z-index: 2;
+
+			// Only apply these transitions once the slider has transitioned once
+			// Otherwise it visibly animates under the first slide
+			.sliderTransitionedOnce & {
+				// opacity: 1;
+				visibility: visible;
+
+
+				.content {
+					animation-name: hero-slider-copy-fade-out;
+					animation-duration: .75s; 
+					animation-timing-function: ease-out; 
+					animation-delay: .5s;
+					animation-direction: normal;
+					animation-iteration-count: 1;
+					animation-fill-mode: forwards;
+				}
+
+				.image-wrapper {
+					// animation-name: hero-slider-background-image-fade-out;
+					// animation-duration: 3s; 
+					// animation-timing-function: ease-out; 
+					// animation-delay: 3s;
+					// animation-direction: normal;
+					// animation-iteration-count: 1;
+					// animation-fill-mode: forwards;
+				}
+
+				.side-column {
+					animation-name: hero-slider-color-column-wipe-out;
+					animation-duration: 3s; 
+					animation-timing-function: ease-out; 
+					animation-delay: 0s;
+					animation-direction: normal;
+					animation-iteration-count: 1;
+					animation-fill-mode: forwards;
+				}
 			}
 		}
 	}
@@ -273,11 +400,91 @@
 // 	}
 // }
 
-@keyframes wipe-animate {
+@keyframes hero-slider-wipe-animate {
 	from {
 		-webkit-mask-position: 100% 0%;
 	}
 	to {
 		-webkit-mask-position: 0% 0%;
+	}
+}
+
+@keyframes hero-slider-background-image-fade-in {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes hero-slider-background-image-fade-out {
+	0% {
+		opacity: 1;
+	}
+
+	90% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes hero-slider-color-column-wipe-in {
+	0% {
+		opacity: 0;
+		// left: -100%;
+		// width: 100%;
+	}
+
+	20% {
+		opacity: 1;
+	}
+
+	100% {
+		// left: -69%;
+	}
+}
+
+@keyframes hero-slider-color-column-wipe-out {
+	0% {
+		left: -69%;
+		width: 100%;
+	}
+
+	50% {
+		left: -69%;
+		width: 200%;
+	}
+
+	99% {
+		left: 100%;
+	}
+
+	100% {
+		left: -100%;
+	}
+}
+
+@keyframes hero-slider-copy-fade-in {
+	// 0% {
+	// 	opacity: 0;
+	// }
+
+	// 100% {
+	// 	opacity: 1;
+	// }
+}
+
+@keyframes hero-slider-copy-fade-out {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
 	}
 }

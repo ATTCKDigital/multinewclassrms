@@ -1,5 +1,5 @@
 function HeroSlider($el) {
-	const AUTO_SCROLL_TIME = 15000;
+	const AUTO_SCROLL_TIME = 35000;
 
 	var index = 0;
 	var nextIndex = 0;
@@ -9,6 +9,7 @@ function HeroSlider($el) {
 	var $slidesContainer;
 	var $slides;
 	var slidesLength;
+	var transitionedOnce = false;
 
 	function bindEvents() {
 		console.log('/newclassrooms/\tguttenberg/\tblocks/\thero-slider', 'bindEvents()');
@@ -206,8 +207,15 @@ function HeroSlider($el) {
 			}
 		}
 
-		// updateDots(index);
+		// Remove firstLoad class from slide element after the first slide cycle
+		if (transitionedOnce === false) {
+			$slides.removeClass('firstLoad');
+			$('body').addClass('sliderTransitionedOnce');
 
+			// Prevent this from needing to hit the DOM again.
+			transitionedOnce = true;
+		}
+		
 		$(document.body).trigger('FLEX.slideUpdate', {
 			id: $el.attr('id')
 		});

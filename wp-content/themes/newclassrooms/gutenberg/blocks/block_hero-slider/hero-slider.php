@@ -37,15 +37,15 @@
 	<ul class="slides">
 		<?php foreach ($slides as $key => $slide): ?>
 			<li
-				class="slide <?= $key == 0 ? 'active' : '' ?>"
+				class="slide <?= $key == 0 ? 'active firstLoad' : '' ?>"
 				>
 				<div class="side-column" style="background-color: <?= $slide['accent_color'] ?>;"></div>
 				<div class="image-wrapper">
 					<img class="image" src="<?= $slide['background_image']['url'] ?>" alt="<?= $slide['background_image']['alt'] ?>">
 				</div>
-				<div class="content padding-tablet-landscape-bottom-8x">
+				<div class="content padding-tablet-landscape-bottom-10x">
 					<div class="side-row" style="background-color: <?= $slide['accent_color'] ?>;"></div>
-					<h1 class="headline6 is-style-headline6 align-left flex-tablet-portrait-18-24">
+					<h1 class="headline6 is-style-headline6 align-left flex-tablet-portrait-18-24 margin-bottom-1x">
 						<?= $slide['subtitle']; ?>
 					</h1>
 					<div class="headline-container">
