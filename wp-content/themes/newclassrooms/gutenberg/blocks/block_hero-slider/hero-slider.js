@@ -1,5 +1,5 @@
 function HeroSlider($el) {
-	const AUTO_SCROLL_TIME = 35000;
+	const AUTO_SCROLL_TIME = 100000;
 
 	var index = 0;
 	var nextIndex = 0;
@@ -12,7 +12,7 @@ function HeroSlider($el) {
 	var transitionedOnce = false;
 
 	function bindEvents() {
-		console.log('/newclassrooms/\tguttenberg/\tblocks/\thero-slider', 'bindEvents()');
+		console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'bindEvents()');
 
 		// Dot click events
 		$el.on('click', '.dots-component a', function (e) {
@@ -54,7 +54,7 @@ function HeroSlider($el) {
 	}
 
 	function detectSwipes() {
-		console.log('/newclassrooms/\tguttenberg/\tblocks/\thero-slider', 'detectSwipes()');
+		console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'detectSwipes()');
 		let start = null;
 		let carousel = $('.component-carousel', $el);
 
@@ -88,7 +88,7 @@ function HeroSlider($el) {
 	}
 
 	function goNext() {
-		// console.log('/newclassrooms/\tguttenberg/\tblocks/\thero-slider', 'goNext()');
+		// console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'goNext()');
 		
 		// Proceed only if no CSS transition is in progress
 		if (CSStransitionInProgress) return;
@@ -117,7 +117,7 @@ function HeroSlider($el) {
 	}
 
 	function goPrev() {
-		// console.log('/newclassrooms/\tguttenberg/\tblocks/\thero-slider', 'goPrev()');
+		// console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'goPrev()');
 
 		// Proceed only if no CSS transition is in progress
 		if (CSStransitionInProgress) return;
@@ -151,7 +151,7 @@ function HeroSlider($el) {
 	}
 
 	function goTo(arg) {
-		console.log('/newclassrooms/\tguttenberg/\tblocks/\thero-slider', 'goTo(arg:)', arg);
+		console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'goTo(arg:)', arg);
 
 		// Proceed only if no CSS transition is in progress
 		if (CSStransitionInProgress) return;
@@ -183,26 +183,58 @@ function HeroSlider($el) {
 	}
 
 	function go() {
-		console.log('/newclassrooms/\tguttenberg/\tblocks/\thero-slider', 'go()');
+		console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'go()');
 		
 		// Indicate CSS transition is in progress
 		// CSStransitionInProgress = true;
-
-		$slides.eq(index).removeClass('previous next').addClass('active');
+		$slides.eq(index).removeClass('previous next active z1 z2 z3 animationDelayMarker').addClass('active z2');
 
 		for (var x = 0; x < $slides.length; x++) {
-			if(x < index) {
-				if(x === 0 && index === ($slides.length - 1)) {
-					$slides.eq(x).removeClass('previous next active').addClass('next');
+			console.log('x:(' + x + '), index:(' + index + '), x < index?', x < index);
+
+			// Enforce lower bounds
+			if (x < index) {
+				if (x === 0 && index === ($slides.length - 1)) {
+					$slides.eq(x).removeClass('previous next active z1 z2 z3 animationDelayMarker');//.addClass('next');
+
+					setTimeout((function ($slides, x) {
+						return function () {
+							$slides.eq(x).addClass('next z1');
+						}
+					})($slides, x), 2000);
 				} else {
-					$slides.eq(x).removeClass('previous next active').addClass('previous');
+					$slides.eq(x).removeClass('previous next active z1 z2 z3 animationDelayMarker').addClass('previous z3');
+
+					setTimeout((function ($slides, x) {
+						return function () {
+							// console.log('adding animationDelayMarker to $sides: x: ', $slides, x);
+
+							$slides.eq(x).addClass('animationDelayMarker');
+						}
+					})($slides, x), 2000);
 				}
 			}
+
+			// Enforce upper bounds
 			if (x > index){
-				if(x === ($slides.length - 1) && index === 0) {
-					$slides.eq(x).removeClass('previous next active').addClass('previous');
+				if (x === ($slides.length - 1) && index === 0) {
+					$slides.eq(x).removeClass('previous next active z1 z2 z3 animationDelayMarker').addClass('previous z3');
+
+					setTimeout((function ($slides, x) {
+						return function () {
+							// console.log('adding animationDelayMarker to $sides: x: ', $slides, x);
+
+							$slides.eq(x).addClass('animationDelayMarker');
+						}
+					})($slides, x), 2000);
 				} else {
-					$slides.eq(x).removeClass('previous next active').addClass('next');
+					$slides.eq(x).removeClass('previous next active z1 z2 z3 animationDelayMarker');//.addClass('next');
+
+					setTimeout((function ($slides, x) {
+						return function () {
+							$slides.eq(x).addClass('next z1');
+						}
+					})($slides, x), 2000);
 				}
 			}
 		}
@@ -225,7 +257,7 @@ function HeroSlider($el) {
 	 * Initializes all default active states
 	 */
 	function setActiveItems() {
-		console.log('/newclassrooms/\tguttenberg/\tblocks/\thero-slider', 'setActiveItems()');
+		console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'setActiveItems()');
 		// - first LI of first UL
 		$('.slides.active li', $el).eq(0).addClass('active');
 
@@ -256,7 +288,7 @@ function HeroSlider($el) {
 	}
 	
 	function render() {
-		console.log('/newclassrooms/\tguttenberg/\tblocks/\thero-slider', 'render()');
+		console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'render()');
 		
 		$dotsContainer = $('.dots-component', $el);
 		$slidesContainer = $('.slides', $el);
@@ -287,7 +319,7 @@ function HeroSlider($el) {
 	}
 
 	this.init = function ($el) {
-		console.log('/newclassrooms/\tguttenberg/\tblocks/\thero-slider', 'e()');
+		console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'e()');
 		bindEvents();
 		render();
 	

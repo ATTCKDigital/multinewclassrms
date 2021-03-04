@@ -37,21 +37,17 @@
 	<ul class="slides">
 		<?php foreach ($slides as $key => $slide): ?>
 			<li
-				class="slide <?= $key == 0 ? 'active firstLoad' : '' ?>"
+				class="slide <?= $key == 0 ? 'active firstLoad z3' : '' ?>"
 				>
-				<div class="side-column" style="background-color: <?= $slide['accent_color'] ?>;"></div>
-				<div class="image-wrapper">
-					<img class="image" src="<?= $slide['background_image']['url'] ?>" alt="<?= $slide['background_image']['alt'] ?>">
-				</div>
 				<div class="content padding-tablet-landscape-bottom-10x">
 					<div class="side-row" style="background-color: <?= $slide['accent_color'] ?>;"></div>
-					<h1 class="headline6 is-style-headline6 align-left flex-tablet-portrait-18-24 margin-bottom-1x">
+					<h2 class="headline6 is-style-headline6 align-left flex-tablet-portrait-18-24 margin-bottom-1x">
 						<?= $slide['subtitle']; ?>
-					</h1>
+					</h2>
 					<div class="headline-container">
-						<h2 class="headline1 is-style-headline1 align-left margin-top-1x flex-18-24 flex-tablet-portrait-18-24 flex-desktop-16-24">
+						<h1 class="headline1 is-style-headline1 align-left margin-top-1x flex-18-24 flex-tablet-portrait-18-24 flex-desktop-16-24">
 							<?= $slide['title'] ?>
-						</h2>
+						</h1>
 					</div>
 					<?php if (!empty($slide['popup_name'])): ?>
 						<div class="component-button component align-left margin-top-4x margin-tablet-landscape-top-6x ">
@@ -77,13 +73,17 @@
 					<?php endif; ?>
 					<nav class="slider-navigation margin-top-4x margin-tablet-landscape-top-8x">
 						<ul class="dots-component">
-							<?php foreach ($slides as $i => $slide): ?>
+							<?php foreach ($slides as $i => $slide2): ?>
 								<li class="dot <?= $i == $key ? 'active' : '' ?>">
 									<a href="#<?= $i ?>"></a>
 								</li>
 							<?php endforeach; ?>
 						</ul>
 					</nav>
+				</div>
+				<div class="side-column" style="background-color: <?= $slide['accent_color'] ?>;"></div>
+				<div class="image-wrapper">
+					<img class="image" src="<?= $slide['background_image']['url'] ?>" alt="<?= $slide['background_image']['alt'] ?>">
 				</div>
 			</li>
 		<?php endforeach; ?>
