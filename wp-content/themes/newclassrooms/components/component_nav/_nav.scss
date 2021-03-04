@@ -154,6 +154,11 @@
 		}
 
 		@include mediaquery(tablet-landscape)  {
+			margin-left: 50px;
+			width: calc(90% - 160px);
+		}
+
+		@include mediaquery(tablet-landscape)  {
 			// Large mobile +
 			height: 100%;
 			margin-left: 80px;
@@ -209,7 +214,14 @@
 		@include secondary-semi;
 
 		&.current-menu-item {
-			border-color: #15224b;
+			@include mediaquery(tablet-portrait) {
+				border-color: #15224b;
+			}
+		}
+
+		.menu-item {
+			// Remove underline from submenu items
+			border: 0;
 		}
 
 		.home &,
@@ -238,7 +250,16 @@
 			padding-bottom: $gap;
 			transition: opacity .2s ease-in;
 
-			&:not(:last-of-type) {
+		}
+
+		&:not(:last-of-type) {
+			margin-right: 00px;
+
+			@include mediaquery(phone-plus)  {
+				margin-right: 40px;
+			}
+
+			@include mediaquery(tablet-landscape)  {
 				margin-right: 50px;
 			}
 		}
@@ -441,9 +462,11 @@
 	}
 
 	.secondary-nav {
-		position: absolute;
+		left: initial;
+		position: fixed;
 		right: 0;
 		top: 16px;
+		transition: top .2s;
 
 		@include mediaquery('xl2') {
 			left: calc(100% + 70px);
@@ -462,6 +485,10 @@
 			font-size: 10px;
 			margin-right: 30px;
 			margin-left: 0;
+		}
+
+		.navOpen & {
+			top: -($navHeight);
 		}
 	}
 }
