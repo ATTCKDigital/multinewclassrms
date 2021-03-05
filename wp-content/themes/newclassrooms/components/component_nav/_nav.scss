@@ -139,21 +139,25 @@
 		@include mediaquery-max-width(tablet-landscape) {
 			// Mobile only mediaquery so less overrides are necessary
 			// background-color: #f4ecb4;
-			background-color: color('brand', 'primary');
+			background-color: rgba(29, 29, 29, .97);
 			display: flex;
 			height: 100vh;
+			opacity: 0;
+			pointer-events: none;
 			position: absolute;
-			right: -100%;
 			top: 0;
-			transition: right .3s ease-in;
+			transition: opacity .3s ease-in;
 			width: 100%;
 
 			.navOpen & {
+				pointer-events: all;
+				opacity: 1;
 				right: 0;
+				transition: opacity .2s ease-in;
 			}
 		}
 
-		@include mediaquery(tablet-landscape)  {
+		@include mediaquery(tablet-portrait)  {
 			margin-left: 50px;
 			width: calc(90% - 160px);
 		}
@@ -176,11 +180,17 @@
 		justify-content: center;
 		margin: auto;
 
+		@include mediaquery-max-width(phone-plus) {
+			margin: $gap*3 0 0 20px;
+		}
+
 		@include mediaquery-max-width(tablet-landscape) {
 			// Mobile only mediaquery so less overrides are necessary
 			align-items: flex-start;
 			flex-direction: column;
 			justify-content: left;
+			margin: $gap*4 0 0 20px;
+			padding: 0;
 			text-align: left;
 
 			> .menu-item:not(:first-of-type) {
@@ -229,14 +239,47 @@
 			color: $white;
 		}
 
+		@include mediaquery-max-width(phone-plus) {
+			font-size: px-to-rem(20px);
+		}
+
 		@include mediaquery-max-width(tablet-landscape) {
 			// Mobile only mediaquery so less overrides are necessary
+			border: 0;
 			color: $white;
 			display: block;
 			font-size: px-to-rem(27px);
-			line-height: 35px;
+			height: auto;
+			line-height: initial;
 			margin-bottom: 0;
+			padding-bottom: 0;
 			text-align: left;
+
+			&:nth-child(10) a{ transition: opacity .05s ease-in .0s; }
+			&:nth-child(9) a { transition: opacity .05s ease-in .0s; }
+			&:nth-child(8) a { transition: opacity .05s ease-in .0s; }
+			&:nth-child(7) a { transition: opacity .05s ease-in .0s; }
+			&:nth-child(6) a { transition: opacity .05s ease-in .0s; }
+			&:nth-child(5) a { transition: opacity .05s ease-in .0s; }
+			&:nth-child(4) a { transition: opacity .05s ease-in .0s; }
+			&:nth-child(3) a { transition: opacity .05s ease-in .0s; }
+			&:nth-child(2) a { transition: opacity .05s ease-in .0s; }
+			&:nth-child(1) a { transition: opacity .05s ease-in .0s; }
+			&:nth-child(0) a { transition: opacity .05s ease-in .0s; }
+
+			.navOpen & {
+				&:nth-child(0) a { transition: opacity .20s ease-in .00s; }
+				&:nth-child(1) a { transition: opacity .22s ease-in .10s; }
+				&:nth-child(2) a { transition: opacity .24s ease-in .21s; }
+				&:nth-child(3) a { transition: opacity .26s ease-in .32s; }
+				&:nth-child(4) a { transition: opacity .28s ease-in .43s; }
+				&:nth-child(5) a { transition: opacity .30s ease-in .54s; }
+				&:nth-child(6) a { transition: opacity .32s ease-in .65s; }
+				&:nth-child(7) a { transition: opacity .34s ease-in .76s; }
+				&:nth-child(8) a { transition: opacity .36s ease-in .87s; }
+				&:nth-child(9) a { transition: opacity .38s ease-in .98s; }
+				&:nth-child(10) a{ transition: opacity .40s ease-in .29s; }
+			}
 		}
 
 		@include mediaquery(tablet-landscape)  {
@@ -269,9 +312,14 @@
 
 			@include mediaquery-max-device-width(tablet-landscape) {
 				color: color('text', 'white');
-				display: block;
-				margin-bottom: $gap;
+				display: inline-block;
+				margin-bottom: $gap / 2;
+				opacity: .2;
 				position: relative;
+
+				.navOpen & {
+					opacity: 1;
+				}
 			}
 
 			&:after {
