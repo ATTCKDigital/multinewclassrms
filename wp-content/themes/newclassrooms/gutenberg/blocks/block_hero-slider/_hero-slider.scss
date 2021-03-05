@@ -15,7 +15,9 @@
 		display: flex;
 		flex-shrink: 0;
 		flex-direction: column-reverse;
+		// height: calc(100vh - 50px);
 		height: 60%;
+		height: 86vh;
 		justify-content: flex-end;
 		// opacity: 0;
 		pointer-events: none;
@@ -24,6 +26,11 @@
 		width: 100%;
 		// z-index: 1;
 
+		// iPhone 5 and 6s
+		// * {
+		// 	color: red !important;
+		// }
+
 		&.animationDelayMarker {
 			.image-wrapper {
 				opacity: 0;
@@ -31,13 +38,42 @@
 			}
 		}
 
+		// iPhone 7 - X
+		@include mediaquery(phone) {
+			// height: calc(100vh - 80px);
+			height: 87.5vh;
+
+			// * {
+			// 	color: orange !important;
+			// }
+		}
+
+		// iPhone 11 Max - small tablet portraits
+		@include mediaquery(phone-plus) {
+			// height: calc(100vh - 90px);
+			height: 89vh;
+
+			// * {
+			// 	color: lime !important;
+			// }
+		}
+
 		@include mediaquery(tablet-portrait) {
-			height: 80%;
+			// height: calc(100vh - 100px);
+			height: 100%;
+
+			// * {
+			// 	color: yellow !important;
+			// }
 		}
 
 		@include mediaquery(tablet-landscape) {
 			flex-direction: column;
 			height: 100%;
+
+			// * {
+			// 	color: green !important;
+			// }
 		}
 
 		.content {
@@ -65,13 +101,13 @@
 					-webkit-mask-image: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,0) 35%, rgba(255,255,255,0) 69%, rgba(255,255,255,1) 69%);
 					-webkit-mask-position: 100% 0%;
 
-					text-fill-color: white;
-					mask-image: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,0) 35%, rgba(255,255,255,0) 69%, rgba(255,255,255,1) 69%);
-					mask-position: 100% 0%;
+					// text-fill-color: white;
+					// mask-image: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,0) 35%, rgba(255,255,255,0) 69%, rgba(255,255,255,1) 69%);
+					// mask-position: 100% 0%;
 
 					// 6x text width, 1x text height
 					-webkit-mask-size: 3600px 276px;
-					mask-size: 3600px 276px;
+					// mask-size: 3600px 276px;
 
 					// Start animation 1.5s after load for 3s
 					animation: 3s ease-in-out 1.5s 1 hero-slider-wipe-animate;
@@ -84,6 +120,15 @@
 			.headline-container {
 				// overflow: hidden;
 				position: relative;
+			}
+
+			@include mediaquery-max-width(tablet-landscape) {
+				.headline6,
+				.headline-container,
+				.component-button,
+				.slider-navigation {
+					position: relative;
+				}
 			}
 		}
 
@@ -106,6 +151,7 @@
 
 		&.active {
 			pointer-events: initial;
+			transition: opacity .1s ease-in-out .2s;
 			// z-index: 2;
 
 			.content {
@@ -127,20 +173,26 @@
 				animation-name: hero-slider-background-image-fade-in;
 				animation-duration: .5s; 
 				animation-timing-function: ease-out; 
-				animation-delay: 3s;
+				animation-delay: .5s;
 				animation-direction: normal;
 				animation-iteration-count: 1;
 				animation-fill-mode: forwards;
+
+				@include mediaquery(tablet-portrait) {
+					animation-delay: 3s;
+				}
 			}
 
 			.side-column {
-				animation-name: hero-slider-color-column-wipe-in;
-				animation-duration: 1.5s; 
-				animation-timing-function: ease-out; 
-				animation-delay: 1s;
-				animation-direction: normal;
-				animation-iteration-count: 1;
-				animation-fill-mode: forwards;
+				@include mediaquery(tablet-portrait) {
+					animation-name: hero-slider-color-column-wipe-in;
+					animation-duration: 1.5s; 
+					animation-timing-function: ease-out; 
+					animation-delay: 1s;
+					animation-direction: normal;
+					animation-iteration-count: 1;
+					animation-fill-mode: forwards;
+				}
 			}
 
 			// First load needs less delay to accomodate the previous 
@@ -208,6 +260,11 @@
 				left: -69%;
 				width: 100%;
 			}
+
+			.side-row {
+				height: 100%;
+				top: 0;
+			}
 		}
 
 		&.previous {
@@ -216,20 +273,39 @@
 			pointer-events: none;
 			// z-index: 2;
 
-			// Only apply these transitions once the slider has transitioned once
-			// Otherwise it visibly animates under the first slide
+			// Only apply these transitions after the slider has transitioned once.
+			// Otherwise it visibly animates under the first slide.
 			.sliderTransitionedOnce & {
 				// opacity: 1;
 				visibility: visible;
 
 				.content {
-					animation-name: hero-slider-copy-fade-out;
-					animation-duration: .75s; 
-					animation-timing-function: ease-out; 
-					animation-delay: .5s;
-					animation-direction: normal;
-					animation-iteration-count: 1;
-					animation-fill-mode: forwards;
+					@include mediaquery(tablet-portrait) {
+						animation-name: hero-slider-copy-fade-out;
+						animation-duration: .75s; 
+						animation-timing-function: ease-out; 
+						animation-delay: .5s;
+						animation-direction: normal;
+						animation-iteration-count: 1;
+						animation-fill-mode: forwards;
+						animation-delay: .5s;
+					}
+
+					@include mediaquery-max-width(tablet-landscape) {
+						.headline6,
+						.headline-container,
+						.component-button,
+						.slider-navigation {
+							animation-name: hero-slider-copy-fade-out;
+							animation-duration: .75s; 
+							animation-timing-function: ease-out; 
+							animation-delay: .5s;
+							animation-direction: normal;
+							animation-iteration-count: 1;
+							animation-fill-mode: forwards;
+							animation-delay: .5s;		
+						}
+					}
 				}
 
 				.image-wrapper {
@@ -243,13 +319,27 @@
 				}
 
 				.side-column {
-					animation-name: hero-slider-color-column-wipe-out;
-					animation-duration: 3s; 
-					animation-timing-function: ease-out; 
-					animation-delay: 0s;
-					animation-direction: normal;
-					animation-iteration-count: 1;
-					animation-fill-mode: forwards;
+					@include mediaquery(tablet-portrait) {
+						animation-name: hero-slider-color-column-wipe-out;
+						animation-duration: 3s; 
+						animation-timing-function: ease-out; 
+						animation-delay: 0s;
+						animation-direction: normal;
+						animation-iteration-count: 1;
+						animation-fill-mode: forwards;
+					}
+				}
+
+				.side-row {
+					@include mediaquery-max-width(tablet-landscape) {
+						animation-name: hero-slider-color-row-wipe-out;
+						animation-duration: 3s; 
+						animation-timing-function: ease-out; 
+						animation-delay: 0s;
+						animation-direction: normal;
+						animation-iteration-count: 1;
+						animation-fill-mode: forwards;
+					}
 				}
 			}
 		}
@@ -287,15 +377,21 @@
 
 	.content {
 		color: $white;
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
+		display: block;
 		margin: 0 auto;
 		max-width: $siteWidth;
 		padding: 20px 20px 32px;
 		position: relative;
 		width: 100%;
 		z-index: 2;
+
+		// Old versions of Safari (e.g., iPhone 5) don't support 
+		// flexbox layouts, so we are targeting them by small screens.
+		@include mediaquery(phone) {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+		}
 	
 		.side-row,
 		.headline6,
@@ -504,6 +600,22 @@
 
 	100% {
 		left: -100%;
+	}
+}
+
+@keyframes hero-slider-color-row-wipe-out {
+	0% {
+		top: 0%;
+		// height: 100vh;
+	}
+
+	50% {
+		top: -100vh;
+		height: 200vh;
+	}
+
+	100% {
+		top: -180vh;
 	}
 }
 

@@ -41,16 +41,16 @@
 				>
 				<div class="content padding-tablet-landscape-bottom-10x">
 					<div class="side-row" style="background-color: <?= $slide['accent_color'] ?>;"></div>
-					<h2 class="headline6 is-style-headline6 align-left flex-tablet-portrait-18-24 margin-bottom-1x">
+					<h2 class="headline6 is-style-headline6 align-left flex-tablet-portrait-18-24 flex-tablet-landscape-12-24 margin-bottom-1x">
 						<?= $slide['subtitle']; ?>
 					</h2>
 					<div class="headline-container">
-						<h1 class="headline1 is-style-headline1 align-left margin-top-1x flex-18-24 flex-tablet-portrait-18-24 flex-desktop-16-24">
+						<h1 class="headline1 is-style-headline1 align-left margin-top-1x flex-23-24 flex-tablet-portrait-18-24 flex-desktop-16-24">
 							<?= $slide['title'] ?>
 						</h1>
 					</div>
 					<?php if (!empty($slide['popup_name'])): ?>
-						<div class="component-button component align-left margin-top-4x margin-tablet-landscape-top-6x ">
+						<div class="component-button component align-left margin-top-2x margin-tablet-portrait-top-4x margin-tablet-landscape-top-6x ">
 							<?php 
 								// Initialize default vars
 								$slideText = __('Watch Video', '_flex');
@@ -71,7 +71,7 @@
 							</button>
 						</div>
 					<?php endif; ?>
-					<nav class="slider-navigation margin-top-4x margin-tablet-landscape-top-8x">
+					<nav class="slider-navigation margin-left-1x margin-top-2x margin-tablet-portrait-left-0x margin-tablet-portrait-top-4x margin-tablet-landscape-top-8x">
 						<ul class="dots-component">
 							<?php foreach ($slides as $i => $slide2): ?>
 								<li class="dot <?= $i == $key ? 'active' : '' ?>">

@@ -1,5 +1,5 @@
 function HeroSlider($el) {
-	const AUTO_SCROLL_TIME = 100000;
+	const AUTO_SCROLL_TIME = 8000;
 
 	var index = 0;
 	var nextIndex = 0;
@@ -88,8 +88,8 @@ function HeroSlider($el) {
 	}
 
 	function goNext() {
-		// console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'goNext()');
-		
+		console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'goNext()');
+
 		// Proceed only if no CSS transition is in progress
 		if (CSStransitionInProgress) return;
 
@@ -184,7 +184,16 @@ function HeroSlider($el) {
 
 	function go() {
 		console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'go()');
-		
+
+		// Replace background image of slides with active background
+		// to prevent white flash when switching classes.
+		var activeSlideBgImg = $slides.eq(index).find('.image-wrapper img').attr('src');
+
+		$slidesContainer.css({
+			'background': 'url(' + activeSlideBgImg + ') center center no-repeat',
+			'background-size': 'cover'
+		});
+
 		// Indicate CSS transition is in progress
 		// CSStransitionInProgress = true;
 		$slides.eq(index).removeClass('previous next active z1 z2 z3 animationDelayMarker').addClass('active z2');
@@ -195,10 +204,11 @@ function HeroSlider($el) {
 			// Enforce lower bounds
 			if (x < index) {
 				if (x === 0 && index === ($slides.length - 1)) {
-					$slides.eq(x).removeClass('previous next active z1 z2 z3 animationDelayMarker');//.addClass('next');
+					$slides.eq(x).removeClass('previous active z1 z2 z3 animationDelayMarker');//.addClass('next');
 
 					setTimeout((function ($slides, x) {
 						return function () {
+							$slides.eq(x).removeClass('next');
 							$slides.eq(x).addClass('next z1');
 						}
 					})($slides, x), 2000);
@@ -228,10 +238,11 @@ function HeroSlider($el) {
 						}
 					})($slides, x), 2000);
 				} else {
-					$slides.eq(x).removeClass('previous next active z1 z2 z3 animationDelayMarker');//.addClass('next');
+					$slides.eq(x).removeClass('previous active z1 z2 z3 animationDelayMarker');//.addClass('next');
 
 					setTimeout((function ($slides, x) {
 						return function () {
+							$slides.eq(x).removeClass('next');
 							$slides.eq(x).addClass('next z1');
 						}
 					})($slides, x), 2000);
@@ -247,7 +258,7 @@ function HeroSlider($el) {
 			// Prevent this from needing to hit the DOM again.
 			transitionedOnce = true;
 		}
-		
+
 		$(document.body).trigger('FLEX.slideUpdate', {
 			id: $el.attr('id')
 		});
@@ -286,10 +297,10 @@ function HeroSlider($el) {
 		// Set active dot
 		// updateDots(0);
 	}
-	
+
 	function render() {
 		console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'render()');
-		
+
 		$dotsContainer = $('.dots-component', $el);
 		$slidesContainer = $('.slides', $el);
 		$slides = $('.slides > li', $el);
@@ -319,10 +330,11 @@ function HeroSlider($el) {
 	}
 
 	this.init = function ($el) {
-		console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'e()');
+		console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', '$el: ', $el);
+
 		bindEvents();
 		render();
-	
+
 		return this;
 	}
 
