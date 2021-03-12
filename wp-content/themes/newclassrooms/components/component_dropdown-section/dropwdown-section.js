@@ -1,5 +1,7 @@
+/**
+ * Used on The Latest page for sort ordering dropdown
+ */
 function DropdownSection($el) {
-
 	var $dropdownButton;
 	var $dropdownSection;
 	var openText;
@@ -80,6 +82,7 @@ function DropdownSection($el) {
 		$dropdownSection.attr('aria-hidden', isDropdownOpen);
 
 		let options = $el.data('componentOptions');
+		
 		if (options) {
 			options = options.replace(/'/g, '"')
 			options = JSON.parse(options);
@@ -92,7 +95,6 @@ function DropdownSection($el) {
 	this.init = function ($el) {
 		render();
 		toggleSection();
-
 		bindEvents();
 
 		return this;
