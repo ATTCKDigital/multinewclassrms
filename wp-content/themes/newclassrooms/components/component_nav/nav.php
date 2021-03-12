@@ -1,6 +1,7 @@
 <?php 
 	// Global Nav 
 ?>
+<div class="page-load-modal"></div>
 <header 
 	class="component-header component" 
 	data-component-name="Nav" 

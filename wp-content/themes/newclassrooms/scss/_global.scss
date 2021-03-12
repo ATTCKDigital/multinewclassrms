@@ -1,1 +1,23 @@
 @import '../../FLEX/scss/_global.scss';
+
+body {
+	.page-load-modal {
+		background: white;
+		bottom: 0;
+		content: '';
+		left: 0;
+		opacity: 1;
+		pointer-events: none;
+		position: fixed;
+		right: 0;
+		top: 0;
+		z-index: 99;
+		transition: opacity .2s;
+	}
+
+	&.dom-loaded {
+		.page-load-modal {
+			opacity: 0;
+		}
+	}
+}
