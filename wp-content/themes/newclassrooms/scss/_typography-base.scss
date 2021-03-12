@@ -191,9 +191,9 @@ h1.is-bold {
 .headline2,
 .is-style-headline2 {
 	// color: color('brand', 'accent');
-	line-height: 1.375;
+	line-height: 1.175;
 	letter-spacing: -.5px;
-	@include secondary-semi;
+	@include secondary-medium;
 	@include font-size($font-size-headline2);
 }	
 

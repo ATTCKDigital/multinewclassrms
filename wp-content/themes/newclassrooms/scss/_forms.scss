@@ -149,7 +149,7 @@ label,
 			font-family: 'Font Awesome 5 Free';
 			font-weight: 900;
 			font-size: 13px;
-			left: 7px;
+			left: 6px;
 			position: absolute;
 			top: 2px;
 			width: 6px;
@@ -250,6 +250,11 @@ input {
 .component-homepage-newsletter {
 	section {
 		margin-top: 24px;
+	}
+
+	// Targets the <p> wrapper for hidden form fields.
+	p:nth-child(3) {
+		display: none;
 	}
 
 	.homepage-newsletter-label {
