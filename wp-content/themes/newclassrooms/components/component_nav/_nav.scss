@@ -51,7 +51,7 @@
 		width: 100%;
 
 		@include mediaquery('tablet-landscape') {
-			padding: 0;		
+			padding: 0;
 		}
 	}
 
@@ -197,7 +197,7 @@
 		@include mediaquery(phone) {
 			margin-top: $gap * 2;
 		}
-		
+
 		@include mediaquery(phone-plus) {
 			margin: $gap*3 0 0 20px;
 		}
@@ -217,6 +217,34 @@
 
 		a[href='#…'] {
 			visibility: hidden;
+		}
+
+		.secondary-nav-mobile {
+			display: none;
+			margin-top: $gap;
+
+			.navOpen & {
+				display: block;
+
+				@include mediaquery(tablet-landscape) {
+					display: none;
+				}
+			}
+
+			.language-switcher {
+				font-size: 3rem;
+
+				.languages {
+					&:before {
+						height: 23px;
+						width: 21px;
+					}
+
+					.language {
+						font-size: 1.5rem;
+					}
+				}
+			}
 		}
 	}
 
@@ -422,7 +450,7 @@
 				}
 			}
 
-			// TODO: This is a dup of the mediaquery below. 
+			// TODO: This is a dup of the mediaquery below.
 			// Find out if it was meant for portrait instead.
 			@include mediaquery(tablet-landscape) {
 				box-shadow: 0px 8px 10px 2px rgba($black, 0.25);
@@ -475,6 +503,8 @@
 					}
 				}
 			}
+
+
 		}
 
 		@include mediaquery(desktop)  {
@@ -498,7 +528,7 @@
 			display: block;
 		}
 
-		// Only apply dark version on desktop. Mobile hamburger menu 
+		// Only apply dark version on desktop. Mobile hamburger menu
 		// background color is always the same
 		@include mediaquery(tablet-portrait) {
 			.menu-item {
@@ -538,7 +568,7 @@
 			}
 		}
 	}
-	
+
 	.logoLight & {
 		.nav-logo {
 			display: block;
