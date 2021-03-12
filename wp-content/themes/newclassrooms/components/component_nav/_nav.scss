@@ -1,7 +1,6 @@
 @import '../../FLEX/components/component_nav/_nav.scss';
 
 .component-header {
-	top: 0;
 	background: white;
 	height: $navMobileHeight;
 	left: 0;
@@ -58,6 +57,7 @@
 
 	.language-switcher {
 		margin-left: 0;
+		margin-right: $gap;
 
 		.languages {
 			align-items: center;
@@ -139,7 +139,7 @@
 		@include mediaquery-max-width(tablet-landscape) {
 			// Mobile only mediaquery so less overrides are necessary
 			// background-color: #f4ecb4;
-			background-color: rgba(29, 29, 29, .97);
+			background-color: rgba(20, 33, 76, .97);
 			display: flex;
 			height: 100vh;
 			opacity: 0;
@@ -169,7 +169,7 @@
 			width: calc(100% - 160px);
 
 			@include mediaquery-max-width(xl) {
-				margin-right: 80px;
+				// margin-right: 80px;
 			}
 		}
 	}
@@ -177,19 +177,15 @@
 	.menu-items {
 		align-items: center;
 		display: flex;
+		margin: $gap*3 0 0 20px;
+		position: relative;
 		justify-content: center;
-		margin: auto;
-
-		@include mediaquery-max-width(phone-plus) {
-			margin: $gap*3 0 0 20px;
-		}
 
 		@include mediaquery-max-width(tablet-landscape) {
 			// Mobile only mediaquery so less overrides are necessary
 			align-items: flex-start;
 			flex-direction: column;
 			justify-content: left;
-			margin: $gap*4 0 0 20px;
 			padding: 0;
 			text-align: left;
 
@@ -198,10 +194,23 @@
 			}
 		}
 
+		@include mediaquery(phone) {
+			margin-top: $gap * 2;
+		}
+		
+		@include mediaquery(phone-plus) {
+			margin: $gap*3 0 0 20px;
+		}
+
+		@include mediaquery(tablet-portrait) {
+			margin: 0 0 0 $gap*2;
+		}
+
 		@include mediaquery(tablet-landscape)  {
 			// Large mobile +
 			display: flex;
 			height: 100%;
+			margin: 0 0 0 20px;
 			position: relative;
 			width: 100%;
 		}
@@ -214,6 +223,7 @@
 	.menu-item {
 		border-bottom: 6px solid transparent;
 		cursor: pointer;
+		font-size: px-to-rem(15px);
 		height: 100%;
 		letter-spacing: 0.5px;
 		line-height: 20px;
@@ -239,16 +249,11 @@
 			color: $white;
 		}
 
-		@include mediaquery-max-width(phone-plus) {
-			font-size: px-to-rem(20px);
-		}
-
 		@include mediaquery-max-width(tablet-landscape) {
 			// Mobile only mediaquery so less overrides are necessary
 			border: 0;
 			color: $white;
 			display: block;
-			font-size: px-to-rem(27px);
 			height: auto;
 			line-height: initial;
 			margin-bottom: 0;
@@ -282,6 +287,18 @@
 			}
 		}
 
+		@include mediaquery(phone) {
+			font-size: px-to-rem(18px);
+		}
+
+		@include mediaquery(phone-plus) {
+			font-size: px-to-rem(20px);
+		}
+
+		@include mediaquery(tablet-portrait) {
+			font-size: px-to-rem(27px);
+		}
+
 		@include mediaquery(tablet-landscape)  {
 			// Large mobile +
 			align-items: center;
@@ -296,13 +313,20 @@
 		}
 
 		&:not(:last-of-type) {
-			margin-right: 00px;
+			margin-bottom: $gap / 2;
+			margin-right: 0px;
 
 			@include mediaquery(phone-plus)  {
+				margin-bottom: $gap;
 				margin-right: 40px;
 			}
 
 			@include mediaquery(tablet-landscape)  {
+				margin-bottom: inherit;
+				margin-right: 10px;
+			}
+
+			@include mediaquery(desktop)  {
 				margin-right: 50px;
 			}
 		}
@@ -375,14 +399,34 @@
 		.sub-menu {
 			color: $defaultTextColor;
 
-			@include mediaquery(tablet-landscape) {
-				box-shadow: 0px 8px 10px 2px rgba($black, 0.25);
-				border-radius: 7px;
+			.menu-item {
+				font-size: px-to-rem(14px);
+				margin-bottom: 0;
+				text-indent: .5rem;
 
-				.menu-item {
+				@include mediaquery(phone) {
+					text-indent: 1rem;
+				}
+
+				@include mediaquery(phone-plus) {
+					font-size: px-to-rem(18px);
+				}
+
+				@include mediaquery(tablet-landscape) {
+					font-size: inherit;
+					margin-bottom: inherit;
+					text-indent: inherit;
+
 					margin-top: 30px;
 					padding-bottom: 0;
 				}
+			}
+
+			// TODO: This is a dup of the mediaquery below. 
+			// Find out if it was meant for portrait instead.
+			@include mediaquery(tablet-landscape) {
+				box-shadow: 0px 8px 10px 2px rgba($black, 0.25);
+				border-radius: 7px;
 			}
 
 			@include mediaquery(tablet-landscape) {
@@ -516,11 +560,6 @@
 		top: 16px;
 		transition: top .2s;
 
-		@include mediaquery('xl2') {
-			left: calc(100% + 70px);
-			top: 16px;
-		}
-
 		.menu-item {
 			display: none;
 
@@ -535,7 +574,7 @@
 			margin-left: 0;
 		}
 
-		.navOpen & {
+		.hideNav & {
 			top: -($navHeight);
 		}
 	}
