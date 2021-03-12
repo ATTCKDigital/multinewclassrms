@@ -1,6 +1,11 @@
 /*** Single Post Header ***/
 
 .component-post-header {
+	.back {
+		position: absolute;
+		left: 20px;
+	}
+
 	.featured-image {
     height: 295px;
     max-width: 517px;
