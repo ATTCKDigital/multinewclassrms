@@ -1,5 +1,6 @@
 function HeroSlider($el) {
-	const AUTO_SCROLL_TIME = 8000;
+	// const AUTO_SCROLL_TIME = 10000;
+	var scrollTimePassed = 0;
 
 	var index = 0;
 	var nextIndex = 0;
@@ -10,6 +11,12 @@ function HeroSlider($el) {
 	var $slides;
 	var slidesLength;
 	var transitionedOnce = false;
+
+	// Used by throttle for better animation management
+	// TODO: (DP) Add this to FLEX as a core utility.
+	var _timerInterval = 8000; // Animate every N sec
+	var _timePassed = 0; // Stores how much time has passed
+	var _timerId; // Stores an Id so we can cancel it
 
 	function bindEvents() {
 		console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'bindEvents()');
@@ -24,6 +31,10 @@ function HeroSlider($el) {
 			// Get index of this dot compared to siblings
 			var index = $parent.find('a').index($(this));
 
+			// Delay the carousel's normal transition when the user is interacting
+			// We're adding an addition 3 second delay from the last click
+			_timePassed = -3000;
+
 			goTo(index);
 		});
 
@@ -31,11 +42,15 @@ function HeroSlider($el) {
 		$('body').on('keydown', function (e) {
 			// Left arrow key
 			if (e.keyCode === 37) {
+				_timePassed = -3000;
+
 				goPrev();
 			}
 
 			// Right arrow key
 			if (e.keyCode === 39) {
+				_timePassed = -3000;
+
 				goNext();
 			}
 		});
@@ -45,25 +60,65 @@ function HeroSlider($el) {
 		// Listen for CSS3 transition animation end
 		$el.find('li').on('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function () {
 			CSStransitionInProgress = false;
+			$el.removeClass('CSStransitionInProgress');
 		});
 
 		// Auto-scroll every X seconds
-		setInterval(function () {
-			goNext();
-		}, AUTO_SCROLL_TIME);
+		throttle(goNext, _timerInterval);
+		// setInterval(function () {
+
+		// 	goNext();
+		// }, AUTO_SCROLL_TIME);
+	}
+
+	function throttle(func, delay) {
+		console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'throttle()');
+
+		function check() {
+			if (_timePassed < delay) {
+				if (_timePassed % 500 === 0) {
+					console.log('check, _timePassed: ', _timePassed);
+				}
+
+				// Increment the timer
+				_timePassed += 10;
+
+				// Execute again
+				checkAgain(func, delay); 
+
+			} else {
+				// Execute the function
+				func();
+
+				// Reset timer
+				_timePassed = 0;
+
+				// Loop again
+				checkAgain(func, delay);
+			}
+		}
+
+		function checkAgain(a, b, c) {
+			_timerId = requestAnimationFrame(function RAFCALLBACK(data, b, c) {
+				throttle(func, delay);
+			});
+		};
+
+		check();
 	}
 
 	function detectSwipes() {
 		console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'detectSwipes()');
+
 		let start = null;
 		let carousel = $('.component-carousel', $el);
 
-		carousel.on("touchstart", function(event) {
-			if(event.touches.length === 1){
-				//just one finger touched
+		carousel.on("touchstart", function (event) {
+			if (event.touches.length === 1) {
+				// Just one finger touched
 				start = event.touches.item(0).clientX;
-			}else{
-				//a second finger hit the screen, abort the touch
+			} else {
+				// A second finger hit the screen, abort the touch
 				start = null;
 			}
 		});
@@ -72,15 +127,17 @@ function HeroSlider($el) {
 			// At least 100px are a swipe
 			var offset = 100;
 
-			if(start){
+			if (start) {
 				// The only finger that hit the screen left it
 				var end = event.changedTouches.item(0).clientX;
 
-				if(end > start + offset) {
+				if (end > start + offset) {
+					_timePassed = -3000;
 					goPrev();
 				}
 
-				if(end < start - offset) {
+				if (end < start - offset) {
+					_timePassed = -3000;
 					goNext();
 				}
 			}
@@ -195,7 +252,9 @@ function HeroSlider($el) {
 		});
 
 		// Indicate CSS transition is in progress
-		// CSStransitionInProgress = true;
+		CSStransitionInProgress = true;
+		$el.addClass('CSStransitionInProgress');
+
 		$slides.eq(index).removeClass('previous next active z1 z2 z3 animationDelayMarker').addClass('active z2');
 
 		for (var x = 0; x < $slides.length; x++) {
@@ -262,6 +321,10 @@ function HeroSlider($el) {
 		$(document.body).trigger('FLEX.slideUpdate', {
 			id: $el.attr('id')
 		});
+	}
+
+	function resetScrolTimer() {
+
 	}
 
 	/**
@@ -332,8 +395,8 @@ function HeroSlider($el) {
 	this.init = function ($el) {
 		console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', '$el: ', $el);
 
-		bindEvents();
 		render();
+		bindEvents();
 
 		return this;
 	}

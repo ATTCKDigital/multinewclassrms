@@ -65,6 +65,7 @@
         display: flex;
         margin-top: 40px;
         justify-content: center;
+        transition: opacity .3s;
         visibility: hidden;
         width: 100%;
 
@@ -86,5 +87,13 @@
                 margin-right: 20px;
             }
         }
+    }
+
+    &.CSStransitionInProgress {
+    	.dots-component {
+			opacity: .5;
+			pointer-events: none;
+			transition: opacity .3s;
+    	}
     }
 }

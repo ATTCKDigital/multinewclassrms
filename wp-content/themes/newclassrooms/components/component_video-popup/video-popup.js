@@ -45,6 +45,8 @@ function VideoPopup($el, params={}) {
 		// $srcElement = $popup.find('.popup-content-container').html();
 		var $srcElements = $popup.find('.popup-content-container').children();
 
+		$srcElements.addClass('hide');
+
 		_$srcElementParent.append($srcElements);
 	}
 
@@ -54,8 +56,8 @@ function VideoPopup($el, params={}) {
 		// Let's try moving the element into the popup.
 		// We'll have to move it back on close
 		
-		// First, get rid of the .hide class which makes the template invible
-		$srcElement.removeClass('hide')
+		// First, get rid of the .hide class which makes the template invisible
+		$srcElement.removeClass('hide');
 
 		// Then move the component markup into the popup contianer.
 		$popup.find('.popup-content-container').append($srcElement);

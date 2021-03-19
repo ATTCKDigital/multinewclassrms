@@ -75,7 +75,7 @@
 						<ul class="dots-component">
 							<?php foreach ($slides as $i => $slide2): ?>
 								<li class="dot <?= $i == $key ? 'active' : '' ?>">
-									<a href="#<?= $i ?>"></a>
+									<a href="#<?= $i ?>" aria-label="navigate to slide <?= $i ?>"></a>
 								</li>
 							<?php endforeach; ?>
 						</ul>

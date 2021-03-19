@@ -1,5 +1,10 @@
 @import '../../FLEX/scss/_component.scss';
 
+.component-row {
+	// Causes tabs to be hidden on The Latest
+	// overflow: hidden;
+}
+
 .component-row-height-large {
 	// Prevents hero slide headline from overlapping nav
 	// Only applies to short viewports (e.g., 13" MBP and tablet landscape)

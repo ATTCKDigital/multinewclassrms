@@ -37,7 +37,7 @@ function Nav($el) {
 			}
 
 			// Hide nav entirely once scrolled past a certain distance
-			if (scroll >= 300) {
+			if (scroll >= 50) {
 				$body.addClass('hideNav');
 			}
 

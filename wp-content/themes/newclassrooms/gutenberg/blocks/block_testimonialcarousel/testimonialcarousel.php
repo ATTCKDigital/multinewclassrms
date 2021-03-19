@@ -18,8 +18,8 @@ $slides = get_field('testimonials');
     <div class="component-carousel">
         <ul class="slides">
             <nav class="nav-buttons">
-                <a href="#prev" class="nav prev"></a>
-                <a href="#next" class="nav next"></a>
+                <a href="#prev" class="nav prev" aria-label="navigate to the previous slide"></a>
+                <a href="#next" class="nav next" aria-label="navigate to the next slide"></a>
             </nav>
             <?php foreach ($slides as $index => $slide): ?>
                 <li class="slide" data-slide-index="<?= $index; ?>">

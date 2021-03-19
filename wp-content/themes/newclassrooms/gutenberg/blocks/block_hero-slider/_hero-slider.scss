@@ -1,8 +1,50 @@
 .component-hero-slider {
-	height: 80vh;
-	min-height: 780px;
+	height: 89vh;
+	// min-height: 568px;
 	overflow: hidden;
+	position: relative;
 	width: 100%;
+
+	// iPhone 7 - X
+	@include mediaquery(phone) {
+		// height: calc(100vh - 80px);
+		height: 87.5vh;
+
+		// * {
+		// 	color: orange !important;
+		// }
+	}
+
+	// iPhone 11 Max - small tablet portraits
+	@include mediaquery(phone-plus) {
+		// height: calc(100vh - 90px);
+		height: 89vh;
+
+		// * {
+		// 	color: lime !important;
+		// }
+	}
+
+	@include mediaquery(tablet-portrait) {
+		// height: calc(100vh - 100px);
+		// height: 100%;
+
+		// * {
+		// 	color: yellow !important;
+		// }
+	}
+
+	@include mediaquery(tablet-landscape) {
+		// height: 100%;
+
+		// * {
+		// 	color: green !important;
+		// }
+	}
+
+	@include mediaquery(desktop) {
+		min-height: 780px;
+	}
 
 	.slides {
 		display: flex;
@@ -16,8 +58,9 @@
 		flex-shrink: 0;
 		flex-direction: column-reverse;
 		// height: calc(100vh - 50px);
-		height: 60%;
-		height: 86vh;
+		// height: 60%;
+		// height: 86vh;
+		height: 100%;
 		justify-content: flex-end;
 		// opacity: 0;
 		pointer-events: none;
@@ -41,7 +84,7 @@
 		// iPhone 7 - X
 		@include mediaquery(phone) {
 			// height: calc(100vh - 80px);
-			height: 87.5vh;
+			// height: 87.5vh;
 
 			// * {
 			// 	color: orange !important;
@@ -51,7 +94,7 @@
 		// iPhone 11 Max - small tablet portraits
 		@include mediaquery(phone-plus) {
 			// height: calc(100vh - 90px);
-			height: 89vh;
+			// height: 89vh;
 
 			// * {
 			// 	color: lime !important;
@@ -60,7 +103,7 @@
 
 		@include mediaquery(tablet-portrait) {
 			// height: calc(100vh - 100px);
-			height: 100%;
+			// height: 100%;
 
 			// * {
 			// 	color: yellow !important;
@@ -69,7 +112,7 @@
 
 		@include mediaquery(tablet-landscape) {
 			flex-direction: column;
-			height: 100%;
+			// height: 100%;
 
 			// * {
 			// 	color: green !important;

@@ -221,7 +221,11 @@
 
 		.secondary-nav-mobile {
 			display: none;
-			margin-top: $gap;
+			margin-top: $gap/2;
+
+			@include mediaquery(phone-plus) {
+				margin-top: $gap;
+			}
 
 			.navOpen & {
 				display: block;
@@ -231,17 +235,43 @@
 				}
 			}
 
+			li {
+				a {
+					font-size: 1rem;
+					line-height: 0rem;
+
+					@include mediaquery(phone-plus) {
+						font-size: 1.5rem;
+					}
+				}
+			}
+
 			.language-switcher {
 				font-size: 3rem;
 
 				.languages {
 					&:before {
-						height: 23px;
-						width: 21px;
+						height: 19px;
+						width: 14px;
+
+						@include mediaquery(phone-plus) {
+							height: 23px;
+							width: 21px;
+						}
 					}
 
 					.language {
 						font-size: 1.5rem;
+
+						&:before {
+							font-size: 1rem;
+							position: relative;
+							top: -5px;
+
+							@include mediaquery(phone-plus) {
+								font-size: 1.5rem;
+							}
+						}
 					}
 				}
 			}
@@ -405,7 +435,7 @@
 				border-top: 5px solid $white;
 				transition: transform .3s;
 				margin-left: 10px;
-				margin-top: -4px;
+				margin-top: 0px;
 
 				@include mediaquery-max-width(tablet-landscape) {
 					display: none;
@@ -593,8 +623,10 @@
 		.menu-item {
 			display: none;
 
-			@include mediaquery('tablet-landscape') {
+			@include mediaquery(tablet-landscape) {
+				border-width: 3px;
 				display: block;
+				padding-bottom: $gap / 4;
 			}
 		}
 
