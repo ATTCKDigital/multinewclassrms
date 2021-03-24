@@ -1,5 +1,7 @@
+console.log('loaded', '~/Childtheme/\t/js\t/components\t/component_colortile\t/colortile.js');
+
 function ColorTile($el) {
-	console.log('/colortile.js', 'ColorTile()');
+	console.log('~/Childtheme/\tcomponents/\tcomponent-colortile/\tcolortile.js', 'ColorTile()');
 
 	function bindEvents() {
 		console.log('~/Childtheme/\tcomponents/\tcomponent-colortile/\tcolortile.js', 'bindEvents()');
