@@ -4,8 +4,12 @@
 	background: $white;
 
 	&.features-card-top {
-		padding-top: 60px;
+		padding-top: $gap;
 		border-radius: 8px 8px 0 0;
+
+		@include mediaquery(tablet-landscape) {
+			padding-top: $gap * 3.75;
+		}
 	}
 
 	&.features-card-bottom {
@@ -57,6 +61,37 @@
 			margin-bottom: $gap;
 			letter-spacing: 0.2px;
 			@include primary-regular;
+		}
+	}
+}
+
+// Apply tab styles only to sub-tablet-landscape screen sizes
+@include mediaquery-max-width(tablet-landscape) {
+	.component-features-card {
+		.component-row-wide {
+			.features-card {
+				&:nth-child(2) {
+					display: none;
+				}
+
+				&.features-card-tab.features-card-tab.features-card-tab {
+					display: inline-block;
+				}
+			}
+		}
+
+		&.alt-tab-selected {
+			.component-row-wide {
+				.features-card {
+					&:first-child {
+						display: none;
+					}
+
+					&:nth-child(2) {
+						display: inline-block;
+					}
+				}
+			}			
 		}
 	}
 }
