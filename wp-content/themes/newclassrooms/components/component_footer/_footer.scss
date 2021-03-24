@@ -25,6 +25,12 @@
 		padding-bottom: 65px;
 	}
 
+	.footer-copyright {
+		a {
+			color: inherit;
+		}
+	}
+
 	.footer-logo {
 		max-width: 173px;
 		margin-bottom: 43px;
@@ -39,10 +45,6 @@
 
 		@include mediaquery('tablet-portrait') {
 			display: block;
-		}
-
-		a {
-			color: inherit;
 		}
 	}
 
