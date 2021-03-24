@@ -22,7 +22,6 @@
 		width: 100%;
 		@include secondary-regular;
 		@include placeholder($black);
-
 		@include mediaquery(tablet-landscape)  {
 			font-size: 16px;
 			letter-spacing: -0.15px;
