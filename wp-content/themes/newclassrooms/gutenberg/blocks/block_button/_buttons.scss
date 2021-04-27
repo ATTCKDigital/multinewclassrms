@@ -121,6 +121,7 @@
 		}
 	}
 
+	&.cta-disabled,
 	&.cta-inactive {
 		pointer-events: none;
 		opacity: .5;
