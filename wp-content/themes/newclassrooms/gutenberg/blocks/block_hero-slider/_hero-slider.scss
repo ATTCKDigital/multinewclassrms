@@ -394,14 +394,17 @@
 		width: 100%;
 		flex-shrink: 1;
 		
-		&::after {
-			background: linear-gradient(180deg, rgba(0, 0, 0, .3) 0%, transparent 30%);
-			content: '';
-			height: 100%;
-			left: 0;
-			position: absolute;
-			top: 0;
-			width: 100%;
+		img {
+			&:before {
+				background: linear-gradient(180deg, rgba(0, 0, 0, .3) 0%, transparent 30%);
+				// background: url(../assets/images/bg-fade.png) repeat-x;
+				content: '';
+				height: 100%;
+				left: 0;
+				position: absolute;
+				top: 0;
+				width: 100%;
+			}
 		}
 
 		@include mediaquery(tablet-landscape) {
@@ -637,13 +640,13 @@
 		width: 200%;
 	}
 
-	99% {
+	100% {
 		left: 100%;
 	}
 
-	100% {
-		left: -100%;
-	}
+	// 100% {
+	// 	left: -100%;
+	// }
 }
 
 @keyframes hero-slider-color-row-wipe-out {

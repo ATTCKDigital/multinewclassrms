@@ -39,7 +39,7 @@
 			<li
 				class="slide <?= $key == 0 ? 'active firstLoad z3' : '' ?>"
 				>
-				<div class="content padding-tablet-landscape-bottom-10x">
+				<section class="content padding-tablet-landscape-bottom-10x">
 					<div class="side-row" style="background-color: <?= $slide['accent_color'] ?>;"></div>
 					<h2 class="headline6 is-style-headline6 align-left flex-tablet-portrait-18-24 flex-tablet-landscape-12-24 margin-bottom-1x">
 						<?= $slide['subtitle']; ?>
@@ -66,7 +66,10 @@
 									$videoIconDisplayState = ' hideVideoIcon';
 								}
 							?>
-							<button class="cta video-button open-popup-button prepare-in-view<?= $videoIconDisplayState ?>" data-popup-content-id="<?= $slide['popup_name'] ?>">
+							<button 
+								class="cta video-button open-popup-button prepare-in-view<?= $videoIconDisplayState ?>" 
+								data-popup-content-id="<?= $slide['popup_name'] ?>"
+								tabindex="<?= $key == 0 ? '0' : '-1' ?>">
 								<?= $slideText ?>
 							</button>
 						</div>
@@ -75,15 +78,22 @@
 						<ul class="dots-component">
 							<?php foreach ($slides as $i => $slide2): ?>
 								<li class="dot <?= $i == $key ? 'active' : '' ?>">
-									<a href="#<?= $i ?>" aria-label="navigate to slide <?= $i ?>"></a>
+									<a 
+										href="#<?= $i ?>" 
+										aria-label="navigate to slide <?= $i ?>" 
+										role="button"
+										tabindex="<?= $key == 0 ? '0' : '-1' ?>"></a>
 								</li>
 							<?php endforeach; ?>
 						</ul>
 					</nav>
-				</div>
+				</section>
 				<div class="side-column" style="background-color: <?= $slide['accent_color'] ?>;"></div>
 				<div class="image-wrapper">
-					<img class="image" src="<?= $slide['background_image']['url'] ?>" alt="<?= $slide['background_image']['alt'] ?>">
+					<img 
+						class="image" 
+						src="<?= $slide['background_image']['url'] ?>" 
+						alt="<?= $slide['background_image']['alt'] ?>" />
 				</div>
 			</li>
 		<?php endforeach; ?>

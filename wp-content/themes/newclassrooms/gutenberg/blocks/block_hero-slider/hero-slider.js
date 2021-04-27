@@ -32,8 +32,8 @@ function HeroSlider($el) {
 			var index = $parent.find('a').index($(this));
 
 			// Delay the carousel's normal transition when the user is interacting
-			// We're adding an addition 3 second delay from the last click
-			_timePassed = -3000;
+			// We're adding an addition 30 second delay from the last click
+			_timePassed = -30000;
 
 			goTo(index);
 		});
@@ -55,12 +55,18 @@ function HeroSlider($el) {
 			}
 		});
 
+		// Tablet and phone swipe events
 		detectSwipes();
 
 		// Listen for CSS3 transition animation end
 		$el.find('li').on('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function () {
 			CSStransitionInProgress = false;
 			$el.removeClass('CSStransitionInProgress');
+
+			// Place focus on primary CTA within slide after animation is complete
+			// TODO: (DP) This actually kills tabbing on the whole site since the 
+			// hero animation keeps placing focus back on the active slide's primary CTA.
+			// $el.find('button').focus();
 		});
 
 		// Auto-scroll every X seconds
@@ -72,12 +78,12 @@ function HeroSlider($el) {
 	}
 
 	function throttle(func, delay) {
-		console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'throttle()');
+		//console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'throttle()');
 
 		function check() {
 			if (_timePassed < delay) {
 				if (_timePassed % 500 === 0) {
-					console.log('check, _timePassed: ', _timePassed);
+					// console.log('check, _timePassed: ', _timePassed);
 				}
 
 				// Increment the timer
@@ -108,7 +114,7 @@ function HeroSlider($el) {
 	}
 
 	function detectSwipes() {
-		console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'detectSwipes()');
+		// console.log('/newclassrooms/\tgutenberg/\tblocks/\thero-slider', 'detectSwipes()');
 
 		let start = null;
 		let carousel = $('.component-carousel', $el);
@@ -255,7 +261,12 @@ function HeroSlider($el) {
 		CSStransitionInProgress = true;
 		$el.addClass('CSStransitionInProgress');
 
-		$slides.eq(index).removeClass('previous next active z1 z2 z3 animationDelayMarker').addClass('active z2');
+		$slides
+			.eq(index)
+			.removeClass('previous next active z1 z2 z3 animationDelayMarker')
+			.addClass('active z2')
+				.find('a, button')
+				.attr('tabindex', '0');
 
 		for (var x = 0; x < $slides.length; x++) {
 			console.log('x:(' + x + '), index:(' + index + '), x < index?', x < index);
@@ -272,7 +283,12 @@ function HeroSlider($el) {
 						}
 					})($slides, x), 2000);
 				} else {
-					$slides.eq(x).removeClass('previous next active z1 z2 z3 animationDelayMarker').addClass('previous z3');
+					$slides
+						.eq(x)
+						.removeClass('previous next active z1 z2 z3 animationDelayMarker')
+						.addClass('previous z3')
+							.find('a, button')
+							.attr('tabindex', '-1');
 
 					setTimeout((function ($slides, x) {
 						return function () {
@@ -287,7 +303,12 @@ function HeroSlider($el) {
 			// Enforce upper bounds
 			if (x > index){
 				if (x === ($slides.length - 1) && index === 0) {
-					$slides.eq(x).removeClass('previous next active z1 z2 z3 animationDelayMarker').addClass('previous z3');
+					$slides
+						.eq(x)
+						.removeClass('previous next active z1 z2 z3 animationDelayMarker')
+						.addClass('previous z3')
+							.find('a, button')
+							.attr('tabindex', '-1');
 
 					setTimeout((function ($slides, x) {
 						return function () {
@@ -319,12 +340,8 @@ function HeroSlider($el) {
 		}
 
 		$(document.body).trigger('FLEX.slideUpdate', {
-			id: $el.attr('id')
+			'id': $el.attr('id')
 		});
-	}
-
-	function resetScrolTimer() {
-
 	}
 
 	/**
