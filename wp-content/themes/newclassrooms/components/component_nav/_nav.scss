@@ -443,7 +443,10 @@
 			}
 		}
 
-		&.menu-item-has-children:hover {
+		// Need to show sub menu items when tabbing for WCAG compliance
+		// https://stackoverflow.com/questions/24287192/css-change-parent-on-focus-of-child
+		&.menu-item-has-children:hover,
+		&.menu-item-has-children:focus-within {
 			.sub-menu {
 				opacity: 1;
 				pointer-events: auto;
@@ -452,6 +455,11 @@
 			&:after {
 				transform: rotate(180deg);
 			}
+		}
+
+		&.menu-item-has-children a:focus ~ .sub-menu {
+			opacity: 1;
+			pointer-events: auto;
 		}
 
 		.sub-menu {

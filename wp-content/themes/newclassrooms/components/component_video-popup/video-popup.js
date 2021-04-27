@@ -1,4 +1,4 @@
-import FLEX from '../../../FLEX/js/clientNamespace';
+import FLEX from '../../../FLEX/js/client-namespace';
 
 function VideoPopup($el, params={}) {
 	console.log('/newclassrooms/\tcomponents/\tcomponent_video-popup/\tvideo-popup.js', 'VideoPopup()');
@@ -13,26 +13,86 @@ function VideoPopup($el, params={}) {
 	function bindEvents() {
 		console.log('/newclassrooms/\tcomponents/\tcomponent_video-popup/\tvideo-popup.js', 'bindEvents()');
 
-		$watchButton.on('click', function (e) {
+		$watchButton.on('click keypress', function (e) {
+			// Detect key press for WCAG compliance
+			var keyCode = e.keyCode || e.which;
+
+			// Detect key press
+			// 9 = tab
+			// 13 = enter
+			// 27 = esc
+			if (e.type === 'keypress' && typeof keyCode !== 'undefined' && keyCode !== 13) {
+				console.log('/newclassrooms/\tcomponents/\tcomponent_video-popup/\tvideo-popup.js', '$watchButton keypress › exiting, pressed the  ' + e.key + ', keyCode: ' +  keyCode);
+				return;
+			} else {
+				console.log('/newclassrooms/\tcomponents/\tcomponent_video-popup/\tvideo-popup.js', '$watchButton keypress › pressed ' + e.key + ' key:type ' + e.type + ', keyCode: ' + keyCode);
+			}
+			
+			e.preventDefault();
+
 			displayPopup($(this));
+
+			// Save reference so we can focus() correctly after popup is closed
+			$('body').data('last-clicked-cta', $(this));
 		});
 
-		$closeButton.on('click', function (e) {
+		$closeButton.on('click keypress', function (e) {
+			// Detect key press for WCAG compliance
+			var keyCode = e.keyCode || e.which;
+
+			// Detect key press
+			// 9 = tab
+			// 13 = enter
+			// 27 = esc
+			if (e.type === 'keypress' && typeof keyCode !== 'undefined' && keyCode !== 13) {
+				console.log('/newclassrooms/\tcomponents/\tcomponent_video-popup/\tvideo-popup.js', '$closeButton keypress › exiting, pressed the  ' + e.key + ', keyCode: ' + keyCode);
+				return;
+			} else {
+				console.log('/newclassrooms/\tcomponents/\tcomponent_video-popup/\tvideo-popup.js', '$closeButton keypress › pressed ' + e.key + ' key:type ' + e.type + ', keyCode: ' + keyCode);
+			}
+
 			e.preventDefault();
 
 			hidePopup();
+
+			// Focus back on the last clicked CTA
+			$('body').data('last-clicked-cta').focus();
+		});
+
+		// Close any popups when esc key pressed
+		// TODO: (DP) Going to have to implement the event layer here
+		$(document).on('keydown', function (e) {
+			// Detect key press for WCAG compliance
+			var keyCode = e.keyCode || e.which;
+
+			console.log('/newclassrooms/\tcomponents/\tcomponent_video-popup/\tvideo-popup.js', 'document keypress › pressed ' + e.key + ' key:type ' + e.type + ', keyCode: ' + keyCode);
+
+			// Detect key press
+			// 9 = tab
+			// 13 = enter
+			// 27 = esc
+			if (e.type === 'keypress' && typeof keyCode !== 'undefined' && keyCode === 27) {
+				hidePopup();
+			}
 		});
 	}
 
 	function displayPopup(e) {
-		console.log('/newclassrooms/\tcomponents/\tcomponent_video-popup/\tvideo-popup.js', 'displayPopup(e:)', e);
+		console.log('/newclassrooms/\tcomponents/\tcomponent_video-popup/\tvideo-popup.js', 'displayPopup()');
 		
 		// let src = e[0].dataset.videoSrc;
 		let $srcElement = $("#" + e[0].dataset.popupContentId);
 		_$srcElementParent = $srcElement.parent();
 		addVideoSrc($srcElement);
 
+		// Activate popup
 		$popup.addClass('active');
+
+		// Focus on play button
+		// $popup.find('.close-button').focus();
+		$popup.find('.play').focus();
+
+		// Display popup
 		$body.addClass('popup-open');
 	}
 

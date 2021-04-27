@@ -27,7 +27,7 @@
 				title="<?= bloginfo('name');?>"
 			/>
 		</a>
-		<div class="hamburger-wrapper">
+		<div class="hamburger-wrapper" tabindex="0">
 			<mark class="hamburger"></mark>
 		</div>
 		<nav
