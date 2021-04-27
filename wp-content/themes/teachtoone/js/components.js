@@ -1,4 +1,4 @@
-import FLEX from 'FLEX/js/clientNamespace';
+import FLEX from 'FLEX/js/client-namespace';
 // import your child components
 import Nav from '../components/component_nav/nav';
 import Carousel from '../components/component_carousel/carousel';

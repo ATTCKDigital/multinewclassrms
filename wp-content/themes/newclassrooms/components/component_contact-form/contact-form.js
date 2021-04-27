@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import FLEX from '../../../FLEX/js/clientNamespace';
+import FLEX from '../../../FLEX/js/client-namespace';
 
 class ContactForm {
     constructor($cf7) {
@@ -67,18 +67,17 @@ class ContactForm {
         const urlParams = new URLSearchParams(location.search)
         const interest = urlParams.get('int')
 
-        this.$interestsCheckboxes.each(function(index, checkbox) {
+        this.$interestsCheckboxes.each(function (index, checkbox) {
             if (!FLEX.isUndefinedOrNull(interest) && interest.hasOwnProperty('toLowerCase') && checkbox.value.toLowerCase() === interest.toLowerCase()) {
-                checkbox.checked = true
-                $(checkbox).change()
+                checkbox.checked = true;
+                $(checkbox).change();
             }
         })
     }
 }
 
-const init = function() {
+const init = function () {
 	console.log('/newclassrooms/\tcomponents/\tcomponent_contact_form/\tcontact-form.js', 'init()');
-
     const $cf7 = $('.component-contact-form.component')
 
     if ($cf7.length) {
