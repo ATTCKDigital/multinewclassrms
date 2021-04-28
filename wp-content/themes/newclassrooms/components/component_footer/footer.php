@@ -2,7 +2,7 @@
 <div class="footer-wrapper flex-grid component-alignment-top component-row-wide padding-global-top-2x padding-global-bottom-2x padding-left-3x padding-right-3x padding-desktop-left-0x padding-desktop-right-0x padding-tablet-portrait-bottom-3x padding-tablet-portrait-top-3x">
     <div class="flex-tablet-landscape-5-12 flex-tablet-portrait-5-12 flex-12-12 padding-tablet-portrait-right-8x padding-tablet-landscape-right-16x">
       <div class="newsletter margin-botoom-1x margin-tablet-portrait-bottom-3x">
-        <h3 class="is-style-default is-style-headline6 margin-bottom-1x margin-tablet-portrait-bottom-3x">Stay informed. Get involved.</h3>
+        <h3 class="is-style-default is-style-headline6 margin-bottom-1x margin-tablet-portrait-bottom-3x"><?php _e('Stay informed. Get involved.', '_flex'); ?></h3>
         <div class="component-newsletter newsletter-light newsletter-footer component">
           <?php
           $embedCode = get_field('newsletter_embed_code', 'options');
